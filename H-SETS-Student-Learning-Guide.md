@@ -1,6 +1,24 @@
 # H-SETS Practical Cybersecurity Programme — Student Learning Guide
 
-This guide explains how to move through the course without becoming lost in the tools. You do not need previous cybersecurity experience. You do need basic computer use, willingness to practise, and access to the prepared H-SETS lab environment. If basic file, browser or terminal tasks are unfamiliar, complete the optional computing bridge first.
+This is an instructor-led course for learners with basic computer knowledge. This guide explains how to move through it without becoming lost in the tools. You do not need previous cybersecurity, programming or terminal experience. You do need willingness to practise and access to the prepared H-SETS lab environment. The instructor introduces unfamiliar tools before you use them independently. If saving files, finding downloads or using a browser is difficult, complete the relevant computing-bridge activities first.
+
+## Your first class
+
+With your instructor, check that you can create a folder, save a file inside it, find it again and take a screenshot. Open the course module and follow a link back to this guide. These are preparation checks, not a cybersecurity examination; ask for practice where needed.
+
+Before each lab, identify which computer you are using: your own computer, a virtual machine or an instructor-hosted system. A virtual machine is a separate computer running in software on another computer. A command or setting belongs to a particular system and account; do not assume that an instruction for the lab belongs on your own computer.
+
+The instructor supplies the starting environment and demonstrates one complete example. Your role is to explain the expected result, repeat the task, check what happened and attempt a small changed example. Installation delays or missing lab resources should be resolved before the activity is assessed.
+
+## Working at a manageable pace
+
+Read one concept section, then pause for its example. During a demonstration, identify the purpose of each action before copying it. When a command appears, ask which system and terminal it belongs in, what its parts mean and which values must change for your assigned environment. When a menu differs from the notes, show the instructor your version before choosing a similar-looking option.
+
+At each checkpoint, answer three questions: **What did I change? What should happen? What evidence shows the result?** If you cannot answer yet, repeat the demonstration with guidance before attempting the independent task. Fast completion is not a substitute for understanding.
+
+For example, a file-access test can use two assigned accounts. First, the permitted account tries to open a synthetic file; then the account without permission tries the same operation. A refusal is the expected success of the second test. Both tests belong inside the authorised lab. Record what each account actually observed rather than copying the instructor's result.
+
+After class, use the same notes and checkpoints to repeat the exercise while the assigned lab is available. Record the step where you needed help so the next lesson can address it.
 
 ## The learning method
 

@@ -8,7 +8,7 @@
 | Purpose | Practise build domain and group-based access, then operate the identity lifecycle through gui tools |
 | Lessons | L15 followed by L16; finish the first checkpoint before moving forward |
 | Prerequisites | Complete the prerequisites in the module README and confirm the environment below with the instructor |
-| Planned practical time | Approximately 120–140 minutes across the two lessons; use any more specific times below and record actual duration |
+| Planned practical time | 180 minutes across the module: 110 guided and 70 independent; instructor image preparation is separate; timing needs a pilot |
 | Starting state | Use only the named prepared image, accounts, fixture and isolated scope; preserve the baseline before changes |
 | Success | Required positive and negative/boundary results are recorded, the authorised service still works, and limitations are explained |
 | Independent variation | Complete the changed case without copying the demonstration result |
@@ -33,7 +33,9 @@ Stop and ask the instructor if the named image, account, fixture, permission or 
 
 ## Environment and preparation
 
-Prepared Windows Server 2022 Desktop Experience DC (4 GB RAM/60 GB disk) and Windows 11 Pro client (4 GB/64 GB), valid licences, only on CB-AD internal network. DC 10.77.0.10/24; client 10.77.0.20/24, DNS 10.77.0.10. No gateway needed; stop other VMs. GUI-only administration.
+Windows Server 2022 Desktop Experience server (4 GB RAM/60 GB disk) and Windows 11 Pro client (4 GB/64 GB), valid licences, only on CB-AD internal network. The intended domain controller address is 10.77.0.10/24; client 10.77.0.20/24, DNS 10.77.0.10. No gateway needed; stop other VMs. GUI-only administration. These are proposed guest allocations; the instructor must check the chosen hypervisor, Windows 11 hardware requirements and available host resources before class.
+
+The instructor must select and label one starting route. **Build route:** the server has Windows installed but is not yet a domain controller, and the client is not domain joined; complete steps 1–6 below. **Prepared-domain route:** the instructor has already completed steps 1–4 and verified the accounts, group chain and client join; inspect those results together, then begin changes at step 5. Do not promote an existing domain controller again or recreate existing objects. Identify the supplied route before starting.
 
 Use only disposable, isolated lab systems and synthetic records. Capture a checkpoint or configuration export before changes. Record exact OS/tool versions and time zone. Stop on unexpected production connectivity, unapproved target, repeated account lockout, resource exhaustion, or service instability. Preserve evidence and inform the instructor. Never disable all security controls to make a test pass.
 
@@ -43,7 +45,7 @@ Budget 110 minutes guided work plus 70 minutes independent application across th
 
 ### Purpose and starting state
 
-Clean prepared Windows images, private admin/DSRM credentials and compatible clocks. Build can be completed in a separate instructor setup session.
+Use the selected starting route above, private administrator credentials and compatible clocks. DSRM means Directory Services Restore Mode; the build route sets a separate recovery password during promotion. Keep that password private. Build can be completed in a separate instructor setup session.
 
 ### Procedure
 
@@ -53,6 +55,14 @@ Clean prepared Windows images, private admin/DSRM credentials and compatible clo
 4. Client IPv4: 10.77.0.20/24, DNS 10.77.0.10. System Properties > Computer Name > Change > Domain cedarbridge.test. Supply authorised join credentials and restart. In ADUC move its computer object to Workstations. Sign in explicitly as CEDARBRIDGE\cb.alice.
 5. Server File Explorer: create C:\Lab\Finance. Properties > Sharing > Advanced Sharing: share Finance; remove broad grants, add DL-Finance-Modify Change and Administrators Full Control. Security > Advanced: convert inheritance, remove broad entries on this lab folder only, preserve SYSTEM/Administrators Full Control and add DL-Finance-Modify Modify. A demonstration file share on a DC is a resource-saving lab exception; use separate file servers in production.
 6. Client File Explorer: \\CB-DC01\Finance as Alice, create/edit synthetic file. Sign out; sign in as Ben and prove denial. Inspect share and NTFS permissions, groups, identity, fresh logon and DNS if unexpected. Never grant Domain Admins to fix ordinary access.
+
+### Checkpoints before independent work
+
+After steps 1–2, inspect Server Manager together: AD DS must be configured, not merely installed, and the server must have restarted successfully. A new isolated forest can show a DNS delegation warning because no parent DNS zone is available; have the instructor distinguish that warning from a failed prerequisite. Do not ignore other failures. See [Microsoft's new-forest installation guidance](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-).
+
+After steps 3–4, point to Alice's group membership, the nested resource group and the client's domain membership. Explain the chain in words: the account belongs to a departmental group, that group belongs to a resource group, and the resource group receives permission. An organisational unit organises directory objects; placing Alice in one does not itself grant Finance-file access.
+
+After steps 5–6, keep both Alice's successful create/edit result and Ben's denied result. Use the same share path from the client for both. A denied result is meaningful only when the target service is available and the tested identity is correct; an unavailable server alone does not demonstrate permission enforcement. Stop here for instructor feedback if either result differs.
 
 ### Independent variation
 
