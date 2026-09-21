@@ -34,6 +34,29 @@ To calculate a /26 by hand, subtract its final mask octet, 192, from 256. The bl
 
 The private IPv4 blocks are `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`. Private means reusable inside organisations, not automatically secure. A poorly configured router or application can still expose private services. `127.0.0.1` is loopback: a request to it stays on the current host. It does not test the server from another machine. These address distinctions follow [RFC 1918](https://www.rfc-editor.org/rfc/rfc1918).
 
+### Slow down: read the address as a block
+
+Think of the prefix as telling you where the network boundary sits, not as a decoration after the address. For an ordinary /24 the final eight bits can vary. For a /26, only six host bits vary, so there are `2 × 2 × 2 × 2 × 2 × 2 = 64` addresses per block. The corresponding final mask octet is 192: `128 + 64`, with two leading network bits set in that octet.
+
+| Prefix | Addresses per block | Example network | Conventional host range | Broadcast |
+|---|---:|---|---|---|
+| /24 | 256 | 10.10.10.0 | .1–.254 | .255 |
+| /26 | 64 | 10.10.10.64 | .65–.126 | .127 |
+| /26 | 64 | 10.10.10.128 | .129–.190 | .191 |
+
+The network and broadcast addresses are not assigned to ordinary hosts in these examples. This leaves 62 conventional host addresses in a /26. Compare the full address and prefix at both ends; matching the first three decimal numbers is not a reliable general rule. Keep these paper examples separate from the configured /24 baseline.
+
+```text
+Same connected subnet:
+client → local link/switch → server
+
+Different subnet:
+client → reachable router → destination network → server
+                     return path must also exist
+```
+
+Pause with the instructor: in the first drawing, what job would a gateway perform for this local peer? In the second, why is typing an unused address into the gateway box insufficient?
+
 ### 3. Decide the next hop
 
 The host selects the most specific matching route. A directly connected subnet normally sends locally. A default route, `0.0.0.0/0`, is a fallback when no more specific route matches. The next-hop gateway must be reachable through an appropriate interface. A gateway address is not a magic Internet switch: a usable router and a return path must actually exist.
@@ -59,6 +82,16 @@ Complete Lab A. Draw the frame's destination for a local peer and, on paper, for
 If a host has no address, inspect interface state and configuration before investigating DNS. If addresses are correct but neighbour discovery fails, inspect network attachment and duplicate addresses. If only remote destinations fail, examine routes and return paths. Avoid changing several settings together: doing so loses evidence about which correction mattered.
 
 Frame: link-layer unit. Packet: IP delivery unit. Prefix: network portion length. Gateway: next-hop router. Route: rule selecting an outgoing path. Subnet: address block treated as a network. Encapsulation: placing one protocol's data inside another.
+
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** For 10.10.10.70/26, each final-octet block contains 64 addresses. The relevant block starts at 64 and ends at 127. Its network address is 10.10.10.64, broadcast is .127, and conventional host range is .65–.126. A .90/26 peer is in that block; a .130/26 peer is not. These are paper calculations, not addresses to apply to your working lab. For the service test, a returned HTTP 404 is evidence of an HTTP response, whereas a timeout does not by itself identify the cause.
+
+**Try together:** Use the same block boundaries to place .100/26 and .120/26. Explain your reasoning before checking together.
+
+**Try independently:** Place 10.10.10.200/26 in its block and decide whether .150/26 is local. Name a service-level check after addressing is correct.
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
 ### End-of-Lesson Assignment — L03
 

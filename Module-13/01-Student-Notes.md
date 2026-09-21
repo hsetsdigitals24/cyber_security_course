@@ -43,6 +43,16 @@ An empty alert file can mean wrong interface, no traffic, unloaded rule, wrong p
 ### Summary and glossary
 Visibility is the traffic and fields available at a specific observation point. A signature is a rule condition. A flow groups related packets. IDS reports; inline IPS may prevent. The strongest result links a controlled action to raw evidence and the rule that matched.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** The client receives its page but the sensor capture is empty. The application path worked for that request; the sensor evidence path did not establish visibility. Check capture placement, interface and filter using fresh traffic. Editing the alert rule cannot repair a capture that never contained the request. After visibility is established, test the rule offline and then on the allocated live sensor as separate stages.
+
+**Try together:** Draw request → capture → parsing → rule → alert. Put a marker at the last stage for which you have evidence.
+
+**Try independently:** An offline PCAP produces an alert. What extra evidence is needed before claiming the live sensor detects the same request?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-Lesson Assignment — L25
 
 Complete the workbook’s five MCQs, two written scenarios, and L25 practical. Submit a sensor-placement diagram, one match and one benign non-match test, evidence IDs, and a short explanation of what the result proves and does not prove. Allow 70 minutes. The assignment is marked out of 30 and contributes to module knowledge/lab categories and the detection milestone of P04; it is not another portfolio project.
@@ -85,4 +95,4 @@ Correlation connects records using multiple shared properties. A non-match tests
 Complete the workbook’s five MCQs, two written scenarios, and L26 practical. Submit match, non-match, and edge-case results; a missing-visibility troubleshooting record; a fresh-event retest; and the limitations/rollback update for P04. Allow 80 minutes. The assignment is marked out of 30. This completes a P04 milestone, not the full project acceptance assessment.
 
 ## References
-Reviewed 12 September 2026: [Suricata rule structure](https://docs.suricata.io/en/latest/rules/intro.html), [Suricata HTTP keywords](https://docs.suricata.io/en/latest/rules/http-keywords.html). The latest documentation resolved to development documentation during review: the instructor must pin the installed release and retest syntax before delivery. Local curriculum: H-SETS delivery plan M13 and P04 handbook. On 15 September 2026, the cached FEMTECH F25 lesson at commit `4ee35f964d4a623933509ed2b4560972ffabb65f` was reviewed for IDS/IPS distinctions, placement, signatures, alert interpretation and the source lab pattern. Its procedures were treated as reference and were not represented as H-SETS execution evidence.
+Technical references: [Suricata rule structure](https://docs.suricata.io/en/latest/rules/intro.html); [Suricata HTTP keywords](https://docs.suricata.io/en/latest/rules/http-keywords.html). Match procedures to the classroom versions.

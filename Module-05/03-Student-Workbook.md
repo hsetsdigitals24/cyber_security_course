@@ -1,5 +1,9 @@
 # M05 Workbook
 
+Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for course weights and pass rules. Named lesson assignments contribute to knowledge/scenario and practical categories; “formative” describes the improvement feedback, not an exemption from grading. Raw marks below are unchanged.
+
+Before submitting, check the exact lesson ID, all requested items, actual test results and evidence references. Use the instructor's private destination and deadline on your [lab sheet](../H-SETS-Class-Lab-Sheet.md). Return to the [module route](README.md) after feedback.
+
 Per lesson: MCQs 10, scenarios 20, practical 20. Include reasoning and actual evidence; budget 60 minutes for L09 and 90 for L10 within independent/project hours.
 
 ## L09 Assignment

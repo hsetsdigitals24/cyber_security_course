@@ -284,6 +284,16 @@ Unexpected access often comes from inherited grants or another group. Missing ev
 
 A SID is a stable identity identifier; a token carries process security context; a DACL specifies access; a SACL specifies auditing. Permissions, auditing and successful authentication are separate. Preserve provider and channel with event IDs.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** An administrator can open a departmental file, but the employee cannot. The administrator's success proves only that account's tested access. It does not validate the employee requirement. First confirm the employee identity and exact path, inspect the relevant permissions, then repeat the operation as the intended user. A screenshot of the permission dialog helps explain the setup; the employee's functional result answers the business question.
+
+**Try together:** Write a two-row test table for the intended employee and a user who must be denied.
+
+**Try independently:** An event number matches the lesson but its provider differs. What else must you examine before treating it as the same event?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-lesson assignment — L13
 
 Complete the five MCQs, two scenarios, practical and reflection for L13 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
@@ -627,9 +637,8 @@ Complete the five MCQs, two scenarios, practical and reflection for L14 in [Stud
 
 ## Source provenance and technical references
 
-Selected conceptual sections were adapted from the instructor-owned FEMTECH lesson files listed below, retrieved at commit 4ee35f964d4a623933509ed2b4560972ffabb65f. H-SETS lesson IDs, practicals, assignments and scope supersede source lesson sequencing. This is selected-section adaptation, not a line-by-line audit of all source material.
 
-- [Source lesson 17-windows-fundamentals](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-17-windows-fundamentals.md)
-- [Source lesson 21-endpoint-security](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-21-endpoint-security.md)
+Technical references: [Source lesson 17-windows-fundamentals](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-17-windows-fundamentals.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 21-endpoint-security](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-21-endpoint-security.md). Match procedures to the classroom versions.
 
 Microsoft technical reference: [Windows access control](https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control). Reference checked during authoring for access-control terminology; actual Windows build and GUI behaviour remain pilot checks.

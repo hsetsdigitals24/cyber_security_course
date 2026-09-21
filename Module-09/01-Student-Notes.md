@@ -422,6 +422,16 @@ Same-subnet traffic may bypass the router entirely. Wrong gateways and host fire
 
 State: tracked connection; default deny: unapproved traffic blocked; ingress: entry interface; NAT: address translation. Test required business traffic and a prohibited path.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A USERS client may read a DMZ handbook on TCP 8000 but must not use SSH to that server. Write these as two requirements before touching rules. A passed handbook request tests the permit; a separate SSH attempt tests the restriction. If SSH has no listener, its failure alone cannot establish firewall enforcement. Correlate the test with the firewall observation and the known service state.
+
+**Try together:** Draw client → ingress interface → rule → server, then add the response path.
+
+**Try independently:** A VPN access policy exists only on paper. What can you claim, and what would require a later deployed test?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-lesson assignment — L17
 
 Complete the five MCQs, two scenarios, practical and reflection for L17 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
@@ -1108,10 +1118,9 @@ Complete the five MCQs, two scenarios, practical and reflection for L18 in [Stud
 
 ## Source provenance and technical references
 
-Selected conceptual sections were adapted from the instructor-owned FEMTECH lesson files listed below, retrieved at commit 4ee35f964d4a623933509ed2b4560972ffabb65f. H-SETS lesson IDs, practicals, assignments and scope supersede source lesson sequencing. This is selected-section adaptation, not a line-by-line audit of all source material.
 
-- [Source lesson 23-firewall-and-pfsense](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-23-firewall-and-pfsense.md)
-- [Source lesson 24-network-segmentation](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-24-network-segmentation.md)
-- Additional selected concepts: [Source lesson 22-remote-access-and-vpn](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-22-remote-access-and-vpn.md)
+Technical references: [Source lesson 23-firewall-and-pfsense](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-23-firewall-and-pfsense.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 24-network-segmentation](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-24-network-segmentation.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 22-remote-access-and-vpn](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-22-remote-access-and-vpn.md). Match procedures to the classroom versions.
 
 [Netgate rule methodology](https://docs.netgate.com/pfsense/en/latest/firewall/rule-methodology.html) checked 14 September 2026. Interface rules and state behaviour verified conceptually; no pfSense runtime test performed.

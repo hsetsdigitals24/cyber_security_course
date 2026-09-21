@@ -5,10 +5,10 @@
 
 | Item | Student meaning |
 |---|---|
-| Purpose | Practise place and explain network visibility, then test and troubleshoot a detection |
+| Purpose | P04: observation path and live detection evidence |
 | Lessons | L25 followed by L26; finish the first checkpoint before moving forward |
-| Prerequisites | Complete the prerequisites in the module README and confirm the environment below with the instructor |
-| Planned practical time | Approximately 120–140 minutes across the two lessons; use any more specific times below and record actual duration |
+| Prerequisites | M03/M09: packet capture, traffic paths, services and the P04 segmentation baseline. Confirm the environment below with the instructor |
+| Planned practical time | Use the section estimates below; record actual time. Setup is separate and timings remain unpiloted |
 | Starting state | Use only the named prepared image, accounts, fixture and isolated scope; preserve the baseline before changes |
 | Success | Required positive and negative/boundary results are recorded, the authorised service still works, and limitations are explained |
 | Independent variation | Complete the changed case without copying the demonstration result |
@@ -17,6 +17,19 @@
 
 
 <!-- HSETS-LAB-ROUTE -->
+## Pause points for this module
+
+Before changing a setting, say which machine and account you are using. Your instructor supplies the completed [class lab sheet](../H-SETS-Class-Lab-Sheet.md); its values replace example addresses only where the procedure tells you to substitute them.
+
+| Pause | What you should be able to show | If you cannot yet show it |
+|---|---|---|
+| Before L25 | M03/M09: packet capture, traffic paths, services and the P04 segmentation baseline. | Revisit the prerequisite with the instructor |
+| After L25 | Correlate the client request with captured traffic and the server observation. | Preserve the symptom; repeat the relevant demonstration with guidance |
+| After L26 | Distinguish offline rule results from fresh live-sensor results; test match and non-match paths. | Compare expected/actual results and test one explanation at a time |
+| Before submission | Evidence filenames, statuses and the documented recovery state | Use the workbook checklist; do not replace missing tests with examples |
+
+For each procedure below, perform one action, inspect its result, then continue. Commands belong to the named lab system; `sudo` requires the assigned lab administrator authority. Example output and predictions are not evidence of execution.
+
 ## How to work through this lab
 
 1. Read the environment, scope and starting-state instructions before changing anything.
@@ -35,28 +48,100 @@ Use only your allocated isolated client, server, and sensor. No scanning or malw
 ## Preparation and starting state
 Instructor supplies an Ubuntu sensor/server with Suricata, Python 3 and tcpdump installed, a separate client with curl, and isolated addressing. Example server is 10.10.30.10; substitute the allocated address consistently. Do not run a second Suricata process on an interface already owned by a lab service. Use the hosted instance or instructor-approved maintenance window instead.
 
-Record addresses, route, interface, service state, time zone and Suricata version using ip address, ip route, date --iso-8601=seconds, and suricata -V. Store outputs privately. Create a new lab directory with mkdir -p ~/hsets-m13/web ~/hsets-m13/output. All new artifacts belong there.
+### Instructor preparation and learner values
+
+Before class, the instructor records the client address, server address, capture interface, Suricata version/configuration path, enabled alert outputs and live-rule loading/reset procedure on the lab sheet. For the default route the sensor and web server share the assigned Ubuntu guest, so the incoming web request can be captured on its lab interface. A separate sensor requires an instructor-tested observation path; merely attaching a third guest to a virtual network does not establish visibility.
+
+The instructor also supplies Wireshark or an approved workstation for opening the private PCAP. The local offline task must use an approved instance/configuration and its own output directory; learners do not start or reconfigure shared live capture services.
+
+On each assigned Ubuntu machine, record the relevant output:
+
+```bash
+ip address
+ip route
+date --iso-8601=seconds
+```
+
+On the sensor, also record `suricata -V`. These commands inspect configuration/time/version; they do not prove capture health. The address below is the lab example: replace it consistently only if the instructor assigned another server address.
 
 ## A. Produce and observe a transaction
-1. In the server's web directory create a harmless file: printf 'H-SETS marker only\n' > hsets-visibility-test.
-2. Start the server from that directory: python3 -m http.server 8080 --bind 10.10.30.10. The service runs in the foreground; leave its terminal open. Binding restricts the listening address but is not a substitute for the lab firewall.
-3. On the client run curl -i http://10.10.30.10:8080/hsets-visibility-test. -i includes response headers. Record status and body.
-4. On the sensor use ip route get CLIENT_IP to identify its route, then inspect the actual interface. Replace CLIENT_IP with the allocated client address.
-5. Start sudo tcpdump -i INTERFACE -nn -s 0 -w ~/hsets-m13/visibility.pcap 'tcp port 8080'. Replace INTERFACE; -nn avoids name conversion, -s 0 retains captured packet content, and -w writes a capture. Scope the capture to this synthetic exercise.
-6. Repeat the request; stop capture with Ctrl+C. Open the PCAP in Wireshark, filter http.request, and identify endpoints and request URI. If HTTP is not decoded on 8080, inspect TCP and use Decode As HTTP for the appropriate flow. Preserve the original capture.
 
-Checkpoint: a captured request and server log must describe the same transaction. No alert is required yet.
+**Server terminal — ordinary lab user:**
+
+1. Create and enter the synthetic web directory:
+
+```bash
+mkdir -p ~/hsets-m13/web
+cd ~/hsets-m13/web
+pwd
+```
+
+2. Confirm that the printed directory ends in `/hsets-m13/web`. Write only the disposable marker file there:
+
+```bash
+printf 'H-SETS marker only\n' > hsets-visibility-test
+```
+
+3. Start the foreground server and leave this terminal open:
+
+```bash
+python3 -m http.server 8080 --bind 10.10.30.10
+```
+
+**Client terminal — ordinary lab user:**
+
+4. Request the marker:
+
+```bash
+curl --max-time 5 -i http://10.10.30.10:8080/hsets-visibility-test
+```
+
+`-i` includes response headers; `--max-time 5` bounds the wait. Expect a successful HTTP response and the marker text. Record the actual output. A server-start message alone does not establish client access.
+
+**Sensor terminal — allocated capture authority:**
+
+5. Confirm the capture interface against the lab sheet and actual traffic path. `ip route get CLIENT_IP` inspects the route to the assigned client; replace `CLIENT_IP` before use. A route lookup alone does not establish that a separate sensor sees someone else's traffic.
+6. Create the output directory:
+
+```bash
+mkdir -p ~/hsets-m13/output
+```
+
+7. Start capture, replacing `INTERFACE` with the verified lab interface name:
+
+```bash
+sudo tcpdump -i INTERFACE -nn -s 0 -w ~/hsets-m13/visibility.pcap 'tcp port 8080'
+```
+
+`-nn` avoids name conversion, `-s 0` retains captured packet content and `-w` writes the file. This command stays running. Do not paste the word `INTERFACE` unchanged.
+8. On the client, repeat step 4 once. Return to the capture terminal and stop capture with Ctrl+C.
+9. Open the capture in Wireshark through the approved private path. Apply display filter `http.request`.
+10. Find the request's endpoints and URI. If HTTP is not decoded on 8080, inspect TCP and use **Decode As → HTTP** for that flow with the instructor.
+
+**Checkpoint:** match the captured request to the server log by endpoint, request and time. Record actual frame references. A missing packet is a visibility issue to investigate; an alert is not required at this stage.
 
 ## B. Validate a small rule offline
-Create ~/hsets-m13/hsets.rules with this one line:
+In an ordinary text editor on the sensor, save the following single line as `~/hsets-m13/hsets.rules`. Confirm the filename has no extra `.txt` extension:
 ```
 alert http any any -> any 8080 (msg:"H-SETS exact visibility marker"; flow:established,to_server; http.uri; content:"/hsets-visibility-test"; startswith; endswith; sid:1000001; rev:1;)
 ```
 This SID must be confirmed unused in the allocated range. startswith and endswith express exact buffer matching; verify support in the installed version.
 
-Run sudo suricata -T -c /etc/suricata/suricata.yaml -S ~/hsets-m13/hsets.rules. -T tests configuration; -S uses only this rule file. Do not continue on an error. Record the diagnostic and correct syntax against installed-version documentation.
+1. In the sensor terminal, validate the approved configuration and rule:
 
-Run sudo suricata -c /etc/suricata/suricata.yaml -S ~/hsets-m13/hsets.rules -r ~/hsets-m13/visibility.pcap -l ~/hsets-m13/output. -r reads recorded packets; -l selects an output directory. Examine fast.log and/or eve.json using a read-only editor. Search for SID 1000001 and correlate the alert with the capture. This is offline rule validation, not a live sensor test.
+```bash
+sudo suricata -T -c /etc/suricata/suricata.yaml -S ~/hsets-m13/hsets.rules
+```
+
+`-T` tests configuration; `-S` uses only this rule file. Do not continue on an error. Record the diagnostic and correct syntax against installed-version documentation.
+
+2. After validation succeeds, replay the saved capture into the empty output directory:
+
+```bash
+sudo suricata -c /etc/suricata/suricata.yaml -S ~/hsets-m13/hsets.rules -r ~/hsets-m13/visibility.pcap -l ~/hsets-m13/output
+```
+
+`-r` reads recorded packets; `-l` selects an output directory. Examine fast.log and/or eve.json using a read-only editor. Search for SID 1000001 and correlate the alert with the capture. This is offline rule validation, not a live sensor test.
 
 ## C. Non-match, edge, and live validation
 1. Capture three fresh requests in a new file: exact marker, /ordinary-page, and /hsets-visibility-test-extra. Use curl -i with each full URL.

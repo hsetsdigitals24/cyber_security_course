@@ -52,6 +52,16 @@ A 403 response is meaningful only when the intended identity and operation were 
 ### Summary and glossary
 An object is a stored unit addressed by a service. Shared responsibility allocates duties. RPO concerns data age; RTO concerns restoration time. A tested backup provides stronger evidence than a backup-job message.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A restored file matches its backup hash, but the intended reader is denied access. Content recovery is supported; service recovery is incomplete. Check the requested path, current identity and permissions before changing the data again. Stop the recovery timer only when the exercise's required content, access and control checks are complete. A nearby copy writable by the same service is not evidence of independent backup protection.
+
+**Try together:** List content, permitted read and denied write as separate recovery checks.
+
+**Try independently:** A restore takes eight minutes but the access checks take four more. If the objective includes those checks, what elapsed time is reportable?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### L33 end-of-lesson assignment
 Complete five MCQs, two scenarios and independent practical in the workbook: 30 marks, about 60 minutes after guided setup. Submit permission tests, actual backup age, measured recovery, hashes and separation evidence to P07.
 
@@ -98,4 +108,4 @@ A risk owner accepts business accountability; a control owner operates a safegua
 Complete workbook L34: five MCQs, two scenarios, five-risk practical and decision request, 30 marks, approximately 60 minutes. P07 still requires all critical technical tests irrespective of report quality.
 
 ## Sources
-Cached FEMTECH F26 introductory/service-model sections reviewed 14 September 2026. [Microsoft shared responsibility](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) supports service-dependent duties; [NIST contingency planning](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final) supplies recovery context. The numerical recovery targets are H-SETS scenario choices.
+Technical references: [Microsoft shared responsibility](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility); [NIST contingency planning](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final). Match procedures to the classroom versions.

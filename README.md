@@ -4,6 +4,19 @@ This student release contains 18 modules, 36 lessons, guided labs, lesson assign
 
 **Draft status:** The notes and activities are written, but complete VM/platform labs and beginner timing still need instructor verification. Use only the assigned training environment. If an image, account, fixture or recovery path is unavailable, record the step as *not run* and ask your instructor.
 
+## Minimum system requirements
+
+| Component | Minimum requirement |
+|---|---|
+| Processor | Intel Core i5, 8th generation or newer |
+| Storage | 500 GB drive capacity |
+| Memory | 16 GB RAM |
+| Hardware virtualisation | Enabled in BIOS/UEFI before the VM labs |
+
+An SSD is recommended. Keep approximately 200 GB free for the planned lab images and snapshots; drive capacity and free space are different checks. The instructor must confirm the selected operating system, hypervisor and guest compatibility before class. These are course admission requirements, not a claim that every lab has been tested on every matching computer.
+
+The course uses staged virtual-machine labs: run only the guests assigned for the current activity. Central Wazuh and vulnerability-scanning services are institution-hosted; a 16 GB laptop is not expected to run the complete enterprise range simultaneously.
+
 ## Modules
 
 | Module | Lessons | Portfolio connection |
@@ -33,5 +46,9 @@ This student release contains 18 modules, 36 lessons, guided labs, lesson assign
 - [Portfolio submission guide](PORTFOLIO-SUBMISSION-GUIDE.md)
 - [Student competency gates](H-SETS-Competency-Gates-Student.md)
 - [Career development plan](H-SETS-Career-Development-Plan.md)
+- [How marks and completion work](H-SETS-Student-Assessment-Guide.md)
+- [Weekly study plan](H-SETS-Weekly-Study-Plan.md)
+- [Your assigned lab sheet](H-SETS-Class-Lab-Sheet.md)
+- [Portfolio starter and illustrative example](H-SETS-Portfolio-Starter.md)
 
 Instructor answers, private ground truth, review records, source caches and authoring files are not part of this release.

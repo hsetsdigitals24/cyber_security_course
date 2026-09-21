@@ -425,6 +425,16 @@ An empty report may mean no coverage, failed authentication or a current feed pr
 
 False positive: reported weakness not applicable; false negative: existing weakness missed; authenticated scan: approved credential-based inspection; confidence: evidence strength; CVSS: versioned severity model. Uncertainty belongs in the report.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A scanner flags a version, but the instructor's package record shows a vendor patch backported to that version family. The banner alone is insufficient to confirm exploitability. Check the approved package/advisory evidence and the finding's detection method. Record the conclusion and uncertainty. After a change, a clean report is useful only if the retest actually covered the same asset and relevant check.
+
+**Try together:** Mark which evidence describes version, detection method and coverage.
+
+**Try independently:** The retest has fewer findings because its credentials failed. Can it establish successful remediation?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-lesson assignment — L21
 
 Complete the five MCQs, two scenarios, practical and reflection for L21 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
@@ -919,9 +929,8 @@ Complete the five MCQs, two scenarios, practical and reflection for L22 in [Stud
 
 ## Source provenance and technical references
 
-Selected conceptual sections were adapted from the instructor-owned FEMTECH lesson files listed below, retrieved at commit 4ee35f964d4a623933509ed2b4560972ffabb65f. H-SETS lesson IDs, practicals, assignments and scope supersede source lesson sequencing. This is selected-section adaptation, not a line-by-line audit of all source material.
 
-- [Source lesson 28-vulnerability-assessment](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-28-vulnerability-assessment.md)
-- [Source lesson 29-remediation-and-reporting](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-29-remediation-and-reporting.md)
+Technical references: [Source lesson 28-vulnerability-assessment](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-28-vulnerability-assessment.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 29-remediation-and-reporting](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-29-remediation-and-reporting.md). Match procedures to the classroom versions.
 
 [FIRST CVSS v4.0 specification](https://www.first.org/cvss/v4.0/specification-document) checked 14 September 2026. CVSS is severity, not the organisation's complete risk decision; keep score and vector version together. [Greenbone Community documentation](https://greenbone.github.io/docs/latest/) is the instructor installation reference; exact deployed release/feed must be recorded and piloted.

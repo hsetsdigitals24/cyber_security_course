@@ -54,6 +54,16 @@ An existing session can survive a rule change; use a fresh one for verification.
 
 Daemon: background process. Unit: systemd-managed object. Journal: structured event store. Baseline: approved reference configuration. Host key: SSH server identity key. SFTP: file transfer over SSH. Drift: departure from an approved baseline.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A synthetic input has three records: result=failed, result=success and a record with no result. Before running a parser, classify them by the stated rules. There is one failure, one non-match and one malformed record. The expected result is a prediction derived from the fixture, not output copied from the script. If a later requirement permits only success/failed strings, an unknown string also needs explicit handling; changing that rule changes the tests.
+
+**Try together:** Classify one additional failed record and one broken JSON line before running the example.
+
+**Try independently:** What should your report say if the parser works but the service access test has not been run?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-Lesson Assignment — L11
 
 Complete Workbook L11. Submit service/listener evidence, a named-user file transaction, source-policy allowed/denied tests, a relevant log, and rollback. Budget 90 minutes; 50 formative marks. These extend P02 rather than creating another project.

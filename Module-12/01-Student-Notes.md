@@ -86,6 +86,16 @@ Burp Intercept on can hold a request, making the app seem unavailable; Forward o
 
 Request: client operation; response: server result; cookie: browser-sent state; session: associated interaction context; authorisation: permission decision; object ownership: relationship checked against requested record. The server must enforce the boundary.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** Two users can both sign in, but only one should read a given record. Authentication establishes who is signed in; authorisation decides whether that identity may perform that operation on that object. A successful login test cannot prove the record boundary. A useful check holds the record and operation constant while changing to the assigned other identity. Use only the local exercise's actual supported features; do not invent authentication capabilities in a demonstration fixture.
+
+**Try together:** Write identity, object and operation as three separate columns for the instructor's case.
+
+**Try independently:** A response says 200 but contains an error message. What would you inspect before calling the business transaction successful?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-lesson assignment — L23
 
 Complete the five MCQs, two scenarios, practical and reflection for L23 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
@@ -269,9 +279,8 @@ Complete the five MCQs, two scenarios, practical and reflection for L24 in [Stud
 
 ## Source provenance and technical references
 
-Selected conceptual sections were adapted from the instructor-owned FEMTECH lesson files listed below, retrieved at commit 4ee35f964d4a623933509ed2b4560972ffabb65f. H-SETS lesson IDs, practicals, assignments and scope supersede source lesson sequencing. This is selected-section adaptation, not a line-by-line audit of all source material.
 
-- [Source lesson 09-web-attacks-and-malware](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-09-web-attacks-and-malware.md)
-- [Source lesson 09-web-attacks-and-malware](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-09-web-attacks-and-malware.md)
+Technical references: [Source lesson 09-web-attacks-and-malware](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-09-web-attacks-and-malware.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 09-web-attacks-and-malware](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-09-web-attacks-and-malware.md). Match procedures to the classroom versions.
 
 [PortSwigger getting started](https://portswigger.net/burp/documentation/desktop/getting-started) checked 14 September 2026; [OWASP WSTG authorisation testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/05-Authorization_Testing/) is the versioned methodology reference. The source's historical OWASP category list is deliberately not reproduced as a current Top 10 list.

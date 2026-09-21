@@ -262,6 +262,16 @@ An offline host, blocked discovery, wrong route or missing listener can all prod
 
 Asset owner: accountable person; scope: authorised boundary; active discovery: sent probes; passive discovery: observed traffic; inventory: maintained asset record. Unknowns must be recorded explicitly.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A scan reports an open port on an assigned lab address. It is evidence of the tool's observed response in that test window. A conventional port number suggests a possible service, but it does not establish its software version, business owner or vulnerability. Compare the result with approved inventory and a bounded service check before expanding the claim. Scope remains the assigned targets even if another address appears in output.
+
+**Try together:** Rewrite “this address is vulnerable” as an observation that the available scan actually supports.
+
+**Try independently:** A target is absent from discovery results. Give two reasons to check before declaring it powered off.
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-lesson assignment — L19
 
 Complete the five MCQs, two scenarios, practical and reflection for L19 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
@@ -458,9 +468,8 @@ Complete the five MCQs, two scenarios, practical and reflection for L20 in [Stud
 
 ## Source provenance and technical references
 
-Selected conceptual sections were adapted from the instructor-owned FEMTECH lesson files listed below, retrieved at commit 4ee35f964d4a623933509ed2b4560972ffabb65f. H-SETS lesson IDs, practicals, assignments and scope supersede source lesson sequencing. This is selected-section adaptation, not a line-by-line audit of all source material.
 
-- [Source lesson 27-asset-discovery](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-27-asset-discovery.md)
-- [Source lesson 27-asset-discovery](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-27-asset-discovery.md)
+Technical references: [Source lesson 27-asset-discovery](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-27-asset-discovery.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 27-asset-discovery](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-27-asset-discovery.md). Match procedures to the classroom versions.
 
 [Nmap port states](https://nmap.org/book/man-port-scanning-basics.html) and [Nmap reference](https://nmap.org/book/man.html), checked 14 September 2026. Commands are bounded to isolated exact addresses; no scanner runtime execution claimed.

@@ -30,6 +30,8 @@ These 104 hours are included in the blueprint's 156 independent hours. The remai
 
 ## 2. Common submission package
 
+Use the [portfolio starter](H-SETS-Portfolio-Starter.md) to build this structure gradually. The [weekly plan](H-SETS-Weekly-Study-Plan.md) shows how milestones fit within your existing independent hours. The [assessment guide](H-SETS-Student-Assessment-Guide.md) explains how project and lesson results contribute to course completion.
+
 Use a local Git repository or equivalent version history for each project. Public publication is optional; a private assessor copy is required. Use the following structure, omitting files only when a clear equivalent is present:
 
 ```text

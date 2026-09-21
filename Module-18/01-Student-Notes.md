@@ -56,6 +56,16 @@ In the guided lab the instructor traces one requirement through control and evid
 ### Common mistakes and glossary
 Integration means reasoning across dependencies, not running every VM at once. Traceability links a claim to its basis. A control gap is a missing or ineffective safeguard; an evidence gap means the claim cannot currently be verified. These may coexist but are not identical.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A portfolio says “all systems secured,” but its evidence shows one lab folder's allowed and denied access tests. A defensible statement identifies the simulated environment, the tested boundary and the observed result. It also states what was not tested. This is stronger interview evidence because the learner can reproduce and explain it. A completion checklist records missing projects or gates rather than treating attendance as a pass.
+
+**Try together:** Take one of your recorded tests and explain its requirement, result and limit in three sentences.
+
+**Try independently:** A later case record contradicts your first hypothesis. What changes in your timeline, conclusion and handover?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### L35 end-of-lesson assignment
 Complete workbook L35: five MCQs, two written scenarios and an integrated review/practical, 30 marks, approximately 60 minutes. Submit architecture, requirement-to-evidence matrix, case plan and P01–P07 gap register. This prepares P08 and the M18 checkpoint; it does not complete G4 automatically.
 
@@ -112,4 +122,4 @@ A portfolio claim is a statement supported by evidence. Provenance records origi
 Complete workbook L36: five MCQs, two scenarios and portfolio/defence practical, 30 marks, about 60 minutes. Submit portfolio index, two evidence-backed CV statements, a three-minute explanation and a handover. Final P08/G4 assessment follows the selected delivery calendar.
 
 ## Sources
-Cached FEMTECH F40 capstone introduction, scope and evidence sections reviewed; adapted to the H-SETS single-SIEM, staged range and eight-project design. Local blueprint and project handbook govern gate and project acceptance. [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) informs response reasoning. Vacancy research is performed when students apply; no current employment-market claim is made here.
+Technical references: [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final). Match procedures to the classroom versions.

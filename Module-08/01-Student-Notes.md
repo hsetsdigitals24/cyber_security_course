@@ -344,6 +344,16 @@ Wrong DNS, local/domain name confusion and stale tokens cause misleading failure
 
 DC: directory/authentication server; OU: policy/delegation container; Kerberos: ticket authentication; LDAP: directory access. Authentication and resource authorisation are distinct.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A learner puts a Finance user in the Finance organisational unit and expects file access. An organisational unit groups directory objects for administration and policy scope; it is not the file permission grant. Follow the security-group chain to the resource permission instead. Then test the user through the share. A correct-looking membership still needs a fresh-session functional test after changes.
+
+**Try together:** On paper, label which object organises the user and which group receives the resource permission.
+
+**Try independently:** The user was removed from a department but an existing file session still works. What should be refreshed or closed before the lab retest?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-lesson assignment — L15
 
 Complete the five MCQs, two scenarios, practical and reflection for L15 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
@@ -807,11 +817,10 @@ Complete the five MCQs, two scenarios, practical and reflection for L16 in [Stud
 
 ## Source provenance and technical references
 
-Selected conceptual sections were adapted from the instructor-owned FEMTECH lesson files listed below, retrieved at commit 4ee35f964d4a623933509ed2b4560972ffabb65f. H-SETS lesson IDs, practicals, assignments and scope supersede source lesson sequencing. This is selected-section adaptation, not a line-by-line audit of all source material.
 
-- [Source lesson 19-active-directory](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-19-active-directory.md)
-- [Source lesson 20-iam-fundamentals](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-20-iam-fundamentals.md)
-- Additional selected concepts: [Source lesson 18-windows-server](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-18-windows-server.md)
-- Additional selected concepts: [Source lesson 19-active-directory](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-19-active-directory.md)
+Technical references: [Source lesson 19-active-directory](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-19-active-directory.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 20-iam-fundamentals](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-20-iam-fundamentals.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 18-windows-server](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-18-windows-server.md). Match procedures to the classroom versions.
+Technical references: [Source lesson 19-active-directory](https://github.com/OmoboriowoOluwagbotemi/femtech-cybersecurity-labs-and-projects/blob/4ee35f964d4a623933509ed2b4560972ffabb65f/lessons/lesson-19-active-directory.md). Match procedures to the classroom versions.
 
 [Microsoft AD DS installation](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-) checked 14 September 2026. Installation uses only the Server Manager method; Windows GUI execution remains untested.

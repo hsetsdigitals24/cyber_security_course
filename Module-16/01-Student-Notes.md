@@ -45,6 +45,16 @@ In lab A–C the instructor preserves a fixture, hashes the copy and normalises 
 ### Common mistakes and glossary
 A checksum is not a creator identity; a restored file is not necessarily the original forensic artifact; observation and inference belong in different columns. Acquisition obtains evidence, examination extracts facts, analysis interprets them, and reporting communicates supported conclusions.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A source records 10:05 at +01:00 and another records 09:06 UTC. Normalising the first gives 09:05 UTC, so it appears one minute earlier, provided the clocks are reliable. Preserve both original strings and note clock uncertainty. Temporal proximity can suggest a relationship but cannot prove that one account caused a later file change. Seek session, process or transaction evidence before asserting causation.
+
+**Try together:** Convert 11:20 at +01:00 to UTC and retain the original alongside it.
+
+**Try independently:** Two clocks may differ by several minutes. How should you describe the order of events one minute apart?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### L31 end-of-lesson assignment
 Complete workbook L31: five MCQs, two scenarios and preservation/timeline practical, 30 marks, around 60 minutes. Submit evidence register, hash record, timeline and hypotheses. This rehearses P08 methods; it is not the capstone dataset.
 
@@ -93,4 +103,4 @@ Containment limits current harm. Recovery restores approved service. Residual ri
 Complete workbook L32, 30 marks, about 60 minutes. Submit revised hypotheses, containment request, recovery evidence and a 150-word management update. Preserve all original fixture records.
 
 ## Sources
-Reviewed introductory and relevant preservation sections of cached FEMTECH F33 and F35 on 14 September 2026. Advanced Volatility procedures are excluded from core assessment. [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) is the current response reference; its publication page confirms replacement of Rev. 2.
+Technical references: [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final). Match procedures to the classroom versions.

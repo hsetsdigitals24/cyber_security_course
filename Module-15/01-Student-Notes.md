@@ -43,6 +43,16 @@ Follow lab A–C. The instructor inspects decoded fields before the rule result.
 ### Summary and glossary
 A hypothesis is a testable statement. A data contract describes expected input. A regression test checks that a change did not break previous behaviour. Tuning changes the detection with a documented tradeoff, rather than merely reducing alert count.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A rule intended to detect one exact marker also matches a longer path with the marker as a prefix. That result may be correct for a substring rule but wrong for the stated exact-match objective. Keep the objective fixed, compare the observed field and rule condition, then test the corrected rule on the intended marker, an unrelated value and the longer value. These cases establish specified behaviour, not production detection accuracy.
+
+**Try together:** Write three expected outcomes for exact, unrelated and suffix-extended values before examining results.
+
+**Try independently:** Six authored cases pass. What claim can you make about the rule, and what claim would exceed this evidence?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### L29 end-of-lesson assignment
 Complete five MCQs, two written scenarios and the six-case practical in the workbook: 30 marks, about 60 minutes after guided setup. Submit rule files, versions, tests and evidence IDs to P06. Label synthetic authentication events clearly.
 
@@ -88,4 +98,4 @@ An indicator is an observable associated with context. Enrichment adds context w
 Complete the workbook's five MCQs, two scenarios and five-ticket/enrichment practical, 30 marks, approximately 60 minutes. Link results to P06 and include one justified behaviour mapping or explicit unmapped result.
 
 ## Sources
-Cached FEMTECH F32 sections on hypotheses, testing and safe automation reviewed 14 September 2026; source examples adapted to two bounded detections. [Wazuh custom rules](https://documentation.wazuh.com/current/user-manual/ruleset/rules/custom.html) and [FIM configuration](https://documentation.wazuh.com/current/user-manual/capabilities/file-integrity/how-to-configure-fim.html) support deployment checks. ATT&CK mappings require checking the current technique page when a concrete case is mapped; none is asserted for the simple file-change fixture.
+Technical references: [Wazuh custom rules](https://documentation.wazuh.com/current/user-manual/ruleset/rules/custom.html); [FIM configuration](https://documentation.wazuh.com/current/user-manual/capabilities/file-integrity/how-to-configure-fim.html). Match procedures to the classroom versions.

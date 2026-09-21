@@ -5,10 +5,10 @@
 
 | Item | Student meaning |
 |---|---|
-| Purpose | Practise validate and prioritise findings, then remediate and retest |
+| Purpose | P05: validated findings, remediation and equivalent retest |
 | Lessons | L21 followed by L22; finish the first checkpoint before moving forward |
-| Prerequisites | Complete the prerequisites in the module README and confirm the environment below with the instructor |
-| Planned practical time | Approximately 120–140 minutes across the two lessons; use any more specific times below and record actual duration |
+| Prerequisites | M10: maintain scope and distinguish a tool observation from a confirmed finding. Confirm the environment below with the instructor |
+| Planned practical time | Use the section estimates below; record actual time. Setup is separate and timings remain unpiloted |
 | Starting state | Use only the named prepared image, accounts, fixture and isolated scope; preserve the baseline before changes |
 | Success | Required positive and negative/boundary results are recorded, the authorised service still works, and limitations are explained |
 | Independent variation | Complete the changed case without copying the demonstration result |
@@ -17,6 +17,19 @@
 
 
 <!-- HSETS-LAB-ROUTE -->
+## Pause points for this module
+
+Before changing a setting, say which machine and account you are using. Your instructor supplies the completed [class lab sheet](../H-SETS-Class-Lab-Sheet.md); its values replace example addresses only where the procedure tells you to substitute them.
+
+| Pause | What you should be able to show | If you cannot yet show it |
+|---|---|---|
+| Before L21 | M10: maintain scope and distinguish a tool observation from a confirmed finding. | Revisit the prerequisite with the instructor |
+| After L21 | Explain finding, affected asset, supporting evidence and confidence before prioritising. | Preserve the symptom; repeat the relevant demonstration with guidance |
+| After L22 | Compare the same scoped test before/after remediation and verify the required service. | Compare expected/actual results and test one explanation at a time |
+| Before submission | Evidence filenames, statuses and the documented recovery state | Use the workbook checklist; do not replace missing tests with examples |
+
+For each procedure below, perform one action, inspect its result, then continue. Commands belong to the named lab system; `sudo` requires the assigned lab administrator authority. Example output and predictions are not evidence of execution.
+
 ## How to work through this lab
 
 1. Read the environment, scope and starting-state instructions before changing anything.

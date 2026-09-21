@@ -60,6 +60,16 @@ No new DNS packet can mean caching or a local override. No DHCP messages can mea
 
 Resolver: service obtaining DNS answers. Authoritative server: source responsible for a DNS zone. TTL: cache lifetime. Lease: time-bounded configuration assignment. ARP: IPv4 local address resolution. NAT: address translation. HTTP status: application response classification.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** Imagine the service works by its assigned numerical address but fails by name. This narrows the investigation towards name resolution; it does not yet prove that the DNS server is broken. An explicit query checks the chosen server. A system lookup checks the client's configured resolution path. Comparing the two can distinguish a wrong answer from a wrong client resolver. Only after correction does a fresh ordinary name-based request demonstrate the required user outcome.
+
+**Try together:** Draw name lookup → address → connection → HTTP request. Point to the evidence that supports each stage in the instructor capture.
+
+**Try independently:** An explicit query returns the expected address but the ordinary lookup differs. Name two checks before changing the web server.
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-Lesson Assignment — L05
 
 Complete Workbook L05. Submit a connection sequence, a DNS-versus-service diagnosis, actual healthy query evidence, and an independent name variation. Budget 60 minutes. Marking: MCQs 10, scenarios 20, practical 20. This contributes the name-service portion of P01.

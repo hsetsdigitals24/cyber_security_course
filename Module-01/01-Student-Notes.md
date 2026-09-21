@@ -236,6 +236,16 @@ This is the reasoning used in support tickets, access reviews, vulnerability rep
 
 Security decisions should protect required business outcomes. Identify the asset and owner, distinguish threat from weakness, explain risk in context, and choose controls with observable tests. A vulnerability is not proof of compromise, and an alert is not a complete incident conclusion. Record what you know, what remains uncertain, and who owns the next action.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A training centre keeps its attendance register on one laptop. The register is the asset; accidental deletion is a possible event; having no usable backup is a weakness. The consequence is losing evidence of attendance. A copied file is only a candidate backup until a restore test shows the required content can be recovered. Notice how the explanation begins with a service people need, not a product name.
+
+**Try together:** With the instructor, replace attendance with a fictional stock record. Name its owner and one required recovery result.
+
+**Try independently:** Choose another fictional service. Separate an observed fact from a possible event, then propose one test of the chosen control.
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-lesson assignment — L01-A
 
 Complete the [workbook](03-Student-Workbook.md) L01 questions Q1–Q5, scenarios L01-S1/L01-S2, and practical L01-P. Submit your five-asset inventory, three risk statements, control tests, and two-minute handover. Identify facts separately from assumptions and label controls as proposed until implemented. The instructor will change one fact for your independent revision.

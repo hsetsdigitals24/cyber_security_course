@@ -1,5 +1,9 @@
 # M03 Workbook
 
+Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for course weights and pass rules. Named lesson assignments contribute to knowledge/scenario and practical categories; “formative” describes the improvement feedback, not an exemption from grading. Raw marks below are unchanged.
+
+Before submitting, check the exact lesson ID, all requested items, actual test results and evidence references. Use the instructor's private destination and deadline on your [lab sheet](../H-SETS-Class-Lab-Sheet.md). Return to the [module route](README.md) after feedback.
+
 Each lesson: MCQs 10 marks (2 each), two scenarios 20 (10 each), independent practical 20. Answer with reasoning. All evidence must be from your actual work.
 
 ## L05 Assignment

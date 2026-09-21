@@ -1,12 +1,44 @@
-# M07 — Windows Administration and Endpoint Defence
+# H-SETS — Module 07: Windows Administration and Endpoint Defence
 
-Study L13 before L14. Use the course rhythm: **understand → observe → predict → practise → test → troubleshoot → explain → submit**.
+<!-- HSETS-STUDENT-START -->
+## Your route through this module
 
-1. Read the first lesson in [Student Notes](01-Student-Notes.md).
-2. Predict the outcome, then complete its part of the [Guided Lab](02-Guided-Lab.md).
-3. Record expected and actual results and complete its [Workbook assignment](03-Student-Workbook.md).
-4. Repeat for the second lesson and add the named milestone to the project.
+**Before class:** M05–M06: explain least privilege, process identity and expected versus actual results. If you need a refresher, tell the instructor before the practical.
 
-Portfolio connection: P03. See the [eight-project handbook](../H-SETS-Portfolio-Projects.md).
+Use the instructor-completed [lab sheet](../H-SETS-Class-Lab-Sheet.md) to identify your machines, accounts, versions, inputs and recovery route. Bring a folder for your own evidence; do not copy demonstration results as your work.
 
-If a lab prerequisite or system is missing, mark the result **not run**. Do not treat an illustrative result as your own evidence. Instructor solutions are provided separately during teaching and review.
+| Stage | Open / do | Check before moving on |
+|---|---|---|
+| First lesson: L13 | [Read the notes](01-Student-Notes.md), discuss the worked example, then use the matching [lab section](02-Guided-Lab.md) | Compare required access using standard accounts and preserve before/after permission evidence. |
+| First assignment | Complete only L13 in the [workbook](03-Student-Workbook.md) | Include the named evidence and explain one result |
+| Second lesson: L14 | Continue the notes and matching lab after the first checkpoint | Locate the assigned endpoint evidence and separate configuration from observed protection behaviour. |
+| Second assignment | Complete L14 in the workbook | Correct feedback and record an independent variation |
+| Portfolio milestone | P03: endpoint baseline and standard-user evidence | Link existing evidence; do not duplicate the same activity as extra hours |
+
+**Completion checklist:** explain both checkpoints, submit both lesson assignments, preserve required allowed/denied or comparative tests, and record recovery plus unresolved issues. Completing this module does not automatically pass its project or gate.
+
+Plan six class hours and six independent hours in the default teaching week. The independent hours include assignment and project work. Use the [weekly planner](../H-SETS-Weekly-Study-Plan.md) for deadlines and the [assessment guide](../H-SETS-Student-Assessment-Guide.md) for marks.
+
+Navigation: [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Previous module](../Module-06/README.md) · [Next module](../Module-08/README.md)
+
+<!-- /HSETS-STUDENT-START -->
+
+Two lessons, six guided hours and six independent hours including assignments and P03 milestones. Prerequisites: prior modules and the specific refreshers in the notes. Use prepared images; setup and timing require a pilot.
+
+- [Student notes](01-Student-Notes.md)
+- [Guided labs](02-Guided-Lab.md)
+- [Workbook and lesson assignments](03-Student-Workbook.md)
+
+## Environment
+
+Windows 11 Pro/Education VM (4 GB RAM, 64 GB disk), valid institutional licence, isolated internal network. Ubuntu test client (2 GB) only during network tests; stop other guests. Keep recovery access to the VM console.
+
+## Module consolidation and portfolio milestone
+
+Present a local access matrix, fresh-user permission tests, endpoint baseline and controlled firewall change. Explain what each control does and does not prove.
+
+This contributes to P03 in the [eight-project handbook](../H-SETS-Portfolio-Projects.md). It is not a ninth or additional module project. Prepare Markdown reports, sanitised evidence, test records and a README stating simulation status, versions, individual contribution, actual results and limitations. Public publishing is optional and requires explicit authorisation.
+
+## Readiness
+
+Authored package. No full VM procedure or timed beginner pilot is claimed. See verification note for pending execution checks.

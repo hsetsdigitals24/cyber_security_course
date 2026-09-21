@@ -1,5 +1,9 @@
 # H-SETS — Student workbook
 
+Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for course weights and pass rules. Named lesson assignments contribute to knowledge/scenario and practical categories; “formative” describes the improvement feedback, not an exemption from grading. Raw marks below are unchanged.
+
+Before submitting, check the exact lesson ID, all requested items, actual test results and evidence references. Use the instructor's private destination and deadline on your [lab sheet](../H-SETS-Class-Lab-Sheet.md). Return to the [module route](README.md) after feedback.
+
 Answer independently. Use the notes for revision; submit explanations in your own words. Each lesson is marked out of 100: five MCQs at 2 marks each, two scenarios at 15 each, practical at 50, reflection at 10. This is formative lesson assessment; programme/project pass rules remain in the shared handbook.
 
 ## L17 assignment
@@ -103,4 +107,3 @@ Submit scope, before-state, explained actions, test table, one fault diagnosis, 
 ### Reflection — 10 marks
 
 Explain one initial prediction that changed, the evidence responsible, and a remaining limitation. Budget 150–200 words. Incorporate the useful evidence into P04, without counting the same work as another project.
-

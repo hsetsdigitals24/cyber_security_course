@@ -22,6 +22,8 @@ After class, use the same notes and checkpoints to repeat the exercise while the
 
 ## The learning method
 
+Keep these four resources beside your module: [weekly plan](H-SETS-Weekly-Study-Plan.md), [how marks work](H-SETS-Student-Assessment-Guide.md), [your instructor-completed lab sheet](H-SETS-Class-Lab-Sheet.md), and [portfolio starter](H-SETS-Portfolio-Starter.md). They explain what to do this week, what counts, which systems to use and where to save your work.
+
 Every module follows the same seven-step rhythm:
 
 1. **Understand:** learn what the concept means, why it exists and where a business uses it.
@@ -123,7 +125,7 @@ Use these feedback bands for lesson improvement:
 | 50–69% | Developing | Revisit the named concept and repeat a fresh equivalent task |
 | Below 50% | Foundation needs support | Meet the instructor, practise the prerequisite and reassess |
 
-These bands guide lesson feedback. Project and competency-gate pass requirements remain those stated in the blueprint and project handbook.
+These bands guide lesson feedback, not a substitute for practical competence. The [student assessment guide](H-SETS-Student-Assessment-Guide.md) gives the full course weights and completion rules. Use the project handbook and competency-gate brief for each task's critical requirements. A combined lesson percentage is feedback only; knowledge/scenario and practical scores are normalised separately for the course grade.
 
 ## Evidence made simple
 
@@ -137,7 +139,7 @@ For every important test record:
 | Action | The exact approved action you performed |
 | Actual | What you observed, including errors |
 | Evidence | File, event, packet, output or screenshot reference |
-| Status | Pass, fail, unverified or not applicable with a reason |
+| Status | Pass, fail, not run, unverified or not applicable with a reason |
 | Limitation | What the test cannot prove |
 | Next action | Correction, escalation, retest or closure |
 
@@ -147,16 +149,21 @@ A screenshot of a setting proves that the setting was visible. It does not autom
 
 Your portfolio contains exactly P01–P08. Each project should show a business problem, your individual contribution, technical decisions, actual tests, troubleshooting, limitations and a clear handover. Keep detailed assessor evidence private when it contains internal addresses, raw logs or instructor-supplied material. Public GitHub publication is optional.
 
-Use a simple project folder pattern:
+Use the same project folder pattern as the handbook. The [portfolio starter](H-SETS-Portfolio-Starter.md) explains which files to create at each stage and supplies an illustrative example:
 
 ```text
-P01-project-name/
-├── README.md
-├── diagrams/
-├── reports/
-├── evidence-private-index.md
-├── tests/
-└── lessons-learned.md
+PXX-project-name/
+  README.md
+  scope-and-requirements.md
+  architecture/
+  implementation/
+  evidence/
+  tests-and-results.md
+  decisions-and-troubleshooting.md
+  technical-report.md
+  executive-summary.md
+  handover-and-rollback.md
+  evidence-manifest.md
 ```
 
 Do not commit passwords, tokens, private keys, personal data, instructor answers or unrestricted raw evidence. Clearly say that the environment is simulated and identify which work you completed yourself.

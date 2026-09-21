@@ -5,10 +5,10 @@
 
 | Item | Student meaning |
 |---|---|
-| Purpose | Practise trace endpoint events into the siem, then triage and repair a missing source |
+| Purpose | P06/G3: source inventory, field mapping and triage ticket |
 | Lessons | L27 followed by L28; finish the first checkpoint before moving forward |
-| Prerequisites | Complete the prerequisites in the module README and confirm the environment below with the instructor |
-| Planned practical time | Approximately 120–140 minutes across the two lessons; use any more specific times below and record actual duration |
+| Prerequisites | M07/M13: Windows events, Linux logs and the distinction between traffic and alert evidence. Confirm the environment below with the instructor |
+| Planned practical time | Use the section estimates below; record actual time. Setup is separate and timings remain unpiloted |
 | Starting state | Use only the named prepared image, accounts, fixture and isolated scope; preserve the baseline before changes |
 | Success | Required positive and negative/boundary results are recorded, the authorised service still works, and limitations are explained |
 | Independent variation | Complete the changed case without copying the demonstration result |
@@ -17,6 +17,19 @@
 
 
 <!-- HSETS-LAB-ROUTE -->
+## Pause points for this module
+
+Before changing a setting, say which machine and account you are using. Your instructor supplies the completed [class lab sheet](../H-SETS-Class-Lab-Sheet.md); its values replace example addresses only where the procedure tells you to substitute them.
+
+| Pause | What you should be able to show | If you cannot yet show it |
+|---|---|---|
+| Before L27 | M07/M13: Windows events, Linux logs and the distinction between traffic and alert evidence. | Revisit the prerequisite with the instructor |
+| After L27 | Map one Windows event and one Linux event from source to the collected record. | Preserve the symptom; repeat the relevant demonstration with guidance |
+| After L28 | Repair the assigned source fault and locate a new event; document historical gaps separately. | Compare expected/actual results and test one explanation at a time |
+| Before submission | Evidence filenames, statuses and the documented recovery state | Use the workbook checklist; do not replace missing tests with examples |
+
+For each procedure below, perform one action, inspect its result, then continue. Commands belong to the named lab system; `sudo` requires the assigned lab administrator authority. Example output and predictions are not evidence of execution.
+
 ## How to work through this lab
 
 1. Read the environment, scope and starting-state instructions before changing anything.
@@ -51,13 +64,69 @@ Before class the instructor records versions, manager address, TLS trust, enroll
 5. Save a sanitised event excerpt and source-to-collected field mapping.
 
 ## C. Linux source and FIM validation
-1. Record the allocated agent configuration at /var/ossec/etc/ossec.conf before changes. The instructor approves a backup in the lab's private folder.
-2. Create only the lab directory: sudo mkdir -p /opt/hsets-watch. Create a harmless file with printf 'baseline\n' | sudo tee /opt/hsets-watch/status.txt.
-3. Within the existing syscheck section, add <directories realtime="yes">/opt/hsets-watch</directories>. Do not create nested duplicate syscheck sections. Save the original configuration for rollback.
-4. Restart the allocated agent with sudo systemctl restart wazuh-agent. Check status and /var/ossec/logs/ossec.log for errors. Allow initial FIM baseline completion; record its evidence before testing.
-5. Change the file: printf 'approved change\n' | sudo tee /opt/hsets-watch/status.txt. Record time and the file hash using sha256sum.
-6. Find the corresponding FIM event for the agent and path. Compare event type and available before/after properties. Do not infer user attribution if the event lacks that telemetry.
-7. Also generate a permitted SSH authentication event if the instructor has provisioned that source. Verify the actual journald or file collection mechanism rather than assuming /var/log/auth.log exists on every image.
+
+File integrity monitoring (FIM) compares monitored file properties against a baseline. Complete each checkpoint before creating the next event. The instructor records the expected baseline/collection delay on the lab sheet after testing the classroom build.
+
+### Prepare one monitored folder
+
+1. On the assigned Ubuntu endpoint, use the allocated lab administrator account.
+2. Open `/var/ossec/etc/ossec.conf` with the instructor-approved elevated text editor. Record the current configuration and save its backup in the assigned private recovery location before editing.
+3. In the endpoint terminal, create the directory:
+
+```bash
+sudo mkdir -p /opt/hsets-watch
+```
+
+4. Create the harmless baseline file:
+
+```bash
+printf 'baseline\n' | sudo tee /opt/hsets-watch/status.txt
+```
+
+`printf` supplies the synthetic text. The pipe sends it to `tee`, which writes the file with the approved elevated authority and also displays it. Confirm the path before running it; this replaces the disposable file's content.
+
+### Configure and confirm the baseline
+
+5. In the existing `syscheck` section of the approved agent configuration, add this entry:
+
+```xml
+<directories realtime="yes">/opt/hsets-watch</directories>
+```
+
+This is a fragment inside the existing configuration, not a replacement file. Do not add another nested `syscheck` section. Ask the instructor to check placement before saving.
+6. Restart only your allocated agent:
+
+```bash
+sudo systemctl restart wazuh-agent
+sudo systemctl status wazuh-agent
+```
+
+7. Inspect `/var/ossec/logs/ossec.log` using the approved read-only/elevated viewer. Preserve errors rather than repeatedly restarting. Have the instructor identify completion of the initial FIM baseline on this version.
+
+**Checkpoint:** the agent is healthy, the intended directory is configured, and the initial baseline has completed. Service status alone does not establish these last two conditions. If the baseline is not confirmed within the measured classroom wait, pause for diagnosis before changing the file.
+
+### Generate and follow a new event
+
+8. Write a different harmless value:
+
+```bash
+printf 'approved change\n' | sudo tee /opt/hsets-watch/status.txt
+sha256sum /opt/hsets-watch/status.txt
+```
+
+9. Record the time, path and actual hash. In the dashboard, choose the view and time range specified on the lab sheet, then filter to your agent.
+10. Expand the corresponding FIM event. Compare agent, path, event time, change type and available before/after properties. Record the actual field names; do not infer a user identity that the event does not contain.
+
+**Illustrative field-reading guide — not actual event output:**
+
+| What you are checking | What to compare | What it does not establish alone |
+|---|---|---|
+| Endpoint identity | Event's agent/host against your lab sheet | That every channel is collected |
+| File path | Event path against `/opt/hsets-watch/status.txt` | Who caused the edit |
+| Time | Event time/zone against your recorded action window | Perfect clock synchronisation |
+| Change evidence | Available change type and hashes/properties | Complete history during an outage |
+
+11. If the instructor provisioned an SSH authentication source, generate the permitted event and follow its actual journald/file collection route. If it was not provisioned, label this optional step not run; do not assume `/var/log/auth.log` exists on every image.
 
 ## D. Missing-source exercise
 Save the working state. Instructor stops the allocated agent through Services or systemctl. Generate a fresh harmless change. Record the source-side observation and missing downstream event within the tested expected delay. Diagnose source, collector, transport and display in order. Restart only the lab agent, confirm service health, generate a different fresh file content, and locate it downstream.

@@ -1,34 +1,38 @@
 # H-SETS — Student workbook
 
+Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for course weights and pass rules. Named lesson assignments contribute to knowledge/scenario and practical categories; “formative” describes the improvement feedback, not an exemption from grading. Raw marks below are unchanged.
+
+Before submitting, check the exact lesson ID, all requested items, actual test results and evidence references. Use the instructor's private destination and deadline on your [lab sheet](../H-SETS-Class-Lab-Sheet.md). Return to the [module route](README.md) after feedback.
+
 Answer independently. Use the notes for revision; submit explanations in your own words. Each lesson is marked out of 100: five MCQs at 2 marks each, two scenarios at 15 each, practical at 50, reflection at 10. This is formative lesson assessment; programme/project pass rules remain in the shared handbook.
 
 ## L13 assignment
 
 ### Five multiple-choice questions — 10 marks
 
-1. Which identifier normally survives a local account rename?
-   A. PID
-   B. Window title
-   C. Port
-   D. SID
+1. A local Windows account is renamed without deletion/recreation. Which identifier normally remains associated with that account?
+   A. The previous display name as the account's unique identity
+   B. The sign-in name, which cannot change
+   C. The process ID from the last sign-in
+   D. The security identifier (SID)
 
-2. Why test a folder as a standard user?
-   A. To bypass NTFS
-   B. To disable auditing
-   C. To change the file type
-   D. To avoid administrator privilege masking permission errors
+2. An administrator can edit a departmental file. Why must the intended standard user also test it?
+   A. Administrator success proves the network path but always proves the employee's file permissions too
+   B. Every account receives the administrator's effective permissions after sign-in
+   C. A permission-dialog screenshot replaces a functional user test
+   D. Administrator authority can mask a permission problem affecting the intended user
 
-3. What identifies an event's meaning most reliably?
-   A. Filename only
-   B. Event ID alone
-   C. Screenshot colour
-   D. Provider, channel, ID and fields
+3. Two records have the same event ID but different providers. What should you compare before interpreting them as the same event type?
+   A. Only the export filenames
+   B. Only the event ID
+   C. Only the severity icon and displayed time
+   D. Provider, channel, ID and relevant fields
 
-4. What is the first useful response to unexpected access?
-   A. Disable UAC
-   B. Inspect effective groups and inherited/explicit grants
-   C. Clear logs
-   D. Delete every account
+4. A standard user can read a folder that the requirement says must be denied. What is the first useful investigation?
+   A. Disable UAC and repeat the same operation
+   B. Confirm the identity and inspect effective groups and inherited/explicit grants
+   C. Remove all inherited permissions before recording them
+   D. Recreate the account before checking the resource permissions
 
 5. Which claim follows from one failed logon?
    A. Authentication failed in the recorded context
@@ -103,4 +107,3 @@ Submit scope, before-state, explained actions, test table, one fault diagnosis, 
 ### Reflection — 10 marks
 
 Explain one initial prediction that changed, the evidence responsible, and a remaining limitation. Budget 150–200 words. Incorporate the useful evidence into P03, without counting the same work as another project.
-

@@ -1,4 +1,8 @@
 # M17 student workbook
+
+Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for course weights and pass rules. Named lesson assignments contribute to knowledge/scenario and practical categories; “formative” describes the improvement feedback, not an exemption from grading. Raw marks below are unchanged.
+
+Before submitting, check the exact lesson ID, all requested items, actual test results and evidence references. Use the instructor's private destination and deadline on your [lab sheet](../H-SETS-Class-Lab-Sheet.md). Return to the [module route](README.md) after feedback.
 Each lesson: 30 marks, approximately 60 minutes after guided setup. Five MCQs (5 marks), two scenarios (5 each), independent practical (15). Keep expected and actual results separate.
 
 ## L33 end-of-lesson assignment
@@ -89,4 +93,3 @@ Submit L34.md, evidence IDs and expected/actual tests with timestamps and limita
 
 ## Troubleshooting record
 Record symptom, two hypotheses, discriminating check, observation, correction, fresh retest and rollback. Preserve raw evidence privately and sanitise portfolio copies.
-

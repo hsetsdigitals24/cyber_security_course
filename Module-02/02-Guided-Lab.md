@@ -5,10 +5,10 @@
 
 | Item | Student meaning |
 |---|---|
-| Purpose | Practise explain addresses and the local path, then diagnose a service connection |
+| Purpose | P01: address diagram, service baseline and fault tickets |
 | Lessons | L03 followed by L04; finish the first checkpoint before moving forward |
-| Prerequisites | Complete the prerequisites in the module README and confirm the environment below with the instructor |
-| Planned practical time | Approximately 120–140 minutes across the two lessons; use any more specific times below and record actual duration |
+| Prerequisites | M01: identify host/guest, use the isolated lab and preserve a baseline. Confirm the environment below with the instructor |
+| Planned practical time | Use the section estimates below; record actual time. Setup is separate and timings remain unpiloted |
 | Starting state | Use only the named prepared image, accounts, fixture and isolated scope; preserve the baseline before changes |
 | Success | Required positive and negative/boundary results are recorded, the authorised service still works, and limitations are explained |
 | Independent variation | Complete the changed case without copying the demonstration result |
@@ -17,6 +17,19 @@
 
 
 <!-- HSETS-LAB-ROUTE -->
+## Pause points for this module
+
+Before changing a setting, say which machine and account you are using. Your instructor supplies the completed [class lab sheet](../H-SETS-Class-Lab-Sheet.md); its values replace example addresses only where the procedure tells you to substitute them.
+
+| Pause | What you should be able to show | If you cannot yet show it |
+|---|---|---|
+| Before L03 | M01: identify host/guest, use the isolated lab and preserve a baseline. | Revisit the prerequisite with the instructor |
+| After L03 | Show both assigned addresses and explain whether the peer is local; identify the selected interface. | Preserve the symptom; repeat the relevant demonstration with guidance |
+| After L04 | Retrieve the marker from the client, distinguish an HTTP error from no response and document two fault retests. | Compare expected/actual results and test one explanation at a time |
+| Before submission | Evidence filenames, statuses and the documented recovery state | Use the workbook checklist; do not replace missing tests with examples |
+
+For each procedure below, perform one action, inspect its result, then continue. Commands belong to the named lab system; `sudo` requires the assigned lab administrator authority. Example output and predictions are not evidence of execution.
+
 ## How to work through this lab
 
 1. Read the environment, scope and starting-state instructions before changing anything.
@@ -70,6 +83,19 @@ curl --max-time 5 -i http://10.10.10.30:8000/missing.html
 The first should return the marker. The second deliberately requests an absent resource; an HTTP 404 is a negative application test, not a network failure. `-i` includes response headers. Save actual response evidence and the matching server request log.
 
 Stop the server with Ctrl+C. Repeat the first client request and record its failure. Restart the exact approved command and retest. Now bind the server to `127.0.0.1` instead, test locally using that address, then test from the client using `.30`. Explain why local success and remote failure can coexist. Stop the loopback server and restore the original binding.
+
+## Read the result before changing anything
+
+The following is an **illustrative interpretation guide**, not captured output. Your wording and addresses may differ with the assigned image.
+
+| Observation | What it supports | What to do next |
+|---|---|---|
+| Expected marker text in the first response | This request returned the expected content | Correlate it with the server's fresh request log |
+| HTTP status 404 for `missing.html` | The server returned an HTTP response for an absent resource | Keep it as the intended negative application result |
+| Connection refused after stopping the process | A connection was actively refused | Compare with the server listener state before assigning a cause |
+| Timeout | The required response did not arrive in the wait period | Check route, listener and policy evidence; do not assume firewall cause |
+
+Make one evidence row per test. Label screenshots or saved output with the client/server role and time so the instructor can follow the result without asking which window it came from.
 
 ## Independent check and troubleshooting
 

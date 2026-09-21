@@ -5,10 +5,10 @@
 
 | Item | Student meaning |
 |---|---|
-| Purpose | Practise administer files and processes safely, then implement and test least privilege |
+| Purpose | P02: file recovery and identity/action access matrix |
 | Lessons | L09 followed by L10; finish the first checkpoint before moving forward |
-| Prerequisites | Complete the prerequisites in the module README and confirm the environment below with the instructor |
-| Planned practical time | Approximately 120–140 minutes across the two lessons; use any more specific times below and record actual duration |
+| Prerequisites | M01–M04: navigate lab files, preserve originals and explain identity versus permission. Confirm the environment below with the instructor |
+| Planned practical time | Use the section estimates below; record actual time. Setup is separate and timings remain unpiloted |
 | Starting state | Use only the named prepared image, accounts, fixture and isolated scope; preserve the baseline before changes |
 | Success | Required positive and negative/boundary results are recorded, the authorised service still works, and limitations are explained |
 | Independent variation | Complete the changed case without copying the demonstration result |
@@ -17,6 +17,19 @@
 
 
 <!-- HSETS-LAB-ROUTE -->
+## Pause points for this module
+
+Before changing a setting, say which machine and account you are using. Your instructor supplies the completed [class lab sheet](../H-SETS-Class-Lab-Sheet.md); its values replace example addresses only where the procedure tells you to substitute them.
+
+| Pause | What you should be able to show | If you cannot yet show it |
+|---|---|---|
+| Before L09 | M01–M04: navigate lab files, preserve originals and explain identity versus permission. | Revisit the prerequisite with the instructor |
+| After L09 | Create, copy and restore a harmless file; identify the exact process you started. | Preserve the symptom; repeat the relevant demonstration with guidance |
+| After L10 | Explain the user-action matrix and demonstrate both permitted and refused operations. | Compare expected/actual results and test one explanation at a time |
+| Before submission | Evidence filenames, statuses and the documented recovery state | Use the workbook checklist; do not replace missing tests with examples |
+
+For each procedure below, perform one action, inspect its result, then continue. Commands belong to the named lab system; `sudo` requires the assigned lab administrator authority. Example output and predictions are not evidence of execution.
+
 ## How to work through this lab
 
 1. Read the environment, scope and starting-state instructions before changing anything.
@@ -34,6 +47,14 @@ Stop and ask the instructor if the named image, account, fixture, permission or 
 ## Preparation
 
 One isolated Ubuntu 24.04 LTS guest with sudo-enabled instructor/lab-admin account; 2 vCPU/2–4 GB RAM planning allowance. Preinstall `acl`, coreutils, procps and standard account tools. Record installed versions and take a clean snapshot. All accounts below are fictional and must not already exist; check with `getent passwd NAME`. Use only `/srv/hsets-finance` and `~/hsets-m05`. Never edit production accounts. Budget 140 guided minutes across lessons.
+
+## Read command blocks in small groups
+
+The first block runs as the ordinary learner in the guest. Run through `pwd` first and confirm that the current directory is your `hsets-m05` folder. Then run the file-create/copy/append commands one line at a time. Stop before the identity/permission section until you can explain which file is the original, backup and changed copy.
+
+In L10, run the group/user creation block from the allocated administrator account. Finish each `adduser` prompt before the next command. Record private passwords through the instructor's secure route. Show the new identities/group to the instructor before creating the resource directory.
+
+Run each identity test separately. Read its result before proceeding to the next user. Ben's and Cara's expected refusals are successful boundary tests, not errors to bypass. Keep the exact refusal and the neighbouring allowed result so an unavailable file is not mistaken for enforced permission.
 
 ## L09 — Observe, change, recover
 

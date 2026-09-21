@@ -54,6 +54,16 @@ Wrong directory, case, quoting, and overwriting redirection explain many beginne
 
 Kernel: resource-managing core. Shell: command interpreter. Path: object location. Process: running program instance. PID: process identifier. Package: managed software unit. Standard output: ordinary result stream. Exit status: numeric process result.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** Suppose a fictional contractor can open a known file but cannot list its directory. These are different operations. Directory traversal permits reaching a known name; listing requires directory read permission. File read permission controls reading that file's content. Therefore “I can read the file” does not establish “I can list every name.” Test the required operations separately with the contractor identity, not the administrator.
+
+**Try together:** Draw directory → known filename → file content. Mark where traversal, listing and content reading differ.
+
+**Try independently:** A read test passes but an append test also passes when it should fail. What evidence would you inspect before changing permissions?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-Lesson Assignment — L09
 
 Complete Workbook L09: five MCQs, two scenarios, and a file/process investigation. Submit actual path evidence, a safe copy/change/recovery sequence, package-version observation, and explanation of a process you created. Budget 60 minutes; 50 formative marks.

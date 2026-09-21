@@ -4,6 +4,8 @@ Exactly eight projects are required. Use the [project handbook](H-SETS-Portfolio
 
 ## Build a reader-friendly repository
 
+Start with the [portfolio starter](H-SETS-Portfolio-Starter.md). It uses the handbook's exact folder structure and introduces the files in three stages. Its completed miniature example shows formatting and bounded reasoning; it is fictional practice material, not an assessed answer or an additional project.
+
 The README should tell a reviewer what business problem you addressed before naming tools. State that the organisation and data are fictional and identify your own contribution. Describe the environment, two decisions and their reasons, actual validation results, one failure you diagnosed, and the limits of your work. Link to evidence supporting each result. Avoid unsupported claims such as 'secured the entire network' or 'detected all attacks.'
 
 Use the handbook's repository structure. Keep source artifacts private when they contain restricted material. Publish selected sanitised copies; do not alter originals and then present their hashes as those of the originals. Record a public-copy relationship in the evidence manifest. Hashes support integrity comparison, not proof of who created a file.
@@ -70,7 +72,3 @@ Write result statements only after the work: 'In an isolated lab, investigated [
 Prepare to answer: Which observation changed your hypothesis? What did the denied test prove? What would you check if logging stopped? Which action required approval? How did you verify recovery? What part of this system have you not tested? The assessor should select one evidence item and ask you to reproduce or explain it.
 
 In M18/studio, select a role, review five current genuine vacancies, map requirements to your evidence, and identify gaps. Build a 30/60/90-day plan with practical learning, applications, interview practice, and feedback. Record URLs and dates when that vacancy exercise is actually performed; this document makes no current hiring-demand claim.
-
-## Source adaptation
-
-The evidence/defence method builds on the instructor's FEMTECH project guide at commit 4ee35f964d4a623933509ed2b4560972ffabb65f. Ticket ownership, escalation, and validation principles were reviewed in enterprise-it-support-training/lessons/lesson-02-helpdesk-workflow-ticketing-and-escalation.md at commit 06d6d152bbe4110fc00883ec2fbabbda96e002a3 on 12 September 2026. H-SETS retains its own eight-project rubric rather than the source's different ten-project grading weights.

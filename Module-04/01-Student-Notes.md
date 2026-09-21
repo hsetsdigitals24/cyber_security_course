@@ -52,6 +52,16 @@ Urgency is a reason to verify efficiently, not to bypass approval. A successful 
 
 Phishing: deceptive communication intended to induce an action. Authentication: verification of an identity claim. Authorisation: permitted actions. MFA: authentication using multiple factor categories. Least privilege: only required permissions. Access review: checking current access against business need.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A fictional payment message asks you to change bank details and avoid the usual contact. Those requests are observations. They justify checking the request through the approved contact record; they do not identify who wrote the message. Likewise, matching hashes of two supplied files support byte consistency under the comparison used, not that the file is harmless. Each conclusion must stay within the test's purpose.
+
+**Try together:** Underline the observations in the message and circle one claim that would need more evidence.
+
+**Try independently:** A certificate has a matching hostname and current dates. State one question about the organisation or requested action that this does not answer.
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### End-of-Lesson Assignment — L07
 
 Complete Workbook L07: five MCQs, two scenarios, and a synthetic message/access review. Submit a fact-versus-inference table, verification plan, access matrix, and escalation note. Budget 60 minutes; 50 formative marks. Do not contact anyone or create a phishing campaign.

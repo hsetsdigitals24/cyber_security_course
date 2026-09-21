@@ -44,6 +44,16 @@ Follow lab A–C. The instructor selects one source record, expands its collecte
 ### Common mistakes, summary and glossary
 Avoid confusing active agent, healthy channel and complete history. Collection means obtaining records; parsing means extracting fields; indexing makes records searchable; retention describes how long they remain available. A source-health claim requires a current event through the intended path.
 
+### Worked practice — explain it before you change it
+
+**Illustrative case, not an executed lab result.** A dashboard shows an agent as active, but no application event appears. Active connectivity is one stage, not proof of every source. Start with a fresh local application event. If it exists, follow configuration, collection and the selected downstream view. If it does not exist, changing dashboard filters will not create it. After repair, use a different fresh event so an old record cannot be mistaken for recovery.
+
+**Try together:** Identify endpoint, timestamp, action, result and source reference in the instructor's sanitised event.
+
+**Try independently:** A new event arrives after restart. What remains to be checked about the interval when collection was stopped?
+
+These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
 ### L27 end-of-lesson assignment
 Complete the L27 workbook: five MCQs, two scenarios and independent two-endpoint evidence task, 30 marks, about 60 minutes. Submit L27.md and source inventory with original/collected evidence references. This is P06's onboarding milestone.
 
@@ -88,4 +98,4 @@ Triage determines priority and next action. Disposition states the investigation
 Complete the workbook's L28 tasks, 30 marks, approximately 60 minutes. Submit the fault record, fresh-event retest and triage ticket. G3 is a separate individual 60-minute assessment using a fresh case.
 
 ## Source notes
-FEMTECH cached F30 SIEM Fundamentals and F31 Wazuh in Practice reviewed 14 September 2026; the combined read was truncated, so only visible sections are claimed. Broader multi-SIEM queries are extensions. [Wazuh collection](https://documentation.wazuh.com/current/user-manual/capabilities/log-data-collection/how-it-works.html), [FIM configuration](https://documentation.wazuh.com/current/user-manual/capabilities/file-integrity/how-to-configure-fim.html), and [deployment resources](https://documentation.wazuh.com/current/quickstart.html) were checked during authoring. Pin versions for delivery.
+Technical references: [Wazuh collection](https://documentation.wazuh.com/current/user-manual/capabilities/log-data-collection/how-it-works.html); [FIM configuration](https://documentation.wazuh.com/current/user-manual/capabilities/file-integrity/how-to-configure-fim.html); [deployment resources](https://documentation.wazuh.com/current/quickstart.html). Match procedures to the classroom versions.
