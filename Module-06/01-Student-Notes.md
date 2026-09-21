@@ -12,6 +12,70 @@ H-SETS • L11/L12 • Prerequisite M05's tested access baseline and M02 network
 
 A useful file service must remain accessible to authorised staff while limiting other access. Hardening is the process of reducing unnecessary exposure and privileges while preserving required work. It is not a list of restrictive settings applied without context. Cedarbridge now exposes its departmental files through the encrypted SFTP capability of SSH on the isolated range.
 
+<!-- HSETS-TERMS-L11 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l11-01"></a>
+#### Service state, listener and service health
+
+**Definition:** Service state describes whether a managed service is running or stopped. A listener accepts traffic at an endpoint. Service health means the required user transaction works under the specified conditions.
+
+**Explanation:** These are progressively different checks. A process can run on the wrong address; a listener can accept connections while the application fails. Work towards the required transaction rather than stopping at a green status icon.
+
+**Example or scenario:** The SSH service is running, but the assigned client cannot connect through the lab policy. The service-state check is useful yet does not validate the whole path.
+
+**Check your understanding:** Which result is stronger than “the service is active”?
+
+<a id="term-l11-02"></a>
+#### Log, timestamp and audit coverage
+
+**Definition:** A log is a recorded sequence of events or messages. A timestamp records a time associated with an entry. Audit coverage describes which activities the recording configuration can observe.
+
+**Explanation:** Logs reflect configured sources and limits. Missing entries can mean no event, disabled collection, filtering or loss. Include source, time zone and the relevant configuration before drawing conclusions from silence.
+
+**Example or scenario:** The learner sees no failed-login record because they are viewing the wrong service's log. Restarting the whole guest would not answer the initial evidence question.
+
+**Check your understanding:** Does an empty selected log prove no failed sign-in occurred?
+
+<a id="term-l11-03"></a>
+#### SSH, host key and user authentication
+
+**Definition:** Secure Shell (SSH) supports protected remote interaction. A host key helps a client recognise the server. User authentication checks the client's claimed account identity.
+
+**Explanation:** The client must know which server it is reaching, while the server must decide which user may connect. These are different checks. A changed host key requires investigating the expected server state rather than blindly accepting it.
+
+**Example or scenario:** The instructor rebuilds a disposable guest, changing its host key. The learner verifies the new lab record before reconnecting and then authenticates with the assigned user account.
+
+**Check your understanding:** Is verifying the server host key the same as signing in the user?
+
+<a id="term-l11-04"></a>
+#### Hardening, baseline and rollback
+
+**Definition:** Hardening reduces unnecessary exposure and strengthens configuration. A baseline records the approved state. Rollback returns an approved change to its previous state when needed.
+
+**Explanation:** Make bounded changes with a recovery route. A control that blocks all legitimate work is not automatically a successful configuration. Compare before/after behaviour and preserve administrator recovery access.
+
+**Example or scenario:** The learner narrows allowed service sources, keeps console recovery available and tests both permitted and prohibited clients. If the intended client loses access, they use the recorded recovery plan.
+
+**Check your understanding:** Why test the authorised client after applying a restrictive rule?
+
+<a id="term-l11-05"></a>
+#### systemd unit, enabled state and journal
+
+**Definition:** A systemd unit represents a managed operating-system resource such as a service. Enabled state concerns configured startup behaviour; active state concerns current operation. The journal stores structured logging information queried by journal tools.
+
+**Explanation:** A service can be active now without being configured to start through the expected startup path, or configured for startup while currently failed. Check the question you actually need answered and then test the service transaction.
+
+**Example or scenario:** The learner starts a service manually and gets a successful request. Before claiming it survives restart, they inspect startup configuration and follow the approved restart validation.
+
+**Check your understanding:** Does active status alone prove automatic startup is configured?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L11 -->
+
 ### 1. Service state is not service success
 
 A service is a managed background function. On our Ubuntu baseline, systemd manages many services using units. A service may be active now but not enabled for automatic startup, or enabled but currently failed. `systemctl status` reports state and recent information; `is-active` and `is-enabled` answer different questions. Socket activation can start a service when a connection arrives, so inspect both the service and socket where the package uses them.
@@ -73,6 +137,70 @@ Complete Workbook L11. Submit service/listener evidence, a named-user file trans
 ### General Overview
 
 Automation repeats decisions quickly, including wrong decisions. Begin with a task you understand manually, use bounded copied data, and make errors visible. Cedarbridge needs a repeatable summary of synthetic authentication outcomes and a verified recovery of one departmental file. Neither task requires a large programming application.
+
+<!-- HSETS-TERMS-L12 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l12-01"></a>
+#### Recovery and acceptance test
+
+**Definition:** Recovery restores required operation after disruption. An acceptance test checks whether a stated requirement has been met.
+
+**Explanation:** Copying bytes back is only one possible recovery step. Verify content, access and service behaviour relevant to the requirement. Record what remains untested.
+
+**Example or scenario:** The restored departmental file contains the correct text but the intended user cannot read it. The learner records content recovery and continues diagnosing access.
+
+**Check your understanding:** Is the complete service recovered in this scenario?
+
+<a id="term-l12-02"></a>
+#### Variable, loop and condition
+
+**Definition:** A variable holds a value used by a program. A loop repeats a sequence. A condition chooses behaviour according to a true/false test.
+
+**Explanation:** A small parser can read one record at a time, test its result and update a counter. Explain the input and rule before trusting the final number. Repetition makes mistakes scale as easily as correct work.
+
+**Example or scenario:** The teaching parser reads synthetic sign-in records and increases a failure counter only when the required result matches. A success record should not increase that counter.
+
+**Check your understanding:** Why manually classify a small input before running the loop?
+
+<a id="term-l12-03"></a>
+#### JSON, schema and malformed input
+
+**Definition:** JSON is a structured text representation of values. A schema describes the expected structure and types. Malformed input does not satisfy the required syntax or structure for the task.
+
+**Explanation:** Valid JSON syntax alone does not guarantee a useful event. A record can parse successfully but lack the result field or contain the wrong type. Handle those cases explicitly rather than silently inventing values.
+
+**Example or scenario:** One line has a missing result; another has result as a number. The learner records how the parser classifies each under the stated contract.
+
+**Check your understanding:** Can a syntactically valid JSON object still be invalid for this parser's purpose?
+
+<a id="term-l12-04"></a>
+#### Exception, exit status and boundary test
+
+**Definition:** An exception signals a problem during program execution. An exit status reports a process's outcome numerically. A boundary test examines an edge condition such as empty input or a limit.
+
+**Explanation:** A robust teaching script distinguishes ordinary non-matches from invalid input and operational failure. Include empty and missing files so a clean-looking count is not confused with successful reading.
+
+**Example or scenario:** The input file does not exist. The script reports an input error and a failure status rather than claiming that zero failed logins were observed.
+
+**Check your understanding:** Why is “no file read” different from “file read with zero failures”?
+
+<a id="term-l12-05"></a>
+#### Function, dictionary, argument and JSON Lines
+
+**Definition:** A function groups a program task. A dictionary maps keys to values. An argument supplies an input to a command or function. JSON Lines stores a separate JSON value on each line.
+
+**Explanation:** The teaching parser takes a filename argument, reads one line at a time and interprets an event object as a dictionary. Understanding these roles helps explain where a missing filename, malformed line or missing key affects the result.
+
+**Example or scenario:** A file contains several synthetic event objects, one per line. The script reads the result key in each object instead of treating the entire file as one space-separated message.
+
+**Check your understanding:** Why is splitting every line on spaces a poor replacement for a JSON parser?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L12 -->
 
 ### 1. Recovery means restored usefulness
 

@@ -12,6 +12,81 @@ H-SETS • L07/L08 • Prerequisite M01–M03. Six guided and six independent ho
 
 Technical failures are not always attacks, and a convincing message is not proof of identity. Security work combines system evidence with knowledge of who should be allowed to do what. Cedarbridge's Finance team must approve payments without trusting every urgent email. This lesson connects M01 risk language with the identity controls that later Linux and Active Directory lessons implement.
 
+<!-- HSETS-TERMS-L07 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l07-01"></a>
+#### Malware and attack behaviour
+
+**Definition:** Malware is software designed to perform harmful or unauthorised actions. Attack behaviour is what an actor or tool actually does, such as attempting unwanted access.
+
+**Explanation:** A label describes a category, not a complete explanation. Record actions, affected resources and evidence before naming an actor or assuming a particular motive. The course uses harmless examples rather than live malware.
+
+**Example or scenario:** A fictional case says files were renamed. That observation alone does not establish ransomware: an approved script or a mistake might also rename files.
+
+**Check your understanding:** What makes “files were renamed” different from “ransomware caused it”?
+
+<a id="term-l07-02"></a>
+#### Social engineering and phishing
+
+**Definition:** Social engineering manipulates people into decisions that help an attacker. Phishing uses deceptive messages or sites to prompt actions such as disclosing information or visiting a destination.
+
+**Explanation:** Pressure, apparent authority and requests to bypass normal checks can influence decisions. An unusual message calls for verification through a known independent route, not through contact details supplied by the message itself.
+
+**Example or scenario:** A fictional supplier message demands a bank-detail change and says not to call the usual contact. Finance checks the approved supplier record before acting.
+
+**Check your understanding:** Why is replying to the suspicious sender a weak independent verification method?
+
+<a id="term-l07-03"></a>
+#### Identity and authentication
+
+**Definition:** An identity is the account or entity being represented. Authentication checks the evidence supporting a claimed identity.
+
+**Explanation:** A username states which account is being claimed; a password or security key can help verify that claim. Successful authentication does not mean the account may perform every operation, and possession of credentials does not prove the real person's intent.
+
+**Example or scenario:** Alice enters her account name and completes the portal's sign-in check. The system establishes a session for that identity before considering which records she may open.
+
+**Check your understanding:** If Alice signs in but cannot open payroll, has authentication necessarily failed?
+
+<a id="term-l07-04"></a>
+#### Authorisation, access matrix and least privilege
+
+**Definition:** Authorisation decides which actions an identity may perform on a resource. An access matrix lists identities or roles against resources and allowed actions. Least privilege limits those grants to what the task needs.
+
+**Explanation:** Write the intended access before changing settings. This turns “secure the folder” into testable operations, including who must be refused. Test as the intended identity rather than relying on administrator access.
+
+**Example or scenario:** The matrix says Finance may edit payroll, Audit may read it and Operations may not open it. The instructor asks students to test each distinct operation.
+
+**Check your understanding:** Why is one successful Finance edit insufficient to validate this whole matrix?
+
+<a id="term-l07-05"></a>
+#### Ransomware, Trojan, worm and spyware
+
+**Definition:** Ransomware seeks to deny access or exert pressure for payment, often through encryption and sometimes data theft. A Trojan presents an apparently useful function while concealing harmful behaviour. A worm spreads between systems. Spyware collects information covertly or without the intended user's informed permission.
+
+**Explanation:** These categories describe behaviours and can overlap. Learn the concepts without running unknown samples. A filename, visual warning or single changed file is insufficient to establish which behaviour occurred.
+
+**Example or scenario:** A fictional report says a useful-looking installer collected private data. The student distinguishes the deceptive presentation from the collection behaviour instead of assuming only one category can apply.
+
+**Check your understanding:** Can one malicious program fit more than one category?
+
+<a id="term-l07-06"></a>
+#### SPF, DKIM and DMARC
+
+**Definition:** Sender Policy Framework (SPF) checks whether a sending host is authorised for a relevant mail-sending domain. DomainKeys Identified Mail (DKIM) uses a domain signature to verify covered message content. Domain-based Message Authentication, Reporting and Conformance (DMARC) uses aligned SPF or DKIM authentication results for the visible From domain and expresses policy/reporting information.
+
+**Explanation:** These mechanisms support particular domain-related checks. They do not approve the requested business action or prove that a person is honest. A compromised legitimate account or a deceptive sender using its own domain can still send a harmful request.
+
+**Example or scenario:** A fictional payment-change email passes the available domain checks. Finance still verifies the change using its approved supplier contact and authorisation process.
+
+**Check your understanding:** Does a passing mail authentication result make a bank-detail change automatically authorised?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L07 -->
+
 ### 1. Describe behaviour before attaching a label
 
 Malware is software used for harmful or unauthorised purposes. Ransomware may deny access by encrypting data and may also steal it. A Trojan presents itself as useful while performing another function; a worm propagates between systems; spyware collects information. These categories can overlap. Knowing a category does not establish what a particular file did.
@@ -71,6 +146,70 @@ Complete Workbook L07: five MCQs, two scenarios, and a synthetic message/access 
 ### General Overview
 
 Cryptography provides different tools for different questions. A hash helps detect changed bytes. Encryption protects confidentiality under appropriate key handling. A digital signature can support integrity and origin verification. A certificate connects a public key with identity information under a trust system. Confusing these purposes leads to weak controls and exaggerated evidence claims.
+
+<!-- HSETS-TERMS-L08 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l08-01"></a>
+#### Cryptographic hash and digest
+
+**Definition:** A cryptographic hash function turns input bytes into a fixed-length digest. The digest is used as a compact comparison value.
+
+**Explanation:** The same function produces the same digest for the same bytes. A changed digest establishes that the compared inputs differ; matching digests provide strong practical integrity-comparison evidence with an appropriate function, not proof of authorship or safety.
+
+**Example or scenario:** A learner records a capture's digest before copying it and compares the copy afterwards. Matching values support the integrity check but do not prove that the original capture was complete.
+
+**Check your understanding:** Can a malicious file have a perfectly valid hash?
+
+<a id="term-l08-02"></a>
+#### Encryption, plaintext, ciphertext and key
+
+**Definition:** Encryption transforms readable plaintext into ciphertext using a cryptographic method and key. Decryption recovers the plaintext with the required key material.
+
+**Explanation:** Encryption addresses exposure of content under stated conditions. The keys and the system using them still need protection. Symmetric methods use shared secret key material; asymmetric methods use related public/private keys for their specified operations.
+
+**Example or scenario:** Cedarbridge encrypts a backup, then restricts who can retrieve the decryption key. Placing the key beside an exposed backup would weaken the intended separation.
+
+**Check your understanding:** Why must the recovery plan include access to the required key?
+
+<a id="term-l08-03"></a>
+#### Digital signature and certificate
+
+**Definition:** A digital signature is a cryptographic value used to verify signed data with a corresponding key. A digital certificate binds a public key to stated identity information under an issuer's signature.
+
+**Explanation:** Signature verification concerns the signed data and key. Certificate checks help assess the key's identity binding, validity and trust chain in context. Neither automatically proves a software package is harmless or a business request is authorised.
+
+**Example or scenario:** A learner inspects a server certificate's name, validity and issuer. Even if connection checks pass, the learner must still verify an unexpected request to transfer payroll information.
+
+**Check your understanding:** Does a valid certificate establish that every instruction on the site is trustworthy?
+
+<a id="term-l08-04"></a>
+#### Integrity, authenticity and provenance
+
+**Definition:** Integrity concerns whether information has changed improperly. Authenticity concerns whether it is what it claims to be. Provenance records where it came from and how it was handled.
+
+**Explanation:** A useful evidence record combines content comparisons with source, time and handling context. A correct hash of a fabricated original does not make the original genuine.
+
+**Example or scenario:** A student saves a supplied exercise file, records its source and digest, and keeps the original unchanged while analysing a copy. That makes later comparisons and explanations clearer.
+
+**Check your understanding:** What does a hash fail to tell you about the first copy received?
+
+<a id="term-l08-05"></a>
+#### Symmetric key, public key and private key
+
+**Definition:** Symmetric encryption uses shared secret key material for encryption and decryption. Public-key cryptography uses a related public/private key pair, with the private part kept secret and the public part shared for its defined operation.
+
+**Explanation:** Algorithms have specific purposes; do not assume every public-key algorithm performs both signing and encryption. Key distribution, storage and recovery matter as much as choosing a cryptographic name. Hashing without a secret key is a different operation.
+
+**Example or scenario:** The organisation encrypts a backup using protected secret key material, while a software publisher uses a private signing key and lets learners verify with a trusted public key.
+
+**Check your understanding:** Should the publisher send its private signing key to everyone who needs to verify a signature?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L08 -->
 
 ### 1. A hash is a fingerprint of bytes
 

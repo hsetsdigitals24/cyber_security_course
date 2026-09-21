@@ -8,6 +8,59 @@
 ### General Overview
 Cedarbridge's file server, Windows workstation and firewall each know a different part of an event. A SIEM makes selected records searchable together. It does not automatically know what happened: its conclusions depend on collection, parsing, time, context and analyst reasoning. This lesson follows a single record before introducing dashboards.
 
+<!-- HSETS-TERMS-L27 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l27-01"></a>
+#### SIEM, agent, manager, indexer and dashboard
+
+**Definition:** Security information and event management (SIEM) brings selected records together for analysis. An agent collects endpoint data; a manager processes it; an indexer makes stored records searchable; a dashboard displays selected results.
+
+**Explanation:** These roles form a chain with different failure points. A connected agent establishes a connection condition, not complete collection, correct parsing or complete displayed history. Follow one actual event through the configured path.
+
+**Example or scenario:** The Wazuh dashboard lists an active agent, but the Security channel is not being collected as intended. The green status cannot substitute for a fresh source-event test.
+
+**Check your understanding:** Which observation would add stronger source-specific health evidence?
+
+<a id="term-l27-02"></a>
+#### Raw record, field, parsing and normalisation
+
+**Definition:** A raw record is the source or collected representation before a particular interpretation step. A field is a named property. Parsing extracts fields; normalisation maps different representations to a consistent meaning.
+
+**Explanation:** The same word can describe different roles across sources. Distinguish the initiating account from the target account before linking events. Preserve enough original context to review how a normalised value was derived.
+
+**Example or scenario:** One log calls an identity account and another calls it user. The analyst confirms their meaning before treating them as the same actor.
+
+**Check your understanding:** Why is simply renaming both fields to user insufficient?
+
+<a id="term-l27-03"></a>
+#### Event time, ingestion time and time zone
+
+**Definition:** Event time is when the recorded activity occurred according to its source. Ingestion time is when a later system received it. A time zone or offset explains how a displayed local time relates to a shared reference.
+
+**Explanation:** Keep both timestamps where available. Delay can arise from queues or processing as well as clock problems. Preserve original strings while making an interpreted timeline comparable.
+
+**Example or scenario:** An event at 10:05 +01:00 corresponds to 09:05 UTC and is received at 09:08 UTC. The three-minute difference is a delivery/processing observation, not automatic proof of a wrong clock.
+
+**Check your understanding:** Which timestamp should not silently replace the source time when reconstructing activity?
+
+<a id="term-l27-04"></a>
+#### Retention, archive and FIM
+
+**Definition:** Retention describes how long specified records remain available. An archive retains data for later retrieval under its own conditions. File integrity monitoring (FIM) observes configured file-property changes against a baseline.
+
+**Explanation:** Searchable alerts and retained raw records can have different coverage and lifetimes. FIM can establish a monitored change without identifying its human cause or preserving every intermediate content version.
+
+**Example or scenario:** The dashboard shows a file-change alert, but the relevant older raw history is outside retention. The analyst records the limit instead of assuming the view contains everything.
+
+**Check your understanding:** Does extending today's search time range recreate records that were already discarded?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L27 -->
+
 ### Prerequisite refresher
 Recall Event Viewer, Linux service logs, authentication versus authorisation, and the evidence register. A source record describes what that component observed. A Windows failed logon does not establish that a password was stolen; a file-change record does not necessarily identify the person who caused it.
 
@@ -60,6 +113,48 @@ Complete the L27 workbook: five MCQs, two scenarios and independent two-endpoint
 ## L28 — Triage, tickets, and missing-source diagnosis
 ### General Overview
 A SOC analyst turns an alert into a justified next action. The task is not to label everything malicious. It is to establish the entities, verify evidence, assess potential business harm, identify uncertainties, and communicate what should happen next.
+
+<!-- HSETS-TERMS-L28 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l28-01"></a>
+#### Triage and disposition
+
+**Definition:** Triage determines the priority and next investigative step for a case. Disposition records the assessed outcome, such as expected activity, suspicious or unresolved.
+
+**Explanation:** The analyst tests explanations rather than assigning every alert an attack label. A conclusion should say which events it explains and what remains open. Running out of time is not evidence that an unexplained case is benign.
+
+**Example or scenario:** Repeated failures stop after an approved service-password correction. A separate sign-in from another source remains unexplained, so the learner does not close all activity for the account together.
+
+**Check your understanding:** Why might part of the account's activity remain unresolved after the service fault is explained?
+
+<a id="term-l28-02"></a>
+#### Severity, confidence and escalation
+
+**Definition:** Severity expresses the potential consequence and urgency under the scenario's policy. Confidence expresses how strongly the evidence supports a conclusion. Escalation passes a case to a person with the needed authority or expertise.
+
+**Explanation:** High uncertainty can coexist with high potential impact. Explain both rather than using the tool's score as a substitute for business reasoning. Name the evidence or condition that should trigger the next owner.
+
+**Example or scenario:** An uncertain alert affects a critical payment service. The analyst escalates for urgent validation while clearly marking what is not yet confirmed.
+
+**Check your understanding:** Can a low-confidence case still deserve prompt escalation?
+
+<a id="term-l28-03"></a>
+#### Source silence, fresh-event test and historical gap
+
+**Definition:** Source silence means expected records are absent from the observation path. A fresh-event test generates new activity to check current flow. A historical gap is an interval for which expected evidence is missing or incomplete.
+
+**Explanation:** Repairing collection and recovering old records are separate tasks. Follow source, collector and downstream views in order. Reconcile originals where available rather than assuming a restart backfills everything.
+
+**Example or scenario:** After repair, a new harmless file change arrives. The earlier outage still needs investigation because intermediate changes may not have been retained or replayed.
+
+**Check your understanding:** What does the new event prove about records from the outage?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L28 -->
 
 ### Prerequisite refresher
 Use M11's finding/confirmation distinction and M13's pipeline diagnosis. A detection condition can match legitimate behaviour. A false negative cannot be counted from a quiet alert list without known missed activity.

@@ -8,6 +8,59 @@
 ### General Overview
 Cedarbridge wants documents to remain private and recoverable. A provider can operate infrastructure, but cannot decide which employee should read a payroll file. This lesson connects identity, access, storage and recovery to clear business requirements.
 
+<!-- HSETS-TERMS-L33 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l33-01"></a>
+#### Cloud service models and shared responsibility
+
+**Definition:** Infrastructure as a Service (IaaS) supplies infrastructure resources; Platform as a Service (PaaS) supplies a managed application platform; Software as a Service (SaaS) supplies a managed application. Shared responsibility divides obligations between provider and customer according to the actual service.
+
+**Explanation:** These labels help ask questions but do not replace the service's documented boundary. Customer responsibilities can include identities, configuration and data even when infrastructure is managed. The local simulator does not implement a real provider's full controls.
+
+**Example or scenario:** Cedarbridge uses a managed storage service. The provider's infrastructure operation does not remove the team's duty to choose who can read the uploaded data.
+
+**Check your understanding:** Can the team infer all security responsibilities from the word “cloud” alone?
+
+<a id="term-l33-02"></a>
+#### Data plane, management plane and token
+
+**Definition:** The data plane handles ordinary resource operations. The management plane configures the service and its access. A token is a value used to convey an authentication or authorisation context in a specified system.
+
+**Explanation:** A reader of an object need not be allowed to change who can read every object. Protect management authority separately and keep tokens out of reports. The teaching fixture's token features are intentionally limited.
+
+**Example or scenario:** The synthetic reader token can request the object but cannot write it. The instructor separately controls service setup and backup authority.
+
+**Check your understanding:** Why is publishing a working token in a screenshot unsafe even when the screenshot is evidence?
+
+<a id="term-l33-03"></a>
+#### RPO, RTO and recovery measurement
+
+**Definition:** Recovery Point Objective (RPO) states the acceptable data-loss interval measured in time. Recovery Time Objective (RTO) states the target time to restore the defined service after disruption.
+
+**Explanation:** Objectives are targets, not automatically achieved results. Record the backup's age, when timing starts and which validation ends it. Restoring bytes before access works may not satisfy the service-recovery objective.
+
+**Example or scenario:** The exercise allows up to 24 hours of data loss and defines restoration to include permitted access and denied-write tests. The learner times through those checks, not only the copy operation.
+
+**Check your understanding:** If file copying ends at eight minutes but required access checks finish at twelve, which time meets this defined measurement?
+
+<a id="term-l33-04"></a>
+#### Independent backup and recovery boundary
+
+**Definition:** An independent backup is separated from relevant failure or authority paths that could affect the live data. A recovery boundary defines what is protected, from which failures and under whose control.
+
+**Explanation:** A second folder on the same writable service is not automatically independent. Consider storage, credentials, deletion authority and actual restore availability. Encryption and separation address different aspects of protection.
+
+**Example or scenario:** The writer can alter the live object but must not be able to alter the approved backup. The class verifies that authority boundary and later restores using the protected copy.
+
+**Check your understanding:** Does naming a folder backup prove that the service writer cannot damage it?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L33 -->
+
 ### Prerequisite refresher
 Authentication establishes identity; authorisation decides permitted actions. A hash checks bytes, not availability. A backup must be recoverable under the relevant failure. Recall M16's distinction between restoring a file and restoring a useful service.
 
@@ -68,6 +121,48 @@ Complete five MCQs, two scenarios and independent practical in the workbook: 30 
 ## L34 — Risk ownership, control evidence, and reporting
 ### General Overview
 Technical controls need owners and decisions. Cedarbridge must choose which risks to reduce first, who is accountable, and what evidence shows a control works. This lesson turns practical results into a clear management recommendation.
+
+<!-- HSETS-TERMS-L34 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l34-01"></a>
+#### Risk owner, likelihood and impact
+
+**Definition:** A risk owner is accountable for decisions about a risk. Likelihood concerns how plausible an adverse outcome is under stated conditions. Impact concerns the consequences if it occurs.
+
+**Explanation:** Qualitative ratings such as Low/Medium/High help discussion when assumptions are visible. They are not measured probabilities merely because numbers are assigned. Link the technical condition to a business decision and owner.
+
+**Example or scenario:** A recovery copy is unavailable during class. The report describes the affected service, plausible interruption and responsible owner instead of listing “backup risk” without context.
+
+**Check your understanding:** Why should a risk record name an owner as well as a technical weakness?
+
+<a id="term-l34-02"></a>
+#### Treatment, residual risk and acceptance
+
+**Definition:** Risk treatment changes how a risk is handled. Residual risk remains after that treatment. Acceptance is an authorised decision to retain defined remaining risk.
+
+**Explanation:** A safeguard rarely proves that all risk has disappeared. Explain what changed, what remains and when the decision should be reviewed. The administrator implementing a setting is not automatically the owner authorised to accept its consequences.
+
+**Example or scenario:** A temporary recovery arrangement reduces disruption risk but leaves a longer recovery time than desired. The owner records a bounded decision and an improvement deadline.
+
+**Check your understanding:** Does applying a control justify writing “zero risk” in the report?
+
+<a id="term-l34-03"></a>
+#### Policy, procedure, control evidence and framework
+
+**Definition:** A policy states an organisation's rules or expectations. A procedure explains how to carry out an activity. Control evidence supports a claim about implementation or operation. A framework organises practices and outcomes for assessment or planning.
+
+**Explanation:** Writing a rule, following a procedure and proving a result are different achievements. Mapping a classroom activity to a framework does not grant accreditation or establish complete organisational compliance.
+
+**Example or scenario:** The policy requires restricted access, the procedure describes group setup, and the learner's allowed/denied tests provide evidence of the tested boundary. A framework reference helps organise the discussion.
+
+**Check your understanding:** Which of these directly demonstrates the tested behaviour: policy text or functional test evidence?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L34 -->
 
 ### Prerequisite refresher
 Risk links a valued asset to an adverse event and consequence. A vulnerability is a weakness, not the entire risk. M11 distinguished proposed, fixed and unverified conditions. Use the same accuracy in governance records.

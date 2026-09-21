@@ -10,6 +10,70 @@
 
 A local account belongs to one computer. Recreating each employee everywhere creates inconsistent passwords and forgotten access. A directory stores identities centrally so multiple systems recognise the same employee. The domain controller authenticates identity, while the resource server evaluates permissions. DNS is essential because clients discover domain services through service records. Public DNS resolving a website does not prove domain discovery works.
 
+<!-- HSETS-TERMS-L15 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l15-01"></a>
+#### AD DS, domain and domain controller
+
+**Definition:** Active Directory Domain Services (AD DS) stores directory objects and supports domain identity services. A domain is a managed directory grouping. A domain controller (DC) runs the directory services for that domain.
+
+**Explanation:** Central accounts and groups reduce the need to recreate identities separately on each computer. Clients depend on suitable network connectivity and name resolution to locate domain services. Central identity does not remove the need for resource permissions.
+
+**Example or scenario:** Cedarbridge joins the client to cedarbridge.test. Alice uses her domain identity, while the Finance share still applies its own access rules.
+
+**Check your understanding:** Does joining the domain automatically let every user read Finance?
+
+<a id="term-l15-02"></a>
+#### Organisational unit and security group
+
+**Definition:** An organisational unit (OU) is a directory container used for organisation, delegation and policy scope. A security group collects identities for security assignments such as resource access.
+
+**Explanation:** An OU and a group are not interchangeable. Moving a user into a departmental OU does not automatically grant a folder permission. Use the approved group chain and test the resource operation.
+
+**Example or scenario:** Alice's object is in the Users OU, while her Finance group membership leads to the permission on the Finance folder. The two placements serve different purposes.
+
+**Check your understanding:** Which object should appear in the designed file-permission chain: the OU or the authorised security group?
+
+<a id="term-l15-03"></a>
+#### Global group, domain-local group and resource permission
+
+**Definition:** A global security group can represent a business role within its domain. A domain-local security group can collect principals for permissions on resources in its domain. A resource permission grants an operation on the target object.
+
+**Explanation:** The classroom group chain separates who performs a role from which resource rights the role needs. Keeping those decisions separate makes changes easier to review. This lesson uses the documented same-domain pattern rather than every possible group-scope combination.
+
+**Example or scenario:** Alice joins GG-Finance; GG-Finance joins DL-Finance-Modify; the resource group receives Finance permissions. Moving a role member does not require editing every individual file entry.
+
+**Check your understanding:** Why is the role group nested into a resource group in this design?
+
+<a id="term-l15-04"></a>
+#### Kerberos, LDAP and DNS in a domain
+
+**Definition:** Kerberos is a ticket-based authentication protocol. Lightweight Directory Access Protocol (LDAP) accesses directory information. Domain Name System (DNS) records help clients locate services, including domain services.
+
+**Explanation:** These functions cooperate but answer different questions: where a service is, what directory information exists and how identity is authenticated. Troubleshoot the dependency rather than treating every failure as a bad password.
+
+**Example or scenario:** A domain client points to the wrong DNS server and cannot locate the intended domain services. Repeatedly resetting Alice's password would not fix that discovery problem.
+
+**Check your understanding:** Which dependency should be checked before assuming domain-join failure proves a credential problem?
+
+<a id="term-l15-05"></a>
+#### Forest, schema and global catalogue
+
+**Definition:** An AD DS forest is the top-level grouping of domains sharing a common directory structure. Its schema defines directory object types and attributes. A global catalogue supports forest-wide directory searching and related identity functions.
+
+**Explanation:** A forest establishes shared structures and security relationships. Creating another domain within it does not provide the same separation as an independent forest. Protect highly privileged forest administration and domain controllers accordingly.
+
+**Example or scenario:** The classroom builds one domain in one forest. The instructor explains that adding a department does not automatically require a new domain; organisational units and groups solve different needs.
+
+**Check your understanding:** Would creating a second domain in the same forest guarantee independence from powerful forest administrators?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L15 -->
+
 ### Prerequisite refresher
 
 Recall DNS, SIDs, tokens, groups and NTFS permissions. A domain account and similarly named local account are different identities.
@@ -363,6 +427,59 @@ Complete the five MCQs, two scenarios, practical and reflection for L15 in [Stud
 ### General Overview
 
 Identity management continues after creation. A mover needs previous rights reviewed, not merely new rights added. A leaver needs new access denied and existing sessions handled. Disabling an account does not erase every issued token. Group Policy distributes user and computer settings; actual scope and processing determine whether a setting applies.
+
+<!-- HSETS-TERMS-L16 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l16-01"></a>
+#### IAM and the joiner–mover–leaver lifecycle
+
+**Definition:** Identity and access management (IAM) coordinates identities and their access over time. A joiner gains approved initial access; a mover changes responsibilities; a leaver loses access according to the offboarding process.
+
+**Explanation:** Access decisions need a business owner and a record, not only an administrator clicking settings. Review old rights when duties change; adding new rights without removing obsolete ones can leave excessive access.
+
+**Example or scenario:** Chidi moves from Finance to Operations. The owner approves the new role, the administrator updates the groups and fresh tests verify Operations access plus Finance denial.
+
+**Check your understanding:** Why is granting Operations access alone an incomplete mover process?
+
+<a id="term-l16-02"></a>
+#### Privilege creep and access review
+
+**Definition:** Privilege creep is the accumulation of access beyond current need. An access review checks whether existing rights remain justified.
+
+**Explanation:** Accounts can acquire rights through several roles, exceptions and old projects. Review the effective access and its owner rather than simply checking whether the account is active.
+
+**Example or scenario:** A worker keeps two previous departmental memberships after successive transfers. Each change seemed small, but together they allow unnecessary access.
+
+**Check your understanding:** What evidence should justify retaining an old departmental permission?
+
+<a id="term-l16-03"></a>
+#### Group Policy, GPO and resultant policy
+
+**Definition:** Group Policy applies managed settings to domain users or computers. A Group Policy Object (GPO) contains settings linked to an applicable scope. Resultant policy is the effective outcome after relevant settings are processed.
+
+**Explanation:** Where the object is located, the link, filtering and processing all matter. A setting existing in an editor does not prove a client received it. Test the resulting behaviour and inspect the policy result.
+
+**Example or scenario:** The instructor links a workstation notice to the Workstations OU. The client must be in the relevant scope and process the setting before the expected notice can be verified.
+
+**Check your understanding:** Is a screenshot of the GPO editor enough to prove the client displays the notice?
+
+<a id="term-l16-04"></a>
+#### Account disablement, session and revocation
+
+**Definition:** Disablement changes an account's ability to authenticate as configured. A session is an existing authenticated interaction. Revocation removes or invalidates access that was previously granted.
+
+**Explanation:** Changing the directory account does not automatically prove every existing session or cached credential has ceased working. Follow the assigned closure and fresh-test procedure and distinguish online checks from offline cached sign-in.
+
+**Example or scenario:** The class disables Chidi, closes the assigned file session, signs out and tests new access with the DC reachable. That is clearer than testing an already-open file handle.
+
+**Check your understanding:** Why is a fresh-session test important after an access change?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L16 -->
 
 ### Prerequisite refresher
 

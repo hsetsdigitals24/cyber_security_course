@@ -10,6 +10,59 @@
 
 A scanner compares collected observations with known checks. Its finding is a claim supported by evidence, not automatic proof of exploitable risk. A banner may identify an apparent version while a vendor has backported its security fix. Conversely, a failed credentialed check can hide a weakness. Good assessment records coverage, validates applicability and separates confidence from severity.
 
+<!-- HSETS-TERMS-L21 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l21-01"></a>
+#### Vulnerability, finding and validation
+
+**Definition:** A vulnerability is a weakness that can enable harm. A finding is a documented assessment claim. Validation checks whether the claim applies and what the evidence actually supports.
+
+**Explanation:** Scanner output is a starting point for reasoning. Confirm the asset, method and relevant conditions within the authorised scope. A possible weakness, a confirmed exposure and proven exploitation are different claims.
+
+**Example or scenario:** A synthetic file is retrievable when it should be private. That supports the exposure finding, while a separate old-version banner may remain unconfirmed.
+
+**Check your understanding:** Should both claims automatically receive the same confidence label?
+
+<a id="term-l21-02"></a>
+#### CVE, CVSS and business priority
+
+**Definition:** Common Vulnerabilities and Exposures (CVE) provides identifiers for published vulnerability records. The Common Vulnerability Scoring System (CVSS) communicates technical severity using a defined scoring method. Business priority determines what this organisation should address first.
+
+**Explanation:** An identifier is not a proof of applicability, and technical severity is not the entire business decision. Consider actual exposure, critical services, existing controls and remediation impact. A weakness can matter even without a CVE identifier.
+
+**Example or scenario:** A moderately scored weakness affects a critical exposed service, while another finding affects an isolated unused component. The analyst explains the local priority using the scenario's facts.
+
+**Check your understanding:** Does the largest technical score always determine the organisation's first action?
+
+<a id="term-l21-03"></a>
+#### False positive, false negative and authenticated scan
+
+**Definition:** A false positive is a reported condition that does not meet the defined finding criteria. A false negative is a relevant condition the method missed. An authenticated scan uses approved credentials to inspect information unavailable to the same unauthenticated check.
+
+**Explanation:** Coverage and ground truth matter when interpreting results. Failed credentials can reduce inspection depth while producing a deceptively short report. Do not estimate missed weaknesses merely from a quiet result list.
+
+**Example or scenario:** The scan produces fewer findings after its account loses access. The learner checks authentication status instead of claiming the system became safer.
+
+**Check your understanding:** What should be restored before comparing this run with the earlier authenticated run?
+
+<a id="term-l21-04"></a>
+#### Exploit, backport and applicability
+
+**Definition:** An exploit uses a weakness to produce an effect. A backport applies a fix to an older software branch. Applicability asks whether a reported vulnerability's required conditions are present in the assessed system.
+
+**Explanation:** An older-looking version string does not settle whether a specific fix is absent. Use approved package/vendor evidence and bounded validation; do not perform exploitation merely to make a beginner finding sound stronger.
+
+**Example or scenario:** The scanner sees an older banner, but the supplied package record identifies a vendor backport. The learner checks the finding's method and records its supported status instead of copying the banner claim unchanged.
+
+**Check your understanding:** Why is finding a version string different from proving exploitation occurred?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L21 -->
+
 ### Prerequisite refresher
 
 Recall asset ownership, services, scope and expected/observed reconciliation. A vulnerability is a weakness; a CVE is an identifier for a published vulnerability; CVSS describes technical severity under specified metrics and version.
@@ -444,6 +497,48 @@ Complete the five MCQs, two scenarios, practical and reflection for L21 in [Stud
 ### General Overview
 
 A finding reduces risk only when someone acts and the outcome is verified. Remediation removes or corrects the weakness; mitigation reduces its effect or reach; acceptance is an accountable decision to retain residual risk. These statuses are not interchangeable. A service that has crashed may stop exposing a file, but it has also stopped serving legitimate users. Retesting therefore checks the weakness and the business function.
+
+<!-- HSETS-TERMS-L22 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l22-01"></a>
+#### Remediation, mitigation and risk acceptance
+
+**Definition:** Remediation corrects the weakness. Mitigation reduces its likelihood or impact without necessarily removing it. Risk acceptance is an authorised decision to retain specified remaining risk.
+
+**Explanation:** Use the terms to explain what actually changed. A temporary restriction can reduce exposure while a fix is pending; it should not be reported as removal of the underlying defect. Acceptance needs an accountable decision, not silence.
+
+**Example or scenario:** The team restricts a service while preparing an approved update. The report calls the restriction a mitigation and keeps the remediation task open.
+
+**Check your understanding:** Does documenting a workaround prove the original weakness is gone?
+
+<a id="term-l22-02"></a>
+#### Retest, regression test and comparable coverage
+
+**Definition:** A retest checks the original finding after change. A regression test checks that required legitimate behaviour still works. Comparable coverage means the relevant target, method and conditions support a fair before/after comparison.
+
+**Explanation:** A missing response can mean an outage rather than a secure fix. Preserve the positive service requirement while testing the unwanted behaviour again. Record changed conditions that limit comparison.
+
+**Example or scenario:** The class removes a synthetic private file from the public web directory. It checks that the private URL is no longer exposed and that the approved handbook still opens.
+
+**Check your understanding:** Why is stopping the whole server insufficient evidence of a correct fix?
+
+<a id="term-l22-03"></a>
+#### Closure, rollback and residual risk
+
+**Definition:** Closure is the documented decision that the finding's required actions and verification are complete. Rollback restores an approved earlier state. Residual risk is the risk remaining after treatment.
+
+**Explanation:** A closed ticket should point to actual results and stated limits. Keep a recovery route for changes and separate untested conditions from confirmed outcomes. A promise to patch is not closure evidence.
+
+**Example or scenario:** The learner attaches before/after tests, successful handbook access and the remaining limitation to the ticket. The instructor can review the result without relying on “fixed” alone.
+
+**Check your understanding:** What makes a closure statement stronger than “the administrator applied a change”?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L22 -->
 
 ### Prerequisite refresher
 

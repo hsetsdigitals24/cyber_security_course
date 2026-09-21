@@ -8,6 +8,59 @@
 ### General Overview
 An incident investigation asks what happened, what is affected, what evidence supports that conclusion, and what remains unknown. A dramatic narrative is less useful than a reproducible explanation. Cedarbridge's suspicious sign-in and file-change case teaches how to preserve records and reason across sources.
 
+<!-- HSETS-TERMS-L31 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l31-01"></a>
+#### Evidence preservation, original and working copy
+
+**Definition:** Evidence preservation keeps relevant material available without avoidable alteration. An original is the retained source artifact. A working copy is used for analysis while protecting the retained original.
+
+**Explanation:** Record source, acquisition/receipt context and integrity values where appropriate. A digest helps compare bytes but does not supply missing provenance. Do not edit an original to make analysis easier and then describe it as untouched.
+
+**Example or scenario:** The learner keeps the instructor-supplied capture unchanged and annotates a separate report referencing its packets. Any sanitised public copy is identified as a derivative.
+
+**Check your understanding:** Why should redaction be applied to a separate publication copy?
+
+<a id="term-l31-02"></a>
+#### Volatile evidence and operational trade-off
+
+**Definition:** Volatile evidence can change or disappear quickly, such as active memory or current connections. An operational trade-off weighs evidence preservation against effects on the running service.
+
+**Explanation:** Collection and containment can alter a system. Follow the assigned authority and procedure; do not shut down a system merely because that sounds cautious. Record what an action may lose as well as what it protects.
+
+**Example or scenario:** A fictional incident affects a service people are using. Disconnecting it could limit further communication but also change live evidence and interrupt work. The learner proposes a justified action for approval.
+
+**Check your understanding:** Why is immediate power-off not a universal evidence-preservation rule?
+
+<a id="term-l31-03"></a>
+#### Timeline, normalisation and clock uncertainty
+
+**Definition:** A timeline orders relevant events. Time normalisation expresses them using a comparable reference. Clock uncertainty records how precisely source times can be trusted.
+
+**Explanation:** Keep the original timestamps as well as the interpreted values. Events close in time may not have a reliable order when clocks differ. Do not manufacture precision to make a story appear neat.
+
+**Example or scenario:** One source is believed accurate only within several minutes. Two activities one minute apart are shown with an uncertainty note rather than a definite causal order.
+
+**Check your understanding:** What should happen to the original timestamp when you convert it to UTC?
+
+<a id="term-l31-04"></a>
+#### Hypothesis, corroboration and causation
+
+**Definition:** A hypothesis is a testable explanation. Corroboration is supporting evidence from relevant additional observations. Causation means one event or action produced another.
+
+**Explanation:** Nearby times or matching names can suggest a lead without proving the relationship. Keep competing explanations and seek evidence that distinguishes them, such as a session or process linkage.
+
+**Example or scenario:** A sign-in and a file change occur close together. The student considers both an approved deployment and unauthorised activity, then checks the supplied change and process evidence.
+
+**Check your understanding:** Does temporal proximity alone identify who changed the file?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L31 -->
+
 ### Prerequisite refresher
 A hash compares bytes; a log records one component's observation; a SIEM alert reports a detection condition. M14 taught original and ingestion times. M15 taught that a match is not automatically malicious. We now use those distinctions together.
 
@@ -61,6 +114,59 @@ Complete workbook L31: five MCQs, two scenarios and preservation/timeline practi
 ## L32 — Containment, recovery, and communication
 ### General Overview
 Good response protects the business while improving understanding. An analyst must consider what a proposed action will stop, what it will disrupt, what evidence it could lose, and who can authorise it. Recovery must restore a useful and appropriately protected service.
+
+<!-- HSETS-TERMS-L32 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l32-01"></a>
+#### Incident response, preparation and improvement
+
+**Definition:** Incident response is the coordinated handling of security incidents. Preparation makes people, information and procedures available beforehand. Improvement uses lessons and evidence to strengthen later response.
+
+**Explanation:** Response includes decisions and communication as well as technical actions. Organisation and recovery planning affect whether a chosen measure can be carried out safely. Use the course's assigned authority boundaries.
+
+**Example or scenario:** The team knows who may isolate the service and which recovery copy is approved before the incident exercise begins. That preparation avoids improvising ownership under pressure.
+
+**Check your understanding:** Why is knowing the authorised decision-maker part of technical readiness?
+
+<a id="term-l32-02"></a>
+#### Containment and proportionality
+
+**Definition:** Containment limits further incident harm or spread. Proportionality matches the action's scope and disruption to the supported risk and authority.
+
+**Explanation:** Choose a measure that addresses the observed path while considering required services and evidence. Broader disruption is not automatically better containment. Record what was actually executed versus only recommended.
+
+**Example or scenario:** The case supports concern about one synthetic account. The analyst recommends a bounded action on that account rather than immediately disabling every classroom service.
+
+**Check your understanding:** What should justify the scope of containment?
+
+<a id="term-l32-03"></a>
+#### Eradication and root cause
+
+**Definition:** Eradication removes identified harmful components or conditions. A root-cause claim explains how the underlying failure arose.
+
+**Explanation:** Removing a visible artifact may address a symptom without establishing the entry path or eliminating every cause. State which conditions were actually verified and retain uncertainty where evidence is incomplete.
+
+**Example or scenario:** The class removes an unwanted scheduled action from a supplied case, but the origin of its creation is unresolved. The report distinguishes removal from a fully established root cause.
+
+**Check your understanding:** Does removing the observed artifact prove the original access path is closed?
+
+<a id="term-l32-04"></a>
+#### Recovery validation and handover
+
+**Definition:** Recovery validation checks that required service and controls work after response actions. A handover communicates current state, evidence, outstanding work and responsibility to the next person.
+
+**Explanation:** Recovery is not simply restarting a process. Test the business transaction and relevant monitoring/access boundaries, then tell the next owner what remains uncertain. Do not report recommended actions as completed.
+
+**Example or scenario:** The handbook is restored and the permitted user can read it, while the required monitoring check produces a fresh event. The handover still lists the unresolved historical evidence gap.
+
+**Check your understanding:** Why retain the gap in a handover after current service is healthy?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L32 -->
 
 ### Prerequisite refresher
 Recall rollback records, allowed/denied access tests and recovery checks. A backup success message is not a demonstrated restore. A recommendation in a ticket is not an executed response.

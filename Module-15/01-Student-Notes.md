@@ -8,6 +8,59 @@
 ### General Overview
 Detection engineering is the work of turning a question about behaviour into a maintained test. Cedarbridge wants to notice failed access to a protected service and changes to a watched file. Neither condition proves an attack. A useful detection describes exactly what it can observe, what it misses, and how an analyst should respond.
 
+<!-- HSETS-TERMS-L29 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l29-01"></a>
+#### Detection hypothesis and use case
+
+**Definition:** A detection hypothesis proposes an observable condition worth testing. A use case describes the operational question and intended decision the detection should support.
+
+**Explanation:** Begin with the behaviour and evidence needed, not a rule copied without context. State who should act on a match and which benign conditions must be distinguished. A hypothesis needs a testable data requirement.
+
+**Example or scenario:** The team wants to identify changes to a particular approved file. It specifies the source and fields before writing the condition, so an alert can answer a defined question.
+
+**Check your understanding:** Why should the data source be identified before finalising the rule?
+
+<a id="term-l29-02"></a>
+#### Data contract and field semantics
+
+**Definition:** A data contract specifies the expected record structure, types and meaning. Field semantics describe what a field represents in the real event.
+
+**Explanation:** A parser can accept syntax while interpreting the wrong entity. Preserve source meaning when naming users, destinations or outcomes. A detection that uses the wrong account field may match valid data for the wrong question.
+
+**Example or scenario:** The event contains both an initiating account and an affected account. The rule needs the initiator, so the learner verifies that role before selecting the field.
+
+**Check your understanding:** Can a syntactically valid rule still answer the wrong security question?
+
+<a id="term-l29-03"></a>
+#### Condition, grouping, time window and suppression
+
+**Definition:** A condition decides whether an event matches. Grouping chooses which events are considered together. A time window limits the interval considered. Suppression limits repeated notifications according to defined rules.
+
+**Explanation:** For multi-event logic, the unit being counted matters. Events from different users or devices should not be combined unless the requirement calls for it. Window boundaries and repeated matches also affect results.
+
+**Example or scenario:** Three different users each fail once. A rule intended to count failures per user should not report that one user failed three times simply because all share a translated source address.
+
+**Check your understanding:** What should be defined before interpreting the count?
+
+<a id="term-l29-04"></a>
+#### Precision, recall and test coverage
+
+**Definition:** Precision describes how many reported positives are true under the evaluation's labels. Recall describes how many known actual positives were found. Test coverage describes the cases and conditions examined.
+
+**Explanation:** Both metrics need appropriate labelled outcomes and denominators. A small authored fixture can verify specified cases without estimating performance on an operational environment. Always name the evaluation scope.
+
+**Example or scenario:** All six teaching cases produce expected outcomes. The learner reports six specified cases passed and records the untested behaviours rather than claiming universal detection accuracy.
+
+**Check your understanding:** Why is a quiet alert list insufficient to calculate recall?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L29 -->
+
 ### Prerequisite refresher
 M14 followed events through collection, parsing and indexing. M13 compared a match, non-match and edge case. This lesson applies those ideas to endpoint telemetry. Keep original evidence and distinguish a simulator's statement from an operating system's own event.
 
@@ -59,6 +112,48 @@ Complete five MCQs, two written scenarios and the six-case practical in the work
 ## L30 — Intelligence, enrichment, and safe automation
 ### General Overview
 Threat intelligence adds context to observations. Automation can reduce repetitive lookup work. Both can also magnify error. The analyst must know where context came from, when it was valid, and what decision it actually supports.
+
+<!-- HSETS-TERMS-L30 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l30-01"></a>
+#### Threat intelligence, indicator and context
+
+**Definition:** Threat intelligence is analysed information that helps decisions about threats. An indicator is an observable attribute that may be associated with relevant activity. Context explains why the association matters here.
+
+**Explanation:** An address or file digest can be stale, shared or irrelevant to the local case. Assess source reliability, recency and applicability before treating a match as a verdict. Do not upload private artifacts to an unapproved service.
+
+**Example or scenario:** A supplied address appears in a fictional intelligence record, but many unrelated users share it. The analyst checks the local event and time before assigning meaning.
+
+**Check your understanding:** Does a matching indicator prove the observed user is malicious?
+
+<a id="term-l30-02"></a>
+#### ATT&CK tactic and technique
+
+**Definition:** In the ATT&CK knowledge base, a tactic describes an adversary objective, while a technique describes a way of pursuing an objective.
+
+**Explanation:** Mapping behaviour can organise an investigation, but a label is not additional evidence. Use the observed action and keep uncertain mappings qualified. Similar behaviour can also occur in legitimate administration.
+
+**Example or scenario:** A case contains a remote administrative action. The learner considers a relevant behaviour mapping but still checks whether that action was approved and what actually happened.
+
+**Check your understanding:** Does attaching a technique identifier establish hostile intent?
+
+<a id="term-l30-03"></a>
+#### Enrichment, automation and human review
+
+**Definition:** Enrichment adds relevant context to an existing record. Automation performs defined steps through software. Human review is an accountable check before decisions that need judgement or authority.
+
+**Explanation:** Preserve originals and label added data separately. Bound inputs, permissions, failure handling and possible actions. A teaching enrichment script should not silently turn an uncertain match into a disruptive block.
+
+**Example or scenario:** The exercise adds an asset owner to a supplied event and flags an unresolved indicator for review. It does not automatically disable the account.
+
+**Check your understanding:** Why keep the added owner/context separate from the original record?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L30 -->
 
 ### Prerequisite refresher
 Recall M04 threats versus risk and M14 severity versus confidence. An indicator is an observable value associated with a report, such as an address or hash. Behaviour describes actions. Neither a label nor a lookup result substitutes for local evidence.

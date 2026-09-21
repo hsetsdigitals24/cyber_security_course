@@ -10,6 +10,59 @@
 
 Opening a file looks simple, but Windows first decides whose request it is and which operation that identity may perform. Logging in establishes identity; it does not grant every permission. A process carries an access token containing the user's SID and groups. Windows compares it with the file's access rules. Consequently, the same path can work for one employee and fail for another. Testing only as an administrator hides errors affecting ordinary users.
 
+<!-- HSETS-TERMS-L13 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l13-01"></a>
+#### Local account, SID and access token
+
+**Definition:** A local account belongs to one Windows computer. A security identifier (SID) identifies a security principal such as a user or group. An access token carries the security context used by a process.
+
+**Explanation:** A display name is not the underlying identity. Access decisions use the relevant security context, including groups and privileges. A newly changed membership may require a fresh session before a test reflects the intended context.
+
+**Example or scenario:** Cedarbridge renames a local user without deleting the account. Its SID remains associated with that account; creating a different account with a similar name would not make it the same identity.
+
+**Check your understanding:** Does matching the visible username on two computers prove the accounts are the same identity?
+
+<a id="term-l13-02"></a>
+#### NTFS, DACL and inherited permission
+
+**Definition:** NTFS is a Windows filesystem. A discretionary access control list (DACL) describes access entries on a securable object. An inherited permission comes from a parent container rather than a direct entry added only to that object.
+
+**Explanation:** A user's effective access can come through groups and inherited entries, not just one visible user entry. Inspect the relevant permissions and test under the correct account before claiming the boundary works.
+
+**Example or scenario:** Ben has no direct entry on Finance, but a broadly permitted group still gives him access. The learner checks the group and inheritance path rather than assuming the missing direct entry means denial.
+
+**Check your understanding:** Why can removing one direct user grant leave access working?
+
+<a id="term-l13-03"></a>
+#### SACL, auditing and Event Viewer
+
+**Definition:** A system access control list (SACL) specifies auditing conditions for an object. Auditing records selected activity when the required policies and conditions apply. Event Viewer is a Windows tool for inspecting event logs.
+
+**Explanation:** Access permission and audit recording are separate controls. The relevant audit policy, object configuration and event source must be available; an allowed or refused operation does not guarantee every desired detail is recorded.
+
+**Example or scenario:** The learner tests a file operation but finds no expected audit record. The instructor checks audit configuration and the selected log before interpreting the absence.
+
+**Check your understanding:** Does configuring auditing itself grant access to the file?
+
+<a id="term-l13-04"></a>
+#### Service, event provider and channel
+
+**Definition:** A service is a managed background function. An event provider produces a defined class of records. A channel is a destination/category in which Windows stores events.
+
+**Explanation:** Interpret an event using provider, channel, ID and fields together. Numbers and severity icons without context are insufficient. Service health also needs a functional test, not only a status label.
+
+**Example or scenario:** Two events share an ID but come from different providers. The learner reads the provider and message fields before deciding what either event means.
+
+**Check your understanding:** Why should a report retain the provider and channel alongside the event ID?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L13 -->
+
 ### Prerequisite refresher
 
 Recall users, groups and directory permissions from Linux. Windows uses different management tools but still distinguishes authentication, authorisation and auditing. A process is a running instance of a program; a service is managed background work.
@@ -303,6 +356,59 @@ Complete the five MCQs, two scenarios, practical and reflection for L13 in [Stud
 ### General Overview
 
 Endpoint defence combines controls that address different failure paths. A firewall limits network communication; antivirus inspects suspicious content and behaviour; updates correct known defects; disk encryption protects data when storage is accessed offline. An authenticated application can still read an unlocked encrypted volume. The analyst must connect the business risk to the appropriate control, then verify that legitimate work survives the change.
+
+<!-- HSETS-TERMS-L14 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l14-01"></a>
+#### Endpoint, antivirus and EDR
+
+**Definition:** An endpoint is a device such as a workstation or server at which users or applications operate. Antivirus detects or blocks known or suspicious malicious software activity. Endpoint detection and response (EDR) collects and analyses endpoint activity to support investigation and response.
+
+**Explanation:** These controls address parts of the device's risk. Their presence does not establish complete prevention or complete visibility. Check the actual protection state and the allowed teaching test, without disabling unrelated controls.
+
+**Example or scenario:** A workstation has security software installed, but its reporting is disconnected. The installed-product list cannot establish that the analyst receives fresh detections.
+
+**Check your understanding:** Does an installed endpoint product prove it is healthy and reporting?
+
+<a id="term-l14-02"></a>
+#### Host firewall, rule and network profile
+
+**Definition:** A host firewall controls network communication at the endpoint. A rule states a matching condition and action. A network profile selects a set of settings according to the network context recognised by the system.
+
+**Explanation:** A correct-looking rule can be irrelevant if it applies to the wrong profile or source. Preserve normal access and test from the intended client. One working application does not validate every firewall boundary.
+
+**Example or scenario:** Cedarbridge permits a diagnostic request only from one lab client. The learner confirms the active profile and tests that client plus another source that should be refused.
+
+**Check your understanding:** What two observations help show the source restriction works?
+
+<a id="term-l14-03"></a>
+#### Patch, patch ring and configuration drift
+
+**Definition:** A patch updates software to fix or change it. A patch ring is a staged group used to roll out updates gradually. Configuration drift is a difference from the recorded expected configuration.
+
+**Explanation:** Testing changes on a smaller approved group can reveal disruption before wider rollout. A difference from baseline requires explanation; it is not automatically evidence of malicious activity.
+
+**Example or scenario:** An update changes a service setting on a pilot workstation. The team checks the expected application transaction before extending the update to the remaining class machines.
+
+**Check your understanding:** Why record the before-state rather than only the new version?
+
+<a id="term-l14-04"></a>
+#### Encryption at rest and recovery key
+
+**Definition:** Encryption at rest protects stored content by requiring suitable key material to read it outside the intended access path. A recovery key is protected key material used by an approved recovery process.
+
+**Explanation:** Disk encryption can reduce exposure after device loss, but a running authorised session may already have access to decrypted content. Protect recovery material separately and verify the institutional recovery process.
+
+**Example or scenario:** A fictional laptop is lost while powered off. Its disk protection may help protect stored data, but the organisation still needs to account for recovery keys and any other exposed copies.
+
+**Check your understanding:** Does disk encryption prevent every action by someone already signed in with authorised access?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L14 -->
 
 ### Prerequisite refresher
 

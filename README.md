@@ -50,5 +50,6 @@ The course uses staged virtual-machine labs: run only the guests assigned for th
 - [Weekly study plan](H-SETS-Weekly-Study-Plan.md)
 - [Your assigned lab sheet](H-SETS-Class-Lab-Sheet.md)
 - [Portfolio starter and illustrative example](H-SETS-Portfolio-Starter.md)
+- [Term definitions, explanations and scenarios](H-SETS-Terms-in-Context.md)
 
 Instructor answers, private ground truth, review records, source caches and authoring files are not part of this release.

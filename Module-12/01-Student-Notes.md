@@ -14,6 +14,48 @@ HTTP requests are individually processed; applications commonly associate them w
 
 This lesson's local fixture deliberately uses a selectable synthetic identity so students can compare access without storing passwords. A user can change that fixture identity; therefore it is not a secure login or session implementation. The exercise isolates one question: given the chosen test identity, does the server check record ownership? Its fixed mode is a targeted correction, not a claim of full application security.
 
+<!-- HSETS-TERMS-L23 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l23-01"></a>
+#### HTTP request, response and method
+
+**Definition:** An HTTP request asks a server to perform an operation. A response reports the result. The method identifies the requested operation's semantics, while the path identifies the target resource.
+
+**Explanation:** Headers carry metadata and a body can carry content. Read status and returned content together; a successful transport connection is not the same as the expected application result. Use only the approved local fixture.
+
+**Example or scenario:** The browser requests one record and the server returns a response. The learner records method, path, identity context and result rather than treating a page load as the whole test.
+
+**Check your understanding:** Why inspect the body as well as a successful status code?
+
+<a id="term-l23-02"></a>
+#### Cookie, session and session identifier
+
+**Definition:** A cookie is browser-stored data sent with matching requests under its rules. A session associates requests with an interaction context. A session identifier is a value used to refer to that context.
+
+**Explanation:** Cookies can have uses other than login, and possession of a session identifier can be sensitive. The server must still apply authorisation on each protected operation. Do not publish real session values in evidence.
+
+**Example or scenario:** The training application associates requests with a fictional user context. The learner tests a record boundary without assuming that hiding another user's link enforces permission.
+
+**Check your understanding:** Does a browser having a cookie establish that every requested object belongs to that user?
+
+<a id="term-l23-03"></a>
+#### Server-side authorisation and object ownership
+
+**Definition:** Server-side authorisation enforces the access decision at the service receiving the request. Object ownership is the relationship between a resource and the identity permitted to control or use it under the application's rules.
+
+**Explanation:** Client controls such as hidden buttons can improve the interface but cannot be the only permission check. The server must use trusted identity/context rather than trusting a client-supplied ownership claim.
+
+**Example or scenario:** Alice changes a synthetic record ID in the local fixture. The expected secure behaviour is to refuse a record she is not permitted to read, even if she can guess its ID.
+
+**Check your understanding:** Why is an unguessable-looking record number not a complete substitute for authorisation?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L23 -->
+
 ### Prerequisite refresher
 
 Recall HTTP/HTTPS from packet analysis and authentication versus authorisation from identity modules. A URL query parameter is client-controlled data. TLS protects transport between endpoints; it does not repair a server's access-control logic.
@@ -107,6 +149,48 @@ Complete the five MCQs, two scenarios, practical and reflection for L23 in [Stud
 Input becomes dangerous when an application treats data as instructions. A database interprets SQL; a shell interprets command syntax; a browser interprets HTML and scripts. The right defence depends on the interpreter. Parameterised database queries separate values from SQL structure. Context-appropriate output encoding makes user text appear as text in a page. Checking length or removing one suspicious character does not solve every interpretation problem.
 
 This exercise uses harmless HTML markup, not executable scripts. Seeing bold text where literal characters were expected demonstrates HTML interpretation. It does not by itself demonstrate account theft or every form of cross-site scripting. The finding must match the evidence. The fixed fixture uses HTML escaping for a text position inside a paragraph; different contexts such as JavaScript, CSS or URLs require different handling.
+
+<!-- HSETS-TERMS-L24 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l24-01"></a>
+#### Input validation and boundary value
+
+**Definition:** Input validation checks whether data meets the application's requirements. A boundary value lies at or near a limit, such as a maximum length.
+
+**Explanation:** Validating type, length and allowed meaning helps enforce the business rule. It does not make the same input safe in every output context. Test the specified limit and values just inside/outside it.
+
+**Example or scenario:** The training message permits up to 80 characters. Students compare an allowed short message, exactly 80 characters and an over-limit value using the fixture's defined counting rule.
+
+**Check your understanding:** Why test exactly the allowed limit as well as a much longer value?
+
+<a id="term-l24-02"></a>
+#### Injection and parameterisation
+
+**Definition:** Injection occurs when untrusted data is interpreted as part of instructions. Parameterisation keeps a query's structure separate from supplied values in the supported interface.
+
+**Explanation:** The problem is the boundary between data and commands, not simply the presence of punctuation. Different interpreters require suitable controls. The course uses harmless local demonstrations and does not equate every unusual response with exploitation.
+
+**Example or scenario:** A database operation should receive a name as a value rather than joining it into executable query structure. The learner explains the separation before discussing a test.
+
+**Check your understanding:** Does rejecting one suspicious word prove that the data/instruction boundary is safe?
+
+<a id="term-l24-03"></a>
+#### Output encoding and rendering context
+
+**Definition:** Output encoding represents data safely for the context in which it is displayed or interpreted. Rendering context is the location, such as HTML text or an attribute, where the value is inserted.
+
+**Explanation:** A method suitable for one context may not be safe for another. Validation and encoding answer different questions: whether input is allowed and how allowed data is represented. Keep both requirements visible.
+
+**Example or scenario:** The harmless message <b>TRAINING</b> is supposed to appear literally. If the browser displays bold formatting instead, it interpreted markup rather than showing the intended text.
+
+**Check your understanding:** Does URL encoding automatically make a value safe in an HTML text context?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L24 -->
 
 ### Prerequisite refresher
 

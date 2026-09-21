@@ -10,6 +10,48 @@
 
 An assessment begins with permission and a question, not a scan button. An asset is anything of value requiring protection: a system, service, identity, dataset or business dependency. Discovery observes what appears to exist. Inventory records what is known. Asset management assigns owners and maintains that record over time. A responding IP address alone does not establish owner, business purpose or permission to test.
 
+<!-- HSETS-TERMS-L19 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l19-01"></a>
+#### Scope, authorisation and rules of engagement
+
+**Definition:** Scope identifies the systems and activities included in an assessment. Authorisation is permission from the responsible party. Rules of engagement describe permitted methods, timing, exclusions and stop conditions.
+
+**Explanation:** Knowing a target address does not grant permission to test it. Make the boundary explicit before using tools, including what to do if observations point outside the assigned range.
+
+**Example or scenario:** The instructor permits TCP checks on one synthetic host and excludes the old inventory address. The learner records the excluded entry without scanning it.
+
+**Check your understanding:** Does an address appearing in a scan result automatically extend the approved scope?
+
+<a id="term-l19-02"></a>
+#### Asset inventory, owner and discovery
+
+**Definition:** An asset inventory records known systems and their relevant properties. An owner is accountable for a resource's business use. Discovery gathers observations about assets or services.
+
+**Explanation:** Observed network responses and ownership records are different evidence sources. Inventory entries can be outdated; discovery may miss systems. Preserve discrepancies rather than inventing ownership from a banner.
+
+**Example or scenario:** The inventory lists an old server address but no responsible owner. The learner marks it excluded/unverified and asks the instructor for the ownership decision.
+
+**Check your understanding:** Can a software banner establish who owns the business service?
+
+<a id="term-l19-03"></a>
+#### Active discovery, passive observation and coverage
+
+**Definition:** Active discovery sends traffic to elicit responses. Passive observation examines available activity without sending those discovery probes. Coverage is the portion of the intended scope actually examined by the chosen method.
+
+**Explanation:** Both methods have limits. Passive data may omit quiet systems; active results depend on route, filtering and probe type. State the method and boundaries in the report.
+
+**Example or scenario:** The approved scan checks only TCP 22 and 8000 on one host. The learner reports those checks without claiming that every protocol or service on the host was assessed.
+
+**Check your understanding:** What is wrong with calling this scan a complete assessment of the entire network?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L19 -->
+
 ### Prerequisite refresher
 
 Recall risk, network addresses, ports and isolated lab scope. Active discovery sends traffic and can affect services; passive observations are limited to what their collection point can see.
@@ -281,6 +323,48 @@ Complete the five MCQs, two scenarios, practical and reflection for L19 in [Stud
 ### General Overview
 
 Inventory reconciliation compares observations with expected records and explains differences. It is not merely adding every responding IP. One system may have several addresses, and one address may represent a proxy or load balancer. A scanner's view depends on source, route, time and selected ports. A professional report states those limits so another analyst does not read 'not observed' as 'not present'.
+
+<!-- HSETS-TERMS-L20 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l20-01"></a>
+#### Open, closed and filtered port states
+
+**Definition:** In the relevant scan context, open indicates a service accepting the tested communication; closed indicates a response consistent with no accepting service; filtered means filtering or lack of distinguishing responses prevents that determination.
+
+**Explanation:** These are tool observations under a method and viewpoint, not permanent properties of a machine. Validate the required application and consider differences in path or policy before comparing results.
+
+**Example or scenario:** A scan sees port 8000 open, and the learner retrieves the expected handbook. The application request adds useful evidence beyond the port state.
+
+**Check your understanding:** Does a filtered result establish which exact firewall rule caused it?
+
+<a id="term-l20-02"></a>
+#### Service identification, banner and validation
+
+**Definition:** Service identification attempts to determine what is listening. A banner is text or metadata a service exposes. Validation checks a claim using relevant additional evidence.
+
+**Explanation:** A label or version string can be incomplete, changed or affected by vendor packaging. An application response can support service behaviour without proving every software or vulnerability claim.
+
+**Example or scenario:** The server announces a version, but the learner also checks the required URL and owner-supplied package information before describing its state.
+
+**Check your understanding:** Can a banner alone prove the installed package lacks a security fix?
+
+<a id="term-l20-03"></a>
+#### Reconciliation and uncertainty
+
+**Definition:** Reconciliation compares records and observations and explains their differences. Uncertainty identifies what the available evidence cannot settle.
+
+**Explanation:** Do not silently overwrite an expected record with a scan guess. Keep the original, observation, reason for change and unanswered question so another person can review the decision.
+
+**Example or scenario:** The inventory expects the handbook on 8000, but it was moved under an approved change. The learner records the new evidence and change reference instead of declaring an unknown service without investigation.
+
+**Check your understanding:** Why retain the original inventory entry during reconciliation?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L20 -->
 
 ### Prerequisite refresher
 

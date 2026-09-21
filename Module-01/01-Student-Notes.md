@@ -19,6 +19,81 @@ Cybersecurity protects the systems, information, and services that people depend
 
 This lesson develops the language used to explain security problems. You will distinguish assets, threats, vulnerabilities, and risk; analyse confidentiality, integrity, and availability; choose controls with a reason; and practise the habits expected of a junior professional. These concepts will support every later task, from changing a Linux permission to investigating a SOC alert.
 
+<!-- HSETS-TERMS-L01 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l01-01"></a>
+#### Cybersecurity and assets
+
+**Definition:** Cybersecurity protects computer-based information and services against harmful access, change or disruption. An asset is something valuable that needs protection.
+
+**Explanation:** Start by identifying what people need the system to do. An asset can be information, an account or a service, not only a physical device. This helps you choose a protection that addresses a real business need.
+
+**Example or scenario:** Cedarbridge's payroll spreadsheet is an asset because staff depend on its correct figures. Protecting the laptop while leaving an unrestricted copy online would leave that information exposed.
+
+**Check your understanding:** Why is the payroll spreadsheet an asset even if the laptop is inexpensive?
+
+<a id="term-l01-02"></a>
+#### Confidentiality, integrity and availability
+
+**Definition:** Confidentiality limits disclosure to permitted parties. Integrity protects against improper change or destruction. Availability means authorised users can obtain the needed service when required.
+
+**Explanation:** These three goals describe different ways a service can fail. Reading a private record, changing its amount and preventing access are different problems. A useful control and test identify which goal they address.
+
+**Example or scenario:** An unauthorised person reads a salary file: confidentiality is affected. An incorrect salary is entered: integrity is affected. Payroll staff cannot open the file on payment day: availability is affected.
+
+**Check your understanding:** A file opens normally but contains unauthorised edits. Which goal is most directly affected?
+
+<a id="term-l01-03"></a>
+#### Threat, vulnerability and risk
+
+**Definition:** A threat is a potential cause of harm. A vulnerability is a weakness that could enable harm. Risk concerns the likelihood and impact of an adverse outcome in a particular situation.
+
+**Explanation:** These terms connect a possible event to a business consequence. Finding a weakness does not prove someone used it. Prioritise using exposure, existing safeguards and the harm that could follow, rather than a frightening label alone.
+
+**Example or scenario:** A former worker might use a still-enabled account. The forgotten access is a weakness; unauthorised use is the threatening event; possible disclosure of customer records creates business risk.
+
+**Check your understanding:** Does an enabled former-worker account prove that records were stolen?
+
+<a id="term-l01-04"></a>
+#### Control, least privilege and defence in depth
+
+**Definition:** A control is a safeguard that changes risk. Least privilege grants only the access needed for a task. Defence in depth uses multiple protective measures so one failure need not defeat every protection.
+
+**Explanation:** Controls can prevent an action, detect it or help recover afterwards. Choose complementary measures and test their behaviour. More products do not automatically produce better protection if they depend on the same failing mechanism.
+
+**Example or scenario:** Cedarbridge restricts payroll editing to the payroll group, reviews change records and keeps protected backups. Permission limits, monitoring and recovery address different failure paths.
+
+**Check your understanding:** Does a backup replace the need to restrict who can edit payroll?
+
+<a id="term-l01-05"></a>
+#### Event, alert and incident
+
+**Definition:** An event is an observable occurrence. An alert is a notification that a condition deserves attention. A security incident is an occurrence that meets the organisation's criteria for harmful or policy-violating security activity.
+
+**Explanation:** Tools observe and flag conditions; analysts interpret the evidence and consequences. The terms describe different stages of understanding, not automatic escalation from every log line to a confirmed attack.
+
+**Example or scenario:** One failed sign-in is recorded as an event. A rule flags repeated failures as an alert. Investigation determines whether this is an employee mistake, a configuration problem or an incident.
+
+**Check your understanding:** Can the analyst label every alert a confirmed incident?
+
+<a id="term-l01-06"></a>
+#### Attack surface, exposure and trust boundary
+
+**Definition:** An attack surface is the set of places through which a system can be interacted with or attacked. Exposure describes how reachable or accessible a resource is. A trust boundary separates areas governed by different trust or authority assumptions.
+
+**Explanation:** List real entry points and the checks at their boundaries. An unnecessary reachable interface can add opportunities for misuse even if no incident has yet occurred. Reducing exposure supports risk reduction but does not establish perfect safety.
+
+**Example or scenario:** Cedarbridge exposes a handbook page but keeps its management interface reachable only from the approved management path. The two interfaces have different purposes and access needs.
+
+**Check your understanding:** Why should the management interface not simply inherit the handbook's broad access?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L01 -->
+
 ### 1. Cybersecurity starts with the service
 
 A computer can be powered on and still fail the organisation. A payroll server may respond to a network request while containing incorrect bank details. A learning portal may work for administrators while students cannot sign in. A backup application may report success even though nobody has checked whether a file can be restored.
@@ -259,6 +334,70 @@ Allow 120 minutes within this module's six independent hours: 30 for questions/s
 A practice environment lets you make controlled changes without experimenting on a live organisation. In this lesson, you will learn the relationship between your physical computer and its virtual machines, understand the lab's connection boundary, and practise returning a disposable machine to a known state.
 
 You will also begin an evidence pack. A useful portfolio should show what you did, what changed, how you checked it, and what the result means. Evidence must survive the recovery exercise it is documenting.
+
+<!-- HSETS-TERMS-L02 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l02-01"></a>
+#### Virtual machine, host, guest and hypervisor
+
+**Definition:** A virtual machine is a computer represented in software. The host provides the physical resources; the guest is the operating system running inside the virtual machine. A hypervisor creates and manages these virtual machines.
+
+**Explanation:** A guest has its own operating environment but uses resources provided by the host. Keeping these roles clear prevents a learner from applying a lab change to their everyday computer.
+
+**Example or scenario:** The learner's laptop runs a hypervisor containing an Ubuntu guest. The lab asks for an Ubuntu network change. The learner opens the guest settings, not the laptop's Wi-Fi settings.
+
+**Check your understanding:** Which system supplies the physical memory used by the guest?
+
+<a id="term-l02-02"></a>
+#### Virtual CPU, RAM and virtual disk
+
+**Definition:** A virtual central processing unit (CPU) is a processing resource presented to a guest. Random access memory (RAM) holds active working data. A virtual disk stores the guest's persistent files through backing storage on the host.
+
+**Explanation:** Resources are shared, so giving several guests large allocations can leave the host struggling. Disk capacity and free space also differ: snapshots and guest files consume host storage over time.
+
+**Example or scenario:** A 16 GB laptop runs the two guests needed for today's lab. Starting the later monitoring range as well could leave too little memory for the host, even though each VM is configured correctly.
+
+**Check your understanding:** Why does a 500 GB drive not necessarily mean 500 GB is available for labs?
+
+<a id="term-l02-03"></a>
+#### Virtual network and isolation
+
+**Definition:** A virtual network connects software-based network interfaces. Isolation limits which systems can communicate with the lab.
+
+**Explanation:** The adapter mode and attachment determine possible paths. An internal lab network can connect assigned guests without intentionally connecting outside systems; an extra adapter can introduce a different path. Inspect the configuration as well as test results.
+
+**Example or scenario:** The two classroom guests share one named internal network. A learner accidentally leaves a second bridged adapter enabled, creating a path the exercise did not intend.
+
+**Check your understanding:** Does one failed ping prove every possible external path is blocked?
+
+<a id="term-l02-04"></a>
+#### Baseline, snapshot and backup
+
+**Definition:** A baseline is a recorded starting or expected state. A snapshot records a VM state that can support rollback. A backup is a copy retained for recovery from loss or damage.
+
+**Explanation:** A snapshot often depends on the same host storage as the VM, so it does not automatically protect against host-disk failure. Recovery evidence should survive the rollback you are about to perform.
+
+**Example or scenario:** Before changing a guest, the learner records its baseline and creates a snapshot. They save their evidence outside the guest so restoring the snapshot does not erase the latest observations.
+
+**Check your understanding:** Why should a snapshot on the laptop not be described as an independent off-device backup?
+
+<a id="term-l02-05"></a>
+#### Evidence, repository and commit
+
+**Definition:** Evidence is information that supports a claim. A Git repository stores version history for selected files. A commit is a recorded version of the staged changes in that history.
+
+**Explanation:** Version history helps explain what changed and when it was recorded. It is not automatic backup, confidentiality or proof that a reported test occurred. Keep actual evidence, its context and its limitations together.
+
+**Example or scenario:** A learner commits a lab report describing a failed test and later commits the correction. The history helps explain the revision, but screenshots and test records still support the technical claim.
+
+**Check your understanding:** Does committing a report prove that its described lab test really happened?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L02 -->
 
 ### 1. Host, guest, and hypervisor
 

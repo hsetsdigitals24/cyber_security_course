@@ -10,6 +10,48 @@
 
 A route says where a packet should travel; a firewall decides whether that communication is permitted. Separating these questions prevents a common mistake: treating any failed connection as a firewall problem. A stateful firewall records permitted connections so return traffic can follow the established flow. An existing state can outlive a rule change, so a fresh test connection matters.
 
+<!-- HSETS-TERMS-L17 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l17-01"></a>
+#### Firewall policy, rule and default deny
+
+**Definition:** A firewall policy expresses permitted and prohibited communication. A rule matches traffic attributes and applies an action. Default deny refuses traffic unless a permitted path has been specified.
+
+**Explanation:** Translate the business requirement into source, destination, protocol and service. Then test required traffic as well as prohibited traffic. A rule set that blocks everything can fail the business requirement.
+
+**Example or scenario:** Users may read the handbook on TCP 8000 but may not administer the server over SSH. The class creates and verifies those distinct paths.
+
+**Check your understanding:** Why is “all requests fail” not enough to call the firewall policy successful?
+
+<a id="term-l17-02"></a>
+#### Stateful inspection and connection state
+
+**Definition:** Stateful inspection tracks information about communication flows. Connection state is the firewall's recorded context used to evaluate related packets.
+
+**Explanation:** Return traffic for an allowed connection is different from a new connection initiated in the reverse direction. Existing state can also affect a test after a rule change, so use the assigned fresh-connection procedure.
+
+**Example or scenario:** The Users client requests a DMZ page and receives its response. That does not imply the DMZ server can start an unrelated new connection into Users.
+
+**Check your understanding:** Why test a new reverse-direction connection separately from the page response?
+
+<a id="term-l17-03"></a>
+#### Ingress interface and rule order
+
+**Definition:** An ingress interface is where traffic enters a device. Rule order is the sequence in which the relevant rule set is evaluated.
+
+**Explanation:** The classroom firewall applies the taught rules on the ingress path. A rule on the wrong interface may not evaluate the intended traffic. A broad earlier permit can defeat a later restriction in the first-match policy being taught.
+
+**Example or scenario:** A learner places a restriction after an earlier broad Users permit. The traffic still succeeds, so they inspect the actual matching path and order.
+
+**Check your understanding:** What should be checked before concluding that the firewall ignores the new rule?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L17 -->
+
 ### Prerequisite refresher
 
 Recall addresses, gateways, TCP destination ports and host firewalls. A rule must express source, destination, protocol, service and business reason. NAT changes addresses; it does not replace filtering.
@@ -441,6 +483,48 @@ Complete the five MCQs, two scenarios, practical and reflection for L17 in [Stud
 ### General Overview
 
 A zone groups systems with similar trust or business purpose. Segmentation becomes meaningful only when communication between zones is enforced and tested. Two differently named subnets are not enough if another adapter bypasses the firewall. Remote access extends the same problem: a VPN can protect transport while granting excessive reach. Identity verification, device condition, narrow resource access and session logging still matter.
+
+<!-- HSETS-TERMS-L18 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l18-01"></a>
+#### Segmentation, zone and DMZ
+
+**Definition:** Segmentation divides a network into areas with controlled communication. A zone groups systems with related trust or policy needs. A demilitarised zone (DMZ) is a separated area used for services with different exposure needs from internal resources.
+
+**Explanation:** Separate names or subnets alone do not guarantee enforcement. Intended cross-zone traffic must pass through the control, without an unnoticed alternate adapter or path bypassing it.
+
+**Example or scenario:** The handbook server is placed in a DMZ. A second adapter connecting it directly to Users would undermine the intended firewall path even though the diagram still labels it DMZ.
+
+**Check your understanding:** Why inspect actual adapters as well as the diagram?
+
+<a id="term-l18-02"></a>
+#### VPN, tunnel and remote-access policy
+
+**Definition:** A virtual private network (VPN) establishes a protected logical connection over another network. A tunnel carries traffic through that connection. Remote-access policy determines which authenticated users/devices may reach which resources.
+
+**Explanation:** A protected tunnel does not justify unlimited internal access. The termination point, identity checks, destination permissions, logging and expiry still need a design and verification. This lesson's VPN component is a tabletop design unless explicitly deployed later.
+
+**Example or scenario:** A contractor needs one maintenance service for one week. The policy names that service and expiry rather than granting general access to every internal host.
+
+**Check your understanding:** Does drawing a VPN on the diagram prove it has been implemented and tested?
+
+<a id="term-l18-03"></a>
+#### MFA, full tunnel and split tunnel
+
+**Definition:** Multi-factor authentication (MFA) combines evidence from different authentication factor categories. A full-tunnel design routes the intended general traffic through the VPN; a split-tunnel design sends only selected traffic through it.
+
+**Explanation:** Different designs change routing and inspection responsibilities. Two passwords are not automatically two different factor categories. Match the design to requirements instead of assuming one label settles all security questions.
+
+**Example or scenario:** The contractor uses an approved security key and sign-in process, then receives a route only to the approved lab service in the proposed design. Access rules still limit the destination.
+
+**Check your understanding:** Does MFA itself decide which internal files the contractor may read?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L18 -->
 
 ### Prerequisite refresher
 

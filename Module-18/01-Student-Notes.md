@@ -11,6 +11,48 @@ The previous modules taught individual skills. A real support or security task c
 
 Cedarbridge's staff report a changed document while its monitored endpoint appears quiet. The analyst must decide whether the quietness reflects safe behaviour, a collection gap, a query error or a different cause. A strong investigation follows evidence rather than the order of the course modules.
 
+<!-- HSETS-TERMS-L35 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l35-01"></a>
+#### Architecture, dependency and trust boundary
+
+**Definition:** Architecture describes how components work together. A dependency is something a service needs. A trust boundary separates areas where different authority or validation assumptions apply.
+
+**Explanation:** A useful diagram supports reasoning about failures and access, not only product placement. Show which component needs another and where checks occur. Compare the diagram with the actual deployed path.
+
+**Example or scenario:** The handbook depends on name resolution, network delivery and the application. Its monitoring depends on a separate collection path. One can fail while the other still operates.
+
+**Check your understanding:** Why can a working handbook coexist with missing monitoring records?
+
+<a id="term-l35-02"></a>
+#### Traceability and integrated test
+
+**Definition:** Traceability links a requirement to its implementation, test and evidence. An integrated test checks a relevant chain of components together.
+
+**Explanation:** Individual component success does not automatically prove the whole business result. Follow the requirement through the chain and identify the exact point at which evidence becomes missing. Keep component and end-to-end claims distinct.
+
+**Example or scenario:** The service process is active and the firewall rule exists, but the intended user cannot retrieve the page. The integrated transaction exposes a gap that the two component screenshots do not settle.
+
+**Check your understanding:** What should an end-to-end test start from in this case?
+
+<a id="term-l35-03"></a>
+#### Evidence gap and readiness review
+
+**Definition:** An evidence gap is a missing observation needed to support a conclusion. A readiness review checks whether required work and verification are complete.
+
+**Explanation:** A polished diagram cannot replace a missing denied test. Classify gaps by their consequences and arrange the required work, rather than marking all pending items passed to finish a portfolio.
+
+**Example or scenario:** The P01–P07 index contains a test plan but no actual result for one critical boundary. The learner records that gap before the capstone instead of presenting the plan as execution.
+
+**Check your understanding:** Is a planned expected result evidence that a test passed?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L35 -->
+
 ### Prerequisite refresher
 Use M02/M03 for connection diagnosis, M05–M09 for permissions and policy, M11 for validation, M14/M15 for telemetry, and M16/M17 for preservation and recovery. A configuration, an observed test and a recommendation are different kinds of claims. Keep their status visible.
 
@@ -72,6 +114,48 @@ Complete workbook L35: five MCQs, two written scenarios and an integrated review
 ## L36 — Practical defence, portfolio narrative, and professional handover
 ### General Overview
 An employer or assessor needs to understand what you personally did and whether you can repeat the reasoning. A professional portfolio makes claims easy to check. This lesson develops a clear technical explanation, an actionable handover and an honest account of lab experience.
+
+<!-- HSETS-TERMS-L36 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l36-01"></a>
+#### Practical defence and individual contribution
+
+**Definition:** A practical defence is an explanation and demonstration of one's work under questioning or a changed case. Individual contribution states what the learner personally did within any shared activity.
+
+**Explanation:** Understanding means explaining decisions and responding to variation, not memorising screenshots. Disclose assistance and distinguish team infrastructure from personal configuration, testing and analysis.
+
+**Example or scenario:** A learner used an instructor-prepared range but personally diagnosed the assigned service fault. Their portfolio credits the supplied setup and explains their own observations and correction.
+
+**Check your understanding:** Why is acknowledging prepared infrastructure compatible with a strong portfolio?
+
+<a id="term-l36-02"></a>
+#### Portfolio claim, sanitisation and provenance
+
+**Definition:** A portfolio claim states a skill or result. Sanitisation removes or transforms sensitive content for an approved audience. Provenance records the origin and relationship of artifacts.
+
+**Explanation:** Keep original assessor evidence private and label any public derivative. A clean public report should still make bounded claims and explain how its selected evidence relates to the assessed work. Do not publish credentials or third-party case bundles without authority.
+
+**Example or scenario:** The learner publishes a rewritten synthetic summary and keeps the original raw logs in the private assessor location. The report says it describes a lab, not paid employment at Cedarbridge.
+
+**Check your understanding:** Why must the public derivative not be described as byte-identical to a redacted original?
+
+<a id="term-l36-03"></a>
+#### Professional handover and competence gap
+
+**Definition:** A professional handover states current condition, evidence, remaining actions and ownership. A competence gap is a skill the learner cannot yet demonstrate to the required standard.
+
+**Explanation:** Clear limits help the next person act and give the learner a practical improvement target. Replace vague goals with an observable task and a way to check progress. Finishing the teaching weeks is not automatic completion of every project and gate.
+
+**Example or scenario:** The learner can explain collection but still needs guided practice diagnosing a changed source path. Their plan names a fresh case and an independent retest rather than simply “learn more SIEM.”
+
+**Check your understanding:** What makes that practice plan measurable?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L36 -->
 
 ### Prerequisite refresher
 Use the evidence register, project README and troubleshooting records maintained throughout the course. A completed installation is not the same as a tested control. An assisted task can still be valuable when assistance is disclosed and the learner can explain and verify the result.

@@ -14,6 +14,70 @@ A network lets processes on different computers exchange information. The fact t
 
 Recall M01: a guest is a computer inside a hypervisor, and an internal virtual network connects only the guests attached to it. In this lesson Cedarbridge connects a training client to a local web server. We first make the normal path understandable; security policy will have meaning only when that path is clear.
 
+<!-- HSETS-TERMS-L03 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l03-01"></a>
+#### Bit, byte, frame, packet and encapsulation
+
+**Definition:** A bit is a binary value, 0 or 1; a byte contains eight bits. A frame is a link-layer delivery unit. An IP packet carries network-layer addressing. Encapsulation places one protocol's data inside another protocol's delivery format.
+
+**Explanation:** Applications provide data that is packaged for transport and delivery. At a local Ethernet link, the frame carries the IP packet. Distinguishing the wrappers helps explain why local delivery information can change while the application request remains the same.
+
+**Example or scenario:** A request for Cedarbridge's handbook travels inside transport data, an IP packet and a local frame. The receiving system interprets those layers to deliver the request to the web application.
+
+**Check your understanding:** Is an Ethernet frame the same thing as the web page being requested?
+
+<a id="term-l03-02"></a>
+#### MAC address, IP address, switch and router
+
+**Definition:** A Media Access Control (MAC) address identifies an interface for local link delivery. An Internet Protocol (IP) address identifies an interface within an IP addressing scheme. A switch forwards frames within a network; a router forwards packets between IP networks.
+
+**Explanation:** The next local recipient and the final IP destination can differ. For a remote network, the local frame is sent towards the router, which makes another forwarding decision. Neither address proves which person caused the traffic.
+
+**Example or scenario:** A training client sends to a server on another subnet. The first local frame reaches the router, while the IP destination remains the server in the ordinary routing example.
+
+**Check your understanding:** Does the client's first frame normally need the remote server's MAC address across a routed boundary?
+
+<a id="term-l03-03"></a>
+#### Subnet, prefix and subnet mask
+
+**Definition:** A subnet is an IP address block treated as a network. The prefix length says how many leading address bits describe that network. A subnet mask represents the same boundary in another form.
+
+**Explanation:** The address and its prefix work together. Comparing only the first three decimal numbers is insufficient when the boundary differs from /24. Calculate which block contains each address before deciding whether a router is needed.
+
+**Example or scenario:** In the paper example 10.10.10.70/26, the block runs from .64 to .127. A peer at .90/26 is in that block; .130/26 is in another block.
+
+**Check your understanding:** Why can .70 and .130 be on different subnets despite sharing 10.10.10?
+
+<a id="term-l03-04"></a>
+#### Route, default gateway and loopback
+
+**Definition:** A route selects a delivery path for a destination. A default gateway is the next-hop router used by a default route. Loopback is a local path back into the same computer's network stack.
+
+**Explanation:** A local peer normally uses its connected route without a gateway. A remote path needs a usable route and return path. A loopback request is useful for local service diagnosis but never substitutes for testing from another machine.
+
+**Example or scenario:** The client and web server share the assigned isolated /24. They can communicate without a default gateway. Testing the server at 127.0.0.1 from the client instead tests the client itself.
+
+**Check your understanding:** Which computer receives a request to 127.0.0.1 entered on the client?
+
+<a id="term-l03-05"></a>
+#### IPv4, IPv6 and link-local address
+
+**Definition:** IPv4 and IPv6 are versions of the Internet Protocol with 32-bit and 128-bit addresses respectively. A link-local address is intended for communication on the local link rather than routing across networks.
+
+**Explanation:** A device can use both protocol versions. Checking only IPv4 may miss the path an application actually selected. IPv6 uses a different neighbour-discovery mechanism from IPv4 ARP.
+
+**Example or scenario:** A learner sees an IPv6 address beginning fe80 on the isolated adapter alongside its IPv4 address. That address alone is not proof of an additional Internet connection.
+
+**Check your understanding:** What should you inspect before concluding that IPv6 created an external path?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L03 -->
+
 ### 1. Bits, frames, and packets
 
 An application supplies bytes: perhaps an HTTP request for a page. Transport and network protocols add information needed to deliver those bytes. An IP packet carries source and destination IP addresses. On an Ethernet link, that packet travels inside a frame, whose header includes source and destination MAC addresses. This nesting is encapsulation. At the receiving end, the layers interpret and remove their respective headers.
@@ -102,6 +166,70 @@ Complete Workbook L03: five MCQs, two written scenarios, and an independent addr
 ### General Overview
 
 An IP address helps reach a host, but a host runs many processes. Transport ports help the operating system deliver traffic to the right endpoint. This lesson moves from “the machine responds” to “the required service completed the required transaction.” That is the difference between a weak health check and useful support evidence.
+
+<!-- HSETS-TERMS-L04 -->
+### Terms explained in context
+
+Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+
+<a id="term-l04-01"></a>
+#### Port, socket and listener
+
+**Definition:** A port is a transport-layer number used to distinguish communication endpoints. A socket endpoint combines an address with a port. A listener is a process waiting to accept traffic at a configured endpoint.
+
+**Explanation:** The destination host can run many services, so the address alone is not enough. Binding controls which local addresses a listener uses. A conventional port number suggests a service but does not prove what software is listening.
+
+**Example or scenario:** Cedarbridge's teaching web process listens at the lab address on port 8000. Another process could use a different port on the same host. Binding the web process only to loopback prevents the separate client reaching it through the lab address.
+
+**Check your understanding:** Does successful ping establish that the port-8000 listener is running?
+
+<a id="term-l04-02"></a>
+#### TCP, UDP and handshake
+
+**Definition:** Transmission Control Protocol (TCP) provides an ordered byte stream with mechanisms for retransmission. User Datagram Protocol (UDP) sends datagrams without those TCP guarantees. A TCP handshake establishes a connection before ordinary application exchange.
+
+**Explanation:** Transport behaviour supports applications but does not establish their business success. TCP can connect while the application returns an error. Applications using UDP may provide their own reliability mechanisms.
+
+**Example or scenario:** A browser establishes a TCP connection to the training server but requests a nonexistent page. The connection can succeed while the server returns HTTP 404.
+
+**Check your understanding:** Does a completed TCP handshake prove the requested file exists?
+
+<a id="term-l04-03"></a>
+#### Timeout, refusal and hypothesis
+
+**Definition:** A timeout means an expected result did not arrive within the allowed wait. A connection refusal indicates active rejection of that connection attempt. A hypothesis is a possible explanation that can be tested.
+
+**Explanation:** Different symptoms narrow the investigation differently, but neither a timeout nor a refusal uniquely identifies every cause. Choose a check that separates plausible explanations before changing settings.
+
+**Example or scenario:** The client request times out. Instead of declaring a firewall fault, the learner checks the route and server listener, then compares the authorised policy evidence.
+
+**Check your understanding:** Why is changing several settings at once weak troubleshooting?
+
+<a id="term-l04-04"></a>
+#### Bandwidth, throughput and latency
+
+**Definition:** Bandwidth is carrying capacity. Throughput is the transfer rate actually achieved. Latency is the time taken for an operation or delivery step.
+
+**Explanation:** Capacity does not guarantee low delay or a particular achieved rate. Compare like-for-like tests and include the relevant path and measurement interval when explaining performance.
+
+**Example or scenario:** A large-capacity connection still gives a slow remote response because the request travels a long path. Buying capacity would not by itself remove that travel delay.
+
+**Check your understanding:** Which term best describes the wait for a response rather than the amount transferred per second?
+
+<a id="term-l04-05"></a>
+#### ICMP and five-tuple
+
+**Definition:** Internet Control Message Protocol (ICMP) carries network control/error information and includes echo messages used by ping. A five-tuple identifies a transport flow using source address, source port, destination address, destination port and transport protocol.
+
+**Explanation:** Different protocols test different conditions. A reply to an ICMP echo is useful network evidence but does not establish that a web listener or application is healthy. Flow attributes help correlate the actual application exchange.
+
+**Example or scenario:** The server answers ping while its web process is stopped. The student records ICMP success and HTTP failure separately rather than calling both outcomes contradictory.
+
+**Check your understanding:** Why can those two results both be correct?
+
+Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+
+<!-- /HSETS-TERMS-L04 -->
 
 ### 1. Transport and sockets
 
