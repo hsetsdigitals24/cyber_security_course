@@ -1,11 +1,12 @@
 # M03 Workbook
 
-Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for course weights and pass rules. Named lesson assignments contribute to knowledge/scenario and practical categories; “formative” describes the improvement feedback, not an exemption from grading. Raw marks below are unchanged.
+Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for course weights and pass rules. Named lesson assignments contribute to knowledge/scenario and practical categories; “formative” describes the improvement feedback, not an exemption from grading. Raw totals remain unchanged; practical tasks here assess supplied-evidence analysis. Live implementation is assessed separately in P01 after M04 setup.
 
 Before submitting, check the exact lesson ID, all requested items, actual test results and evidence references. Use the instructor's private destination and deadline on your [lab sheet](../H-SETS-Class-Lab-Sheet.md). Return to the [module route](README.md) after feedback.
 
 Each lesson: MCQs 10 marks (2 each), two scenarios 20 (10 each), independent practical 20. Answer with reasoning. All evidence must be from your actual work.
 
+<a id="assignment-l05"></a>
 ## L05 Assignment
 
 1. For a remote IPv4 destination, ARP normally resolves: A. Its owner's username B. The next-hop gateway on the local link C. Every router D. The remote server directly
@@ -18,8 +19,9 @@ Scenario A: Numerical HTTP succeeds; the configured resolver answers the portal 
 
 Scenario B: A laptop receives an address and gateway but the wrong DNS server from DHCP. Explain which transactions can still work and why replacing every network setting is a poor first action.
 
-Practical: Trace the named connection on the isolated pair. Add an instructor-assigned alternative name in the dedicated responder, prove resolution and correct marker retrieval, and record a failed name query without guessing the response status. Submit a sequence diagram, three actual outputs, and a limitation. Time 60 minutes.
+Practical: Analyse cases S1–S4 in the guided practice. Submit a sequence diagram, three evidence references, a proposed cache-aware DNS retest and one limitation. No system settings are changed. Time 60 minutes.
 
+<a id="assignment-l06"></a>
 ## L06 Assignment
 
 1. A display filter: A. Deletes excluded packets B. Selects recorded packets for viewing C. Changes server policy D. Decrypts TLS
@@ -32,10 +34,13 @@ Scenario A: Your filter shows no DNS, but a named request succeeded. Give three 
 
 Scenario B: A colleague claims to have read an HTTPS password from an ordinary passive capture without keys. Explain what is normally visible and what extra conditions would need evidence before accepting that claim.
 
-Practical: Analyse the fresh instructor capture. Give five packet references, endpoint/port identification, a supported interpretation, competing explanation where relevant, next action, and a support ticket. Time 90 minutes. Your annotation must distinguish observed facts from inference.
+Practical: Analyse CB-PACKETS-01 and independent CB-PACKETS-02 in the guided practice. Give five frame references, endpoint/port identification, supported interpretation, competing explanation, next action and a support ticket. Label the source as a synthetic worksheet, not a capture you collected. Time 90 minutes. Distinguish supplied observations from inference.
 
 | File/frame | Time setting | Observation | Interpretation | Limitation/next check |
 |---|---|---|---|---|
 | Fill from capture | | | | |
 
-Module milestone: curate P01's traffic evidence and a one-page handover. Take-home: ask a peer to locate one finding using your references; improve any ambiguous reference. Include this 30-minute review in project time.
+Module milestone: curate P01's supplied-evidence analysis and a one-page handover. Take-home: ask a peer to locate one finding using your references; improve any ambiguous reference. Include this 30-minute review in project time.
+
+
+Live service configuration, actual fault retests and PCAP collection are due only after the [M04 setup and network practice](../Module-04/README.md). Do not claim supplied results as your own execution.

@@ -1,5 +1,17 @@
 # H-SETS Practical Cybersecurity Programme — Student Learning Guide
 
+## Your first four modules
+
+| Order | Open | What you do | Ready to continue when… |
+|---|---|---|---|
+| 1 | [M01: Computer and cybersecurity foundations](Module-01/README.md) | Learn computer/file basics, risk and access decisions; L01 then L07 | You can save/find evidence and explain a risk and permission decision |
+| 2 | [M02: Networking foundations](Module-02/README.md) | Draw networks and interpret supplied service evidence; L03 then L04 | You can explain addresses, next hops and a service result |
+| 3 | [M03: Services and packet analysis](Module-03/README.md) | Trace DNS/web requests and analyse synthetic packet records; L05 then L06 | You can support a finding with a reference and state a limitation |
+| 4 | [M04: Virtualisation and safe labs](Module-04/README.md) | Build/recover the VM pair, study trust, then run live network practice; L02 then L08 | The VM works before M05; live practice follows in Weeks 5–6, then G1 |
+
+No learner VM is required in Modules 1–3. Follow these links and each module's numbered route; lesson IDs stay stable even when their teaching order changes. Read notes → guided practice → matching workbook → feedback → next lesson. Supplied examples are analysis material; they are never evidence that you ran a live test.
+
+
 This is an instructor-led course for learners with basic computer knowledge. This guide explains how to move through it without becoming lost in the tools. You do not need previous cybersecurity, programming or terminal experience. You do need willingness to practise and access to the prepared H-SETS lab environment. The instructor introduces unfamiliar tools before you use them independently. If saving files, finding downloads or using a browser is difficult, complete the relevant computing-bridge activities first.
 
 ## Your first class
@@ -31,8 +43,8 @@ Every module follows the same seven-step rhythm:
 1. **Understand:** learn what the concept means, why it exists and where a business uses it.
 2. **Observe:** watch the instructor demonstrate one small example and explain the expected result.
 3. **Predict:** write what you expect before running a command, changing a setting or examining evidence.
-4. **Practise:** follow the guided lab on the assigned synthetic systems.
-5. **Test:** perform a permitted positive test and a prohibited, invalid or boundary test.
+4. **Practise:** follow the module activity: files, diagrams and supplied evidence in M01–M03; assigned lab systems from M04.
+5. **Test:** explain expected allowed/denied outcomes in the foundation cases; perform the assigned live positive and boundary tests after setup.
 6. **Troubleshoot:** compare expected and actual results, change one justified item, then test again.
 7. **Explain and submit:** state what happened, what the evidence proves, what it does not prove and how the business is affected.
 

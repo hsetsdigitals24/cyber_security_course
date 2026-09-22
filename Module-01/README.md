@@ -1,36 +1,28 @@
-# Module 01 — Cybersecurity Foundations and the Working Lab
+# M01 — Computer and Cybersecurity Foundations
+
+Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Next module](../Module-02/README.md)
+
+**Read in this order: L01 → L07.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.
 
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 
-**Before class:** Create, save and find a file; take a screenshot; identify your own computer. If you need a refresher, tell the instructor before the practical.
+**Before class:** Basic file handling; supported practice is included.
 
-Use the instructor-completed [lab sheet](../H-SETS-Class-Lab-Sheet.md) to identify your machines, accounts, versions, inputs and recovery route. Bring a folder for your own evidence; do not copy demonstration results as your work.
+**Environment:** No VM needed: use files, diagrams and supplied evidence.
 
-| Stage | Open / do | Check before moving on |
+| Step | Open / do | Check before continuing |
 |---|---|---|
-| First lesson: L01 | [Read the notes](01-Student-Notes.md), discuss the worked example, then use the matching [lab section](02-Guided-Lab.md) | Explain one asset, threat, weakness and business consequence in the fictional case. |
-| First assignment | Complete only L01 in the [workbook](03-Student-Workbook.md) | Include the named evidence and explain one result |
-| Second lesson: L02 | Continue the notes and matching lab after the first checkpoint | Identify host versus guest, show the assigned isolation settings and demonstrate the required recovery check. |
-| Second assignment | Complete L02 in the workbook | Correct feedback and record an independent variation |
-| Portfolio milestone | P01: scope, lab boundary and evidence habits | Link existing evidence; do not duplicate the same activity as extra hours |
-
-**Completion checklist:** explain both checkpoints, submit both lesson assignments, preserve required allowed/denied or comparative tests, and record recovery plus unresolved issues. Completing this module does not automatically pass its project or gate.
-
-Plan six class hours and six independent hours in the default teaching week. The independent hours include assignment and project work. Use the [weekly planner](../H-SETS-Weekly-Study-Plan.md) for deadlines and the [assessment guide](../H-SETS-Student-Assessment-Guide.md) for marks.
-
-Navigation: [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Next module](../Module-02/README.md)
+| 1 — L01 | [L01 notes](01-Student-Notes.md#lesson-l01) → [L01 practice](02-Guided-Lab.md#practice-l01) | Explain a computer resource, an asset, a weakness and a business consequence. |
+| 2 — First assignment | [L01 workbook](03-Student-Workbook.md#assignment-l01) | Label facts, inferences and proposed actions |
+| 3 — L07 | [L07 notes](01-Student-Notes.md#lesson-l07) → [L07 practice](02-Guided-Lab.md#practice-l07) | Explain authentication versus permission and justify an access decision. |
+| 4 — Second assignment | [L07 workbook](03-Student-Workbook.md#assignment-l07) | Explain one result and one limitation |
+| 5 — Feedback | Correct gaps and update your P01 folder | Use the completion checkpoint below |
 
 <!-- /HSETS-STUDENT-START -->
 
-This module contains two lessons and their practical/assessment materials. It fits the H-SETS course blueprint: six guided hours plus six hours of independent work, using prepared guest images.
+## Completion checkpoint
 
-## Student materials
+Submit both lesson assignments. Your P01 work at this stage is planning/analysis; live network implementation follows the M04 VM checkpoint.
 
-1. [Complete student notes](01-Student-Notes.md) — L01 Security, business risk, and professional practice; L02 Virtualisation, range safety, and evidence handling.
-2. [Guided practical work](02-Guided-Lab.md) — business-risk workshop, two-VM range, controlled change, snapshot recovery, evidence, and local Git.
-3. [Workbook and assessments](03-Student-Workbook.md) — fictional company case, ten MCQs, four written scenarios, two practical tasks, and submission templates.
-
-
-
-The student materials are complete written content for this module. The VirtualBox/Ubuntu lab still requires an instructor pilot on the selected classroom environment; it has not been represented as an executed VM test.
+Use the [weekly planner](../H-SETS-Weekly-Study-Plan.md) and [assessment guide](../H-SETS-Student-Assessment-Guide.md). Planned weekly time remains six guided plus six independent hours; timings require a beginner pilot.

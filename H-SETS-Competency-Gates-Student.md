@@ -10,7 +10,7 @@ Each gate is scored out of 100. A pass requires at least 70, all critical requir
 
 ## G1 — Foundations, Connection Diagnosis, and Evidence
 
-**When:** after M04. **Time:** 45 minutes. **Environment:** two assigned Linux guests or prepared outputs, one local service, a DNS fault variant, a risk case, file fingerprints, and certificate information.
+**When:** planned end of Week 6, after M04 and its live network consolidation. **Time:** 45 minutes. **Environment:** two assigned Linux guests or prepared outputs, one local service, a DNS fault variant, a risk case, file fingerprints, and certificate information.
 
 ### Tasks
 
@@ -96,3 +96,8 @@ Scope, evidence register, timeline, hypothesis table, response/recovery proposal
 ### Critical requirements
 
 Preserve the original evidence; keep conclusions within what the evidence supports; do not destroy the only evidence or disable unrelated services; identify approval boundaries; provide meaningful recovery checks.
+
+
+## Foundations-first sequencing for P01 and G1
+
+M01 supplies risk/access reasoning; M02–M03 supply addressing plans and analysis of synthetic evidence. Live configuration, fault correction, DNS testing and PCAP collection follow L02 setup in M04, using [the network practice pack](Module-04/06-Network-Practice.md). These exercises contribute to the existing P01 workload, not an additional project or set of lesson grades. Supplied worksheet results do not satisfy actual P01 implementation/retest requirements. The first P01 draft and G1 are planned for the end of Week 6: Stage A uses 140 minutes of Week 5 P01 time and Stage B 140 minutes of Week 6 P01 time. These hours are part of P01's existing eight-hour allocation; early planning and later practice count once. The instructor confirms the combined weekly workload and adjusts dated checkpoints if remediation needs more time. M05 requires the working guest from M04, but does not require G1 to have been assessed already.

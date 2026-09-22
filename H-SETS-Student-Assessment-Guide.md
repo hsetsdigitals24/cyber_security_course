@@ -60,3 +60,8 @@ You may use approved notes and documentation. Disclose help, including AI assist
 - [ ] I can explain one decision, one test and one limitation without reading a model answer.
 
 Return to the [Student Learning Guide](H-SETS-Student-Learning-Guide.md).
+
+
+## Opening-module assignment mapping
+
+Stable lesson IDs follow their content: M01 now assesses L01 and L07; M04 assesses L02 and L08. M01 raw knowledge/scenario total is 55 and practical total 50; M04 totals are 55 and 90 respectively. M02/M03 each retain knowledge/scenario 60 and practical analysis 40. Convert each module category separately as above. M02/M03 evidence analysis is graded as practical analysis; actual live implementation is still required for P01 after M04 setup and cannot be replaced with supplied records.

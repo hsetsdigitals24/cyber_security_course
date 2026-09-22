@@ -1,18 +1,19 @@
 # M02 — Networking Fundamentals and Troubleshooting
 
-<!-- HSETS-NOTES-ROUTE -->
-> **Student route:** Study L03, complete its guided activity and assignment, then continue to L04. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
+Navigation: [Course map](../README.md) · [Module start](README.md) · [Notes](01-Student-Notes.md) · [Workbook](03-Student-Workbook.md)
 
+**This module uses supplied evidence and diagrams.** Live commands, captures and configuration described in the explanations are previews for [M04 network practice](../Module-04/06-Network-Practice.md). Follow the current guided practice and workbook now; no VM is required.
 
-H-SETS • L03–L04 • Six guided hours and six independent hours, including P01 work. Prerequisite: M01 working isolated lab. Read the [guided lab](02-Guided-Lab.md) and [workbook](03-Student-Workbook.md) alongside these notes.
+**Lesson links:** [L03](#lesson-l03) · [L04](#lesson-l04)
 
+<a id="lesson-l03"></a>
 ## L03 — Addressing, Switching, and Routing
 
 ### General Overview
 
 A network lets processes on different computers exchange information. The fact that a cable is connected does not mean the correct application can communicate. A useful investigation separates the physical or virtual link, local delivery, routing between networks, and the application itself. These distinctions help explain why one test succeeds while another fails.
 
-Recall M01: a guest is a computer inside a hypervisor, and an internal virtual network connects only the guests attached to it. In this lesson Cedarbridge connects a training client to a local web server. We first make the normal path understandable; security policy will have meaning only when that path is clear.
+Recall M01: applications run on computers, and a service provides a function to users. A client requests that function across a network. In this lesson Cedarbridge connects a training client to a local web server. We first make the normal path understandable; security policy will have meaning only when that path is clear.
 
 <!-- HSETS-TERMS-L03 -->
 ### Terms explained in context
@@ -108,7 +109,7 @@ Think of the prefix as telling you where the network boundary sits, not as a dec
 | /26 | 64 | 10.10.10.64 | .65–.126 | .127 |
 | /26 | 64 | 10.10.10.128 | .129–.190 | .191 |
 
-The network and broadcast addresses are not assigned to ordinary hosts in these examples. This leaves 62 conventional host addresses in a /26. Compare the full address and prefix at both ends; matching the first three decimal numbers is not a reliable general rule. Keep these paper examples separate from the configured /24 baseline.
+The network and broadcast addresses are not assigned to ordinary hosts in these examples. This leaves 62 conventional host addresses in a /26. Compare the full address and prefix at both ends; matching the first three decimal numbers is not a reliable general rule. Keep these paper examples separate from the /24 baseline you will configure in M04.
 
 ```text
 Same connected subnet:
@@ -125,7 +126,7 @@ Pause with the instructor: in the first drawing, what job would a gateway perfor
 
 The host selects the most specific matching route. A directly connected subnet normally sends locally. A default route, `0.0.0.0/0`, is a fallback when no more specific route matches. The next-hop gateway must be reachable through an appropriate interface. A gateway address is not a magic Internet switch: a usable router and a return path must actually exist.
 
-Cedarbridge's client `.20/24` and web server `.30/24` can communicate on one internal network without a default gateway. If the server moves to `10.10.20.30/24`, a router and routes in both directions become necessary. Adding a gateway that does not exist cannot fix the problem. In our first lab, the deliberate absence of a default route is part of isolation, not a fault.
+Cedarbridge's client `.20/24` and web server `.30/24` can communicate on one internal network without a default gateway. If the server moves to `10.10.20.30/24`, a router and routes in both directions become necessary. Adding a gateway that does not exist cannot fix the problem. In the later M04 live lab, the deliberate absence of a default route is part of isolation, not a fault.
 
 Two devices with the same address can produce intermittent results as neighbour information changes. Wrong masks can create asymmetric decisions: one host thinks a peer is local while the peer tries to use a router. Always record both ends, not only the failing client's screen.
 
@@ -137,9 +138,9 @@ Wi-Fi still supports IP communication, but radio conditions, association, and wi
 
 ### Worked example, demonstration, and practice
 
-An Operations worker cannot open the training page. Their address is `.20/24`; the server is `.30/24`; both are attached to different virtual switch names. The addressing plan looks correct, but the link-level topology is wrong. The instructor compares hypervisor adapter names before changing IP settings, then shows `ip -br address` and `ip route get 10.10.10.30`. The route lookup predicts the chosen interface; it does not prove that packets arrived.
+An Operations worker cannot open the training page. Their address is `.20/24`; the server is `.30/24`; they attach to separate isolated links with no connection between them. The addresses look compatible, but the assumed link is absent. Compare record B in the guided practice before proposing any change. In M04, you will inspect the actual interface and route: a route lookup predicts the chosen path but does not prove packets arrived.
 
-Complete Lab A. Draw the frame's destination for a local peer and, on paper, for a remote peer through a router. For independent practice, design a /26 network for 40 hosts and explain the range rather than copying the demonstration's /24.
+Complete the L03 address and route workshop. Draw the frame's destination for a local peer and, on paper, for a remote peer through a router. For independent practice, design a /26 network for 40 hosts and explain the range rather than copying the demonstration's /24.
 
 ### Common mistakes, summary, and glossary
 
@@ -159,8 +160,13 @@ These are ungraded practice prompts. Explain your reasoning to the instructor be
 
 ### End-of-Lesson Assignment — L03
 
-Complete Workbook L03: five MCQs, two written scenarios, and an independent addressing task. Submit a /26 calculation, annotated topology, both hosts' interface/route evidence, and a short explanation of why the baseline has no default gateway. Budget 60 minutes within this week's independent hours. Marking: knowledge 10, scenarios 20, practical 20. No marks are awarded for invented observations.
+Complete Workbook L03: submit a /26 plan, diagram and interpretation of supplied route/link evidence. Do not configure a host or guest. Knowledge 10, scenarios 20, practical analysis 20; plan 60 minutes. Live implementation contributes to P01 after M04 setup.
 
+
+
+**Next step:** [L03 practice](02-Guided-Lab.md#practice-l03) → [L03 workbook](03-Student-Workbook.md#assignment-l03) → [module checkpoint](README.md).
+
+<a id="lesson-l04"></a>
 ## L04 — Ports, Protocols, Connectivity, and Diagnosis
 
 ### General Overview
@@ -257,9 +263,9 @@ Record baseline, failing test, hypothesis, discriminating check, correction, and
 
 ### Worked example, demonstration, and practice
 
-Cedarbridge's server answers ping but the browser fails. The instructor runs the test web process bound to loopback, demonstrates local success and remote failure, then binds it to the assigned lab address. The correction changes where the process listens, not the firewall. Students repeat the same request from both ends. Lab B explains the exact commands and recovery.
+Cedarbridge's server answers ping but the browser fails. Compare the supplied loopback-listener and client-response evidence in the guided practice. In M04, the instructor demonstrates the same case on the assigned guests. The correction changes where the process listens, not the firewall. Students explain the expected results now and repeat the requests from both ends during M04 network practice.
 
-For independent practice, diagnose two instructor-seeded faults separately. Before each change write two plausible causes and one check that distinguishes them. Preserve the original state or a snapshot, change one cause, and retest the same application transaction.
+For independent practice now, analyse two supplied fault records and propose a discriminating check. Implement and retest faults only after M04 setup.
 
 ### Common mistakes, summary, and glossary
 
@@ -269,4 +275,7 @@ Port: transport endpoint number. Listener: process awaiting connections. Five-tu
 
 ### End-of-Lesson Assignment — L04
 
-Complete Workbook L04 and submit two resolved fault records, listener evidence, a fresh successful HTTP response, and one remaining limitation. Budget 90 minutes; remaining independent time contributes to P01. Marking: knowledge 10, scenarios 20, practical 20. Module consolidation is the P01 addressing and service-baseline milestone, not another portfolio project.
+Complete Workbook L04: submit two analysis tickets using supplied evidence, proposed checks/corrections and a limitation. Knowledge 10, scenarios 20, practical analysis 20; plan 90 minutes. Actual service restoration and retests follow in M04/P01.
+
+
+**Next step:** [L04 practice](02-Guided-Lab.md#practice-l04) → [L04 workbook](03-Student-Workbook.md#assignment-l04) → [module checkpoint](README.md).

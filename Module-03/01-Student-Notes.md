@@ -1,11 +1,12 @@
 # M03 — Network Services and Packet Analysis
 
-<!-- HSETS-NOTES-ROUTE -->
-> **Student route:** Study L05, complete its guided activity and assignment, then continue to L06. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
+Navigation: [Course map](../README.md) · [Module start](README.md) · [Notes](01-Student-Notes.md) · [Workbook](03-Student-Workbook.md)
 
+**This module uses supplied evidence and diagrams.** Live commands, captures and configuration described in the explanations are previews for [M04 network practice](../Module-04/06-Network-Practice.md). Follow the current guided practice and workbook now; no VM is required.
 
-H-SETS • L05/L06 • Prerequisite M02. Six guided and six independent hours including P01. Use the [lab](02-Guided-Lab.md) and [workbook](03-Student-Workbook.md).
+**Lesson links:** [L05](#lesson-l05) · [L06](#lesson-l06)
 
+<a id="lesson-l05"></a>
 ## L05 — DNS, DHCP, ARP, NAT, and Web Connections
 
 ### General Overview
@@ -106,7 +107,7 @@ Name lookup also depends on the local operating system's resolution order. A hos
 
 Network address translation changes addresses, and often ports, as traffic crosses a device. Port translation lets multiple internal clients share one external address by tracking mappings. A capture inside and outside that device can therefore show different source addresses for the same transaction. Correlation needs time, ports, and translation records.
 
-NAT does not encrypt traffic. A stateful firewall may operate alongside NAT, but translation and permission are different decisions. Do not call a private-addressed device safe solely because it uses NAT. The M03 lab has no NAT during capture; this makes endpoint evidence easier to interpret.
+NAT does not encrypt traffic. A stateful firewall may operate alongside NAT, but translation and permission are different decisions. Do not call a private-addressed device safe solely because it uses NAT. The later M04 live capture exercise has no NAT; this makes endpoint evidence easier to interpret.
 
 ### 5. From request to response
 
@@ -116,7 +117,7 @@ HTTPS adds TLS protection. A normal passive capture may show addresses, timing, 
 
 ### Worked example, demonstration, and practice
 
-Cedarbridge's server responds at its numerical address, while `portal.cedarbridge.test` points to an old address. The instructor compares direct HTTP, explicit DNS lookup, and HTTP with the correct resolved address. This isolates a name-to-address problem while preserving the required hostname. Students then trace the healthy transaction in Lab A and change one DNS input for independent practice.
+Cedarbridge's server responds at its numerical address, while `portal.cedarbridge.test` points to an old address. The instructor compares direct HTTP, explicit DNS lookup, and HTTP with the correct resolved address. This isolates a name-to-address problem while preserving the required hostname. Students trace supplied cases S1–S4 now and propose a retest. The live DNS variation follows M04 setup.
 
 ### Common mistakes, summary, and glossary
 
@@ -128,7 +129,7 @@ Resolver: service obtaining DNS answers. Authoritative server: source responsibl
 
 **Illustrative case, not an executed lab result.** Imagine the service works by its assigned numerical address but fails by name. This narrows the investigation towards name resolution; it does not yet prove that the DNS server is broken. An explicit query checks the chosen server. A system lookup checks the client's configured resolution path. Comparing the two can distinguish a wrong answer from a wrong client resolver. Only after correction does a fresh ordinary name-based request demonstrate the required user outcome.
 
-**Try together:** Draw name lookup → address → connection → HTTP request. Point to the evidence that supports each stage in the instructor capture.
+**Try together:** Draw name lookup → address → connection → HTTP request. Point to the evidence that supports each stage in the supplied cases and packet worksheet.
 
 **Try independently:** An explicit query returns the expected address but the ordinary lookup differs. Name two checks before changing the web server.
 
@@ -136,8 +137,13 @@ These are ungraded practice prompts. Explain your reasoning to the instructor be
 
 ### End-of-Lesson Assignment — L05
 
-Complete Workbook L05. Submit a connection sequence, a DNS-versus-service diagnosis, actual healthy query evidence, and an independent name variation. Budget 60 minutes. Marking: MCQs 10, scenarios 20, practical 20. This contributes the name-service portion of P01.
+Complete Workbook L05 using cases S1–S4 in the guided practice. Submit the named-request sequence, three references, proposed DNS retest and one limitation. Knowledge 10, scenarios 20, practical analysis 20; plan 60 minutes. No responder configuration is required yet.
 
+
+
+**Next step:** [L05 practice](02-Guided-Lab.md#practice-l05) → [L05 workbook](03-Student-Workbook.md#assignment-l05) → [module checkpoint](README.md).
+
+<a id="lesson-l06"></a>
 ## L06 — Wireshark Investigation
 
 ### General Overview
@@ -225,7 +231,7 @@ Use timestamps with time zones; compare clocks before merging sources. Preserve 
 
 ### Worked example, demonstration, and practice
 
-The instructor captures one healthy page retrieval, then a retrieval after stopping the server. Compare application success with the failure sequence using the same client and destination. Students locate at least five packets, explain their roles, and write a ticket with evidence and uncertainty. The independent recording changes the requested name or port; learners must not assume the demonstration's frame numbers or cause.
+The instructor explains the supplied healthy and failure records; live capture is deferred to M04. Compare application success with the failure sequence using the same client and destination. Students locate at least five packets, explain their roles, and write a ticket with evidence and uncertainty. The independent worksheet changes the response; learners must not assume the demonstration's frame numbers or cause.
 
 ### Common mistakes, summary, and glossary
 
@@ -235,4 +241,7 @@ PCAP/PCAPNG: packet recording formats. Vantage point: observation location. Disp
 
 ### End-of-Lesson Assignment — L06
 
-Complete Workbook L06. Submit a bounded capture, five annotated packet references, filter notes, a resolved support ticket, and one explicit uncertainty. Budget 90 minutes. Marking: MCQs 10, scenarios 20, practical 20. Consolidate P01 traffic evidence; no additional project is created.
+Complete Workbook L06 using CB-PACKETS-01 and the independent variation. Submit five frame references, a filter explanation and an evidence-based ticket. Label these synthetic worksheet observations. Knowledge 10, scenarios 20, practical analysis 20; plan 90 minutes. Live capture follows in M04/P01.
+
+
+**Next step:** [L06 practice](02-Guided-Lab.md#practice-l06) → [L06 workbook](03-Student-Workbook.md#assignment-l06) → [module checkpoint](README.md).

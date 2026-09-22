@@ -1,146 +1,242 @@
-# M04 — Threats, Identity, and Cryptographic Foundations
+# M04 — Virtualisation, Safe Labs, and Cryptographic Trust
 
-<!-- HSETS-NOTES-ROUTE -->
-> **Student route:** Study L07, complete its guided activity and assignment, then continue to L08. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
+Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Previous module](../Module-03/README.md) · [Next module](../Module-05/README.md)
 
+**Read in this order: L02 → L08.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.
 
-H-SETS • L07/L08 • Prerequisite M01–M03. Six guided and six independent hours including P01 review and G1 preparation.
+**Lesson links:** [L02](#lesson-l02) · [L08](#lesson-l08)
 
-## L07 — Threats, Social Engineering, and Access Decisions
+<a id="lesson-l02"></a>
+## L02 — Virtualisation, Range Safety, and Evidence Handling
 
 ### General Overview
 
-Technical failures are not always attacks, and a convincing message is not proof of identity. Security work combines system evidence with knowledge of who should be allowed to do what. Cedarbridge's Finance team must approve payments without trusting every urgent email. This lesson connects M01 risk language with the identity controls that later Linux and Active Directory lessons implement.
+A practice environment lets you make controlled changes without experimenting on a live organisation. In this lesson, you will learn the relationship between your physical computer and its virtual machines, understand the lab's connection boundary, and practise returning a disposable machine to a known state.
 
-<!-- HSETS-TERMS-L07 -->
+You will also begin an evidence pack. A useful portfolio should show what you did, what changed, how you checked it, and what the result means. Evidence must survive the recovery exercise it is documenting.
+
+<!-- HSETS-TERMS-L02 -->
 ### Terms explained in context
 
 Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
 
-<a id="term-l07-01"></a>
-#### Malware and attack behaviour
+<a id="term-l02-01"></a>
+#### Virtual machine, host, guest and hypervisor
 
-**Definition:** Malware is software designed to perform harmful or unauthorised actions. Attack behaviour is what an actor or tool actually does, such as attempting unwanted access.
+**Definition:** A virtual machine is a computer represented in software. The host provides the physical resources; the guest is the operating system running inside the virtual machine. A hypervisor creates and manages these virtual machines.
 
-**Explanation:** A label describes a category, not a complete explanation. Record actions, affected resources and evidence before naming an actor or assuming a particular motive. The course uses harmless examples rather than live malware.
+**Explanation:** A guest has its own operating environment but uses resources provided by the host. Keeping these roles clear prevents a learner from applying a lab change to their everyday computer.
 
-**Example or scenario:** A fictional case says files were renamed. That observation alone does not establish ransomware: an approved script or a mistake might also rename files.
+**Example or scenario:** The learner's laptop runs a hypervisor containing an Ubuntu guest. The lab asks for an Ubuntu network change. The learner opens the guest settings, not the laptop's Wi-Fi settings.
 
-**Check your understanding:** What makes “files were renamed” different from “ransomware caused it”?
+**Check your understanding:** Which system supplies the physical memory used by the guest?
 
-<a id="term-l07-02"></a>
-#### Social engineering and phishing
+<a id="term-l02-02"></a>
+#### Virtual CPU, RAM and virtual disk
 
-**Definition:** Social engineering manipulates people into decisions that help an attacker. Phishing uses deceptive messages or sites to prompt actions such as disclosing information or visiting a destination.
+**Definition:** A virtual central processing unit (CPU) is a processing resource presented to a guest. Random access memory (RAM) holds active working data. A virtual disk stores the guest's persistent files through backing storage on the host.
 
-**Explanation:** Pressure, apparent authority and requests to bypass normal checks can influence decisions. An unusual message calls for verification through a known independent route, not through contact details supplied by the message itself.
+**Explanation:** Resources are shared, so giving several guests large allocations can leave the host struggling. Disk capacity and free space also differ: snapshots and guest files consume host storage over time.
 
-**Example or scenario:** A fictional supplier message demands a bank-detail change and says not to call the usual contact. Finance checks the approved supplier record before acting.
+**Example or scenario:** A 16 GB laptop runs the two guests needed for today's lab. Starting the later monitoring range as well could leave too little memory for the host, even though each VM is configured correctly.
 
-**Check your understanding:** Why is replying to the suspicious sender a weak independent verification method?
+**Check your understanding:** Why does a 500 GB drive not necessarily mean 500 GB is available for labs?
 
-<a id="term-l07-03"></a>
-#### Identity and authentication
+<a id="term-l02-03"></a>
+#### Virtual network and isolation
 
-**Definition:** An identity is the account or entity being represented. Authentication checks the evidence supporting a claimed identity.
+**Definition:** A virtual network connects software-based network interfaces. Isolation limits which systems can communicate with the lab.
 
-**Explanation:** A username states which account is being claimed; a password or security key can help verify that claim. Successful authentication does not mean the account may perform every operation, and possession of credentials does not prove the real person's intent.
+**Explanation:** The adapter mode and attachment determine possible paths. An internal lab network can connect assigned guests without intentionally connecting outside systems; an extra adapter can introduce a different path. Inspect the configuration as well as test results.
 
-**Example or scenario:** Alice enters her account name and completes the portal's sign-in check. The system establishes a session for that identity before considering which records she may open.
+**Example or scenario:** The two classroom guests share one named internal network. A learner accidentally leaves a second bridged adapter enabled, creating a path the exercise did not intend.
 
-**Check your understanding:** If Alice signs in but cannot open payroll, has authentication necessarily failed?
+**Check your understanding:** Does one failed ping prove every possible external path is blocked?
 
-<a id="term-l07-04"></a>
-#### Authorisation, access matrix and least privilege
+<a id="term-l02-04"></a>
+#### Baseline, snapshot and backup
 
-**Definition:** Authorisation decides which actions an identity may perform on a resource. An access matrix lists identities or roles against resources and allowed actions. Least privilege limits those grants to what the task needs.
+**Definition:** A baseline is a recorded starting or expected state. A snapshot records a VM state that can support rollback. A backup is a copy retained for recovery from loss or damage.
 
-**Explanation:** Write the intended access before changing settings. This turns “secure the folder” into testable operations, including who must be refused. Test as the intended identity rather than relying on administrator access.
+**Explanation:** A snapshot often depends on the same host storage as the VM, so it does not automatically protect against host-disk failure. Recovery evidence should survive the rollback you are about to perform.
 
-**Example or scenario:** The matrix says Finance may edit payroll, Audit may read it and Operations may not open it. The instructor asks students to test each distinct operation.
+**Example or scenario:** Before changing a guest, the learner records its baseline and creates a snapshot. They save their evidence outside the guest so restoring the snapshot does not erase the latest observations.
 
-**Check your understanding:** Why is one successful Finance edit insufficient to validate this whole matrix?
+**Check your understanding:** Why should a snapshot on the laptop not be described as an independent off-device backup?
 
-<a id="term-l07-05"></a>
-#### Ransomware, Trojan, worm and spyware
+<a id="term-l02-05"></a>
+#### Evidence, repository and commit
 
-**Definition:** Ransomware seeks to deny access or exert pressure for payment, often through encryption and sometimes data theft. A Trojan presents an apparently useful function while concealing harmful behaviour. A worm spreads between systems. Spyware collects information covertly or without the intended user's informed permission.
+**Definition:** Evidence is information that supports a claim. A Git repository stores version history for selected files. A commit is a recorded version of the staged changes in that history.
 
-**Explanation:** These categories describe behaviours and can overlap. Learn the concepts without running unknown samples. A filename, visual warning or single changed file is insufficient to establish which behaviour occurred.
+**Explanation:** Version history helps explain what changed and when it was recorded. It is not automatic backup, confidentiality or proof that a reported test occurred. Keep actual evidence, its context and its limitations together.
 
-**Example or scenario:** A fictional report says a useful-looking installer collected private data. The student distinguishes the deceptive presentation from the collection behaviour instead of assuming only one category can apply.
+**Example or scenario:** A learner commits a lab report describing a failed test and later commits the correction. The history helps explain the revision, but screenshots and test records still support the technical claim.
 
-**Check your understanding:** Can one malicious program fit more than one category?
-
-<a id="term-l07-06"></a>
-#### SPF, DKIM and DMARC
-
-**Definition:** Sender Policy Framework (SPF) checks whether a sending host is authorised for a relevant mail-sending domain. DomainKeys Identified Mail (DKIM) uses a domain signature to verify covered message content. Domain-based Message Authentication, Reporting and Conformance (DMARC) uses aligned SPF or DKIM authentication results for the visible From domain and expresses policy/reporting information.
-
-**Explanation:** These mechanisms support particular domain-related checks. They do not approve the requested business action or prove that a person is honest. A compromised legitimate account or a deceptive sender using its own domain can still send a harmful request.
-
-**Example or scenario:** A fictional payment-change email passes the available domain checks. Finance still verifies the change using its approved supplier contact and authorisation process.
-
-**Check your understanding:** Does a passing mail authentication result make a bank-detail change automatically authorised?
+**Check your understanding:** Does committing a report prove that its described lab test really happened?
 
 Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
 
-<!-- /HSETS-TERMS-L07 -->
+<!-- /HSETS-TERMS-L02 -->
 
-### 1. Describe behaviour before attaching a label
+### 1. Host, guest, and hypervisor
 
-Malware is software used for harmful or unauthorised purposes. Ransomware may deny access by encrypting data and may also steal it. A Trojan presents itself as useful while performing another function; a worm propagates between systems; spyware collects information. These categories can overlap. Knowing a category does not establish what a particular file did.
+The **host** is the physical computer and its operating environment. A **guest** is an operating system running inside a virtual machine. A **hypervisor** provides virtual hardware and manages access to physical resources so that guests can operate.
 
-A vulnerability is a weakness; a threat is a potential source of harm; an event is an observable occurrence. A failed login is an event, not automatically an incident. Repeated failures might be a forgotten password, an automated service with stale credentials, or hostile activity. Record what is known, consider alternatives, and choose the next check. Never execute a suspicious attachment to “see what it does” in this beginner course. We use synthetic text fixtures and harmless files.
+Your Windows laptop can be the host while Ubuntu runs as a guest. The Ubuntu window looks like a separate computer because it has its own operating system, accounts, files, memory allocation, and virtual devices. However, its resources ultimately depend on the host.
 
-Controls work in layers. Restricting privileges limits what compromised software can change; updates reduce exposure to known defects; filtering may block delivery; backups support recovery; logs support investigation. None guarantees that every threat is stopped. A backup that cannot be restored is weak evidence of resilience, and a security product's absence of alerts is not proof of a clean system.
+Hypervisors are often described as running directly on hardware or within a general-purpose host operating system. VirtualBox is the desktop hypervisor used for this module. The distinction helps explain deployment approaches; it is not a ranking in which one label guarantees security.
 
-### 2. Social engineering manipulates a decision
+Virtualisation is different from using a remote cloud service, and a VM is not the same as a container. A VM normally includes its own guest operating system. Containers commonly share a kernel with their environment. You will study cloud and deployment models later; for now, focus on the separate host and guest boundaries.
 
-Phishing often combines an apparent authority, a plausible context, and pressure to act. An attacker may use urgency, secrecy, curiosity, or fear. The important question is not whether the message has spelling mistakes: polished messages can be fraudulent, and genuine messages can be poorly written.
+### 2. What the virtual machine actually contains
 
-Compare displayed sender name, actual address, destination, requested action, and normal business process. A lookalike domain can resemble a known supplier without being the same name. A legitimate account can also be compromised. The safest verification path is an independently known contact or approved internal workflow, not the phone number supplied in the suspicious message.
+A VM configuration describes its virtual CPU, memory, disks, network adapters, display, and other settings. A virtual disk is stored as one or more files on the host. Inside the guest, it appears as a disk that can hold partitions, an operating system, and user files.
 
-Do not equate a mail authentication result with business approval. SPF, DKIM, and DMARC help with specific aspects of domain-based mail authentication and policy; they do not prove that the sender's request is honest or authorised. This lesson analyses visible synthetic evidence and does not teach full email forensics.
+An ISO file is an installation image. Attaching an Ubuntu ISO to a VM is similar to placing installation media in that virtual computer. It is not necessary to boot your physical laptop from the ISO for this lab.
 
-### 3. Identity, authentication, and authorisation
+The distinction is important during installation: a disk operation inside a correctly configured disposable VM should target its new virtual disk. Instructions for installing Ubuntu directly onto a physical laptop are not the procedure for this course. If the installer displays unexpected host disks or the context is unclear, stop and verify before continuing.
 
-Identification is the claim “I am this account.” Authentication checks evidence supporting the claim. Authorisation decides what the authenticated account may do. Accounting or audit records help reconstruct activity. These functions are related but distinct: a valid employee login does not grant permission to read every departmental document.
+### 3. Resource planning and operating habits
 
-Authentication factors are commonly grouped as something known, possessed, or inherent. A password plus a PIN is two knowledge secrets, not two independent factor categories. MFA can reduce some credential risks, but implementation matters. Some methods can be relayed or trick users into approving requests; phishing-resistant approaches bind authentication to the intended service. Account recovery is part of the authentication system and must not become an easy bypass. These distinctions are supported by [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html).
+Allocating guest RAM leaves less RAM available to the host and other programs. Assigning virtual CPUs does not create new physical processing capacity. When the machine becomes overloaded, sluggishness can look like a network or application failure even though the underlying problem is resource pressure.
 
-Authorisation should follow the business role and least privilege. A Finance clerk may read invoices but need a separate approver for payment release. A contractor's access should have an owner and an end date. On a role change, remove obsolete permissions as well as adding new ones. Disabling an account may not immediately terminate every existing session; effective removal requires verification using fresh sessions and relevant session-revocation controls.
+The planned M04 range uses two Ubuntu Desktop guests, each allocated 4 GB RAM and two virtual CPUs, on a suitable 16 GB host. These are lab planning values, not a promise that every 16 GB device will perform identically. Close unnecessary heavy applications and use an instructor-provided equivalent if capacity is insufficient.
 
-### 4. Access matrices make intentions testable
+A dynamically allocated virtual disk grows as data is written, up to its configured limit. The host still needs space for the actual data and later snapshots. Monitor free space rather than assuming a small initial file means the lab will always remain small.
 
-An access matrix lists subjects, resources, and permitted actions. “Finance has access” is too vague. Specify read, create, modify, delete, and approve where relevant. Group-based permissions simplify consistent administration, but only when membership is current. Shared accounts weaken attribution and complicate offboarding.
+Shut a guest down through its operating system when possible. Saving its running state is different from a clean shutdown. For this module's snapshot exercise, use a powered-off guest so that the recovery point is easier to understand. Do not delete unfamiliar VM disk files in an attempt to reclaim space.
 
-For Cedarbridge, Alice in Finance may read and update invoice drafts; Ben in Operations must be denied; Cara the auditor may read approved reports but not change them. Testing only Alice proves little about Ben's restriction. Positive and negative tests together demonstrate the boundary. Later modules implement these decisions on real lab systems.
+### 4. Understand the network boundary before testing
 
-### Worked example, demonstration, and practice
+A virtual network adapter is the guest's connection to a network. Its attachment mode affects which systems can communicate. The following is a concise reference to VirtualBox's modes:
 
-The instructor displays a synthetic message requesting a supplier bank-account change and demanding secrecy. Students separate observable features from conclusions, verify through a known supplier contact in the fictional process, and document escalation. No message is sent to a real person. Next, complete the access matrix in Lab A and explain two allowed and two denied decisions.
+| Mode | Normal purpose | M04 decision |
+|---|---|---|
+| NAT | Guest-initiated external connectivity | Not used during assessed practice |
+| NAT Network | Guests share a network with external connectivity | Not used |
+| Bridged | Guest participates through a physical host network | Not used |
+| Host-only | Connects selected guests and the host | Not the selected isolation boundary |
+| Internal Network | Connects guests attached to the same named internal network | Used for the two assigned VMs |
+| Not attached | Adapter has no network connection | Useful for disconnected operation |
 
-### Common mistakes, summary, and glossary
+Internal networking has no normal direct host/external connection, but another VM with extra connections could provide a route. Host-only includes the host. NAT permits outbound connectivity and should not be treated as complete containment. [Oracle: VirtualBox networking](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html)
 
-Urgency is a reason to verify efficiently, not to bypass approval. A successful login does not establish data-access entitlement. An account name in a log does not prove the named human controlled it. Describe evidence and limits precisely.
+The exercise uses one adapter per VM, the same private internal network name, and no gateway. All additional adapters are disabled. Shared folders, clipboard integration, drag-and-drop, and USB passthrough are also kept off for this exercise. These are deliberate course design choices to simplify the boundary you are learning to verify.
 
-Phishing: deceptive communication intended to induce an action. Authentication: verification of an identity claim. Authorisation: permitted actions. MFA: authentication using multiple factor categories. Least privilege: only required permissions. Access review: checking current access against business need.
+#### The minimum addressing knowledge needed today
 
-### Worked practice — explain it before you change it
+An IP address identifies a network interface within the addressing arrangement. A subnet mask or prefix helps the system decide which destinations belong to its local network. A gateway provides a next step toward other networks. DNS translates names into addresses.
 
-**Illustrative case, not an executed lab result.** A fictional payment message asks you to change bank details and avoid the usual contact. Those requests are observations. They justify checking the request through the approved contact record; they do not identify who wrote the message. Likewise, matching hashes of two supplied files support byte consistency under the comparison used, not that the file is harmless. Each conclusion must stay within the test's purpose.
+Use the lab's supplied addresses exactly. You do not need to design a subnet today. M02 develops the underlying networking concepts in depth. In this exercise there is deliberately no gateway or DNS requirement because the two guests communicate by local IP address.
 
-**Try together:** Underline the observations in the message and circle one claim that would need more evidence.
+### 5. What a connectivity test proves
 
-**Try independently:** A certificate has a matching hostname and current dates. State one question about the organisation or requested action that this does not answer.
+If guest A receives replies from guest B, you have evidence of that particular communication under the current conditions. You have not proved that every service works or that every possible destination is blocked.
 
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+A failed ping is also limited evidence. It might result from a powered-off guest, the wrong address, a disconnected adapter, filtering, or another fault. It does not automatically prove isolation.
 
-### End-of-Lesson Assignment — L07
+The lab combines several observations: inspect adapter attachments, identify the two guests' addresses, review routes, confirm permitted peer connectivity, and ask the guest operating system how it would route to a designated non-lab address. The route lookup does not send traffic to that address. If an unexpected path appears, stop and investigate rather than making an external test.
 
-Complete Workbook L07: five MCQs, two scenarios, and a synthetic message/access review. Submit a fact-versus-inference table, verification plan, access matrix, and escalation note. Budget 60 minutes; 50 formative marks. Do not contact anyone or create a phishing campaign.
+Your conclusion should state what was checked and when. A useful statement is: 'At the recorded time, each assigned guest had one internal adapter; peer communication worked; and the guest had no route to the specified off-lab IPv4 destination.' That is more precise than 'my VM is completely secure'.
 
+### 6. Baselines, snapshots, and backups
+
+A **baseline** is a recorded reference state. For a VM, it can include the operating-system version, name, network settings, installed components, and a known test file. A baseline is useful because you can compare a later state against it.
+
+A **snapshot** records a VM point in time. Restoring it can revert guest disk state and VM settings; a snapshot taken while running may also include memory state. Saving or restoring a snapshot affects the VM state, so later work can be lost. Snapshot disk data depends on the VM's storage chain and is not an independent copy of the whole environment. [Oracle: snapshots and VM operation](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html)
+
+For the lab, take a powered-off snapshot after the isolated configuration is verified. Give it a descriptive name and description. Then change a harmless text file, record the difference, shut down, and restore. Confirm both the original text and the network settings afterward.
+
+A **backup** is a recoverable copy maintained for a recovery purpose. If the only VM files and snapshots are on a failed host disk, those snapshots do not provide an independent recovery copy. Likewise, a copy of an evidence file elsewhere on the same disk can survive a VM rollback but cannot survive every host-disk failure.
+
+This module demonstrates a point-in-time rollback and preservation of selected evidence outside the guest. It does not demonstrate complete host disaster recovery. Later work includes recovery from an independent data backup.
+
+#### Why the evidence belongs outside the restored guest
+
+Suppose you capture your 'changed' result inside the guest after taking the snapshot. When you restore the earlier state, that screenshot may disappear along with the file change. The exercise then loses the evidence showing what happened.
+
+Use the host's screenshot tool to capture the guest window and save images in the host portfolio directory. Keep your scope and test records there too. This preserves them through the guest rollback without enabling a shared folder. The evidence remains sensitive to host loss, so use the institution's approved backup/submission route afterward.
+
+### 7. A basic evidence record
+
+Evidence is information that supports a claim. A screenshot can be useful, but it needs context. A terminal image with no hostname, command, date, or explanation may be difficult to interpret. A report containing only a success message may hide the actual configuration being tested.
+
+For each item, record a unique evidence ID, what you collected, the source, the collection time and time zone, the action that produced it, and what it supports. If the system clock appears wrong, state that limitation. Do not quietly substitute a convenient time.
+
+An example filename pattern is `M04-E04-before-restore.png`. The evidence register provides the actual timestamp and explanation; the filename does not need to hold every detail. Use a pseudonymous learner identifier where appropriate and avoid passwords in screenshots.
+
+Good evidence supports a specific claim:
+
+| Claim | Appropriate evidence | Limitation |
+|---|---|---|
+| VM has one internal adapter | Hypervisor settings plus guest interface view | Describes inspected configuration at that time |
+| Peer connectivity works | Correct peer address and observed replies | Does not test an application service |
+| File returned to baseline | Before/change/after contents and comparison | Does not prove the entire OS is uncompromised |
+| Work was versioned locally | Commit history and tracked-file list | Does not prove independent off-device backup |
+
+Do not fabricate an expected result when your observed result differs. A failed test with a careful diagnosis is useful learning evidence. Explain the difference and what you tried next.
+
+### 8. Git as a local record of work
+
+Git can record revisions of text-based project material. A repository is the collection of working files and its version history. You select changes for a commit, then create a recorded revision with a meaningful message. Git can operate entirely on your computer; a hosting account and public upload are not required. [Git: repository creation](https://git-scm.com/docs/git-init)
+
+The lab introduces a local repository for the README, scope, and change log. You will inspect the selected files before committing. Do not add VM disks, credentials, private keys, or large uncurated evidence folders. A local commit is a useful change record but is not proof that the work has been backed up to another device.
+
+The course will develop your portfolio gradually. Module One is a foundation artifact used by later projects; it is not counted as one of the eight substantial completed projects.
+
+### 9. Troubleshooting as an evidence-led process
+
+Start with the expected result and compare it with the observed result. Propose plausible causes, choose a low-impact test, make one relevant change, and check again. Changing many settings at once makes it harder to know which change fixed the problem.
+
+For example, if the guests cannot communicate, inspect whether both are on the same internal network name and have distinct supplied addresses. If the names differ, they are connected to different virtual networks. Correct that specific issue and retest. Do not switch to Bridged mode to make the problem disappear; that changes the exercise's boundary.
+
+If a guest runs slowly, inspect resource pressure before repeatedly changing its network settings. If a snapshot restore produces unexpected content, verify which snapshot was selected and whether the file was actually inside the restored virtual disk.
+
+A good troubleshooting note makes your reasoning visible: 'Peer test failed. Both guests were running. Their internal network names differed. I corrected guest B to the approved name, restarted it, and the same peer test succeeded.'
+
+### 10. L02 practice and professional relevance
+
+Complete the L02 lab and the L02 assessment in the workbook. You will identify the host/guest boundary, verify a two-VM range, create and restore a baseline, and submit evidence that survives the restore.
+
+These habits matter in entry-level support and security work. Administrators need safe test environments, analysts need reliable evidence, and teams need changes that can be explained and reversed. Knowing the limits of a test helps prevent incorrect conclusions about an incident or a control.
+
+### L02 glossary
+
+| Term | Meaning in this lesson |
+|---|---|
+| Host | Physical computer and operating environment supporting the VMs |
+| Guest | Operating system running inside a VM |
+| Hypervisor | Software layer providing and managing virtual hardware |
+| Virtual disk | Host-stored file structure presented as a guest disk |
+| ISO | Installation-media image |
+| Virtual adapter | Guest network interface attached to a chosen network |
+| Gateway | Next-hop route toward another network |
+| Baseline | Recorded reference state used for comparison |
+| Snapshot | VM point-in-time state used for rollback |
+| Backup | Copy maintained for a defined recovery purpose |
+| Evidence | Recorded information supporting a specific claim |
+| Repository | Working material and its version history |
+| Commit | Recorded revision of selected repository content |
+| Expected result | Outcome the test should produce |
+| Observed result | What actually happened during the test |
+
+### L02 lesson summary
+
+A VM is separate from the host in important ways but still depends on its resources and configuration. Inspect the connection boundary, use the assigned targets only, and combine configuration checks with limited operational tests. A snapshot helps reverse a local change; it is not a complete backup strategy. Keep evidence outside the guest being restored and describe exactly what each test proves.
+
+### End-of-lesson assignment — L02-A
+
+Complete workbook Q6–Q10, L02-S1/L02-S2, and L02-P. Submit the actual network-boundary checks, baseline/change/restore evidence, host-preserved evidence, local Git history, and independent recovery variation. Explain one command or GUI setting and what its result does not prove. If a procedure cannot run, record the blocker and do not manufacture evidence.
+
+Allow 180 minutes within the module's independent budget: 30 for knowledge/scenarios, 120 for completing the practical and variation, and 30 for evidence review. Knowledge is out of 25; practical L02-P is out of 70. The module also budgets 75 minutes for L08 and 105 minutes for reading, feedback and evidence organisation, making six independent hours in total. Live networking consolidation uses P01 time in Weeks 5–6, not an extra Week 4 task. Recovery and correct scope are critical requirements. This assignment establishes the reusable lab baseline for P01; it is not a ninth portfolio project.
+
+
+
+
+**Next step:** [L02 practice](02-Guided-Lab.md#practice-l02) → [L02 workbook](03-Student-Workbook.md#assignment-l02) → [module checkpoint](README.md).
+
+<a id="lesson-l08"></a>
 ## L08 — Hashes, Encryption, Signatures, and Certificates
 
 ### General Overview
@@ -254,3 +350,6 @@ Digest: hash output. Symmetric key: shared secret for a symmetric algorithm. Pri
 ### End-of-Lesson Assignment — L08
 
 Complete Workbook L08. Submit actual hash comparisons, a certificate-field interpretation, and a short evidence-integrity explanation. Budget 75 minutes; 50 formative marks. End-of-module review is P01 plus G1 readiness: explain a connection, demonstrate the safe lab, interpret basic evidence, and state uncertainty. G1 is assessed separately, not passed by reading these notes.
+
+
+**Next step:** [L08 practice](02-Guided-Lab.md#practice-l08) → [L08 workbook](03-Student-Workbook.md#assignment-l08) → [module checkpoint](README.md).

@@ -17,12 +17,12 @@ Use the workbook's task estimates to budget your six independent hours. At the s
 
 | Week | Lessons | Portfolio work included this week | Gate/checkpoint |
 |---|---|---|---|
-| 1 | [M01](Module-01/README.md), L01/L02 | P01: scope, lab boundary and evidence habits | — |
-| 2 | [M02](Module-02/README.md), L03/L04 | P01: address diagram, service baseline and fault tickets | — |
-| 3 | [M03](Module-03/README.md), L05/L06 | P01: named service, annotated capture and DNS diagnosis | — |
-| 4 | [M04](Module-04/README.md), L07/L08 | P01/G1: risk, trust and evidence interpretation | G1 after M04 |
-| 5 | [M05](Module-05/README.md), L09/L10 | P02: file recovery and identity/action access matrix | — |
-| 6 | [M06](Module-06/README.md), L11/L12 | P02: hardening, service recovery and parser tests | — |
+| 1 | [M01](Module-01/README.md), L01 → L07 | P01: scope, risk, access and evidence habits | — |
+| 2 | [M02](Module-02/README.md), L03/L04 | P01: address plan and supplied-evidence fault analysis | — |
+| 3 | [M03](Module-03/README.md), L05/L06 | P01: service sequence and synthetic packet analysis | — |
+| 4 | [M04](Module-04/README.md), L02 → L08 | Build/recover the range and interpret trust evidence; schedule P01 practice | VM ready for M05 |
+| 5 | [M05](Module-05/README.md), L09/L10 | P01 Stage A: 140 minutes; P02 file recovery/access work in remaining time | Working VM required |
+| 6 | [M06](Module-06/README.md), L11/L12 | P01 Stage B: 140 minutes; P02 hardening/recovery/parser work in remaining time | P01 first draft and G1 after live practice |
 | 7 | [M07](Module-07/README.md), L13/L14 | P03: endpoint baseline and standard-user evidence | — |
 | 8 | [M08](Module-08/README.md), L15/L16 | P03: GUI domain access, lifecycle and policy evidence | — |
 | 9 | [M09](Module-09/README.md), L17/L18 | P04/G2: traffic matrix and management-preserving policy | G2 after M09 |
@@ -42,7 +42,7 @@ These are planning weeks from the project handbook, not new deadlines added to y
 
 | Project | First complete draft | Final assessment |
 |---|---|---|
-| P01 | Week 4 | Week 21 |
+| P01 | Week 6 | Week 21 |
 | P02 | Week 7 | Week 21 |
 | P03 | Week 9 | Week 21 |
 | P04 and P05 | Week 13 | Week 21 |
@@ -64,3 +64,9 @@ Across the whole route, 104 of the 156 independent hours are planned for project
 | Gate, if scheduled | | | Instructor supplies | | |
 
 See [how marks work](H-SETS-Student-Assessment-Guide.md), the [project handbook](H-SETS-Portfolio-Projects.md) and [your lab sheet](H-SETS-Class-Lab-Sheet.md).
+
+
+**Opening sequence:** M01–M03 need no learner VM. Follow module links rather than sorting lesson IDs: L07 now belongs to M01 and L02 to M04. IDs remain unchanged so existing references can be traced. M04 includes live networking consolidation before G1. If the unpiloted workload exceeds the weekly allowance, the instructor revises dated milestones before assessment; completion standards remain unchanged.
+
+
+**Weeks 4–6 budget:** Week 4 independent work is L02 180 minutes + L08 75 + reading/feedback/evidence organisation 105 = 360. Weeks 5 and 6 each reserve 140 minutes for one P01 live practice stage, leaving 220 minutes for the week's module/P02 work. Earlier P01 planning and these live stages share the existing eight-hour project allocation. Reuse your own applicable evidence instead of rerunning the same activity for different folders. Before delivery, the instructor checks the combined workload against actual learner timings; if 220 minutes is insufficient, revise dates or use scheduled completion-studio time without skipping assessed skills.

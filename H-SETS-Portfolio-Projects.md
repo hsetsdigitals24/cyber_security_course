@@ -16,7 +16,7 @@ The eight projects may share base images to reduce setup time. Each has a distin
 
 | Project | Core prerequisites | Estimated independent hours | First complete draft | Final assessment |
 |---|---|---:|---|---|
-| P01 Network troubleshooting | M01–M04 | 8 | Week 4 | Week 21 |
+| P01 Network troubleshooting | M01–M04 | 8 | Week 6 | Week 21 |
 | P02 Linux file service | M05–M06 | 10 | Week 7 | Week 21 |
 | P03 AD and endpoints | M07–M08 | 12 | Week 9 | Week 21 |
 | P04 Segmentation and detection | M09; M13 for detection | 12 | Week 13 | Week 21 |
@@ -442,3 +442,8 @@ The final portfolio index lists all eight projects, skills demonstrated, evidenc
 Before final pass, check that each link works, each claim can be traced to evidence, each learner can explain any submitted script or rule, and no credentials or real personal data are exposed. Do not upload entire proprietary images or third-party datasets unless redistribution is permitted. A local/private portfolio can meet the course standard fully.
 
 Run a mock interview using concrete questions: 'Which evidence changed your hypothesis?', 'How did you know the firewall rule worked?', 'What would you do if logging stopped?', 'How did you test denied access?', and 'What does your project not prove?' Assess clarity, troubleshooting, honesty about limitations, and willingness to escalate appropriately.
+
+
+## Foundations-first sequencing for P01 and G1
+
+M01 supplies risk/access reasoning; M02–M03 supply addressing plans and analysis of synthetic evidence. Live configuration, fault correction, DNS testing and PCAP collection follow L02 setup in M04, using [the network practice pack](Module-04/06-Network-Practice.md). These exercises contribute to the existing P01 workload, not an additional project or set of lesson grades. Supplied worksheet results do not satisfy actual P01 implementation/retest requirements. The first P01 draft and G1 are planned for the end of Week 6: Stage A uses 140 minutes of Week 5 P01 time and Stage B 140 minutes of Week 6 P01 time. These hours are part of P01's existing eight-hour allocation; early planning and later practice count once. The instructor confirms the combined weekly workload and adjusts dated checkpoints if remediation needs more time. M05 requires the working guest from M04, but does not require G1 to have been assessed already.

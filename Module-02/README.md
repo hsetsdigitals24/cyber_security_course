@@ -1,32 +1,28 @@
 # M02 — Networking Fundamentals and Troubleshooting
 
+Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Previous module](../Module-01/README.md) · [Next module](../Module-03/README.md)
+
+**Read in this order: L03 → L04.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 
-**Before class:** M01: identify host/guest, use the isolated lab and preserve a baseline. If you need a refresher, tell the instructor before the practical.
+**Before class:** Complete M01 and explain its two checkpoints; no working VM is required.
 
-Use the instructor-completed [lab sheet](../H-SETS-Class-Lab-Sheet.md) to identify your machines, accounts, versions, inputs and recovery route. Bring a folder for your own evidence; do not copy demonstration results as your work.
+**Environment:** No VM needed: use files, diagrams and supplied evidence.
 
-| Stage | Open / do | Check before moving on |
+| Step | Open / do | Check before continuing |
 |---|---|---|
-| First lesson: L03 | [Read the notes](01-Student-Notes.md), discuss the worked example, then use the matching [lab section](02-Guided-Lab.md) | Show both assigned addresses and explain whether the peer is local; identify the selected interface. |
-| First assignment | Complete only L03 in the [workbook](03-Student-Workbook.md) | Include the named evidence and explain one result |
-| Second lesson: L04 | Continue the notes and matching lab after the first checkpoint | Retrieve the marker from the client, distinguish an HTTP error from no response and document two fault retests. |
-| Second assignment | Complete L04 in the workbook | Correct feedback and record an independent variation |
-| Portfolio milestone | P01: address diagram, service baseline and fault tickets | Link existing evidence; do not duplicate the same activity as extra hours |
-
-**Completion checklist:** explain both checkpoints, submit both lesson assignments, preserve required allowed/denied or comparative tests, and record recovery plus unresolved issues. Completing this module does not automatically pass its project or gate.
-
-Plan six class hours and six independent hours in the default teaching week. The independent hours include assignment and project work. Use the [weekly planner](../H-SETS-Weekly-Study-Plan.md) for deadlines and the [assessment guide](../H-SETS-Student-Assessment-Guide.md) for marks.
-
-Navigation: [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Previous module](../Module-01/README.md) · [Next module](../Module-03/README.md)
+| 1 — L03 | [L03 notes](01-Student-Notes.md#lesson-l03) → [L03 practice](02-Guided-Lab.md#practice-l03) | Draw a valid subnet and explain the next hop. |
+| 2 — First assignment | [L03 workbook](03-Student-Workbook.md#assignment-l03) | Label facts, inferences and proposed actions |
+| 3 — L04 | [L04 notes](01-Student-Notes.md#lesson-l04) → [L04 practice](02-Guided-Lab.md#practice-l04) | Interpret a service response and propose a check that distinguishes two causes. |
+| 4 — Second assignment | [L04 workbook](03-Student-Workbook.md#assignment-l04) | Explain one result and one limitation |
+| 5 — Feedback | Correct gaps and update your P01 folder | Use the completion checkpoint below |
 
 <!-- /HSETS-STUDENT-START -->
 
-H-SETS • L03 Addressing, switching, and routing; L04 Ports, protocols, connectivity, and diagnosis. Prerequisite: M01 and working isolated lab. Six guided plus six independent hours including P01 work. Two staged Ubuntu guests; 16 GB host route.
+## Completion checkpoint
 
-1. [Student notes and lesson assignments](01-Student-Notes.md)
-2. [Guided lab](02-Guided-Lab.md)
-3. [Workbook](03-Student-Workbook.md)
+Submit both lesson assignments. Your P01 work at this stage is planning/analysis; live network implementation follows the M04 VM checkpoint.
 
-Deliver addressing plan, route evidence, service tests, and two fault tickets to [P01](../H-SETS-Portfolio-Projects.md). Exactly eight course projects remain. Written package authored; VM execution and beginner pilot pending. Never expose the instructor answer file on student pages.
+Use the [weekly planner](../H-SETS-Weekly-Study-Plan.md) and [assessment guide](../H-SETS-Student-Assessment-Guide.md). Planned weekly time remains six guided plus six independent hours; timings require a beginner pilot.
