@@ -1,5 +1,19 @@
 # M17 — Cloud, Resilience, Risk, and Governance
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L33 — Cloud trust, private data, and recovery | [Notes](01-Student-Notes.md#lesson-l33) → [worked case and self-check](01-Student-Notes.md#self-study-l33) | [Lab entry](02-Guided-Lab.md#practice-l33) → [workbook](03-Student-Workbook.md#assignment-l33) |
+| L34 — Risk ownership, control evidence, and reporting | [Notes](01-Student-Notes.md#lesson-l34) → [worked case and self-check](01-Student-Notes.md#self-study-l34) | [Lab entry](02-Guided-Lab.md#practice-l34) → [workbook](03-Student-Workbook.md#assignment-l34) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

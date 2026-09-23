@@ -1,5 +1,12 @@
 # M04 — Virtualisation, Safe Labs, and Cryptographic Trust
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L02: Virtualisation, Range Safety, and Evidence Handling](#lesson-l02) · [L08: Hashes, Encryption, Signatures, and Certificates](#lesson-l08)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Previous module](../Module-03/README.md) · [Next module](../Module-05/README.md)
 
 **Read in this order: L02 → L08.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.
@@ -14,6 +21,12 @@ Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Lea
 A practice environment lets you make controlled changes without experimenting on a live organisation. In this lesson, you will learn the relationship between your physical computer and its virtual machines, understand the lab's connection boundary, and practise returning a disposable machine to a known state.
 
 You will also begin an evidence pack. A useful portfolio should show what you did, what changed, how you checked it, and what the result means. Evidence must survive the recovery exercise it is documenting.
+
+<!-- HSETS-SELF-READY-L02 -->
+**Before this lesson:** You can explain a local subnet, a service request and the limits of a packet observation. Revisit [L03 refresher](../Module-02/01-Student-Notes.md#lesson-l03) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04) · [L06 refresher](../Module-03/01-Student-Notes.md#lesson-l06).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l02) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L02 -->
 
 <!-- HSETS-TERMS-L02 -->
 ### Terms explained in context
@@ -225,6 +238,52 @@ These habits matter in entry-level support and security work. Administrators nee
 
 A VM is separate from the host in important ways but still depends on its resources and configuration. Inspect the connection boundary, use the assigned targets only, and combine configuration checks with limited operational tests. A snapshot helps reverse a local change; it is not a complete backup strategy. Keep evidence outside the guest being restored and describe exactly what each test proves.
 
+<!-- HSETS-SELF-STUDY-L02 -->
+<a id="self-study-l02"></a>
+### Self-study workshop — understand and recover the virtual lab
+
+#### Understand the mechanism
+
+A virtual machine is a software-defined computer using resources provided through a hypervisor. Its operating system is the guest. The physical computer still supplies processing, memory and storage. Giving two guests 4 GB of RAM each does not give your laptop extra RAM: the host and hypervisor still need memory too. A virtual disk is stored on host storage, so a full host drive can interrupt a guest even when the guest appears to have capacity remaining.
+
+Separation must be checked at several boundaries. A guest can have more than one network adapter. Selecting an isolated mode on one adapter does not cancel another adapter's external path. Shared folders and clipboard features are separate integrations, not network-mode settings. The lab therefore checks the complete assigned configuration before using traffic results as supporting evidence.
+
+A snapshot provides a route back to a recorded guest state. Restoring that state can remove later guest changes, including evidence saved inside the guest. It does not automatically protect against losing the physical host disk. Keep the screenshot or report showing the changed state outside the guest rollback, and maintain the institution's separate backup route where required.
+
+#### Follow a complete example
+
+You have an approved P01 pair, a synthetic file containing `status=approved`, and permission to change that file only.
+
+1. Record the guest names, assigned addresses and adapter settings. Identify which window belongs to the physical host and which belongs to each guest.
+2. Read the baseline file and record its content and fingerprint. Create the named recovery point using the guided lab.
+3. Change the text to `status=practice-change`. Read it again and preserve the changed-state evidence on the host. The expected observation is a changed file, not an arbitrary “success” message.
+4. Restore the named recovery point. Read the file and compare its fingerprint with the baseline. Then inspect the network boundary again: recovery must not silently reinstate an unwanted configuration.
+5. Report the narrow result: this file and the checked guest configuration returned to their expected state. Do not describe that as proof of complete business disaster recovery.
+
+#### Practise before checking the explanation
+
+Two approved guests are each assigned 4 GB RAM on a 16 GB laptop. A learner says exactly 8 GB must remain available to other applications. What is missing from that estimate?
+
+<details>
+<summary>Practice feedback</summary>
+
+The host operating system, hypervisor and other running components also consume memory; configuration is not a complete measurement of available headroom. Inspect actual use under the approved staged workload. Do not increase allocations just because the arithmetic subtracts guest RAM from total installed RAM.
+
+</details>
+
+#### If you get stuck
+
+| Symptom | First inspection | Stop point |
+|---|---|---|
+| Guest will not start | Assigned image, available RAM/storage, exact error | Ask for the approved compatibility route; do not change firmware blindly |
+| Peer test fails | Both adapter names, addresses and powered-on state | Do not add Internet access to repair an isolated peer test |
+| Restored file differs | Guest identity, snapshot name, exact file path | Preserve the evidence and clarify the correct recovery point |
+
+**Ready to continue:** explain resources, boundary and recovery separately. Finish the L02 lab before real networking practice; keep P01 guests separate from concurrent P02 work.
+
+**Continue:** [L02 lab entry](02-Guided-Lab.md#practice-l02) · [L02 assignment](03-Student-Workbook.md#assignment-l02) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L02 -->
+
 ### End-of-lesson assignment — L02-A
 
 Complete workbook Q6–Q10, L02-S1/L02-S2, and L02-P. Submit the actual network-boundary checks, baseline/change/restore evidence, host-preserved evidence, local Git history, and independent recovery variation. Explain one command or GUI setting and what its result does not prove. If a procedure cannot run, record the blocker and do not manufacture evidence.
@@ -242,6 +301,12 @@ Allow 180 minutes within the module's independent budget: 30 for knowledge/scena
 ### General Overview
 
 Cryptography provides different tools for different questions. A hash helps detect changed bytes. Encryption protects confidentiality under appropriate key handling. A digital signature can support integrity and origin verification. A certificate connects a public key with identity information under a trust system. Confusing these purposes leads to weak controls and exaggerated evidence claims.
+
+<!-- HSETS-SELF-READY-L08 -->
+**Before this lesson:** You can identify a baseline file and explain controlled recovery. Revisit [L02 refresher](../Module-04/01-Student-Notes.md#lesson-l02).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l08) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L08 -->
 
 <!-- HSETS-TERMS-L08 -->
 ### Terms explained in context
@@ -346,6 +411,52 @@ The instructor creates two identical synthetic files, hashes them, changes one b
 Base64 is encoding, not encryption. Hashing does not hide a weak password effectively by itself. A valid signature does not establish benign behaviour. A matching certificate name does not alone establish a trusted chain. State exactly which property your test checks.
 
 Digest: hash output. Symmetric key: shared secret for a symmetric algorithm. Private key: secret key material in a key pair. Signature: cryptographic verification value tied to data and a signing key. Certificate: signed binding containing public-key and identity information. Trust anchor: key/certificate trusted by policy.
+
+<!-- HSETS-SELF-STUDY-L08 -->
+<a id="self-study-l08"></a>
+### Self-study workshop — choose the cryptographic claim you can support
+
+#### Understand the mechanism
+
+Hashing, encryption and digital signatures solve different problems. A cryptographic hash maps input bytes to a digest used in comparisons. Encryption transforms readable data under a key so authorised parties can recover it. A digital signature lets a verifier check a signature using the corresponding public key; establishing whose key it is requires a trusted relationship or validation process.
+
+A matching digest is useful when the comparison reference is trustworthy. If an attacker can replace both a download and its accompanying hash list, a match does not rescue the source's trustworthiness. Similarly, a valid signature does not establish that signed content is harmless. Separate byte integrity, key identity, access permission and business legitimacy.
+
+A certificate contains identity information and a public key under a certificate system. A client needs the relevant name match, acceptable validity and trust validation, among other protocol requirements. Seeing a certificate's fields is inspection, not automatically successful chain validation. Encryption of the connection does not prove the business behind the service is honest.
+
+#### Follow a complete example
+
+Cedarbridge saves a synthetic report, records its digest in a protected evidence register, and makes a copy. Later, one amount is changed in the copy.
+
+1. Compare the initial original and copy using the same hash algorithm. Equal bytes should produce the same digest.
+2. After the deliberate edit, compare again. The changed bytes should change the cryptographic digest; use the actual values, not a memorised output.
+3. Restore from the retained original and verify both the digest and readable content. A correct fingerprint does not independently test file permissions or application availability.
+4. Record where the reference digest came from and who could change it. A comparison without a trustworthy baseline supports a weaker claim.
+5. For the separate certificate task, record the stated name and validity, then explain which trust checks the inspection did not perform.
+
+#### Practise before checking the explanation
+
+Two files have identical visible words, but one includes an extra newline byte. Must their cryptographic digests be identical?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The hash operates on bytes, not the appearance of a rendered sentence. Line endings, encoding and an extra newline can change the input. Compare the exact files with the same algorithm and explain the byte difference before treating it as malicious alteration.
+
+</details>
+
+#### If you get stuck
+
+| Claim | Evidence you actually need |
+|---|---|
+| “The tested file returned to baseline” | Same algorithm, trusted baseline, matching result and content check |
+| “This is the intended service identity” | Relevant identity and trust validation, not just a displayed name |
+| “Only the right users can read it” | Authorisation tests at the resource/application boundary |
+
+**Ready to continue:** state what your hash and certificate observations prove and what they leave unknown. Never include the disposable private key in your submission.
+
+**Continue:** [L08 lab entry](02-Guided-Lab.md#practice-l08) · [L08 assignment](03-Student-Workbook.md#assignment-l08) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L08 -->
 
 ### End-of-Lesson Assignment — L08
 

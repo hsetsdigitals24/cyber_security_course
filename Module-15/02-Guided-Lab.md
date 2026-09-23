@@ -46,6 +46,7 @@ Stop and ask the instructor if the named image, account, fixture, permission or 
 ## Starting state
 M14's hosted Wazuh and allocated Ubuntu agent are healthy; /opt/hsets-watch/status.txt has a completed FIM baseline. Instructor owns manager changes and assigns unused custom rule IDs. Record versions. Work only on synthetic data.
 
+<a id="practice-l29"></a>
 ## A. Synthetic authentication source
 1. Create /opt/hsets-events using sudo mkdir -p /opt/hsets-events and an empty file with sudo touch /opt/hsets-events/auth.json. Do not place credentials here.
 2. Back up the agent's ossec.conf. Within ossec_config add a localfile block with log_format json and location /opt/hsets-events/auth.json:
@@ -89,6 +90,7 @@ Document each expected/actual result. If scan mode rather than realtime is used,
 
 Independent variation: change the authentication event_type to hsets_auth_v2. Update only your assigned rule revision/record, retest old/new types and missing user, and restore the agreed baseline. Do not invent a threshold feature.
 
+<a id="practice-l30"></a>
 ## D. Read-only enrichment and five-case queue
 Create a local assets.csv:
 ```csv

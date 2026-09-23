@@ -70,6 +70,7 @@ If the Windows launcher is named `py`, use `py ..\fixtures\start_service.py`. En
 
 Read the code: the token selects a role; GET reads one object, PUT changes it, DELETE removes it. Audit records exclude tokens. 401 means no accepted identity; 403 means identified but forbidden; 404 means absent path/object; 204 means success without body. The local operator controls all files, so this does not resist a hostile host administrator.
 
+<a id="practice-l33"></a>
 ## A. Permission tests
 1. Create baseline.txt with two lines: Client: Training Consultancy and Classification: Confidential synthetic.
 2. In another terminal run client.py, choose PUT, enter writer token privately, and supply baseline.txt. Record status.
@@ -92,6 +93,7 @@ For P07 acceptance use the instructor's independent media/system or sandbox back
 6. Repeat anonymous GET and reader PUT denial; inspect audit for allowed/denied operations.
 7. End timer after all required verification. Record elapsed time, backup age, objectives met/missed, and remaining limitations. Diagnose and repeat if targets fail.
 
+<a id="practice-l34"></a>
 ## D. Risk and responsibility
 Write five risks with asset, condition/event, consequence, owner, treatment, evidence and residual risk. Compare local operator responsibilities with an actual instructor-provided cloud service's documented boundary.
 Independent variation: a contractor needs read-only access for one week. Explain why sharing writer authority fails and what expiry/identity features the simulator lacks.

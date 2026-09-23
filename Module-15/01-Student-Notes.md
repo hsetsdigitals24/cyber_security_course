@@ -1,12 +1,26 @@
 # M15 — Detection Engineering, Threat Intelligence, and Automation
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L29: Hypotheses, rules, and validation](#lesson-l29) · [L30: Intelligence, enrichment, and safe automation](#lesson-l30)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L29, complete its guided activity and assignment, then continue to L30. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L29/L30**
+<a id="lesson-l29"></a>
 ## L29 — Hypotheses, rules, and validation
 ### General Overview
 Detection engineering is the work of turning a question about behaviour into a maintained test. Cedarbridge wants to notice failed access to a protected service and changes to a watched file. Neither condition proves an attack. A useful detection describes exactly what it can observe, what it misses, and how an analyst should respond.
+
+<!-- HSETS-SELF-READY-L29 -->
+**Before this lesson:** You can state a detection objective and inspect parsed event fields. Revisit [L26 refresher](../Module-13/01-Student-Notes.md#lesson-l26) · [L27 refresher](../Module-14/01-Student-Notes.md#lesson-l27).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l29) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L29 -->
 
 <!-- HSETS-TERMS-L29 -->
 ### Terms explained in context
@@ -106,12 +120,61 @@ A hypothesis is a testable statement. A data contract describes expected input. 
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L29 -->
+<a id="self-study-l29"></a>
+### Self-study workshop — define detection logic as a testable question
+
+#### Understand the mechanism
+
+A detection hypothesis connects an observable condition to a security question. For example, repeated failed authentication for the same account within a defined interval might justify review. That description still needs exact fields, grouping, threshold, time window and exclusions before it becomes testable logic. “Many failures” is not a specification.
+
+Distinguish event-level matching from aggregation. One rule may identify each qualifying failure. A separate correlation condition may count related events over time. If the source field uses `failure` but the parser or rule expects `failed`, the intended event may not match. Inspect the real parsed schema before designing around a convenient invented field.
+
+Measure results against known test labels and an explicit objective. A benign non-match should not trigger the condition being tested. A positive control should. Boundary cases reveal off-by-one thresholds, wrong grouping or window assumptions. Alert count also depends on suppression or aggregation behaviour, so specify whether you are testing detection occurrence or exactly one alert.
+
+#### Follow a complete example
+
+For a paper design, the objective is to flag at least three qualifying failures for one account within a defined five-minute window. This is an illustrative objective, not a claim that the supplied manager rule already implements it.
+
+1. State what identifies an account and a qualifying failure in the actual data. Define the time window's interpretation before testing its boundary.
+2. Build a positive case with three relevant events for the same account inside the window.
+3. Build negative cases: two qualifying events, three events across different accounts, and events outside the intended window.
+4. Add malformed/missing-field input as a coverage test. Decide how it is reported rather than silently treating it as a valid non-match.
+5. Compare implemented rule results with this written matrix. If a case differs, inspect collection/schema/grouping before raising the threshold to hide noise.
+
+#### Practise before checking the explanation
+
+A rule counts failures across every account together, but the written objective says “for one account.” Three unrelated users each mistype once. What design error could this reveal?
+
+<details>
+<summary>Practice feedback</summary>
+
+The grouping may not match the objective. A combined count can trigger even though no individual account reached the threshold. Correct the relevant grouping in the approved implementation and retest both the single-account positive case and cross-account negative case. Do not change the objective afterwards just to call the result correct.
+
+</details>
+
+#### If you get stuck
+
+Write a one-row specification: event condition, required fields, grouping key, time window, threshold, expected output. Then inspect one actual raw/parsed test event. If fields are missing, solve that prerequisite. Shared-manager rules require the assigned administrator and unused rule identifiers; independent reasoning does not grant manager privileges.
+
+**Ready to continue:** explain each case in your test matrix and retain the exact rule revision and schema evidence used.
+
+**Continue:** [L29 lab entry](02-Guided-Lab.md#practice-l29) · [L29 assignment](03-Student-Workbook.md#assignment-l29) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L29 -->
+
 ### L29 end-of-lesson assignment
 Complete five MCQs, two written scenarios and the six-case practical in the workbook: 30 marks, about 60 minutes after guided setup. Submit rule files, versions, tests and evidence IDs to P06. Label synthetic authentication events clearly.
 
+<a id="lesson-l30"></a>
 ## L30 — Intelligence, enrichment, and safe automation
 ### General Overview
 Threat intelligence adds context to observations. Automation can reduce repetitive lookup work. Both can also magnify error. The analyst must know where context came from, when it was valid, and what decision it actually supports.
+
+<!-- HSETS-SELF-READY-L30 -->
+**Before this lesson:** You can keep observations, confidence and next actions separate. Revisit [L28 refresher](../Module-14/01-Student-Notes.md#lesson-l28) · [L29 refresher](../Module-15/01-Student-Notes.md#lesson-l29).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l30) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L30 -->
 
 <!-- HSETS-TERMS-L30 -->
 ### Terms explained in context
@@ -188,6 +251,48 @@ The inventory labels the file server “medium,” but the business sheet says i
 
 ### Summary and glossary
 An indicator is an observable associated with context. Enrichment adds context without changing the original record. Provenance describes origin. Idempotent work can be repeated without unintended additional changes. A safe first automation assists reasoning rather than making irreversible decisions.
+
+<!-- HSETS-SELF-STUDY-L30 -->
+<a id="self-study-l30"></a>
+### Self-study workshop — use intelligence as context, not a verdict
+
+#### Understand the mechanism
+
+Threat intelligence provides information that may help interpret activity. An indicator can be an address, domain or file hash. Its usefulness depends on source reliability, age, specificity and relevance to the local event. Shared infrastructure and reassigned addresses make a simple “listed somewhere” result weaker than an exact, current, well-supported context match.
+
+Confidence belongs to a claim. A reliable source may accurately report historical activity while the indicator is no longer relevant to today's event. Separate confidence in the source from confidence that the local event has the same meaning. No lookup result is not evidence of safety: the source may have incomplete coverage.
+
+Automation can enrich and format observations, but it also moves data across boundaries. A script submitting a confidential hostname or file to a public service can create a disclosure. Decide which values are allowed to leave the lab before automating lookups. Keep provenance, timestamps and error states in the result so a failed request is not mistaken for a benign verdict.
+
+#### Follow a complete example
+
+A synthetic local log contains a connection to an address also present in an old intelligence report. The report describes a different time and context.
+
+1. Confirm the local observation, event time and role of the address. Was it a destination, proxy or another field?
+2. Record the intelligence source, report date and basis for the claim. Do not copy its conclusion without its time context.
+3. Identify what would connect the two: current infrastructure context, relevant behaviour or additional local evidence.
+4. Assign a provisional interpretation with confidence and a next check. A shared address alone should not identify the responsible actor.
+5. If using the approved enrichment routine, preserve input/output/error status and keep private data within its authorised boundary.
+
+#### Practise before checking the explanation
+
+An enrichment API times out, and a script writes `clean` whenever it receives no result. What is wrong with that logic?
+
+<details>
+<summary>Practice feedback</summary>
+
+It converts a failed observation into a safety claim. A timeout should remain an error or unknown state with the attempted source and time. Even a successful lookup with no match usually means “not found in this source under this query,” not “safe.” Test error handling separately from true non-match behaviour.
+
+</details>
+
+#### If you get stuck
+
+Ask what claim the source actually supports and whether its age/context fit your event. If you cannot explain why a lookup changes the next decision, collecting more reputation labels may not help. If the input contains private identifiers, stop before external submission and use the supplied synthetic/approved route.
+
+**Ready to continue:** add context without overstating certainty, and show how your automation preserves unknown and error outcomes.
+
+**Continue:** [L30 lab entry](02-Guided-Lab.md#practice-l30) · [L30 assignment](03-Student-Workbook.md#assignment-l30) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L30 -->
 
 ### L30 end-of-lesson assignment
 Complete the workbook's five MCQs, two scenarios and five-ticket/enrichment practical, 30 marks, approximately 60 minutes. Link results to P06 and include one justified behaviour mapping or explicit unmapped result.

@@ -55,6 +55,7 @@ Stop and ask the instructor if the named image, account, fixture, permission or 
 
 Reuse the dedicated M05/P02 server at `.30/24` and the instructor-supplied P02 client at `.20/24` on the separate P02 internal network. Do not borrow the P01 pair while its Week 6 capture work remains open. Two Ubuntu 24.04 LTS guests; 16 GB host with staged 2–4 GB guest allocations. Instructor preinstalls openssh-server/client, ufw, acl, Python 3. Record exact versions. Confirm console recovery, clean snapshots, no extra uplinks, and a reviewed clean UFW baseline. Do not reset an existing unknown firewall. All identities and files are synthetic. Budget approximately 160 guided minutes across L11/L12, with independent completion within the stated weekly hours.
 
+<a id="practice-l11"></a>
 ## L11 — Observe and protect
 
 On server: `systemctl status ssh.service ssh.socket --no-pager`, `sudo ss -lntp`, and `sudo journalctl -u ssh.service --since '-10 minutes' --no-pager`. Some images use socket activation: record the actual service/socket state instead of assuming both must always be active. Instructor starts the approved SSH unit if absent and confirms listening TCP 22. Do not change the port in this lesson.
@@ -88,6 +89,7 @@ sudo ufw status verbose
 
 Explain each rule: only the assigned source may reach SSH on the lab destination; outgoing allowance is a lab choice, not universal production policy. Verify IPv6 behaviour and absence of unintended paths on the classroom image. Use a fresh Alice SFTP connection from `.20` and verify the file. Then disconnect, change the client's assigned static address temporarily to the instructor-reserved unused `.21/24` using M02's GUI, and try a new SSH connection with `ssh -o ConnectTimeout=5 alice@10.10.10.30`. It should fail at network reachability under this policy. Restore `.20`, verify a fresh allowed transaction, and record both actual results. No concurrent session should be used as the denied test.
 
+<a id="practice-l12"></a>
 ## L12 — Recover one report
 
 On the server, prepare a restricted local recovery copy. This survives a file mistake but not loss of the VM disk:

@@ -1,5 +1,19 @@
 # H-SETS — Module 10: Authorised Assessment and Asset Discovery
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L19 — Assessment scope and asset ownership | [Notes](01-Student-Notes.md#lesson-l19) → [worked case and self-check](01-Student-Notes.md#self-study-l19) | [Lab entry](02-Guided-Lab.md#practice-l19) → [workbook](03-Student-Workbook.md#assignment-l19) |
+| L20 — Service validation and inventory reconciliation | [Notes](01-Student-Notes.md#lesson-l20) → [worked case and self-check](01-Student-Notes.md#self-study-l20) | [Lab entry](02-Guided-Lab.md#practice-l20) → [workbook](03-Student-Workbook.md#assignment-l20) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

@@ -1,13 +1,27 @@
 # M13 — Network Detection and Visibility
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L25: Sensors, signatures, and visibility](#lesson-l25) · [L26: Correlation, validation, and missing visibility](#lesson-l26)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L25, complete its guided activity and assignment, then continue to L26. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L25 and L26**
 
+<a id="lesson-l25"></a>
 ## L25 — Sensors, signatures, and visibility
 ### General Overview
 A firewall decides whether a connection may pass according to policy. A network intrusion detection system inspects observed traffic and reports selected conditions. These solve related but different problems: a permitted web connection can carry suspicious activity, while a blocked connection may be harmless but unnecessary. Cedarbridge needs evidence that its sensor actually sees the traffic it is supposed to inspect.
+
+<!-- HSETS-SELF-READY-L25 -->
+**Before this lesson:** You can identify a capture viewpoint and a service path through zones. Revisit [L06 refresher](../Module-03/01-Student-Notes.md#lesson-l06) · [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l25) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L25 -->
 
 <!-- HSETS-TERMS-L25 -->
 ### Terms explained in context
@@ -95,13 +109,62 @@ Visibility is the traffic and fields available at a specific observation point. 
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L25 -->
+<a id="self-study-l25"></a>
+### Self-study workshop — prove visibility before interpreting an alert
+
+#### Understand the mechanism
+
+A detector can evaluate only the information available to it. Network placement, capture settings, packet loss and encryption affect that information. A sensor on one endpoint does not automatically observe another segment. If the relevant request never reaches the sensor, editing a signature cannot make that missing traffic appear.
+
+A signature encodes a condition of interest. A match establishes that the available data satisfied that condition under the rule and parser behaviour. It does not automatically establish malicious intent or a completed compromise. A harmless teaching marker is useful precisely because its generation is controlled and its expected appearance can be compared with the detector's result.
+
+An intrusion detection system reports observations; an inline prevention system may block traffic under its configuration. Replaying a saved capture through a detector can test analysis of that recording. It cannot demonstrate that a live connection was blocked: the original traffic has already been recorded. Keep offline detection, live visibility and inline prevention as distinct claims.
+
+#### Follow a complete example
+
+Cedarbridge's assigned web service receives a harmless unique training path. The objective is to detect that request on the approved observation path, not to simulate an actual compromise.
+
+1. Write the required traffic path and identify the sensor location. Check whether the path actually traverses or reaches that observation point.
+2. Generate the assigned benign request and preserve its time, endpoint and application outcome.
+3. Confirm the request is present in the bounded capture. If it is missing, inspect placement, interface and capture filtering before changing the rule.
+4. Test the rule against the saved capture in the offline stage. Record the rule identity/version and the matching event.
+5. Separately perform the assigned live-sensor test. Correlate the fresh request with its packet and alert evidence. Describe detection only; no blocking claim follows unless the separately authorised prevention test establishes it.
+
+#### Practise before checking the explanation
+
+The offline capture produces the expected alert, but the live sensor is watching a different interface. What has been demonstrated, and what remains unverified?
+
+<details>
+<summary>Practice feedback</summary>
+
+The tested rule and analysis path detected the relevant condition in that saved recording. Live collection on the actual service path remains unverified. Correct the assigned observation configuration, generate a fresh authorised event and trace it through capture and alert output. Do not reuse the offline result as live evidence.
+
+</details>
+
+#### If you get stuck
+
+Follow **known event → packet available → parsed protocol → loaded rule → alert output**. Mark the last stage with direct evidence. An empty alert file is a symptom with several explanations; a non-match, unloaded rule or absent traffic need different corrections. Never disable unrelated firewall rules to “make the alert work.”
+
+**Ready to continue:** point to the exact event, packet reference and rule result, and explain one part of the network your observation does not cover.
+
+**Continue:** [L25 lab entry](02-Guided-Lab.md#practice-l25) · [L25 assignment](03-Student-Workbook.md#assignment-l25) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L25 -->
+
 ### End-of-Lesson Assignment — L25
 
 Complete the workbook’s five MCQs, two written scenarios, and L25 practical. Submit a sensor-placement diagram, one match and one benign non-match test, evidence IDs, and a short explanation of what the result proves and does not prove. Allow 70 minutes. The assignment is marked out of 30 and contributes to module knowledge/lab categories and the detection milestone of P04; it is not another portfolio project.
 
+<a id="lesson-l26"></a>
 ## L26 — Correlation, validation, and missing visibility
 ### General Overview
 Detection work becomes useful when another analyst can repeat the test and understand its limits. This lesson develops a small validation method: define expected behaviour, generate controlled inputs, inspect actual output, investigate discrepancies, and repeat after a change.
+
+<!-- HSETS-SELF-READY-L26 -->
+**Before this lesson:** You can distinguish traffic visibility, offline detection and live detection. Revisit [L25 refresher](../Module-13/01-Student-Notes.md#lesson-l25).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l26) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L26 -->
 
 <!-- HSETS-TERMS-L26 -->
 ### Terms explained in context
@@ -173,6 +236,55 @@ The instructor deliberately selects a non-traffic interface. The web page works 
 
 ### Summary and glossary
 Correlation connects records using multiple shared properties. A non-match tests discrimination. A boundary case tests a condition near its limit. End-to-end validation tests the complete path, while an offline replay checks only the parts that receive the recording.
+
+<!-- HSETS-SELF-STUDY-L26 -->
+<a id="self-study-l26"></a>
+### Self-study workshop — validate the edges of a detection rule
+
+#### Understand the mechanism
+
+A detection objective describes the behaviour or condition to identify. Rule syntax implements that objective using fields the engine actually provides. A rule can run without a syntax error and still implement the wrong meaning. Matching a substring is not necessarily the same as matching an exact path; the correct interpretation depends on the inspected buffer and conditions.
+
+Test cases should challenge the objective rather than simply repeat the first input that produced an alert. A positive case should match, a negative case should not, and a boundary case examines a close alternative. Keep expected outcomes separate from actual outcomes. Otherwise, an unexpected result can be rationalised after the fact instead of revealing a defect.
+
+Correlate with stable context: rule identifier/revision, endpoints, flow or event attributes and time. An old alert with the same identifier can be mistaken for a new success if you reuse output files without tracking the run. A timestamp alone may be insufficient when several similar events occur close together.
+
+#### Follow a complete example
+
+The stated objective is an exact harmless path `/training-check`. Consider three illustrative requests: `/training-check`, `/ordinary`, and `/training-check-extra`.
+
+1. Write the expected outcomes before running the approved rule: match, non-match, non-match for this exact-path objective.
+2. Inspect whether the course rule's conditions actually enforce the required boundary. A broad substring condition could also match the suffixed request.
+3. Run the three supplied cases using fresh output locations and record the current revision.
+4. If the suffixed case alerts unexpectedly, report an overbroad match relative to this objective. Change only the approved rule condition and repeat all cases, not just the one that previously failed.
+5. Keep the earlier result as evidence of the defect and the later result as evidence of the tested correction. Neither establishes coverage for every possible HTTP representation.
+
+#### Practise before checking the explanation
+
+A tuned rule stops the unwanted suffix alert but also stops the intended exact-path alert. What does the negative test show, and why is the change not finished?
+
+<details>
+<summary>Practice feedback</summary>
+
+The unwanted case no longer matches, but the required detection has been lost. The positive regression test failed. Re-examine the changed condition and its parsed input; do not accept a quiet detector as evidence of correct tuning. Repeat the entire small matrix after the next correction.
+
+</details>
+
+#### If you get stuck
+
+| Evidence gap | Next check |
+|---|---|
+| No packet | Collection path and capture configuration |
+| Packet but no expected protocol fields | Parser/protocol interpretation and actual traffic format |
+| Fields present but no match | Loaded rule, correct buffer, conditions and revision |
+| Alert cannot be tied to this run | Output location, time window and event/flow context |
+
+**Ready to continue:** explain every test's expected result from the objective and identify the precise claim supported by your retest.
+
+Further reading for the specific mechanism: [Suricata 8.0.1: HTTP inspection keywords](https://docs.suricata.io/en/suricata-8.0.1/rules/http-keywords.html).
+
+**Continue:** [L26 lab entry](02-Guided-Lab.md#practice-l26) · [L26 assignment](03-Student-Workbook.md#assignment-l26) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L26 -->
 
 ### End-of-Lesson Assignment — L26
 

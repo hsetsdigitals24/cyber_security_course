@@ -1,5 +1,19 @@
 # M01 — Computer and Cybersecurity Foundations
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L01 — Security, Business Risk, and Professional Practice | [Notes](01-Student-Notes.md#lesson-l01) → [worked case and self-check](01-Student-Notes.md#self-study-l01) | [Lab entry](02-Guided-Lab.md#practice-l01) → [workbook](03-Student-Workbook.md#assignment-l01) |
+| L07 — Threats, Social Engineering, and Access Decisions | [Notes](01-Student-Notes.md#lesson-l07) → [worked case and self-check](01-Student-Notes.md#self-study-l07) | [Lab entry](02-Guided-Lab.md#practice-l07) → [workbook](03-Student-Workbook.md#assignment-l07) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Next module](../Module-02/README.md)
 
 **Read in this order: L01 → L07.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.

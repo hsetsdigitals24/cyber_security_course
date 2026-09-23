@@ -63,6 +63,7 @@ In L10, run the group/user creation block from the allocated administrator accou
 
 Run each identity test separately. Read its result before proceeding to the next user. Ben's and Cara's expected refusals are successful boundary tests, not errors to bypass. Keep the exact refusal and the neighbouring allowed result so an unavailable file is not mistaken for enforced permission.
 
+<a id="practice-l09"></a>
 ## L09 — Observe, change, recover
 
 ```bash
@@ -80,6 +81,7 @@ Explain the quoted filename, replacement versus append, and the line-number outp
 
 Run `sleep 300` in one terminal. In a second run `ps -eo pid,user,comm` and identify your exact sleep process, matching user and start context. End only that process by Ctrl+C in its own terminal. Recheck the list. Do not kill a process by guessing its PID. Independent variation: create a different spaced filename and explain a deliberately wrong relative path.
 
+<a id="practice-l10"></a>
 ## L10 — Build the access matrix
 
 From the administrator account, create the dedicated group and users. `adduser` prompts for disposable passwords; never put passwords in command history or submissions.

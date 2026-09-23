@@ -1,5 +1,19 @@
 # M06 — Linux Services, Hardening, and Simple Automation
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L11 — Services, Logs, SSH, and Hardening | [Notes](01-Student-Notes.md#lesson-l11) → [worked case and self-check](01-Student-Notes.md#self-study-l11) | [Lab entry](02-Guided-Lab.md#practice-l11) → [workbook](03-Student-Workbook.md#assignment-l11) |
+| L12 — Recovery and Small Explainable Scripts | [Notes](01-Student-Notes.md#lesson-l12) → [worked case and self-check](01-Student-Notes.md#self-study-l12) | [Lab entry](02-Guided-Lab.md#practice-l12) → [workbook](03-Student-Workbook.md#assignment-l12) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

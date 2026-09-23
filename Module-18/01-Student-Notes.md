@@ -1,15 +1,29 @@
 # M18 — Integrated Operations and Employment Preparation
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L35: Architecture review and integrated investigation](#lesson-l35) · [L36: Practical defence, portfolio narrative, and professional handover](#lesson-l36)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L35, complete its guided activity and assignment, then continue to L36. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L35/L36**
 
+<a id="lesson-l35"></a>
 ## L35 — Architecture review and integrated investigation
 ### General Overview
 The previous modules taught individual skills. A real support or security task crosses those boundaries: an alert may depend on a working source, an account, DNS, routing, a service and a business requirement. This lesson brings those dependencies together without adding a new tool stack.
 
 Cedarbridge's staff report a changed document while its monitored endpoint appears quiet. The analyst must decide whether the quietness reflects safe behaviour, a collection gap, a query error or a different cause. A strong investigation follows evidence rather than the order of the course modules.
+
+<!-- HSETS-SELF-READY-L35 -->
+**Before this lesson:** You can correlate bounded evidence and explain a proportionate response. Revisit [L28 refresher](../Module-14/01-Student-Notes.md#lesson-l28) · [L31 refresher](../Module-16/01-Student-Notes.md#lesson-l31) · [L32 refresher](../Module-16/01-Student-Notes.md#lesson-l32).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l35) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L35 -->
 
 <!-- HSETS-TERMS-L35 -->
 ### Terms explained in context
@@ -108,12 +122,61 @@ Integration means reasoning across dependencies, not running every VM at once. T
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L35 -->
+<a id="self-study-l35"></a>
+### Self-study workshop — integrate the course without jumping to conclusions
+
+#### Understand the mechanism
+
+An integrated investigation brings together identity, device, network, service, data and monitoring evidence. Each source answers a limited question. A successful sign-in can establish an authentication result, a network record a communication observation, and a file record a change. Connecting them requires consistent identities, endpoints, time and context; proximity alone does not make one event the cause of another.
+
+An architecture review shows where controls and observations should exist. Start with the required business transaction, trace it across boundaries and identify the evidence available at each transition. A missing log source is a visibility gap even when the application works. A correctly drawn firewall is not proof that an alternate path is absent.
+
+Integration also includes recovery and ownership. A technically plausible response can still be wrong if it exceeds authority or interrupts an essential service unnecessarily. The capstone expects a reasoned decision chain rather than a collection of screenshots from every tool in the course.
+
+#### Follow a complete example
+
+An illustrative timeline shows a successful login, a connection to the training portal and a protected-file change. A scheduled maintenance record also exists for that period.
+
+1. Map the login identity to the relevant endpoint/session where the evidence permits. Mark any gap rather than assuming all events belong to one person.
+2. Align event times while preserving original timestamps and clock uncertainties.
+3. Trace the network/service path and determine whether the observed request could perform the recorded change under the application's design.
+4. Compare the maintenance record's actual scope with the file change. A maintenance window alone neither explains everything nor proves innocence.
+5. Develop at least two hypotheses and name a discriminating next check. Choose any response within the scenario's authority and record the required service/recovery tests.
+
+#### Practise before checking the explanation
+
+Two logs share an IP address but represent different times and possibly different users behind a shared service. Is the address sufficient to attribute both actions to one person?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. Shared or reassigned addressing and intermediary services can weaken attribution. Seek relevant session, device, identity and time context. Report an address-level correlation as such rather than silently upgrading it to a person-level conclusion.
+
+</details>
+
+#### If you get stuck
+
+Reduce the case to one business question and one required transaction. Make an evidence table with source, observation, supported claim and limit. Investigate the largest decision-relevant gap first rather than collecting unrelated screenshots. Keep capstone evidence separate from earlier practice cases.
+
+**Ready to continue:** explain a coherent chain of evidence, a competing hypothesis, an authorised next action and a recovery/verification requirement.
+
+**Continue:** [L35 lab entry](02-Guided-Lab.md#practice-l35) · [L35 assignment](03-Student-Workbook.md#assignment-l35) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L35 -->
+
 ### L35 end-of-lesson assignment
 Complete workbook L35: five MCQs, two written scenarios and an integrated review/practical, 30 marks, approximately 60 minutes. Submit architecture, requirement-to-evidence matrix, case plan and P01–P07 gap register. This prepares P08 and the M18 checkpoint; it does not complete G4 automatically.
 
+<a id="lesson-l36"></a>
 ## L36 — Practical defence, portfolio narrative, and professional handover
 ### General Overview
 An employer or assessor needs to understand what you personally did and whether you can repeat the reasoning. A professional portfolio makes claims easy to check. This lesson develops a clear technical explanation, an actionable handover and an honest account of lab experience.
+
+<!-- HSETS-SELF-READY-L36 -->
+**Before this lesson:** You can distinguish built, tested, observed and proposed work. Revisit [L35 refresher](../Module-18/01-Student-Notes.md#lesson-l35).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l36) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L36 -->
 
 <!-- HSETS-TERMS-L36 -->
 ### Terms explained in context
@@ -201,6 +264,48 @@ A student can show a restored file but has no evidence the business user could r
 
 ### Summary and glossary
 A portfolio claim is a statement supported by evidence. Provenance records origin and contribution. A handover names actionable next work. Employability is supported by competence and communication; course completion does not guarantee a job.
+
+<!-- HSETS-SELF-STUDY-L36 -->
+<a id="self-study-l36"></a>
+### Self-study workshop — present work honestly and defend your decisions
+
+#### Understand the mechanism
+
+A portfolio demonstrates what you can explain and reproduce, not simply which products appear in screenshots. Distinguish four kinds of claim: you built something, tested a particular behaviour, observed a supplied artifact, or proposed a future improvement. Each needs different evidence. A simulated training organisation should not be described as a real employer or paying client.
+
+A useful technical handover allows another person to understand the purpose, starting conditions, procedure, result and limitations. It includes dependencies, recovery instructions and ownership. A manager-facing summary selects the business consequence and decision needed while linking to the deeper evidence rather than repeating every command.
+
+An individual defence tests ownership of reasoning. Memorising a procedure is not enough when the identity, address or symptom changes. Practise explaining why a step exists, what result would contradict your hypothesis and how you would recover from a failed change. It is acceptable to use documentation; it is not acceptable to invent a test you did not perform.
+
+#### Follow a complete example
+
+A learner completed an assigned access-control lab and is preparing a portfolio statement.
+
+1. Name the setting honestly: a simulated departmental file service in an authorised lab.
+2. Describe the actual task: implemented group-based permissions under the course workflow.
+3. Identify the measured result: a named set of allowed/denied identity-action tests passed on the recorded configuration. Use the learner's real test count, not an impressive invented number.
+4. State the limitation: classroom variation and platform scope, with no claim of protecting a real organisation.
+5. Prepare to demonstrate one changed case and explain why it should pass or fail. Link the test record and recovery evidence in the portfolio index.
+
+#### Practise before checking the explanation
+
+You inspected a supplied incident dataset but did not operate the original monitored network. Which claim is more accurate: “I secured the company's network” or “I analysed a synthetic multi-source incident dataset and documented supported findings”?
+
+<details>
+<summary>Practice feedback</summary>
+
+The second matches the performed work. You can strengthen it with genuine evidence of your analysis method, uncertainty handling and report quality. The first invents operational responsibility and an outcome not established by the exercise. Honest specificity is stronger than unsupported scale.
+
+</details>
+
+#### If you get stuck
+
+Use a short explanation order: problem, decision, action, evidence, limitation and next step. If you cannot explain a screenshot, return to its underlying test. If an artifact contains secrets or unrelated personal details, prepare a sanitised portfolio copy without altering the private assessment original.
+
+**Ready to continue:** defend one decision without reading a model answer, identify one untested claim and show where another learner can find the evidence. Employment preparation improves communication; it does not guarantee a job.
+
+**Continue:** [L36 lab entry](02-Guided-Lab.md#practice-l36) · [L36 assignment](03-Student-Workbook.md#assignment-l36) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L36 -->
 
 ### L36 end-of-lesson assignment
 Complete workbook L36: five MCQs, two scenarios and portfolio/defence practical, 30 marks, about 60 minutes. Submit portfolio index, two evidence-backed CV statements, a three-minute explanation and a handover. Final P08/G4 assessment follows the selected delivery calendar.

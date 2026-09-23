@@ -5,6 +5,7 @@ Use the [student assessment guide](../H-SETS-Student-Assessment-Guide.md) for co
 Before submitting, check the exact lesson ID, all requested items, actual test results and evidence references. Use the instructor's private destination and deadline on your [lab sheet](../H-SETS-Class-Lab-Sheet.md). Return to the [module route](README.md) after feedback.
 Each lesson assignment is 30 marks and about 60 minutes after guided work: MCQs 5, scenarios 10, practical 15. No answers are included.
 
+<a id="assignment-l35"></a>
 ## L35 end-of-lesson assignment
 ### Knowledge check
 1. After recovery, the server answers ping and its service is running. Which additional result best establishes the required business service?
@@ -40,6 +41,7 @@ Each lesson assignment is 30 marks and about 60 minutes after guided work: MCQs 
 ### Practical — 15 marks
 Complete a requirement-to-evidence matrix and the rehearsal's two-hypothesis investigation. Demonstrate one fresh monitoring or recovery test in the allocated lab. Submit L35.md, diagram, actual evidence, and P01–P07 gap register. Link this to P08 preparation; do not mark G4 passed.
 
+<a id="assignment-l36"></a>
 ## L36 end-of-lesson assignment
 ### Knowledge check
 1. You tested two department-role boundaries in a fictional Windows lab. Which portfolio statement best fits that evidence?

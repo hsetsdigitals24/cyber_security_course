@@ -1,5 +1,12 @@
 # M01 — Computer and Cybersecurity Foundations
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L01: Security, Business Risk, and Professional Practice](#lesson-l01) · [L07: Threats, Social Engineering, and Access Decisions](#lesson-l07)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Next module](../Module-02/README.md)
 
 **Read in this order: L01 → L07.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.
@@ -64,6 +71,12 @@ You do not need prior cybersecurity knowledge. Start with these relationships be
 **Check your understanding:** Does successful sign-in prove you may change payroll data? Explain.
 
 **Foundation practice:** Create a course folder using your file manager. Save a harmless text note, copy it to a second folder, reopen both, and record which is the original. Locate the OS name and installed RAM in the instructor-demonstrated system information screen; omit serial numbers and personal details. Do not change network settings or install virtual machines. If file handling is unfamiliar, complete this with instructor support before continuing.
+
+<!-- HSETS-SELF-READY-L01 -->
+**Before this lesson:** You can save and reopen a harmless text file; use the computing starter in this lesson if needed.
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l01) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L01 -->
 
 <!-- HSETS-TERMS-L01 -->
 ### Terms explained in context
@@ -367,6 +380,52 @@ Security decisions should protect required business outcomes. Identify the asset
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L01 -->
+<a id="self-study-l01"></a>
+### Self-study workshop — reason from business need to evidence
+
+#### Understand the mechanism
+
+A computer problem becomes a security concern because of its effect on a person, service or information. Start with that effect. A broken keyboard and a locked customer database can both affect availability, but their business consequences differ. The same weakness can also have different consequences in different organisations. A publicly readable staff rota and a publicly readable medical record are not equivalent merely because both are files.
+
+Separate four parts of a risk explanation. The **asset** is what has value. The **vulnerability** is a weakness that could enable harm. The **threat event** is what might exploit that weakness. The **impact** is the business consequence. An observed weakness does not prove the event already happened. “The folder allows unnecessary access” is a configuration fact; “someone stole the files” needs separate evidence.
+
+A control should interrupt a specific part of that chain. Permissions can limit access, an approval process can reduce inappropriate changes, logs can support detection and investigation, and a tested backup can support recovery. A single control rarely covers all four jobs. To check a control, define what must still work as well as what must fail. Blocking everybody from the payroll folder prevents disclosure but also prevents payroll work.
+
+#### Follow a complete example
+
+Cedarbridge stores a synthetic shift rota in a shared folder. Scheduling staff need to edit it; other employees need to read it. Everyone currently has edit permission. No incorrect rota has been confirmed.
+
+1. The asset is the rota and the scheduling service it supports. Its business owner is the scheduling manager, not automatically the person who owns the server.
+2. The weakness is unnecessary edit permission. A plausible event is an accidental or deliberate unauthorised change. The impact could be missed shifts and incorrect staffing.
+3. Recommend separate reader/editor access and an approved change process. Label these **proposed**, because no configuration has been changed in this paper case.
+4. Define two checks: a scheduling identity can save an approved edit; an ordinary employee can read but cannot save an edit. Also confirm the reader can still obtain the current rota.
+5. Record uncertainty: permission review does not establish whether old unauthorised changes occurred. Relevant version history and logs would help investigate that different question.
+
+#### Practise before checking the explanation
+
+A synthetic customer contact list has one saved copy on a receptionist's laptop. The laptop works today. Write an asset, weakness, possible event, consequence and recovery test. Does “it opens today” prove recoverability?
+
+<details>
+<summary>Practice feedback — open after writing your reasoning</summary>
+
+The contact information and the customer-contact service are assets. Depending on one copy is a recovery weakness. Device failure or accidental deletion could make the information unavailable. A useful test restores an approved backup to a separate safe location and checks the required records can be used. Opening the working file proves current access, not recovery after loss. This is a new practice case, not a workbook answer.
+
+</details>
+
+#### If you get stuck
+
+| Difficulty | Recheck | Next useful action |
+|---|---|---|
+| Every risk sounds like “hackers” | Which asset and weakness are actually specified? | Rewrite one complete cause-and-consequence sentence |
+| Every priority is high | Business use, scope and available evidence | Explain the relative consequence instead of inventing precise probabilities |
+| You cannot design a test | The intended business permission or recovery result | Write one permitted outcome and one prohibited or failure outcome |
+
+**Ready to continue:** explain one risk without using “threat,” “vulnerability” and “impact” interchangeably. Keep proposed controls separate from observed results. This lesson requires no VM.
+
+**Continue:** [L01 lab entry](02-Guided-Lab.md#practice-l01) · [L01 assignment](03-Student-Workbook.md#assignment-l01) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L01 -->
+
 ### End-of-lesson assignment — L01-A
 
 Complete the [workbook](03-Student-Workbook.md) L01 questions Q1–Q5, scenarios L01-S1/L01-S2, and practical L01-P. Submit your five-asset inventory, three risk statements, control tests, and two-minute handover. Identify facts separately from assumptions and label controls as proposed until implemented. The instructor will change one fact for your independent revision.
@@ -384,6 +443,12 @@ Allow 120 minutes within this module's six independent hours: 30 for questions/s
 ### General Overview
 
 Technical failures are not always attacks, and a convincing message is not proof of identity. Security work combines system evidence with knowledge of who should be allowed to do what. Cedarbridge's Finance team must approve payments without trusting every urgent email. This lesson connects M01 risk language with the identity controls that later Linux and Active Directory lessons implement.
+
+<!-- HSETS-SELF-READY-L07 -->
+**Before this lesson:** You can distinguish an asset, weakness, possible event and impact. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l07) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L07 -->
 
 <!-- HSETS-TERMS-L07 -->
 ### Terms explained in context
@@ -509,6 +574,48 @@ Phishing: deceptive communication intended to induce an action. Authentication: 
 **Try independently:** A certificate has a matching hostname and current dates. State one question about the organisation or requested action that this does not answer.
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+
+<!-- HSETS-SELF-STUDY-L07 -->
+<a id="self-study-l07"></a>
+### Self-study workshop — separate identity, permission and approval
+
+#### Understand the mechanism
+
+Identification is presenting an identity claim, such as a username. Authentication evaluates evidence for that claim. Authorisation decides whether the identity may perform a particular action on a resource. Business approval adds context such as who may approve a payment change. Successfully signing in does not grant every resource permission or prove every request is legitimate.
+
+Multi-factor authentication combines different factor categories, not simply two prompts. Two knowledge secrets, such as a password and PIN, do not become two independent categories because they appear on different screens. Additional authentication can reduce certain risks, but cannot repair a workflow that permits an authenticated user to send information to an unapproved recipient.
+
+Social engineering targets decisions. An urgent request may pressure someone to bypass the normal owner, verification route or review step. Poor spelling can be a clue, but correct spelling is not evidence of legitimacy. Evaluate the requested action, the authority for it and the route used to verify it.
+
+#### Follow a complete example
+
+An apparent supplier contact asks Cedarbridge to upload an invoice register through a new link before lunch. The sender's display name is familiar. The message also asks staff not to use the normal verification number.
+
+1. Preserve the synthetic message as supplied evidence. Do not open the link to “check whether it looks real.”
+2. Separate observations from conclusions. The changed transfer route and attempt to bypass verification are observations. The sender's criminal identity is not established.
+3. Check the business requirement: does this supplier need the full register, and who can approve its disclosure?
+4. Use a previously approved contact route obtained independently of the request. Contact information inside the questionable message cannot independently validate that message.
+5. Record the verification outcome or escalate the unresolved decision. Do not send data merely because the requester appears to know a staff name.
+
+#### Practise before checking the explanation
+
+An employee changes from stock control to customer support. They successfully sign in and can still edit the old stock register. Which question is about authentication, and which is about authorisation? Is the successful sign-in itself the access defect?
+
+<details>
+<summary>Practice feedback</summary>
+
+Sign-in concerns authentication. Continued edit access concerns authorisation and the role-change process. The sign-in may be entirely appropriate while the retained old permission is wrong. Review owner-approved role requirements, remove obsolete access, add only required new access and verify using the relevant fresh session in a later live lab.
+
+</details>
+
+#### If you get stuck
+
+Write the request as **identity → resource → action → business approval → expiry**. An access matrix missing the action is incomplete: read and edit differ. If a message analysis only labels the sender “suspicious,” add the exact requested behaviour and a safe verification route. If the owner or approval is unknown, report that gap rather than guessing.
+
+**Ready to continue:** explain why a trusted-looking account can make an unapproved request. Complete this lesson's message and access cases on paper; do not send a real test message.
+
+**Continue:** [L07 lab entry](02-Guided-Lab.md#practice-l07) · [L07 assignment](03-Student-Workbook.md#assignment-l07) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L07 -->
 
 ### End-of-Lesson Assignment — L07
 

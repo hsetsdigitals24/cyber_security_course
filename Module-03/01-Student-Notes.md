@@ -1,5 +1,12 @@
 # M03 — Network Services and Packet Analysis
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L05: DNS, DHCP, ARP, NAT, and Web Connections](#lesson-l05) · [L06: Wireshark Investigation](#lesson-l06)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 Navigation: [Course map](../README.md) · [Module start](README.md) · [Notes](01-Student-Notes.md) · [Workbook](03-Student-Workbook.md)
 
 **This module uses supplied evidence and diagrams.** Live commands, captures and configuration described in the explanations are previews for [M04 network practice](../Module-04/06-Network-Practice.md). Follow the current guided practice and workbook now; no VM is required.
@@ -14,6 +21,12 @@ Navigation: [Course map](../README.md) · [Module start](README.md) · [Notes](0
 Opening a web page can depend on several services before the page itself is requested. A computer needs a usable address, a way to locate the next-hop interface, a destination address for the name, and an application connection. These dependencies explain why “the Internet is broken” is a symptom, not a diagnosis. Cedarbridge's learning page gives us a small, observable example.
 
 Recall M02: local delivery does not need a gateway when both hosts share a subnet; a listening process is distinct from a reachable host. We now add names and inspect the messages supporting the transaction.
+
+<!-- HSETS-SELF-READY-L05 -->
+**Before this lesson:** You can separate addressing, connectivity and application response. Revisit [L03 refresher](../Module-02/01-Student-Notes.md#lesson-l03) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l05) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L05 -->
 
 <!-- HSETS-TERMS-L05 -->
 ### Terms explained in context
@@ -135,6 +148,48 @@ Resolver: service obtaining DNS answers. Authoritative server: source responsibl
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L05 -->
+<a id="self-study-l05"></a>
+### Self-study workshop — follow a name all the way to useful data
+
+#### Understand the mechanism
+
+Different network services answer different questions. DHCP can supply time-limited client configuration. DNS resolves names to records such as addresses. ARP supports IPv4 neighbour resolution on a local link. NAT translates addressing as traffic crosses a configured device. None of these, by itself, establishes that the application returned the right information or that its user is authorised.
+
+A browser transaction may depend on several earlier results. The client obtains an address for a name, chooses a route, resolves the local next hop when necessary, establishes the required transport exchange and sends an application request. Existing caches can remove visible intermediate exchanges from one short observation. No fresh DNS packet does not necessarily mean no name resolution was used.
+
+The DNS server you ask explicitly may differ from the resolver path used by an application. The application might use cached information, a local override or another configured resolver. Compare like with like. A direct numerical request can narrow a problem, but some applications also use the requested hostname to select a site or validate a certificate. Bypassing a name is a diagnostic experiment, not automatically a permanent repair.
+
+#### Follow a complete example
+
+The approved portal is at 10.30.0.40. A supplied DNS record for `schedule.cedarbridge.test` returns 10.30.0.49. The required page succeeds when a controlled diagnostic request goes to the approved address; the ordinary named request fails.
+
+1. List what is known: the approved service responded to the diagnostic transaction; the queried resolver returned a different address.
+2. Do not yet conclude every client uses that queried answer. Compare the client's actual resolution path and any relevant cache.
+3. Propose correcting the authorised record at its source, then refreshing or waiting for the relevant cached result under the lab instructions.
+4. Retest the ordinary name-based transaction without the diagnostic override. Otherwise, you might demonstrate only that your workaround still works.
+5. Record the answer, responding resolver, application outcome and remaining visibility limits separately.
+
+#### Practise before checking the explanation
+
+A supplied trace shows no DHCP exchange while a statically addressed client successfully uses its local service. Does the missing exchange show a fault?
+
+<details>
+<summary>Practice feedback</summary>
+
+Not by itself. A static configuration does not need a new DHCP exchange for that transaction. Even a DHCP-configured client can use an existing lease without a new exchange inside a short recording. Inspect the stated configuration and collection window before declaring a failure.
+
+</details>
+
+#### If you get stuck
+
+Draw separate boxes for client configuration, name resolution, route, transport and application. Put each supplied observation in one box. If a box has no evidence, mark it unknown rather than assuming success. Distinguish a DNS failure response from no response at all; record the actual response code when one is supplied.
+
+**Ready to continue:** explain why a correct DNS answer does not prove a service is listening, and why a successful direct-address request may not validate the ordinary user path.
+
+**Continue:** [L05 lab entry](02-Guided-Lab.md#practice-l05) · [L05 assignment](03-Student-Workbook.md#assignment-l05) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L05 -->
+
 ### End-of-Lesson Assignment — L05
 
 Complete Workbook L05 using cases S1–S4 in the guided practice. Submit the named-request sequence, three references, proposed DNS retest and one limitation. Knowledge 10, scenarios 20, practical analysis 20; plan 60 minutes. No responder configuration is required yet.
@@ -149,6 +204,12 @@ Complete Workbook L05 using cases S1–S4 in the guided practice. Submit the nam
 ### General Overview
 
 A packet capture is a recording at a particular place and time. It is not a complete history of a network or a verdict about intent. Wireshark helps inspect that recording, but the analyst must decide which packets support a claim and which explanations remain possible. This lesson develops that reasoning before later intrusion-detection work.
+
+<!-- HSETS-SELF-READY-L06 -->
+**Before this lesson:** You can explain the steps in a named web request. Revisit [L05 refresher](../Module-03/01-Student-Notes.md#lesson-l05).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l06) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L06 -->
 
 <!-- HSETS-TERMS-L06 -->
 ### Terms explained in context
@@ -238,6 +299,48 @@ The instructor explains the supplied healthy and failure records; live capture i
 An empty filtered view does not prove an empty capture. A checksum warning on a local capture can reflect offloading rather than a packet sent corruptly. A missing handshake can reflect capture start time. Validate the observation at a suitable point before changing controls.
 
 PCAP/PCAPNG: packet recording formats. Vantage point: observation location. Display filter: selection of recorded packets for viewing. Stream: related transport conversation. Retransmission: repeated transmission of unacknowledged data. Inference: explanation drawn from observations.
+
+<!-- HSETS-SELF-STUDY-L06 -->
+<a id="self-study-l06"></a>
+### Self-study workshop — turn packet observations into a defensible finding
+
+#### Understand the mechanism
+
+A packet recording has a viewpoint, start time, end time and collection configuration. It contains traffic available to that collection point under those settings. It is not automatically the whole network's history. A client-side trace may omit another client's traffic; a capture begun after a connection started may omit its handshake.
+
+Use the packet list to find candidates, then inspect fields and surrounding context. An endpoint is not just a familiar address: ports, protocol, direction and time distinguish conversations. A frame number is a location within a particular file, so “frame 7” without a filename or worksheet identifier is not a reproducible reference.
+
+Capture filters limit what enters a recording. Display filters select what you see from retained traffic. Removing a display filter can reveal hidden retained packets, but cannot recover data discarded at capture time. Encrypted traffic introduces another limit: visible endpoints and timing do not ordinarily reveal the protected application contents.
+
+#### Follow a complete example
+
+An illustrative client trace records a DNS answer, a TCP SYN, SYN/ACK and ACK, followed by an HTTP request and response. Later, it shows repeated SYN attempts to a different port without a reply in the selected interval.
+
+1. Separate the two conversations by endpoints and ports rather than grouping everything from the same client together.
+2. For the first, identify the roles of the handshake and application messages. An acknowledgement of bytes is not confirmation that the business accepted a transaction.
+3. For the second, report “no reply observed in this interval at this point.” Do not jump directly to “the firewall blocked it.”
+4. Consider alternatives: the destination may be unavailable, a response may be lost, or the record may be incomplete.
+5. Propose a distinguishing next check such as the approved server's listener record and corresponding server-side observation. That gathers evidence at the point your first trace cannot explain.
+
+#### Practise before checking the explanation
+
+The display is filtered to `tcp.port == 8000` and shows no DNS. A colleague concludes that the client did not resolve a name. Identify two reasons that conclusion may be wrong.
+
+<details>
+<summary>Practice feedback</summary>
+
+The display filter may hide recorded DNS traffic because the filter selects TCP port 8000, not DNS. Even after clearing it, a cached answer or collection outside the lookup window may explain no visible DNS. Check the retained data and collection context before describing what happened. In M03 use the supplied worksheet; collect real traffic only in the later approved lab.
+
+</details>
+
+#### If you get stuck
+
+Start with one known request and its expected time. Remove an overly narrow display filter, confirm the filename and observation point, and inspect one conversation. If the required field is absent, state that limit. Do not invent a packet to make the expected sequence complete.
+
+**Ready to continue:** write a three-sentence finding containing a specific reference, a supported interpretation and a limitation. Distinguish your analysis of a synthetic worksheet from a capture you actually collected.
+
+**Continue:** [L06 lab entry](02-Guided-Lab.md#practice-l06) · [L06 assignment](03-Student-Workbook.md#assignment-l06) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L06 -->
 
 ### End-of-Lesson Assignment — L06
 

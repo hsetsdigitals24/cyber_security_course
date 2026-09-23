@@ -1,12 +1,26 @@
 # M14 — SIEM Operations and Wazuh
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L27: Log collection, fields, and source health](#lesson-l27) · [L28: Triage, tickets, and missing-source diagnosis](#lesson-l28)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L27, complete its guided activity and assignment, then continue to L28. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L27/L28**
+<a id="lesson-l27"></a>
 ## L27 — Log collection, fields, and source health
 ### General Overview
 Cedarbridge's file server, Windows workstation and firewall each know a different part of an event. A SIEM makes selected records searchable together. It does not automatically know what happened: its conclusions depend on collection, parsing, time, context and analyst reasoning. This lesson follows a single record before introducing dashboards.
+
+<!-- HSETS-SELF-READY-L27 -->
+**Before this lesson:** You can identify an event source and distinguish an event from an alert. Revisit [L11 refresher](../Module-06/01-Student-Notes.md#lesson-l11) · [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13) · [L25 refresher](../Module-13/01-Student-Notes.md#lesson-l25).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l27) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L27 -->
 
 <!-- HSETS-TERMS-L27 -->
 ### Terms explained in context
@@ -107,12 +121,63 @@ Avoid confusing active agent, healthy channel and complete history. Collection m
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L27 -->
+<a id="self-study-l27"></a>
+### Self-study workshop — follow a log from source to search result
+
+#### Understand the mechanism
+
+A security information and event management system brings observations together for analysis. A typical path includes source generation, local storage or channel, collection, transport, parsing, storage/indexing and the analyst's query. An agent connected to its manager establishes one part of this path; it does not prove every intended log channel is collected and searchable.
+
+Parsing extracts structured fields from a record. Normalisation makes selected fields comparable across sources. Both can change how the analyst searches, but the original source context still matters. A field named `user` may represent an actor in one event and a target identity in another; read its meaning before correlating records.
+
+Keep event time, collection/ingestion time and observation time separate. A delayed event can arrive now while describing an older action. Different time zones and clock errors can change apparent order. A dashboard's “last hour” filter may exclude the event you expected, even when ingestion succeeded.
+
+#### Follow a complete example
+
+You create one approved benign file change on a monitored synthetic endpoint. The local file has changed, but the expected dashboard event is missing.
+
+1. Confirm the folder is included in the configured monitoring scope and that the baseline was established before the change.
+2. Identify the expected collection method and measured delay on the lab sheet. A scheduled scan and a configured real-time watch do not create identical timing assumptions.
+3. Inspect the source/agent evidence for that change. Then follow transport and processing evidence through the route assigned by the instructor.
+4. Search the correct agent identity and time window, allowing for the recorded source time and expected delay. Inspect the event's raw fields when it appears.
+5. Record the actual successful stage and any remaining gap. Do not describe all log collection as healthy because one source produced one event.
+
+#### Practise before checking the explanation
+
+The agent is connected, but a required Windows event channel was never selected for collection. Does the connected indicator prove coverage of that channel?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. Connectivity and channel coverage are separate. Confirm the required source configuration and generation/auditing conditions, then perform the approved benign event test and trace its record to the destination. Record the channel's result explicitly instead of generalising from agent health.
+
+</details>
+
+#### If you get stuck
+
+Draw the pipeline and put one evidence reference under each verified stage. Start troubleshooting at the first unsupported transition. Do not change the detection rule if the source record was never collected. Do not repeatedly generate account failures when the first event is enough to inspect coverage and lockout limits.
+
+**Ready to continue:** map a source record to the corresponding collected fields, preserving agent identity and time context. Central-manager changes remain with the authorised platform owner.
+
+Further reading for the specific mechanism: [Wazuh: file integrity monitoring](https://documentation.wazuh.com/current/user-manual/capabilities/file-integrity/index.html).
+
+**Continue:** [L27 lab entry](02-Guided-Lab.md#practice-l27) · [L27 assignment](03-Student-Workbook.md#assignment-l27) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L27 -->
+
 ### L27 end-of-lesson assignment
 Complete the L27 workbook: five MCQs, two scenarios and independent two-endpoint evidence task, 30 marks, about 60 minutes. Submit L27.md and source inventory with original/collected evidence references. This is P06's onboarding milestone.
 
+<a id="lesson-l28"></a>
 ## L28 — Triage, tickets, and missing-source diagnosis
 ### General Overview
 A SOC analyst turns an alert into a justified next action. The task is not to label everything malicious. It is to establish the entities, verify evidence, assess potential business harm, identify uncertainties, and communicate what should happen next.
+
+<!-- HSETS-SELF-READY-L28 -->
+**Before this lesson:** You can trace source, collection, parsing and searchable fields. Revisit [L27 refresher](../Module-14/01-Student-Notes.md#lesson-l27).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l28) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L28 -->
 
 <!-- HSETS-TERMS-L28 -->
 ### Terms explained in context
@@ -188,6 +253,48 @@ Zero search results can reflect wrong fields, time, index or collection. A scree
 
 ### Summary and glossary
 Triage determines priority and next action. Disposition states the investigation outcome. Confidence and severity answer different questions. A handover names outstanding work and who owns it.
+
+<!-- HSETS-SELF-STUDY-L28 -->
+<a id="self-study-l28"></a>
+### Self-study workshop — write a triage decision another analyst can use
+
+#### Understand the mechanism
+
+Triage is an initial evidence-based decision about what an event may mean, how urgent it is and what should happen next. Severity describes a rule or event's assessed importance under its scheme. Priority includes current business context. Confidence describes how strongly the evidence supports a conclusion. A high-severity alert can still have uncertain cause, and low confidence does not make a potentially serious impact unimportant.
+
+An alert is a starting point for investigation. Examine the underlying record, affected identity/host, time, relevant baseline and known change activity. A label such as “suspicious” does not identify an actor or establish intent. Missing data should lower or qualify the supported claim instead of being filled with guesses.
+
+A ticket is a handover object. It needs enough context for another analyst to continue without repeating your entire investigation. Include what happened, evidence references, interpretation, impact/urgency, actions already taken, next owner and unresolved questions. “Investigating” alone does not tell the next shift what to do.
+
+#### Follow a complete example
+
+A benign lab alert reports a monitored file change on an endpoint used for the training web service. A matching authorised change record exists, but its time initially appears different from the alert.
+
+1. Inspect the raw file-change event and confirm the exact agent/path. Similar filenames on another endpoint are not the same event.
+2. Compare the recorded time zones and event versus ingestion time before declaring a mismatch.
+3. Verify the change record's target and expected action. A generic maintenance window does not automatically explain every event during that window.
+4. Write a provisional disposition with evidence and confidence. If the change aligns, explain why; if a gap remains, name it and the next check.
+5. Close or escalate only under the assigned criteria. Preserve the original alert and the evidence supporting the decision.
+
+#### Practise before checking the explanation
+
+A dashboard is quiet after an endpoint was intentionally powered off for resource staging. Should the source be reported as continuously healthy and monitored?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. Record the intentional offline window and resulting visibility limitation. The absence of events may be expected, but it does not establish continuous coverage. After restart, use the approved fresh-event check to confirm collection resumed before reporting it as healthy again.
+
+</details>
+
+#### If you get stuck
+
+Separate **observed event**, **possible explanation** and **next action** into three sentences. If urgency is unclear, identify the affected business asset and possible impact. If confidence is unclear, identify the missing evidence. If the required action exceeds your authority, include the decision needed and owner rather than attempting it yourself.
+
+**Ready to continue:** produce a ticket with a defensible decision, an evidence trail and a concrete next owner or closure condition.
+
+**Continue:** [L28 lab entry](02-Guided-Lab.md#practice-l28) · [L28 assignment](03-Student-Workbook.md#assignment-l28) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L28 -->
 
 ### L28 end-of-lesson assignment
 Complete the workbook's L28 tasks, 30 marks, approximately 60 minutes. Submit the fault record, fresh-event retest and triage ticket. G3 is a separate individual 60-minute assessment using a fresh case.

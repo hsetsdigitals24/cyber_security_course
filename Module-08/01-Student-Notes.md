@@ -1,14 +1,28 @@
 # H-SETS — M08: Windows Server, Active Directory, and IAM
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L15: Domain services and departmental access](#lesson-l15) · [L16: Identity lifecycle and Group Policy](#lesson-l16)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L15, complete its guided activity and assignment, then continue to L16. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
+<a id="lesson-l15"></a>
 ## L15 — Domain services and departmental access
 
 ### General Overview
 
 A local account belongs to one computer. Recreating each employee everywhere creates inconsistent passwords and forgotten access. A directory stores identities centrally so multiple systems recognise the same employee. The domain controller authenticates identity, while the resource server evaluates permissions. DNS is essential because clients discover domain services through service records. Public DNS resolving a website does not prove domain discovery works.
+
+<!-- HSETS-SELF-READY-L15 -->
+**Before this lesson:** You can explain DNS and standard-user access testing. Revisit [L05 refresher](../Module-03/01-Student-Notes.md#lesson-l05) · [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l15) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L15 -->
 
 <!-- HSETS-TERMS-L15 -->
 ### Terms explained in context
@@ -418,15 +432,66 @@ DC: directory/authentication server; OU: policy/delegation container; Kerberos: 
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L15 -->
+<a id="self-study-l15"></a>
+### Self-study workshop — connect domain identity to resource access
+
+#### Understand the mechanism
+
+Active Directory Domain Services supplies a directory of identities and related objects in a domain. A domain controller provides directory and authentication-related services; it is not automatically the file server for every business resource. A workstation joining a domain gains a relationship with that domain, but domain join alone does not prove a particular user may read a particular folder.
+
+Keep three structures separate. An organisational unit (OU) organises directory objects and can provide a policy/delegation scope. A security group collects identities for rights and permissions. A resource access list specifies permissions on the resource. Placing a user in an OU does not itself grant a share permission merely because the OU and folder have similar names.
+
+DNS and time are service dependencies, not decorative setup details. The client must discover and reach the appropriate domain services. A public resolver is not interchangeable with the domain's required DNS path. Correct discovery still needs the intended credentials and network path. Diagnose these dependencies separately rather than changing everything after a join error.
+
+#### Follow a complete example
+
+Cedarbridge wants the fictional Design team to edit a synthetic draft share while Support cannot read that draft.
+
+1. Use the GUI preparation route to confirm the correct domain, client edition, DNS settings and domain controller. Record whether you are building or using the provided domain; do not run both routes as if they were one sequence.
+2. In Active Directory Users and Computers, inspect the assigned users and security groups. Confirm which group represents the approved Design access requirement.
+3. Inspect the share and filesystem permission GUI on the resource server. Trace the intended group to the resource permission; do not infer access from the user's OU alone.
+4. On the joined client, use the assigned Design identity to test the approved action. Use the unrelated Support identity to test denial.
+5. Record the exact identity and resource path with each outcome. A successful administrator test is not a substitute for either ordinary-user test.
+
+#### Practise before checking the explanation
+
+A user has been moved into an OU named Design but is not in the group that grants draft-share access. Is the OU name sufficient to establish permission?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The OU's organisational/policy role and the security group's permission role are different. Inspect the resource's access design and the user's relevant membership, then use the authorised GUI process to implement the approved requirement. Verify actual access from the intended client session rather than treating the directory tree as proof.
+
+</details>
+
+#### If you get stuck
+
+For domain discovery failures, confirm the specified domain name, client DNS path and reachability. For resource access failures after join, inspect identity, memberships, share path and resource permissions. For menu differences, record the actual Windows build and stop at the mismatch rather than substituting command-based AD administration.
+
+**Ready to continue:** explain **user → security group → resource permission → client test**, and distinguish that path from OU placement. All AD administration in this course remains GUI based.
+
+Further reading for the specific mechanism: [Microsoft: AD security groups](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups).
+
+**Continue:** [L15 lab entry](02-Guided-Lab.md#practice-l15) · [L15 assignment](03-Student-Workbook.md#assignment-l15) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L15 -->
+
 ### End-of-lesson assignment — L15
 
 Complete the five MCQs, two scenarios, practical and reflection for L15 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
 
+<a id="lesson-l16"></a>
 ## L16 — Identity lifecycle and Group Policy
 
 ### General Overview
 
 Identity management continues after creation. A mover needs previous rights reviewed, not merely new rights added. A leaver needs new access denied and existing sessions handled. Disabling an account does not erase every issued token. Group Policy distributes user and computer settings; actual scope and processing determine whether a setting applies.
+
+<!-- HSETS-SELF-READY-L16 -->
+**Before this lesson:** You can distinguish a directory user, security group, OU and resource permission. Revisit [L15 refresher](../Module-08/01-Student-Notes.md#lesson-l15).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l16) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L16 -->
 
 <!-- HSETS-TERMS-L16 -->
 ### Terms explained in context
@@ -927,6 +992,48 @@ Computer settings linked only to a user OU may miss the computer. Cached sign-in
 ### Summary and glossary
 
 Lifecycle: joiner/mover/leaver; privilege creep: excess accumulated rights; resultant policy: processed settings. Disable, preserve, handle sessions and verify.
+
+<!-- HSETS-SELF-STUDY-L16 -->
+<a id="self-study-l16"></a>
+### Self-study workshop — manage identities as a lifecycle
+
+#### Understand the mechanism
+
+An employee's access should follow an approved business role over time. A joiner needs approved initial access. A mover may need old access removed as well as new access added. A leaver needs the appropriate account/session/resource actions under the organisation's process. Adding permissions without reviewing previous access gradually accumulates privilege.
+
+Group Policy is a separate mechanism for applying settings to relevant users or computers. A policy object must be linked and applicable to the intended scope. A computer setting and a user setting do not necessarily follow the same object. A policy being visible in the console does not prove the target received it or that the behaviour changed.
+
+Session state matters for verification. Existing sessions can retain information established earlier. A group change displayed in the directory and a still-open application window are different observations. Use the lab's controlled fresh-session tests and account for active connections rather than concluding from one old window that the change failed or that all access ended.
+
+#### Follow a complete example
+
+A fictional employee moves from Design to Support. Their Design draft-edit permission should end, and they need Support case access.
+
+1. Record the approved old and new role requirements, owner and effective date. Identify both the access being removed and the access being added.
+2. Use Active Directory Users and Computers to make the assigned group changes. Preserve the relevant before/after membership evidence.
+3. Review any policy scope separately in Group Policy Management. Moving an object to a new OU is not a universal substitute for editing the required groups.
+4. Use the guided lab's fresh-session route. Test the newly permitted resource and the formerly permitted resource with the employee identity.
+5. Report any existing-session limitation and its resolution. Do not claim every token or application session was revoked solely because an account setting changed.
+
+#### Practise before checking the explanation
+
+A policy is linked to an OU containing users, but the intended setting is a computer setting for workstations located elsewhere. Why might the expected behaviour be missing?
+
+<details>
+<summary>Practice feedback</summary>
+
+The intended computer objects may not be in the linked policy scope. Inspect object placement, the setting type and relevant applicability through the approved GUI. Correct the intended scope rather than copying the setting into many unrelated locations. Then verify effective behaviour on the assigned client.
+
+</details>
+
+#### If you get stuck
+
+Trace **requirement → object type → location/link → applicability → refreshed observation** for policy, and **role → group → permission → fresh access test** for resource access. Keep these two traces separate. Escalate if you lack ownership approval or the assigned administrative rights; do not solve it by granting yourself a higher role.
+
+**Ready to continue:** demonstrate both gained and removed access in a mover case and explain why a policy screenshot alone does not establish client behaviour.
+
+**Continue:** [L16 lab entry](02-Guided-Lab.md#practice-l16) · [L16 assignment](03-Student-Workbook.md#assignment-l16) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L16 -->
 
 ### End-of-lesson assignment — L16
 

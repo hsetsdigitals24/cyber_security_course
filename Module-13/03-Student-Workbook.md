@@ -6,6 +6,7 @@ Before submitting, check the exact lesson ID, all requested items, actual test r
 
 Record expected results before testing and actual results afterward. An alert proves that defined logic matched available data; it does not by itself prove malicious intent or complete network visibility.
 
+<a id="assignment-l25"></a>
 ## L25 end-of-lesson assignment — 30 marks, 70 minutes
 
 ### Knowledge check — 5 marks
@@ -35,6 +36,7 @@ Management asks for a signature that detects a specific password typed into an H
 
 Using Lab A, draw client, firewall, sensor and server. Mark the actual observation point. Run the instructor’s harmless marker request and an ordinary-page request. Record client time, source/destination, HTTP result, capture/flow reference, alert result and limitation. Explain why the marker result is not evidence of compromise.
 
+<a id="assignment-l26"></a>
 ## L26 end-of-lesson assignment — 30 marks, 80 minutes
 
 ### Knowledge check — 5 marks

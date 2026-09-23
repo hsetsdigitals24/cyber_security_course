@@ -1,5 +1,19 @@
 # H-SETS — Module 11: Vulnerability Assessment, Remediation, and Retesting
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L21 — Findings, validation, and business priority | [Notes](01-Student-Notes.md#lesson-l21) → [worked case and self-check](01-Student-Notes.md#self-study-l21) | [Lab entry](02-Guided-Lab.md#practice-l21) → [workbook](03-Student-Workbook.md#assignment-l21) |
+| L22 — Remediation, retesting, and closure | [Notes](01-Student-Notes.md#lesson-l22) → [worked case and self-check](01-Student-Notes.md#self-study-l22) | [Lab entry](02-Guided-Lab.md#practice-l22) → [workbook](03-Student-Workbook.md#assignment-l22) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

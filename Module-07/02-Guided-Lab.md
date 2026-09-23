@@ -52,6 +52,7 @@ Use only disposable, isolated lab systems and synthetic records. Capture a check
 
 Budget 110 minutes guided work plus 70 minutes independent application across the module; setup uses prepared images and must be piloted. Unexpected setup time replaces practice only with a scheduled replacement session.
 
+<a id="practice-l13"></a>
 ## L13 — Local identities, permissions, services, and evidence
 
 ### Purpose and starting state
@@ -76,6 +77,7 @@ Restore original audit settings after export. Keep administrative recovery entri
 
 Record: test ID, timestamp/time zone, source identity or IP, target, requested operation, expected result, actual result, evidence filename, interpretation and retest status. Preserve a before/after configuration record. A failed test is a finding to investigate, not a result to omit.
 
+<a id="practice-l14"></a>
 ## L14 — Endpoint controls and controlled change
 
 ### Purpose and starting state

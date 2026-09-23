@@ -1,5 +1,19 @@
 # H-SETS — Module 08: Windows Server, Active Directory, and IAM
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L15 — Domain services and departmental access | [Notes](01-Student-Notes.md#lesson-l15) → [worked case and self-check](01-Student-Notes.md#self-study-l15) | [Lab entry](02-Guided-Lab.md#practice-l15) → [workbook](03-Student-Workbook.md#assignment-l15) |
+| L16 — Identity lifecycle and Group Policy | [Notes](01-Student-Notes.md#lesson-l16) → [worked case and self-check](01-Student-Notes.md#self-study-l16) | [Lab entry](02-Guided-Lab.md#practice-l16) → [workbook](03-Student-Workbook.md#assignment-l16) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

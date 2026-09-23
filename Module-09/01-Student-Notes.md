@@ -1,14 +1,28 @@
 # H-SETS — M09: Firewall Policy, Segmentation, and Secure Remote Access
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L17: Traffic requirements and stateful firewall policy](#lesson-l17) · [L18: Segmentation boundaries and remote-access design](#lesson-l18)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L17, complete its guided activity and assignment, then continue to L18. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
+<a id="lesson-l17"></a>
 ## L17 — Traffic requirements and stateful firewall policy
 
 ### General Overview
 
 A route says where a packet should travel; a firewall decides whether that communication is permitted. Separating these questions prevents a common mistake: treating any failed connection as a firewall problem. A stateful firewall records permitted connections so return traffic can follow the established flow. An existing state can outlive a rule change, so a fresh test connection matters.
+
+<!-- HSETS-SELF-READY-L17 -->
+**Before this lesson:** You can draw a routed connection and explain source/destination ports. Revisit [L03 refresher](../Module-02/01-Student-Notes.md#lesson-l03) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l17) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L17 -->
 
 <!-- HSETS-TERMS-L17 -->
 ### Terms explained in context
@@ -474,15 +488,68 @@ State: tracked connection; default deny: unapproved traffic blocked; ingress: en
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L17 -->
+<a id="self-study-l17"></a>
+### Self-study workshop — turn business needs into a traffic policy
+
+#### Understand the mechanism
+
+A traffic rule expresses a decision about a defined communication path. It needs a source, destination, protocol, service and action, along with its placement and applicable context. “Allow the application” is incomplete if it does not say which systems or service are involved. A diagram provides the route; a traffic matrix provides the required decisions on that route.
+
+A stateful firewall tracks relevant connection state. This can affect how later packets in a connection are handled. Testing with an already-established connection after editing rules can therefore give different evidence from a new connection. Use the lab's approved state-handling and retest procedure; do not clear shared states indiscriminately.
+
+Rule evaluation depends on the platform and rule context. Read the existing course's pfSense explanation before applying a general memory about “top rule wins” to every interface or rule type. NAT changes addressing; it is not by itself the business permission decision. A translated address can also affect which values appear at different observation points.
+
+#### Follow a complete example
+
+Cedarbridge requires the User zone to reach the training web server on TCP 8000. Only the Management zone may administer it. User-to-administration traffic must be denied.
+
+1. Draw each zone, interface and gateway. Trace the User request and its return path through the firewall.
+2. Write separate rows for the required web service, permitted management service and prohibited user administration. Include addresses or the assigned aliases, not just zone names in your prose.
+3. Inspect the applicable rule context and existing broad rules before adding a narrow one. A broad earlier permission can defeat the intended restriction in relevant evaluation paths.
+4. Preserve console or approved management recovery access. Apply only the scoped change and generate fresh tests from the actual source zones.
+5. Correlate each result with endpoint and firewall evidence. A failed web request is not acceptable collateral damage merely because administration is denied.
+
+#### Practise before checking the explanation
+
+A firewall rule is correct, but the client has a second adapter directly connected to the server's zone. What assumption has failed?
+
+<details>
+<summary>Practice feedback</summary>
+
+The assumed enforcement path may be bypassed. Traffic using the direct attachment might never cross the firewall rule being assessed. Inspect actual interfaces and route decisions, remove only the unintended lab path under the approved recovery plan, and retest. Editing the firewall cannot govern a path that does not traverse it.
+
+</details>
+
+#### If you get stuck
+
+| Result | Next evidence |
+|---|---|
+| Denied path still works | Actual route, alternate adapters, applicable rule order and existing states |
+| Both allowed and denied paths fail | Listener, addressing and gateway before assuming policy success |
+| No matching firewall log | Whether traffic crossed the expected interface and whether that rule logs |
+
+**Ready to continue:** justify every rule with a business matrix row and a matching fresh test. Preserve an understood management recovery path throughout.
+
+**Continue:** [L17 lab entry](02-Guided-Lab.md#practice-l17) · [L17 assignment](03-Student-Workbook.md#assignment-l17) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L17 -->
+
 ### End-of-lesson assignment — L17
 
 Complete the five MCQs, two scenarios, practical and reflection for L17 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
 
+<a id="lesson-l18"></a>
 ## L18 — Segmentation boundaries and remote-access design
 
 ### General Overview
 
 A zone groups systems with similar trust or business purpose. Segmentation becomes meaningful only when communication between zones is enforced and tested. Two differently named subnets are not enough if another adapter bypasses the firewall. Remote access extends the same problem: a VPN can protect transport while granting excessive reach. Identity verification, device condition, narrow resource access and session logging still matter.
+
+<!-- HSETS-SELF-READY-L18 -->
+**Before this lesson:** You can convert a required connection into a narrow traffic-matrix row. Revisit [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l18) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L18 -->
 
 <!-- HSETS-TERMS-L18 -->
 ### Terms explained in context
@@ -1195,6 +1262,48 @@ VLAN tagging separates layer-2 domains but inter-zone policy still requires enfo
 ### Summary and glossary
 
 Zone: trust grouping; DMZ: separated service zone; VLAN: logical layer-2 partition; VPN: protected logical transport; full/split tunnel: routing choices. Design claims and executed tests must be distinguished.
+
+<!-- HSETS-SELF-STUDY-L18 -->
+<a id="self-study-l18"></a>
+### Self-study workshop — explain what segmentation and remote access protect
+
+#### Understand the mechanism
+
+Segmentation divides communication into boundaries with deliberately controlled crossings. A VLAN or subnet label does not, by itself, prove those crossings are restricted. The topology must place traffic on the intended path, and policy must enforce the required decision. A diagram describing three zones can still represent one effectively unrestricted environment if broad routing permissions connect everything.
+
+Remote access adds another trust boundary. An encrypted tunnel protects a communication path under its design; it does not automatically make the remote user, device or requested resource trustworthy. Authentication, device conditions, allowed destinations, session duration, logging and revocation are separate design decisions.
+
+Management access deserves explicit treatment because losing it can prevent repair. Least privilege applies to reachable services as well as accounts. A user who needs one application should not automatically receive broad access to every server administration port through a VPN.
+
+#### Follow a complete example
+
+A fictional technician needs to maintain one lab web server during a two-hour approved window. Ordinary staff require only the web application.
+
+1. Identify the technician, approved device, target and necessary maintenance action. Avoid starting with a rule that grants “all internal networks.”
+2. Specify the access route and the authentication/approval conditions. State who can revoke it and when it expires.
+3. Define a permitted maintenance test and a prohibited test to an unrelated lab resource. Include a log or session record that ties the observed access to the approved identity/window.
+4. Keep the ordinary web transaction as a regression test. Maintenance access must not unintentionally remove the staff service.
+5. At the end of the window, verify removal or expiry using a fresh access attempt under the approved procedure. A calendar reminder alone is not evidence that access ended.
+
+#### Practise before checking the explanation
+
+A design says, “The supplier uses a VPN, so allow all server traffic.” Identify three missing decisions before this can become a defensible access design.
+
+<details>
+<summary>Practice feedback</summary>
+
+At minimum, specify the supplier identity and authentication, exact target/service/action, and approval duration/revocation. Device requirements and monitoring are also relevant. The tunnel's existence does not define which business access is justified. A narrow temporary requirement should not silently become permanent broad administration.
+
+</details>
+
+#### If you get stuck
+
+Follow the route from the remote identity to one resource and name every decision point. If you cannot say where unwanted traffic is stopped, the drawing is incomplete. If a deny test also stops required service, revise the narrow rule using recovery access. If a VPN deployment is not part of your assigned core lab, submit the specified design review rather than attempting an unsupported deployment.
+
+**Ready to continue:** explain a segmentation boundary, an allowed crossing, a denied crossing and the management recovery route without relying on product names alone.
+
+**Continue:** [L18 lab entry](02-Guided-Lab.md#practice-l18) · [L18 assignment](03-Student-Workbook.md#assignment-l18) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L18 -->
 
 ### End-of-lesson assignment — L18
 

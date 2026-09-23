@@ -7,6 +7,7 @@ Before submitting, check the exact lesson ID, all requested items, actual test r
 
 Each lesson assignment totals 30 marks: five MCQs (1 each), two scenarios (5 each), and independent practical (15). Estimate 60 minutes per lesson, with practice begun in guided time. Explain reasoning for MCQs when requested; answer letters alone do not establish practical competence.
 
+<a id="assignment-l31"></a>
 ## L31 end-of-lesson assignment
 ### Knowledge check — 5 marks
 1. A hash establishes which claim most directly?
@@ -48,6 +49,7 @@ Preserve the supplied training records, hash the original and working copies, co
 
 Submit L31.md, referenced evidence, and a test record with input, expected result, actual result, timestamp/time zone, evidence ID, and limitation. Portfolio milestone: P08 methods rehearsal only. Keep raw private evidence separate from sanitised portfolio excerpts.
 
+<a id="assignment-l32"></a>
 ## L32 end-of-lesson assignment
 ### Knowledge check — 5 marks
 1. Containment should first consider?

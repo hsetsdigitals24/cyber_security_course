@@ -52,6 +52,7 @@ Use only disposable, isolated lab systems and synthetic records. Capture a check
 
 Budget 110 minutes guided work plus 70 minutes independent application across the module; setup uses prepared images and must be piloted. Unexpected setup time replaces practice only with a scheduled replacement session.
 
+<a id="practice-l19"></a>
 ## L19 — Assessment scope and asset ownership
 
 ### Purpose and starting state
@@ -77,6 +78,7 @@ Stop HTTP fixture with Ctrl+C when finished. Preserve scope/inventory/output pri
 
 Record: test ID, timestamp/time zone, source identity or IP, target, requested operation, expected result, actual result, evidence filename, interpretation and retest status. Preserve a before/after configuration record. A failed test is a finding to investigate, not a result to omit.
 
+<a id="practice-l20"></a>
 ## L20 — Service validation and inventory reconciliation
 
 ### Purpose and starting state

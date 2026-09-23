@@ -6,6 +6,7 @@ Before submitting, check the exact lesson ID, all requested items, actual test r
 
 Each lesson: MCQs 10, two scenarios 20, independent practical 20. Explain decisions. Project P02 uses its separate handbook rubric.
 
+<a id="assignment-l11"></a>
 ## L11 Assignment — 90 minutes
 
 1. Enabled service means: A. Every transaction works B. Configured for activation through enablement links, not necessarily active now C. No logs exist D. All ports are permitted
@@ -20,6 +21,7 @@ Scenario B: Existing SSH session works after UFW change, but a new connection fa
 
 Practical: Apply the scoped SSH source rule, verify fresh authorised file retrieval and unauthorised source failure, identify a relevant actual log event, and demonstrate rollback. Submit expected/actual matrix and limitations.
 
+<a id="assignment-l12"></a>
 ## L12 Assignment — 120 minutes
 
 1. A local backup copy on the same disk protects best against: A. Complete host loss B. Every ransomware event C. A bounded file mistake D. All disasters

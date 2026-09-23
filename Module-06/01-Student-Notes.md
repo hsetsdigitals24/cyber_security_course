@@ -1,16 +1,30 @@
 # M06 — Linux Services, Hardening, and Simple Automation
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L11: Services, Logs, SSH, and Hardening](#lesson-l11) · [L12: Recovery and Small Explainable Scripts](#lesson-l12)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L11, complete its guided activity and assignment, then continue to L12. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
 H-SETS • L11/L12 • Prerequisite M05's tested access baseline and M02 network concepts. Six guided and six independent hours including P02. Follow [lab procedures](02-Guided-Lab.md) and [assignments](03-Student-Workbook.md).
 
+<a id="lesson-l11"></a>
 ## L11 — Services, Logs, SSH, and Hardening
 
 ### General Overview
 
 A useful file service must remain accessible to authorised staff while limiting other access. Hardening is the process of reducing unnecessary exposure and privileges while preserving required work. It is not a list of restrictive settings applied without context. Cedarbridge now exposes its departmental files through the encrypted SFTP capability of SSH on the isolated range.
+
+<!-- HSETS-SELF-READY-L11 -->
+**Before this lesson:** You can explain a listener and a file permission separately. Revisit [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04) · [L10 refresher](../Module-05/01-Student-Notes.md#lesson-l10).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l11) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L11 -->
 
 <!-- HSETS-TERMS-L11 -->
 ### Terms explained in context
@@ -128,15 +142,64 @@ Daemon: background process. Unit: systemd-managed object. Journal: structured ev
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L11 -->
+<a id="self-study-l11"></a>
+### Self-study workshop — maintain service while reducing exposure
+
+#### Understand the mechanism
+
+A service's usefulness depends on several states agreeing: configuration is valid, the appropriate service or socket is active, a listener exists where expected, the network path permits the intended client and the application accepts the intended identity. One green status indicator cannot establish that whole chain. Some platforms activate a service through a socket, so interpret the actual deployment instead of memorising one status label.
+
+Hardening should reduce unnecessary exposure while preserving the approved business function. Removing all access can produce an apparently quiet system that nobody can administer. Plan recovery before changing remote access or firewall rules. A guest console is valuable because it can remain available when a remote service no longer works.
+
+Logs provide observations with context. Record the host, time zone, event type and account rather than copying only the last line. An authentication failure can be a mistyped credential, a policy result or another cause; correlate the requested test and relevant fields before labelling it an attack.
+
+#### Follow a complete example
+
+Cedarbridge's lab server needs administration from one assigned management client. A separate ordinary client must not use the administrative service.
+
+1. Record both source identities/addresses and the target service requirement. Establish the healthy allowed transaction before changing policy.
+2. Confirm console recovery and retain the baseline configuration under the lab procedure. A backup you cannot access during lockout is not a useful immediate recovery route.
+3. Make one approved narrow policy change. Do not simultaneously change the service port, authentication method and firewall: a later failure would have several new possible causes.
+4. Test the allowed management path and the denied ordinary path separately. Record actual results and relevant listener/log evidence.
+5. If the allowed path fails, use the console to inspect service state, listener and rule context. Restore the last understood state where necessary, then make a narrower correction and repeat both tests.
+
+#### Practise before checking the explanation
+
+A status screen says a service is active, but the client receives no response. Give three different stages still requiring inspection. Why is disabling the whole firewall a weak first response?
+
+<details>
+<summary>Practice feedback</summary>
+
+Inspect the actual listening address/port, the forward/return network path and the relevant policy; application identity checks may also matter once connected. “Active” is not end-to-end availability. Disabling the whole firewall changes too much, may violate the required boundary and loses evidence about the specific cause.
+
+</details>
+
+#### If you get stuck
+
+Use a known client and repeat the same transaction after each change. If a log is absent, check the source and time window before assuming no event occurred. If the service name differs from the lab, verify the installed platform with the instructor rather than trying unrelated administrative commands.
+
+**Ready to continue:** demonstrate that the authorised path survived the hardening change and that the prohibited path was tested. Keep the P02 service pair separate from P01's concurrent network faults.
+
+**Continue:** [L11 lab entry](02-Guided-Lab.md#practice-l11) · [L11 assignment](03-Student-Workbook.md#assignment-l11) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L11 -->
+
 ### End-of-Lesson Assignment — L11
 
 Complete Workbook L11. Submit service/listener evidence, a named-user file transaction, source-policy allowed/denied tests, a relevant log, and rollback. Budget 90 minutes; 50 formative marks. These extend P02 rather than creating another project.
 
+<a id="lesson-l12"></a>
 ## L12 — Recovery and Small Explainable Scripts
 
 ### General Overview
 
 Automation repeats decisions quickly, including wrong decisions. Begin with a task you understand manually, use bounded copied data, and make errors visible. Cedarbridge needs a repeatable summary of synthetic authentication outcomes and a verified recovery of one departmental file. Neither task requires a large programming application.
+
+<!-- HSETS-SELF-READY-L12 -->
+**Before this lesson:** You can preserve input and interpret a service/log observation. Revisit [L09 refresher](../Module-05/01-Student-Notes.md#lesson-l09) · [L11 refresher](../Module-06/01-Student-Notes.md#lesson-l11).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l12) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L12 -->
 
 <!-- HSETS-TERMS-L12 -->
 ### Terms explained in context
@@ -239,6 +302,48 @@ The instructor manually labels the fixture, predicts the script output, then run
 Do not treat parse errors as benign records. Do not overwrite the source to make expected counts fit. Avoid running read-only scripts as root without need. “Backup completed” is not “recovery verified.”
 
 Parser: program interpreting a data format. Exception: reported abnormal condition. JSON Lines: separate JSON value per line. Non-match: valid input outside the selected condition. RPO/RTO: recovery data-loss/time objectives. Acceptance test: observable check of a requirement.
+
+<!-- HSETS-SELF-STUDY-L12 -->
+<a id="self-study-l12"></a>
+### Self-study workshop — make small automation explainable and testable
+
+#### Understand the mechanism
+
+Automation repeats decisions encoded in a program. It does not make those decisions correct. Before writing a loop, state the input format and the rule for counting or classifying one record. A parser translates text into structured values; malformed input is data that does not meet the expected format or required fields. Quietly ignoring it can produce a reassuring but incomplete result.
+
+Think of a small script as four stages: read input, validate structure, apply the decision, report results and failures. A counter increases only when its exact condition is true. The strings `failed` and `failure` are different values unless the specification explicitly maps them together. Similarly, valid JSON can contain an array when your program requires one object per line.
+
+Recovery needs the same discipline. Retain the original input, record the script version and compare a known small fixture manually before processing a larger one. A backup supports a recovery claim only after the restored result is checked. A successful exit code says the program followed its implemented path, not that its logic matches the intended question.
+
+#### Follow a complete example
+
+An illustrative four-line input contains: one object with `result=failed`, one with `result=success`, one object missing `result`, and one line that is not valid JSON. The course parser's stated contract counts the exact `failed` value and treats missing required fields or invalid structure as malformed.
+
+1. Count by hand: one matching failure, one valid non-match and two malformed records.
+2. Predict the reported totals before running the existing script. This prevents an unexpected output from becoming the answer merely because the computer produced it.
+3. Compare actual totals with the manual expectation and retain the input unchanged.
+4. Test an empty input and a missing file as different cases. An empty valid file can contain zero matching records; an inaccessible or missing file means the requested input was not processed.
+5. Change the input in a separate fixture, not the source evidence, and record any assumptions about accepted values.
+
+#### Practise before checking the explanation
+
+A script reports zero failures after reading a file where every line was malformed. Is “no failed logins occurred” a justified conclusion?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The script found no matching valid records under its parsing contract, but the malformed records prevent a conclusion about the underlying events. Report the malformed total and investigate format/coverage. Preserve the original and avoid changing it merely to force a desired count.
+
+</details>
+
+#### If you get stuck
+
+Start with one valid record and explain the condition in plain language. Then test one non-match, one malformed record and one missing-field record. If the result changes after a code edit, compare versions and use the smallest failing input. For a file-access error, check the path and account before changing parsing logic.
+
+**Ready to continue:** explain the script's decision for a record you have not seen before and distinguish zero results from unsuccessful processing.
+
+**Continue:** [L12 lab entry](02-Guided-Lab.md#practice-l12) · [L12 assignment](03-Student-Workbook.md#assignment-l12) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L12 -->
 
 ### End-of-Lesson Assignment — L12
 

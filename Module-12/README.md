@@ -1,5 +1,19 @@
 # H-SETS — Module 12: Web, Application, and Data Security
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L23 — Requests, sessions, and server-side authorisation | [Notes](01-Student-Notes.md#lesson-l23) → [worked case and self-check](01-Student-Notes.md#self-study-l23) | [Lab entry](02-Guided-Lab.md#practice-l23) → [workbook](03-Student-Workbook.md#assignment-l23) |
+| L24 — Input boundaries, safe output, and reporting | [Notes](01-Student-Notes.md#lesson-l24) → [worked case and self-check](01-Student-Notes.md#self-study-l24) | [Lab entry](02-Guided-Lab.md#practice-l24) → [workbook](03-Student-Workbook.md#assignment-l24) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

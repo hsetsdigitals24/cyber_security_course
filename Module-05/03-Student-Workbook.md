@@ -6,6 +6,7 @@ Before submitting, check the exact lesson ID, all requested items, actual test r
 
 Per lesson: MCQs 10, scenarios 20, practical 20. Include reasoning and actual evidence; budget 60 minutes for L09 and 90 for L10 within independent/project hours.
 
+<a id="assignment-l09"></a>
 ## L09 Assignment
 
 1. The shell primarily: A. Stores all passwords B. Interprets commands and launches programs C. Is the same as the kernel D. Is a network cable
@@ -20,6 +21,7 @@ Scenario B: A colleague wants to force-kill an unfamiliar high-CPU process. Expl
 
 Practical: Create and safely modify a synthetic file with spaces in its name, recover a separate copy, inspect a package version, and start/stop only your own disposable process. Submit commands with explanations, actual outputs, and one mistake you diagnosed.
 
+<a id="assignment-l10"></a>
 ## L10 Assignment
 
 1. Directory execute generally allows: A. Editing every file B. Reading every file C. Traversal/search D. Automatic root access

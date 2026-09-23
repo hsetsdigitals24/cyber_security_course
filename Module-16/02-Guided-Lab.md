@@ -48,6 +48,7 @@ These are authored synthetic teaching records, not exported operating-system log
 
 Use only a local case directory and an allocated disposable Linux folder. No real accounts or external addresses are contacted.
 
+<a id="practice-l31"></a>
 ## A. Preserve
 Create case-m16/originals, working and analysis. Save the table below as originals/events.md without adding conclusions. Copy it to working. On Ubuntu run sha256sum case-m16/originals/events.md case-m16/working/events.md; on Windows use Get-FileHash -Algorithm SHA256 with each explicit file path. Record actual outputs, tool, time and collector in analysis/register.md. Do not copy expected hashes from someone else.
 
@@ -73,6 +74,7 @@ Normalise all times to UTC without changing original records. Add observation, i
 
 Instructor releases additional evidence only after initial hypotheses are submitted; students must not open the instructor guide during this step.
 
+<a id="practice-l32"></a>
 ## D. Recovery practice
 This recovery uses a new disposable file, not the evidence original.
 1. mkdir -p ~/hsets-m16/service ~/hsets-m16/backup.

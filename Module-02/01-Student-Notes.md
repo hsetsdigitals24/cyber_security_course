@@ -1,5 +1,12 @@
 # M02 — Networking Fundamentals and Troubleshooting
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L03: Addressing, Switching, and Routing](#lesson-l03) · [L04: Ports, Protocols, Connectivity, and Diagnosis](#lesson-l04)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 Navigation: [Course map](../README.md) · [Module start](README.md) · [Notes](01-Student-Notes.md) · [Workbook](03-Student-Workbook.md)
 
 **This module uses supplied evidence and diagrams.** Live commands, captures and configuration described in the explanations are previews for [M04 network practice](../Module-04/06-Network-Practice.md). Follow the current guided practice and workbook now; no VM is required.
@@ -14,6 +21,12 @@ Navigation: [Course map](../README.md) · [Module start](README.md) · [Notes](0
 A network lets processes on different computers exchange information. The fact that a cable is connected does not mean the correct application can communicate. A useful investigation separates the physical or virtual link, local delivery, routing between networks, and the application itself. These distinctions help explain why one test succeeds while another fails.
 
 Recall M01: applications run on computers, and a service provides a function to users. A client requests that function across a network. In this lesson Cedarbridge connects a training client to a local web server. We first make the normal path understandable; security policy will have meaning only when that path is clear.
+
+<!-- HSETS-SELF-READY-L03 -->
+**Before this lesson:** You can distinguish a computer, an application and the information it uses. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l03) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L03 -->
 
 <!-- HSETS-TERMS-L03 -->
 ### Terms explained in context
@@ -158,6 +171,48 @@ Frame: link-layer unit. Packet: IP delivery unit. Prefix: network portion length
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L03 -->
+<a id="self-study-l03"></a>
+### Self-study workshop — calculate the path instead of guessing
+
+#### Understand the mechanism
+
+An IP address identifies an interface within an addressing plan. The prefix tells the host which destinations belong to a connected network. A MAC address is used for local-link delivery; it is not a replacement for the IP address. A switch carries frames within the local link, while a router forwards packets between IP networks. These are related jobs, but changing one address cannot create a missing physical or virtual connection.
+
+For a conventional IPv4 subnet, calculate its address range before choosing host addresses. A /26 leaves six of the 32 address bits for the block: 2 raised to 6 is 64 addresses. Within a single /24, the /26 blocks start at final-octet values 0, 64, 128 and 192. The first and last addresses are reserved as network and broadcast in these examples, leaving 62 ordinary host addresses. This arithmetic is for these conventional subnets; do not generalise the subtraction rule to every special-purpose prefix.
+
+For a destination on the local connected subnet, the sender normally delivers to that peer on the local link. For a remote destination, it needs a matching route and next hop. A default gateway supplies a route of last resort when appropriate; it is not required simply because a settings screen has a gateway field. Both forward and return paths matter.
+
+#### Follow a complete example
+
+Client: 10.20.5.70/26. Server: 10.20.5.90/26. Both are on the same supplied link.
+
+1. Final octets 70 and 90 fall in the 64–127 block. The network is 10.20.5.64/26, broadcast .127, usable range .65–.126.
+2. The client can select local delivery to the server. No router is needed for this particular transaction.
+3. Replace the server with 10.20.5.130/26. Its block is 128–191. Matching the first three octets no longer establishes a shared subnet.
+4. With no router in the case, propose either an approved same-subnet plan or a designed routed path. Do not fill the gateway field with an invented address.
+5. Even after calculating a correct plan, confirm the shared link in a live test. Mathematics describes the intended addressing relationship; it does not prove a cable or virtual attachment works.
+
+#### Practise before checking the explanation
+
+Plan a /27 containing 10.20.6.77. Find the network, broadcast, usable range and conventional host capacity. Can 30 ordinary hosts fit? Would .95 be a valid ordinary host?
+
+<details>
+<summary>Practice feedback</summary>
+
+A /27 has blocks of 32 addresses. The relevant range is .64–.95, so the network is 10.20.6.64/27, broadcast .95 and usable range .65–.94: 30 ordinary hosts. The last address is not assigned as an ordinary host in this example. Capacity fitting exactly leaves no spare ordinary addresses for additional devices on that subnet.
+
+</details>
+
+#### If you get stuck
+
+Write the block boundaries first, then place each address. If addresses match but communication is unexplained, inspect the assumed link. If a local transaction works and a remote one fails, examine routing before changing DNS. If only one side was checked, add the other side's prefix and return path.
+
+**Ready to continue:** draw a local and a routed path and explain the different next hops. Use paper or the supplied records now; actual configuration begins after M04 setup.
+
+**Continue:** [L03 lab entry](02-Guided-Lab.md#practice-l03) · [L03 assignment](03-Student-Workbook.md#assignment-l03) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L03 -->
+
 ### End-of-Lesson Assignment — L03
 
 Complete Workbook L03: submit a /26 plan, diagram and interpretation of supplied route/link evidence. Do not configure a host or guest. Knowledge 10, scenarios 20, practical analysis 20; plan 60 minutes. Live implementation contributes to P01 after M04 setup.
@@ -172,6 +227,12 @@ Complete Workbook L03: submit a /26 plan, diagram and interpretation of supplied
 ### General Overview
 
 An IP address helps reach a host, but a host runs many processes. Transport ports help the operating system deliver traffic to the right endpoint. This lesson moves from “the machine responds” to “the required service completed the required transaction.” That is the difference between a weak health check and useful support evidence.
+
+<!-- HSETS-SELF-READY-L04 -->
+**Before this lesson:** You can distinguish a local destination from a routed destination. Revisit [L03 refresher](../Module-02/01-Student-Notes.md#lesson-l03).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l04) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L04 -->
 
 <!-- HSETS-TERMS-L04 -->
 ### Terms explained in context
@@ -272,6 +333,52 @@ For independent practice now, analyse two supplied fault records and propose a d
 A correct port with a wrong protocol still fails. A browser's cached page may not prove a fresh server transaction. Disabling the firewall broadly destroys the ability to show which policy was needed. A terminal saying “serving” does not prove the client reached it. Verify fresh content, endpoint, and status.
 
 Port: transport endpoint number. Listener: process awaiting connections. Five-tuple: two addresses, two ports, and protocol. Latency: delay. Throughput: achieved rate. Hypothesis: testable explanation. Retest: repeat the acceptance check after a change.
+
+<!-- HSETS-SELF-STUDY-L04 -->
+<a id="self-study-l04"></a>
+### Self-study workshop — read a connection result layer by layer
+
+#### Understand the mechanism
+
+Reaching a computer and using a service are different outcomes. A service must be running, listening on the intended address and transport port, reachable through the network, and able to process the requested application operation. A successful ping checks an ICMP exchange. It does not establish that a TCP listener exists or that a web application returns the required document.
+
+An endpoint includes an address and port. A server listening only on 127.0.0.1 accepts the corresponding loopback traffic from its own system; a remote client cannot use the server's loopback address to reach it. The remote client's 127.0.0.1 means the remote client itself. This is why the same application can appear healthy in the server window while clients cannot use it.
+
+Distinguish three classes of evidence. A connection refusal records an active rejection, but needs context before assigning its cause. A timeout records no required response within the wait; filtering, loss, wrong paths or unavailable systems can produce it. An HTTP status shows the application protocol responded. A 404 is therefore different from failing to establish the connection, although the requested business outcome still failed.
+
+#### Follow a complete example
+
+Cedarbridge expects a client to obtain `/notice.txt` from its approved web service. The supplied record says the client received HTTP 404 for `/notcie.txt`.
+
+1. Record the actual requested path. The spelling differs from the requirement.
+2. Interpret the response at the correct level: an HTTP responder returned an error. Do not claim the client's network was completely disconnected.
+3. Check the intended service identity and required resource path. A response from a wrong service would be another possibility if the endpoint was not established.
+4. Propose repeating the request with the approved path. A successful retest must include the expected content, not just any status 200 response.
+5. Preserve the original error and corrected request in the ticket. Changing IP addresses would not directly address the observed path mismatch.
+
+#### Practise before checking the explanation
+
+The client times out on TCP port 8080. A supplied server record shows a listener on TCP port 8000. Does that prove the listener is the intended service? What would you confirm before changing either side?
+
+<details>
+<summary>Practice feedback</summary>
+
+There is a port mismatch, but the listener's existence alone does not establish the approved application or correct port. Check the service requirement, process identity and exact client destination. If the requirement says 8000 and that process is the intended service, correct the client request and repeat the required transaction. Record the timeout as an observation rather than labelling it a proven firewall fault.
+
+</details>
+
+#### If you get stuck
+
+| Result | Ask next |
+|---|---|
+| Ping succeeds, application fails | Which service address/port and listener were checked? |
+| Local success, remote failure | Is the process bound to loopback only, and what path did the remote request use? |
+| HTTP response, wrong content | Is this the right service, resource and current response rather than a cached page? |
+
+**Ready to continue:** explain why a timeout, refusal and application error justify different next checks. Submit supplied-record analysis now; live correction and retest belong to P01 after VM setup.
+
+**Continue:** [L04 lab entry](02-Guided-Lab.md#practice-l04) · [L04 assignment](03-Student-Workbook.md#assignment-l04) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L04 -->
 
 ### End-of-Lesson Assignment — L04
 

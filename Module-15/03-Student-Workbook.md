@@ -7,6 +7,7 @@ Before submitting, check the exact lesson ID, all requested items, actual test r
 
 Each lesson assignment totals 30 marks: five MCQs (1 each), two scenarios (5 each), and independent practical (15). Estimate 60 minutes per lesson, with practice begun in guided time. Explain reasoning for MCQs when requested; answer letters alone do not establish practical competence.
 
+<a id="assignment-l29"></a>
 ## L29 end-of-lesson assignment
 ### Knowledge check — 5 marks
 1. Best detection hypothesis?
@@ -48,6 +49,7 @@ Implement the two scoped lab detections, record match/non-match/edge expectation
 
 Submit L29.md, referenced evidence, and a test record with input, expected result, actual result, timestamp/time zone, evidence ID, and limitation. Portfolio milestone: P06 two detections and six tests. Keep raw private evidence separate from sanitised portfolio excerpts.
 
+<a id="assignment-l30"></a>
 ## L30 end-of-lesson assignment
 ### Knowledge check — 5 marks
 1. An old malicious IP report is?

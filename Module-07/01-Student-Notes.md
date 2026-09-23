@@ -1,14 +1,28 @@
 # H-SETS — M07: Windows Administration and Endpoint Defence
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L13: Local identities, permissions, services, and evidence](#lesson-l13) · [L14: Endpoint controls and controlled change](#lesson-l14)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L13, complete its guided activity and assignment, then continue to L14. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
+<a id="lesson-l13"></a>
 ## L13 — Local identities, permissions, services, and evidence
 
 ### General Overview
 
 Opening a file looks simple, but Windows first decides whose request it is and which operation that identity may perform. Logging in establishes identity; it does not grant every permission. A process carries an access token containing the user's SID and groups. Windows compares it with the file's access rules. Consequently, the same path can work for one employee and fail for another. Testing only as an administrator hides errors affecting ordinary users.
+
+<!-- HSETS-SELF-READY-L13 -->
+**Before this lesson:** You can explain identity, resource, action and allowed/denied tests. Revisit [L07 refresher](../Module-01/01-Student-Notes.md#lesson-l07) · [L10 refresher](../Module-05/01-Student-Notes.md#lesson-l10).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l13) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L13 -->
 
 <!-- HSETS-TERMS-L13 -->
 ### Terms explained in context
@@ -347,15 +361,68 @@ A SID is a stable identity identifier; a token carries process security context;
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L13 -->
+<a id="self-study-l13"></a>
+### Self-study workshop — trace a Windows access decision
+
+#### Understand the mechanism
+
+An identity, an application process and a resource permission participate in an access decision. A display name is not enough to establish which identity performed a test. A local account belongs to its local system; a domain account belongs to the directory context introduced later. Two accounts with similar names need not be the same security identity.
+
+Separate a local filesystem path from a network share path. A local file operation is evaluated against the relevant filesystem permissions and other applicable controls. Access through a share adds the share boundary. A successful local administrator test therefore does not establish what a standard remote user can do. Always record identity, path, action and result together.
+
+Inherited permissions come from a parent object rather than a newly created direct entry on that file. Before changing inheritance, inspect where the relevant access comes from. Removing inheritance without understanding the existing entries can remove necessary access or preserve unwanted access in a different form. Work only in the synthetic lab folder and keep the approved recovery route.
+
+#### Follow a complete example
+
+Cedarbridge's Training team needs to read a published handout. Only the course editor should change it. A learner reports that they can edit the shared copy.
+
+1. Confirm the exact shared path and test identity. A personal downloaded copy being editable is not the same defect as the shared original being editable.
+2. Compare the business requirement with the relevant share and filesystem permission views in the guided GUI procedure.
+3. Inspect the groups and inherited entries that could supply access. Do not fix the issue by denying everyone, including the required editor.
+4. Apply the narrow approved correction, then test a standard reader and editor separately through the same share path.
+5. Record whether any file was actually modified during testing. Restore the synthetic content and confirm that the intended reader can still read it.
+
+#### Practise before checking the explanation
+
+An administrator opens a protected report successfully and concludes that the access policy is correct. Which two ordinary-user tests would be more informative?
+
+<details>
+<summary>Practice feedback</summary>
+
+Test a user who should be able to read the report and a user who should be denied, using the intended access path. If editing has a separate requirement, test that action too. Administrative success mainly shows that this privileged identity could open the object; it does not validate the ordinary-user boundary.
+
+</details>
+
+#### If you get stuck
+
+| Symptom | Inspect before changing permissions |
+|---|---|
+| Local access works, share access fails | The exact network path, share permission and identity used remotely |
+| Unexpected edit succeeds | Effective identity, group memberships and inherited/direct entries |
+| Expected event is absent | Whether the relevant auditing is configured, correct log and time range |
+
+**Ready to continue:** narrate one access test using identity, path, action and result. Use the course's GUI workflow; do not turn a missing event into a claim that no action occurred.
+
+**Continue:** [L13 lab entry](02-Guided-Lab.md#practice-l13) · [L13 assignment](03-Student-Workbook.md#assignment-l13) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L13 -->
+
 ### End-of-lesson assignment — L13
 
 Complete the five MCQs, two scenarios, practical and reflection for L13 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
 
+<a id="lesson-l14"></a>
 ## L14 — Endpoint controls and controlled change
 
 ### General Overview
 
 Endpoint defence combines controls that address different failure paths. A firewall limits network communication; antivirus inspects suspicious content and behaviour; updates correct known defects; disk encryption protects data when storage is accessed offline. An authenticated application can still read an unlocked encrypted volume. The analyst must connect the business risk to the appropriate control, then verify that legitimate work survives the change.
+
+<!-- HSETS-SELF-READY-L14 -->
+**Before this lesson:** You can distinguish a configured setting from an actual access result. Revisit [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l14) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L14 -->
 
 <!-- HSETS-TERMS-L14 -->
 ### Terms explained in context
@@ -736,6 +803,48 @@ A rule may apply to the wrong profile, be shadowed by other permissions, or use 
 ### Summary and glossary
 
 Baseline means expected configuration; patch ring means staged rollout; EDR means endpoint detection and response; encryption at rest protects stored data against offline access. Verification must include service continuity.
+
+<!-- HSETS-SELF-STUDY-L14 -->
+<a id="self-study-l14"></a>
+### Self-study workshop — verify endpoint controls without disrupting the endpoint
+
+#### Understand the mechanism
+
+A security setting is intended to influence behaviour. The configured value, the effective state and the actual test outcome are different evidence items. A policy can be present but not apply to the relevant profile, user or resource. A control can be working while a dashboard view is stale. Build the evidence chain rather than choosing whichever screenshot looks reassuring.
+
+Endpoint controls also address different boundaries. Malware protection evaluates covered content or behaviour; host firewall policy governs specified communication; patching changes software; disk encryption protects data under its designed access conditions. No single enabled setting proves all those boundaries are effective.
+
+A change has a starting state, intended outcome and recovery method. Record these before acting. An excluded folder, permitted firewall rule or disabled check may make a test appear successful by removing the requirement. A valid correction must preserve required protection and the approved business function.
+
+#### Follow a complete example
+
+A classroom workstation must accept an approved service from the management guest while refusing the same service from an ordinary guest.
+
+1. Confirm the assigned systems, service and network profile. Record the healthy required connection before the change.
+2. Inspect the relevant rule scope using the approved GUI steps. An intended address restriction in the wrong profile may not affect this connection.
+3. Preserve recovery access and change only the assigned rule. Record its identity and the expected effect.
+4. Run the management and ordinary-client tests separately. Compare the same service and destination so a stopped service cannot masquerade as a successful deny rule.
+5. Save effective settings, actual results and relevant evidence. If both requests fail, the allowed-path requirement remains unmet even if the denial test appears successful.
+
+#### Practise before checking the explanation
+
+The prohibited connection fails, but the service was stopped before the test. Can you conclude the firewall denied it? What comparison would strengthen the result?
+
+<details>
+<summary>Practice feedback</summary>
+
+The failed connection has another sufficient explanation: the service was not available. Restore the approved service, verify the permitted source can use it, then repeat the prohibited-source test with the intended rule active. Correlate with the relevant evidence where available. Do not claim policy enforcement from a failure whose cause has not been distinguished.
+
+</details>
+
+#### If you get stuck
+
+Read the profile and scope before adding another rule. Check the actual target and source rather than relying on window labels. If a protection test requires unapproved material, stop and use the course's benign approved fixture. If the expected event is delayed or absent, inspect collection and time settings rather than turning off protection.
+
+**Ready to continue:** explain the difference between configuration evidence and behaviour evidence, and show how the required user outcome survived the change.
+
+**Continue:** [L14 lab entry](02-Guided-Lab.md#practice-l14) · [L14 assignment](03-Student-Workbook.md#assignment-l14) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L14 -->
 
 ### End-of-lesson assignment — L14
 

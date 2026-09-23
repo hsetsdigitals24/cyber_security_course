@@ -1,12 +1,26 @@
 # M17 — Cloud, Resilience, Risk, and Governance
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L33: Cloud trust, private data, and recovery](#lesson-l33) · [L34: Risk ownership, control evidence, and reporting](#lesson-l34)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L33, complete its guided activity and assignment, then continue to L34. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L33/L34**
+<a id="lesson-l33"></a>
 ## L33 — Cloud trust, private data, and recovery
 ### General Overview
 Cedarbridge wants documents to remain private and recoverable. A provider can operate infrastructure, but cannot decide which employee should read a payroll file. This lesson connects identity, access, storage and recovery to clear business requirements.
+
+<!-- HSETS-SELF-READY-L33 -->
+**Before this lesson:** You can distinguish read/write authorisation, encryption and recovery. Revisit [L08 refresher](../Module-04/01-Student-Notes.md#lesson-l08) · [L10 refresher](../Module-05/01-Student-Notes.md#lesson-l10) · [L12 refresher](../Module-06/01-Student-Notes.md#lesson-l12).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l33) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L33 -->
 
 <!-- HSETS-TERMS-L33 -->
 ### Terms explained in context
@@ -115,12 +129,61 @@ An object is a stored unit addressed by a service. Shared responsibility allocat
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L33 -->
+<a id="self-study-l33"></a>
+### Self-study workshop — connect access, storage and recovery responsibilities
+
+#### Understand the mechanism
+
+Cloud services distribute responsibilities between provider and customer according to the service and contract. A provider operating infrastructure does not automatically configure your application permissions or decide which user should receive a secret. Identify the exact resource and responsibility instead of treating “in the cloud” as a security conclusion.
+
+Authentication material, such as a token, identifies or authorises a caller under the service's design. Different roles should have different permitted actions. A reader who can retrieve data should not automatically overwrite it. An anonymous failure and an authorised success are complementary tests: if everyone fails, the service may simply be unavailable.
+
+Recovery objectives describe business needs. A recovery point objective (RPO) concerns the acceptable data-loss window; a recovery time objective (RTO) concerns the acceptable restoration time. A successful copy operation alone does not measure either objective. Record the backup point, failure point, restore duration and usable result. The course simulator teaches these relationships; it is not a deployed cloud platform.
+
+#### Follow a complete example
+
+A synthetic object was backed up at 14:00, updated at 14:20 and lost at 14:30. Only the 14:00 backup is available. The scenario's RPO is 15 minutes.
+
+1. The available recovery point is 30 minutes before the loss, so that backup timing does not meet the 15-minute objective.
+2. The 14:20 update is absent from that backup. Distinguish the temporal loss window from the exact amount of changed data.
+3. Restore the approved backup and verify the returned content through the permitted reader route.
+4. Test writer ability and reader denial for changes using separate assigned credentials. Keep credentials out of evidence and logs.
+5. Measure restoration time against the separately stated RTO. Meeting RTO would not erase the RPO shortfall.
+
+#### Practise before checking the explanation
+
+The only backup is stored beside the working data on the same failed device. What common failure does this arrangement fail to protect against?
+
+<details>
+<summary>Practice feedback</summary>
+
+Loss or failure of that device can remove both working and backup copies. Define a suitably independent approved recovery copy and test restoration. The correct design depends on the business requirements; merely calling a second file “backup” does not establish independence.
+
+</details>
+
+#### If you get stuck
+
+Check service availability before interpreting a denial, confirm which role/token performed each action and inspect the exact backup version. If restoration succeeds but the content is wrong, investigate recovery point selection rather than reporting a generic pass. Use only synthetic data in the loopback fixture.
+
+**Ready to continue:** explain responsibility, permission and recovery as separate claims with separate tests.
+
+**Continue:** [L33 lab entry](02-Guided-Lab.md#practice-l33) · [L33 assignment](03-Student-Workbook.md#assignment-l33) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L33 -->
+
 ### L33 end-of-lesson assignment
 Complete five MCQs, two scenarios and independent practical in the workbook: 30 marks, about 60 minutes after guided setup. Submit permission tests, actual backup age, measured recovery, hashes and separation evidence to P07.
 
+<a id="lesson-l34"></a>
 ## L34 — Risk ownership, control evidence, and reporting
 ### General Overview
 Technical controls need owners and decisions. Cedarbridge must choose which risks to reduce first, who is accountable, and what evidence shows a control works. This lesson turns practical results into a clear management recommendation.
+
+<!-- HSETS-SELF-READY-L34 -->
+**Before this lesson:** You can explain risk ownership and a verified recovery limitation. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01) · [L33 refresher](../Module-17/01-Student-Notes.md#lesson-l33).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l34) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L34 -->
 
 <!-- HSETS-TERMS-L34 -->
 ### Terms explained in context
@@ -198,6 +261,48 @@ The instructor converts one failed test into a risk with owner and evidence. Lea
 
 ### Summary and glossary
 A risk owner accepts business accountability; a control owner operates a safeguard. Residual risk remains after treatment. Evidence distinguishes design, implementation and observed performance.
+
+<!-- HSETS-SELF-STUDY-L34 -->
+<a id="self-study-l34"></a>
+### Self-study workshop — make a risk report useful to its owner
+
+#### Understand the mechanism
+
+A risk register is a decision record, not just a list of problems. It connects a business asset and plausible harm to current controls, evidence, ownership and a planned treatment. An analyst can recommend a response, but the appropriate business owner accepts the consequences and resources involved.
+
+Control evidence has scope and freshness. A screenshot from last month may show a setting existed then, while today's access or recovery condition is different. A documented policy and a performed test establish different things. A report should explain both the evidence and the limits of relying on it.
+
+Residual risk remains after the chosen treatment. Risk acceptance is not the same as declaring a control fixed, and it should identify the approving owner and review conditions. Compliance mapping can help organise obligations, but a training test does not certify organisational compliance.
+
+#### Follow a complete example
+
+Cedarbridge's synthetic service has a recovery procedure, but its latest successful restore used data older than the business's required recovery point.
+
+1. State the asset and business use. Explain what work could be lost or interrupted under the observed backup timing.
+2. Cite the backup timestamp, actual restored version and measured restore result. Do not reduce the finding to “backup bad.”
+3. Propose a treatment that addresses the recovery-point gap, with an owner and a testable target.
+4. Record the remaining risk and any interim controls. A successful restore of old data can support some recovery ability while still failing the required freshness.
+5. Set a review condition tied to the proposed change and next test. If the owner accepts a temporary gap, label that decision separately from technical remediation.
+
+#### Practise before checking the explanation
+
+A manager approves delaying a fix for one month. Should the finding be labelled technically remediated solely because the approval exists?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The approval records a treatment or acceptance decision under stated conditions. The technical condition may remain. Record owner, reason, expiry/review date, interim measures and residual risk; mark remediation only when the relevant change and verification establish it.
+
+</details>
+
+#### If you get stuck
+
+Write the decision you need the reader to make. Then remove technical detail that does not help that decision, while retaining links to supporting evidence. If no owner is known, record an ownership gap. If no test exists, do not present a policy statement as implemented effectiveness.
+
+**Ready to continue:** produce one risk row a business owner can act on, including evidence, treatment, owner, due/review date and residual risk.
+
+**Continue:** [L34 lab entry](02-Guided-Lab.md#practice-l34) · [L34 assignment](03-Student-Workbook.md#assignment-l34) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L34 -->
 
 ### L34 end-of-lesson assignment
 Complete workbook L34: five MCQs, two scenarios, five-risk practical and decision request, 30 marks, approximately 60 minutes. P07 still requires all critical technical tests irrespective of report quality.

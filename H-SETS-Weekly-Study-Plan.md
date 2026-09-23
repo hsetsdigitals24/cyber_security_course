@@ -70,3 +70,8 @@ See [how marks work](H-SETS-Student-Assessment-Guide.md), the [project handbook]
 
 
 **Weeks 4–6 budget:** Week 4 independent work is L02 180 minutes + L08 75 + reading/feedback/evidence organisation 105 = 360. Weeks 5 and 6 each reserve 140 minutes for one P01 live practice stage, leaving 220 minutes for the week's module/P02 work. Earlier P01 planning and these live stages share the existing eight-hour project allocation. Reuse your own applicable evidence instead of rerunning the same activity for different folders. Before delivery, the instructor checks the combined workload against actual learner timings; if 220 minutes is insufficient, revise dates or use scheduled completion-studio time without skipping assessed skills.
+
+
+## Independent-study design — 23 September 2026
+
+The user now requests notes that support mostly independent study, aiming for approximately 10% direct instructor help. All 36 lessons include expanded self-study workshops; use the [Self-study Handbook](H-SETS-Self-Study-Handbook.md). Existing supervised sessions can include independent reading/practice, but neither the support percentage nor the added reading load has been classroom-piloted. Keep the current schedule provisional and measure comprehension alongside time; platform preparation, authorisation and assessment still need designated staff.

@@ -48,6 +48,7 @@ Instructor provides an institution-hosted Wazuh manager/indexer/dashboard, enrol
 
 Before class the instructor records versions, manager address, TLS trust, enrollment mechanism, firewall requirements, retention, raw-event route and test rule IDs. Menu labels can change: the student must record the actual deployment view used rather than guess.
 
+<a id="practice-l27"></a>
 ## A. Onboard and inventory
 1. Open the dashboard using the supplied address; verify its certificate through the institutional trust instructions. Do not suppress unexpected certificate errors.
 2. Open agent deployment guidance, select the endpoint OS/architecture and the assigned agent name. Verify the shown manager address and assigned group.
@@ -128,6 +129,7 @@ sha256sum /opt/hsets-watch/status.txt
 
 11. If the instructor provisioned an SSH authentication source, generate the permitted event and follow its actual journald/file collection route. If it was not provisioned, label this optional step not run; do not assume `/var/log/auth.log` exists on every image.
 
+<a id="practice-l28"></a>
 ## D. Missing-source exercise
 Save the working state. Instructor stops the allocated agent through Services or systemctl. Generate a fresh harmless change. Record the source-side observation and missing downstream event within the tested expected delay. Diagnose source, collector, transport and display in order. Restart only the lab agent, confirm service health, generate a different fresh file content, and locate it downstream.
 

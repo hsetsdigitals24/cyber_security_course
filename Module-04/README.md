@@ -1,5 +1,19 @@
 # M04 — Virtualisation, Safe Labs, and Cryptographic Trust
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L02 — Virtualisation, Range Safety, and Evidence Handling | [Notes](01-Student-Notes.md#lesson-l02) → [worked case and self-check](01-Student-Notes.md#self-study-l02) | [Lab entry](02-Guided-Lab.md#practice-l02) → [workbook](03-Student-Workbook.md#assignment-l02) |
+| L08 — Hashes, Encryption, Signatures, and Certificates | [Notes](01-Student-Notes.md#lesson-l08) → [worked case and self-check](01-Student-Notes.md#self-study-l08) | [Lab entry](02-Guided-Lab.md#practice-l08) → [workbook](03-Student-Workbook.md#assignment-l08) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Previous module](../Module-03/README.md) · [Next module](../Module-05/README.md)
 
 **Read in this order: L02 → L08.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.

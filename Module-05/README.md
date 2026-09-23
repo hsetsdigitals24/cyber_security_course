@@ -1,5 +1,19 @@
 # M05 — Linux Administration and Access Permissions
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L09 — Files, Processes, Packages, and the Shell | [Notes](01-Student-Notes.md#lesson-l09) → [worked case and self-check](01-Student-Notes.md#self-study-l09) | [Lab entry](02-Guided-Lab.md#practice-l09) → [workbook](03-Student-Workbook.md#assignment-l09) |
+| L10 — Users, Groups, Ownership, and Permissions | [Notes](01-Student-Notes.md#lesson-l10) → [worked case and self-check](01-Student-Notes.md#self-study-l10) | [Lab entry](02-Guided-Lab.md#practice-l10) → [workbook](03-Student-Workbook.md#assignment-l10) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

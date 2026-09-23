@@ -1,12 +1,26 @@
 # M16 — Incident Response and Forensic Foundations
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L31: Preservation, timelines, and competing hypotheses](#lesson-l31) · [L32: Containment, recovery, and communication](#lesson-l32)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L31, complete its guided activity and assignment, then continue to L32. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L31/L32**
+<a id="lesson-l31"></a>
 ## L31 — Preservation, timelines, and competing hypotheses
 ### General Overview
 An incident investigation asks what happened, what is affected, what evidence supports that conclusion, and what remains unknown. A dramatic narrative is less useful than a reproducible explanation. Cedarbridge's suspicious sign-in and file-change case teaches how to preserve records and reason across sources.
+
+<!-- HSETS-SELF-READY-L31 -->
+**Before this lesson:** You can preserve evidence and distinguish event time from ingestion time. Revisit [L08 refresher](../Module-04/01-Student-Notes.md#lesson-l08) · [L27 refresher](../Module-14/01-Student-Notes.md#lesson-l27).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l31) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L31 -->
 
 <!-- HSETS-TERMS-L31 -->
 ### Terms explained in context
@@ -108,12 +122,61 @@ A checksum is not a creator identity; a restored file is not necessarily the ori
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L31 -->
+<a id="self-study-l31"></a>
+### Self-study workshop — build a timeline without inventing causation
+
+#### Understand the mechanism
+
+An investigation preserves and interprets evidence to answer a question. Start by recording where each item came from, when it was collected, how it was handled and what it can show. A hash can help detect byte changes after a reference was recorded, but it does not prove the original record was truthful or its clock was correct.
+
+Multiple clocks complicate timelines. Preserve the original timestamp and its zone, record any known clock offset, and create a normalised view for comparison. Do not overwrite the original time with a corrected estimate. If clock uncertainty overlaps two events, their apparent order may not be established.
+
+Chronology is not causation. A login followed by a file change can be relevant, but another process may have made the change. Competing hypotheses identify what additional evidence could distinguish explanations. Treat an absence carefully: missing events can reflect a collection gap rather than no action.
+
+#### Follow a complete example
+
+One synthetic record reports a login at 09:02 UTC. Another reports a file change at 10:04 on a system documented as UTC+1. The second time corresponds to 09:04 UTC if the clock is otherwise accurate.
+
+1. Preserve both original records and record their source identities and time settings.
+2. Create a comparison column showing the second event normalised to 09:04 UTC. State the assumption that no additional clock error is known.
+3. Place the events in the provisional timeline. The two-minute sequence is a relationship to investigate, not proof the login caused the change.
+4. Seek a relevant identity/process or application record that could connect the actions. Consider authorised automation as an alternative.
+5. Record the current conclusion and uncertainty. If a clock error later emerges, revise the timeline while retaining the original interpretation and reason for the revision.
+
+#### Practise before checking the explanation
+
+A file's hash matches the one recorded after collection. Can you infer that the source machine's clock was accurate or that no earlier alteration occurred?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The comparison supports byte consistency with that reference, subject to the method and reference integrity. It does not validate the original clock, completeness or events before the reference was established. Describe preservation and source reliability as separate questions.
+
+</details>
+
+#### If you get stuck
+
+Build a small evidence register before writing a story. For each conclusion, point to its supporting item and ask what alternative also fits. If an essential source is missing, state the missing source and requested next action. Preserve originals and work on designated copies under the lab procedure.
+
+**Ready to continue:** produce a timeline that distinguishes original time, normalised time, supported relation and unresolved causation.
+
+**Continue:** [L31 lab entry](02-Guided-Lab.md#practice-l31) · [L31 assignment](03-Student-Workbook.md#assignment-l31) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L31 -->
+
 ### L31 end-of-lesson assignment
 Complete workbook L31: five MCQs, two scenarios and preservation/timeline practical, 30 marks, around 60 minutes. Submit evidence register, hash record, timeline and hypotheses. This rehearses P08 methods; it is not the capstone dataset.
 
+<a id="lesson-l32"></a>
 ## L32 — Containment, recovery, and communication
 ### General Overview
 Good response protects the business while improving understanding. An analyst must consider what a proposed action will stop, what it will disrupt, what evidence it could lose, and who can authorise it. Recovery must restore a useful and appropriately protected service.
+
+<!-- HSETS-SELF-READY-L32 -->
+**Before this lesson:** You can create a provisional timeline and competing hypotheses. Revisit [L31 refresher](../Module-16/01-Student-Notes.md#lesson-l31).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l32) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L32 -->
 
 <!-- HSETS-TERMS-L32 -->
 ### Terms explained in context
@@ -204,6 +267,48 @@ Follow lab D–E. Restore a disposable document, verify hash and ordinary-user r
 
 ### Summary and glossary
 Containment limits current harm. Recovery restores approved service. Residual risk remains after treatment. A decision log makes authority and tradeoffs visible. Incident response is iterative and should improve future preparation.
+
+<!-- HSETS-SELF-STUDY-L32 -->
+<a id="self-study-l32"></a>
+### Self-study workshop — choose a response that preserves both safety and service
+
+#### Understand the mechanism
+
+Containment limits ongoing harm; recovery restores a trusted, usable service. A disruptive action can protect one interest while harming another, so the decision needs scope, authority and business context. Disconnecting every system may remove useful evidence or stop essential operations without addressing the actual cause.
+
+Response actions should be proportional to what is known and what could happen next. Distinguish a reversible observation from a change that interrupts users or destroys state. Record who approved the action, the expected benefit, risks, evidence to preserve and conditions for reversing or escalating it.
+
+Recovery is more than turning a machine back on. It requires checking the affected condition, data correctness, necessary controls and the required user transaction. If monitoring was lost during the incident, confirm it resumed before declaring the environment fully observed. Retain a clear handover for unresolved work.
+
+#### Follow a complete example
+
+A synthetic account is suspected of inappropriate access to one training application. Evidence suggests a narrow account/session issue; no broader compromise is established.
+
+1. Record the supported observations and possible immediate impact. Identify the application's owner and authorised response decision-maker.
+2. Compare bounded options such as the assigned account/session restriction with a whole-service shutdown. Explain what each would protect and disrupt.
+3. Preserve required evidence under the lab instructions before actions that could remove useful state, unless the authorised urgent response requires otherwise.
+4. Implement only the approved option in the disposable scenario and record its actual effect.
+5. Verify legitimate user access, the intended restriction and relevant logging. Report what remains under investigation rather than calling restoration proof of complete eradication.
+
+#### Practise before checking the explanation
+
+The portal is available after a restart, but nobody has checked whether the protected record was changed. Is availability alone sufficient for closure?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. Availability is one requirement. Relevant data integrity, access controls, the original cause or exposure and monitoring need the checks specified by the incident scope. A restart can restore service while leaving the underlying security question unresolved.
+
+</details>
+
+#### If you get stuck
+
+Use a decision table with action, benefit, disruption, authority, evidence risk and rollback. If the right choice depends on an unknown business priority, ask for that decision rather than guessing. In the report, separate technical observations from the management decision requested.
+
+**Ready to continue:** give a handover that states current impact, verified actions, recovery results, remaining uncertainty and the next owner. Never practise containment on a real system outside the assigned scenario.
+
+**Continue:** [L32 lab entry](02-Guided-Lab.md#practice-l32) · [L32 assignment](03-Student-Workbook.md#assignment-l32) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L32 -->
 
 ### L32 end-of-lesson assignment
 Complete workbook L32, 30 marks, about 60 minutes. Submit revised hypotheses, containment request, recovery evidence and a 150-word management update. Preserve all original fixture records.

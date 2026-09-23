@@ -7,6 +7,7 @@ Before submitting, check the exact lesson ID, all requested items, actual test r
 
 Each lesson assignment totals 30 marks: five MCQs (1 each), two scenarios (5 each), and independent practical (15). Estimate 60 minutes per lesson, with practice begun in guided time. Explain reasoning for MCQs when requested; answer letters alone do not establish practical competence.
 
+<a id="assignment-l27"></a>
 ## L27 end-of-lesson assignment
 ### Knowledge check — 5 marks
 1. An agent is active but no expected event appears. What is established?
@@ -48,6 +49,7 @@ Onboard or validate both allocated endpoint types. Generate one approved source 
 
 Submit L27.md, referenced evidence, and a test record with input, expected result, actual result, timestamp/time zone, evidence ID, and limitation. Portfolio milestone: P06 source inventory. Keep raw private evidence separate from sanitised portfolio excerpts.
 
+<a id="assignment-l28"></a>
 ## L28 end-of-lesson assignment
 ### Knowledge check — 5 marks
 1. A source is repaired. Best validation?

@@ -1,14 +1,28 @@
 # H-SETS — M11: Vulnerability Assessment, Remediation, and Retesting
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L21: Findings, validation, and business priority](#lesson-l21) · [L22: Remediation, retesting, and closure](#lesson-l22)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L21, complete its guided activity and assignment, then continue to L22. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
+<a id="lesson-l21"></a>
 ## L21 — Findings, validation, and business priority
 
 ### General Overview
 
 A scanner compares collected observations with known checks. Its finding is a claim supported by evidence, not automatic proof of exploitable risk. A banner may identify an apparent version while a vendor has backported its security fix. Conversely, a failed credentialed check can hide a weakness. Good assessment records coverage, validates applicability and separates confidence from severity.
+
+<!-- HSETS-SELF-READY-L21 -->
+**Before this lesson:** You can separate observed service evidence from unconfirmed inference. Revisit [L20 refresher](../Module-10/01-Student-Notes.md#lesson-l20).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l21) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L21 -->
 
 <!-- HSETS-TERMS-L21 -->
 ### Terms explained in context
@@ -488,15 +502,64 @@ False positive: reported weakness not applicable; false negative: existing weakn
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L21 -->
+<a id="self-study-l21"></a>
+### Self-study workshop — validate a finding before assigning urgency
+
+#### Understand the mechanism
+
+A vulnerability scanner produces findings from its tests, data and access. A finding is an assessment result to interpret, not automatically a complete business-risk decision. An authenticated scan and an unauthenticated scan can observe different information. Failed credentials can quietly reduce the intended coverage even when the scan job itself finishes.
+
+A CVE identifier names a published vulnerability record. A CVSS score describes severity under a specified scoring version and assumptions. Neither alone establishes that the particular asset has the affected condition, that an attacker can reach it, or that this organisation should prioritise it above all other work. Combine applicability, exposure, asset importance and existing controls.
+
+Validation should use the least disruptive approved evidence that answers the question. A software/configuration check can sometimes resolve applicability without attempting exploitation. Conversely, an unconfirmed result is not “false” merely because you have not yet obtained enough evidence. Use honest states such as confirmed, not applicable, or unverified with reasons.
+
+#### Follow a complete example
+
+Two synthetic findings arrive. Finding A has a higher base score on an isolated training component with no business data. Finding B has a lower score on the customer-facing service that handles important transactions.
+
+1. Confirm each finding's affected condition and the scan's actual coverage. Do not prioritise a misidentified component as if applicability were established.
+2. Record reachability and business impact separately from the score. Isolation can reduce one exposure path without removing the vulnerability itself.
+3. Consider compensating controls and how they were tested. An undocumented claim that “the firewall protects it” is weak evidence.
+4. Recommend a priority with an owner and explanation. Depending on verified context, B may deserve earlier action; the score alone cannot decide.
+5. Preserve uncertainty and the next validation step. A reviewer should be able to see why the proposed order could change with new evidence.
+
+#### Practise before checking the explanation
+
+A scan reports no high findings, but its authentication checks failed. Can you describe the intended authenticated assessment as complete?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The job may have completed a narrower set of unauthenticated observations. Report the credential/coverage failure, correct the authorised access issue and repeat the intended checks. “No high findings observed” is not equivalent to “the complete intended assessment found none.”
+
+</details>
+
+#### If you get stuck
+
+Ask four questions: Is the affected condition applicable? Was the test able to observe it? What business harm is plausible? What evidence supports the current protection? If a number seems to answer all four, revisit the distinction between severity and contextual risk.
+
+**Ready to continue:** justify a priority without treating scanner severity as the whole decision. Keep validation inside the authorised seeded environment.
+
+**Continue:** [L21 lab entry](02-Guided-Lab.md#practice-l21) · [L21 assignment](03-Student-Workbook.md#assignment-l21) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L21 -->
+
 ### End-of-lesson assignment — L21
 
 Complete the five MCQs, two scenarios, practical and reflection for L21 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
 
+<a id="lesson-l22"></a>
 ## L22 — Remediation, retesting, and closure
 
 ### General Overview
 
 A finding reduces risk only when someone acts and the outcome is verified. Remediation removes or corrects the weakness; mitigation reduces its effect or reach; acceptance is an accountable decision to retain residual risk. These statuses are not interchangeable. A service that has crashed may stop exposing a file, but it has also stopped serving legitimate users. Retesting therefore checks the weakness and the business function.
+
+<!-- HSETS-SELF-READY-L22 -->
+**Before this lesson:** You can explain applicability, exposure and business priority for a finding. Revisit [L21 refresher](../Module-11/01-Student-Notes.md#lesson-l21).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l22) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L22 -->
 
 <!-- HSETS-TERMS-L22 -->
 ### Terms explained in context
@@ -1017,6 +1080,48 @@ Changing the test URL can create false closure. A stopped server is an outage, n
 ### Summary and glossary
 
 Remediation: correct cause; mitigation: reduce risk; acceptance: authorised residual-risk decision; regression test: confirm legitimate function. Closure is evidence-backed and scope-specific.
+
+<!-- HSETS-SELF-STUDY-L22 -->
+<a id="self-study-l22"></a>
+### Self-study workshop — prove remediation rather than reporting activity
+
+#### Understand the mechanism
+
+Remediation is a change intended to remove or correct a condition. Mitigation reduces a risk or exposure while the underlying condition may remain. Acceptance is an authorised decision to retain a risk under stated conditions. These statuses are not interchangeable, and an analyst does not become the risk owner merely by writing the ticket.
+
+Closure requires evidence matched to the original finding. If the after-test uses a different target, weaker credentials or narrower checks, the apparent improvement may reflect reduced observation rather than repair. Preserve enough of the before-test context to make the comparison meaningful. Also verify the required business service: disabling the entire service is not automatically an acceptable repair.
+
+A change record should identify owner, approval, implementation, recovery, retest and remaining risk. It should distinguish what was actually changed from a recommendation. A ticket saying “patch applied” records an action; it still needs evidence that the affected condition and relevant normal behaviour were checked.
+
+#### Follow a complete example
+
+A seeded training service exposes an unnecessary administrative function. The approved change restricts it to the management client while preserving the ordinary user function.
+
+1. Save the original finding and the exact test context, including source identity/path and target.
+2. Implement the approved narrow correction under the guided procedure and record the changed configuration.
+3. Repeat the original prohibited-access test from the same relevant source. Record the actual response, not just a rule screenshot.
+4. Run the management and ordinary business-function regression tests. If required functionality fails, the change is not ready for normal closure.
+5. Label the result accurately. If the vulnerable function still exists but exposure is restricted, describe the verified mitigation and residual conditions rather than claiming the software defect disappeared.
+
+#### Practise before checking the explanation
+
+The second scan is clean, but the target was powered off. What status is more defensible than “fixed,” and what must happen next?
+
+<details>
+<summary>Practice feedback</summary>
+
+The remediation is unverified by that scan. An unavailable target prevents an equivalent retest. Restore the authorised test conditions, verify reachability and intended coverage, then repeat the relevant check and business regression test. Record the failed retest attempt rather than omitting it.
+
+</details>
+
+#### If you get stuck
+
+Compare before and after across target, source, credentials, method and test scope. If these changed, explain their effect. If the owner accepts a remaining risk, retain the approval and review date. If your role only recommends a fix, label it proposed and identify who must implement and validate it.
+
+**Ready to continue:** write a closure note containing the original condition, actual change, equivalent retest, normal-service result and any residual risk.
+
+**Continue:** [L22 lab entry](02-Guided-Lab.md#practice-l22) · [L22 assignment](03-Student-Workbook.md#assignment-l22) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L22 -->
 
 ### End-of-lesson assignment — L22
 

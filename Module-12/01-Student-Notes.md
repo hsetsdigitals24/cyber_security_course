@@ -1,9 +1,17 @@
 # H-SETS — M12: Web, Application, and Data Security
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L23: Requests, sessions, and server-side authorisation](#lesson-l23) · [L24: Input boundaries, safe output, and reporting](#lesson-l24)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L23, complete its guided activity and assignment, then continue to L24. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
+<a id="lesson-l23"></a>
 ## L23 — Requests, sessions, and server-side authorisation
 
 ### General Overview
@@ -13,6 +21,12 @@ A browser asks a server for a resource using an HTTP request. The method states 
 HTTP requests are individually processed; applications commonly associate them with a session using a cookie containing an unpredictable session identifier. Real authentication establishes who may receive that identifier. Authorisation determines which records and actions that identity may use. Cookie attributes reduce particular risks: HttpOnly limits script access to the cookie; Secure restricts transport to HTTPS; SameSite influences cross-site sending. None of these attributes independently proves that a record belongs to the current user.
 
 This lesson's local fixture deliberately uses a selectable synthetic identity so students can compare access without storing passwords. A user can change that fixture identity; therefore it is not a secure login or session implementation. The exercise isolates one question: given the chosen test identity, does the server check record ownership? Its fixed mode is a targeted correction, not a claim of full application security.
+
+<!-- HSETS-SELF-READY-L23 -->
+**Before this lesson:** You can separate HTTP request/response, authentication and permission. Revisit [L05 refresher](../Module-03/01-Student-Notes.md#lesson-l05) · [L07 refresher](../Module-01/01-Student-Notes.md#lesson-l07).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l23) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L23 -->
 
 <!-- HSETS-TERMS-L23 -->
 ### Terms explained in context
@@ -138,10 +152,55 @@ Request: client operation; response: server result; cookie: browser-sent state; 
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L23 -->
+<a id="self-study-l23"></a>
+### Self-study workshop — trace authorisation on every request
+
+#### Understand the mechanism
+
+A web interaction is a request and response between a client and server. The client sends a method, target and relevant headers/body; the server interprets them and returns a response. Cookies or other credentials can associate requests with a session. A value supplied by the client is still input requiring appropriate validation; it is not automatically a trusted identity statement.
+
+Authentication and object authorisation are separate. Even after identifying a user, the server must decide whether that user may perform this action on this particular record. Hiding a button in the browser changes the interface; it does not necessarily prevent a request reaching the server. Object identifiers should locate data, not confer ownership merely because the requester knows a number.
+
+Use only the local training application and the two synthetic identities provided. The course fixture deliberately simplifies identity to teach the boundary. Its mechanism is not a production authentication design and should not be reused for a real service.
+
+#### Follow a complete example
+
+In an illustrative two-user application, Erin owns record A and Farouk owns record B. Each should view their own record and be refused access to the other's record.
+
+1. Establish the allowed baseline for each identity. This checks that the application and normal owner access work before examining a denial.
+2. Repeat the assigned read request with the other record identifier while retaining the original test identity. Change only the variable necessary for this authorised lab comparison.
+3. Inspect both status and response body. A page title saying “denied” is not enough if the protected data still appears in the response.
+4. Compare the vulnerable and fixed teaching variants using the same identity/object matrix.
+5. Report the specific boundary result and limitations. Do not describe the simplified fixture as proof that a production application's complete session system is secure.
+
+#### Practise before checking the explanation
+
+A developer removes the link to another user's record but makes no server-side authorisation change. What requirement remains unverified?
+
+<details>
+<summary>Practice feedback</summary>
+
+The server's decision for a request referencing an object the user does not own remains unverified. The correct protection is evaluated on the server for the requested object/action, not inferred from whether the browser offers a convenient link. Repeat the authorised lab owner/non-owner matrix against the fixed variant.
+
+</details>
+
+#### If you get stuck
+
+Confirm the local target, fixture mode and synthetic identity before interpreting results. Distinguish a missing record from an existing record denied to that identity. If a proxy captures unrelated browsing, stop and narrow the lab environment. Keep tokens/cookies out of shared reports.
+
+**Ready to continue:** explain the path **request → identity → object/action decision → response**, and show both valid owner access and refused non-owner access.
+
+Further reading for the specific mechanism: [OWASP WSTG v4.2: object authorisation testing](https://wstg.owasp.org/v4.2/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References/).
+
+**Continue:** [L23 lab entry](02-Guided-Lab.md#practice-l23) · [L23 assignment](03-Student-Workbook.md#assignment-l23) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L23 -->
+
 ### End-of-lesson assignment — L23
 
 Complete the five MCQs, two scenarios, practical and reflection for L23 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
 
+<a id="lesson-l24"></a>
 ## L24 — Input boundaries, safe output, and reporting
 
 ### General Overview
@@ -149,6 +208,12 @@ Complete the five MCQs, two scenarios, practical and reflection for L23 in [Stud
 Input becomes dangerous when an application treats data as instructions. A database interprets SQL; a shell interprets command syntax; a browser interprets HTML and scripts. The right defence depends on the interpreter. Parameterised database queries separate values from SQL structure. Context-appropriate output encoding makes user text appear as text in a page. Checking length or removing one suspicious character does not solve every interpretation problem.
 
 This exercise uses harmless HTML markup, not executable scripts. Seeing bold text where literal characters were expected demonstrates HTML interpretation. It does not by itself demonstrate account theft or every form of cross-site scripting. The finding must match the evidence. The fixed fixture uses HTML escaping for a text position inside a paragraph; different contexts such as JavaScript, CSS or URLs require different handling.
+
+<!-- HSETS-SELF-READY-L24 -->
+**Before this lesson:** You can trace a request to a server-side object/action decision. Revisit [L23 refresher](../Module-12/01-Student-Notes.md#lesson-l23).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l24) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L24 -->
 
 <!-- HSETS-TERMS-L24 -->
 ### Terms explained in context
@@ -356,6 +421,48 @@ URL encoding alone is not safe HTML rendering. A 400 status can be intentional v
 ### Summary and glossary
 
 Injection: data becomes instructions; parameterisation: separate query structure and values; output encoding: safe representation for a context; validation: enforce data rules; regression: preserve intended behaviour. Claims must match the actual benign evidence.
+
+<!-- HSETS-SELF-STUDY-L24 -->
+<a id="self-study-l24"></a>
+### Self-study workshop — define input and output boundaries precisely
+
+#### Understand the mechanism
+
+Input validation checks whether supplied data meets the application's requirements. Output encoding represents data safely for the context where it is displayed. These jobs differ: a value can be valid business text yet still contain characters that need special representation in an HTML page. Conversely, encoding output does not determine whether a record identifier belongs to the requester.
+
+A boundary test examines the edge of a stated requirement. If a field permits up to N characters under the application's defined counting rule, test below the limit, exactly at the limit and beyond it. Do not assume every language counts characters and bytes identically. Use the fixture's documented limit and benign test data rather than introducing an unrelated exploit exercise.
+
+Reporting should make the issue reproducible and useful to a developer: affected endpoint, fixture version, preconditions, input, expected result, actual result, evidence and recommended correction. A recommendation is not an implemented fix. The fixed variant must be retested under equivalent conditions.
+
+#### Follow a complete example
+
+A fictional note field permits 20 simple ASCII characters. It should display submitted text as text and reject overlong input with a clear application response.
+
+1. Submit a harmless 19-character value and then a 20-character value. Both are intended matches for the valid-input requirement.
+2. Submit a 21-character value and inspect whether it is refused under the stated rule. This checks the limit, not the entire application's security.
+3. Use a benign string containing angle brackets in the assigned teaching fixture. Check whether the output represents the characters as text instead of interpreting them as markup where the requirement forbids that.
+4. Compare the approved fixed variant with the same cases and retain legitimate ordinary-text behaviour.
+5. Explain which boundary each case checks. Length validation and context-appropriate output handling require different evidence.
+
+#### Practise before checking the explanation
+
+An overlong value is rejected, but ordinary permitted text is also rejected after the change. Has the correction met the complete requirement?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The negative test passed, but the valid-input regression test failed. A control should enforce the limit while preserving intended use. Record both outcomes and investigate the narrow validation condition instead of calling all rejection secure.
+
+</details>
+
+#### If you get stuck
+
+Read the fixture's exact input contract and route first. Check whether you are comparing the same variant and session. Inspect the actual response body and status rather than only a screenshot. If the case needs secret or real customer data to reproduce, replace it with the provided synthetic equivalent before proceeding.
+
+**Ready to continue:** write a concise report with one minimal benign reproduction, a proposed or verified correction clearly labelled, and both boundary and ordinary-use tests.
+
+**Continue:** [L24 lab entry](02-Guided-Lab.md#practice-l24) · [L24 assignment](03-Student-Workbook.md#assignment-l24) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L24 -->
 
 ### End-of-lesson assignment — L24
 

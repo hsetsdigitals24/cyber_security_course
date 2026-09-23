@@ -1,5 +1,19 @@
 # M02 — Networking Fundamentals and Troubleshooting
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L03 — Addressing, Switching, and Routing | [Notes](01-Student-Notes.md#lesson-l03) → [worked case and self-check](01-Student-Notes.md#self-study-l03) | [Lab entry](02-Guided-Lab.md#practice-l03) → [workbook](03-Student-Workbook.md#assignment-l03) |
+| L04 — Ports, Protocols, Connectivity, and Diagnosis | [Notes](01-Student-Notes.md#lesson-l04) → [worked case and self-check](01-Student-Notes.md#self-study-l04) | [Lab entry](02-Guided-Lab.md#practice-l04) → [workbook](03-Student-Workbook.md#assignment-l04) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Previous module](../Module-01/README.md) · [Next module](../Module-03/README.md)
 
 **Read in this order: L03 → L04.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.

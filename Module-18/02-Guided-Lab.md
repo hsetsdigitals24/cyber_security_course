@@ -48,6 +48,7 @@ Use only the allocated range and synthetic records. On a 16 GB host run required
 
 This rehearsal does not replace the fresh P08 final bundle. The final must include Windows/Linux records, alert evidence, a PCAP, file artifacts, business context, private ground truth, one benign distractor, one gap and a later evidence release.
 
+<a id="practice-l35"></a>
 ## A. Requirement-to-evidence review
 Select P04 or P06. Draw its actual topology and identify required business transaction, identity, network path, service, evidence source and recovery dependency. Build:
 | Requirement | Control | Test | Evidence ID | Actual result | Limitation |
@@ -80,6 +81,7 @@ Using M17/P07's disposable object or the approved file-service recovery, demonst
 ## D. Readiness review
 Review all critical tests in P01–P07. Record pass/fail/unverified and evidence reference. Schedule each gap with an owner and estimated correction time. Reuse existing evidence where valid but do not claim an old environment proves a new configuration.
 
+<a id="practice-l36"></a>
 ## E. Portfolio and defence
 Create a private portfolio index containing P01–P08 only. For each: title, simulated role, individual contribution, status, evidence link, limitation and next action. P08 may be “in progress” at this point.
 

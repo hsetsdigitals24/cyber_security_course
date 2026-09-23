@@ -6,6 +6,7 @@ Before submitting, check the exact lesson ID, all requested items, actual test r
 
 Answer independently. Use the notes for revision; submit explanations in your own words. Each lesson is marked out of 100: five MCQs at 2 marks each, two scenarios at 15 each, practical at 50, reflection at 10. This is formative lesson assessment; programme/project pass rules remain in the shared handbook.
 
+<a id="assignment-l17"></a>
 ## L17 assignment
 
 ### Five multiple-choice questions — 10 marks
@@ -57,6 +58,7 @@ Submit scope, before-state, explained actions, test table, one fault diagnosis, 
 
 Explain one initial prediction that changed, the evidence responsible, and a remaining limitation. Budget 150–200 words. Incorporate the useful evidence into P04, without counting the same work as another project.
 
+<a id="assignment-l18"></a>
 ## L18 assignment
 
 ### Five multiple-choice questions — 10 marks

@@ -1,14 +1,28 @@
 # H-SETS — M10: Authorised Assessment and Asset Discovery
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L19: Assessment scope and asset ownership](#lesson-l19) · [L20: Service validation and inventory reconciliation](#lesson-l20)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L19, complete its guided activity and assignment, then continue to L20. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
+<a id="lesson-l19"></a>
 ## L19 — Assessment scope and asset ownership
 
 ### General Overview
 
 An assessment begins with permission and a question, not a scan button. An asset is anything of value requiring protection: a system, service, identity, dataset or business dependency. Discovery observes what appears to exist. Inventory records what is known. Asset management assigns owners and maintains that record over time. A responding IP address alone does not establish owner, business purpose or permission to test.
+
+<!-- HSETS-SELF-READY-L19 -->
+**Before this lesson:** You can explain scope and the actual network boundary. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01) · [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l19) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L19 -->
 
 <!-- HSETS-TERMS-L19 -->
 ### Terms explained in context
@@ -314,15 +328,64 @@ Asset owner: accountable person; scope: authorised boundary; active discovery: s
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L19 -->
+<a id="self-study-l19"></a>
+### Self-study workshop — make assessment scope operational
+
+#### Understand the mechanism
+
+Assessment scope defines the authority and limits for a specific activity. It is not merely a list of addresses. A useful scope also identifies owners, permitted methods, timing, exclusions, data handling, stop conditions and contacts. Technical reachability does not create permission. A private address can still belong to a real business system outside your assignment.
+
+An asset inventory provides context for interpreting observations. An address may change owners, multiple services may share one host, and a service name may not match its current business role. Keep identifiers and observations together so another analyst can determine what was assessed at that time.
+
+Coverage is the portion of the authorised environment and methods actually examined. “No issue found” must be bounded by that coverage. A target that never responded, an excluded method or unavailable credentials can leave a genuine gap. Recording those gaps is part of accurate assessment, not a weakness to hide.
+
+#### Follow a complete example
+
+You receive permission to inspect two named disposable training guests during a scheduled lab window. The network also contains a third responding address that is absent from the scope.
+
+1. Match the two assigned targets with the lab sheet and current environment record. Resolve any mismatch before activity begins.
+2. Record the approved methods and stop conditions. Permission for one discovery exercise does not automatically include every assessment tool.
+3. If the third address appears incidentally, record the observation without expanding testing to it. Ask the designated owner to clarify scope.
+4. Report which assigned targets and checks were completed, failed or not run. A clean-looking summary must not conceal an unreachable target.
+5. Keep identifying details and raw evidence in the approved private submission route. Public portfolio material requires its separate sanitisation review.
+
+#### Practise before checking the explanation
+
+The scope permits one web application hostname. Its page links to a different service. Does following that link automatically extend your assessment permission to the other service?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. The linked service can be a separate owner or system. Check the explicit scope and clarification route before assessing it. Record the dependency if relevant, but do not infer broad testing authority from a hyperlink or technical connection.
+
+</details>
+
+#### If you get stuck
+
+Use **owner → target → method → time → exclusions → stop/contact** as a checklist. If the target cannot be matched to the scope, pause that target. If a required method could affect availability, confirm the lab-specific limit rather than selecting more aggressive settings. If results differ from the inventory, report a reconciliation question instead of silently changing the authorised list.
+
+**Ready to continue:** show a scope record that another learner could follow without guessing what is permitted. Independent study never removes the need for explicit lab authority.
+
+**Continue:** [L19 lab entry](02-Guided-Lab.md#practice-l19) · [L19 assignment](03-Student-Workbook.md#assignment-l19) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L19 -->
+
 ### End-of-lesson assignment — L19
 
 Complete the five MCQs, two scenarios, practical and reflection for L19 in [Student Workbook](03-Student-Workbook.md). Submit a Markdown answer sheet plus sanitised evidence and a test table. Budget 90 minutes for the assignment, within the module's independent hours. Practical evidence must include at least one permitted outcome, one denied or non-matching outcome, and an explanation of a limitation. Do not upload credentials, private keys, raw sensitive exports or instructor answers.
 
+<a id="lesson-l20"></a>
 ## L20 — Service validation and inventory reconciliation
 
 ### General Overview
 
 Inventory reconciliation compares observations with expected records and explains differences. It is not merely adding every responding IP. One system may have several addresses, and one address may represent a proxy or load balancer. A scanner's view depends on source, route, time and selected ports. A professional report states those limits so another analyst does not read 'not observed' as 'not present'.
+
+<!-- HSETS-SELF-READY-L20 -->
+**Before this lesson:** You have an explicit authorised target/method and understand coverage limits. Revisit [L19 refresher](../Module-10/01-Student-Notes.md#lesson-l19) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l20) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L20 -->
 
 <!-- HSETS-TERMS-L20 -->
 ### Terms explained in context
@@ -545,6 +608,48 @@ A version banner may be changed or patched by backport. Successful ping proves n
 ### Summary and glossary
 
 Reconciliation explains differences; coverage describes what was actually tested; validation adds independent evidence; uncertainty records what remains unknown. Service restoration requires useful content, not only an open port.
+
+<!-- HSETS-SELF-STUDY-L20 -->
+<a id="self-study-l20"></a>
+### Self-study workshop — separate discovery from verified service identity
+
+#### Understand the mechanism
+
+Discovery methods observe responses under particular conditions. A host can be available while not responding to one discovery probe. A reported port state depends on the method, network path and timing. It is not a permanent property that remains true after the environment changes.
+
+An open transport port indicates a relevant accepting endpoint under the test conditions, but the port number alone does not establish the software or business owner. A banner or version guess is useful evidence with limits. Proxies, altered banners and packaged fixes can complicate the inference. Use normal protocol behaviour and approved host/configuration evidence to strengthen the service identification.
+
+Inventory reconciliation combines the approved list, discovered observations and justified follow-up. Keep “expected,” “observed” and “confirmed” separate. An unexpected service needs an owner and purpose review; it is not automatically malicious. A missing observation needs a coverage explanation; it is not automatically absence.
+
+#### Follow a complete example
+
+The assigned inventory says a training guest offers a web service. One discovery result does not list the host, but a later approved direct connection returns an HTTP response from the assigned service endpoint.
+
+1. Preserve both observations and their methods/time. They do not have to be mutually inconsistent: one method may not have obtained a response.
+2. Confirm that the responding endpoint is the authorised target and not a substituted address.
+3. Inspect the normal protocol response and expected content. Correlate with the assigned service record where available.
+4. Update the inventory with the observed service, confidence and unresolved version/ownership questions.
+5. State the coverage limit. Do not report every unobserved service as absent or label a banner-derived version as independently confirmed.
+
+#### Practise before checking the explanation
+
+A supplied result identifies an open TCP port commonly associated with a database. Does this alone prove which database product is running or that it has a particular vulnerability?
+
+<details>
+<summary>Practice feedback</summary>
+
+No. Port conventions suggest a next question, not a product or vulnerability conclusion. Use the approved service-validation method, obtain relevant configuration/version evidence where available, and record confidence. Vulnerability applicability requires additional evidence about the actual software and conditions.
+
+</details>
+
+#### If you get stuck
+
+Check the exact target, method, source vantage point and time before repeating an observation. Read the tool's state description rather than translating every ambiguous state into “closed.” If a stronger check is outside scope, report the limit and requested approval rather than expanding the activity.
+
+**Ready to continue:** produce an inventory row containing target, service observation, method/time, business owner or owner gap, confidence and next action.
+
+**Continue:** [L20 lab entry](02-Guided-Lab.md#practice-l20) · [L20 assignment](03-Student-Workbook.md#assignment-l20) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L20 -->
 
 ### End-of-lesson assignment — L20
 

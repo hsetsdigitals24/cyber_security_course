@@ -1,5 +1,19 @@
 # M16 — Incident Response and Forensic Foundations
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L31 — Preservation, timelines, and competing hypotheses | [Notes](01-Student-Notes.md#lesson-l31) → [worked case and self-check](01-Student-Notes.md#self-study-l31) | [Lab entry](02-Guided-Lab.md#practice-l31) → [workbook](03-Student-Workbook.md#assignment-l31) |
+| L32 — Containment, recovery, and communication | [Notes](01-Student-Notes.md#lesson-l32) → [worked case and self-check](01-Student-Notes.md#self-study-l32) | [Lab entry](02-Guided-Lab.md#practice-l32) → [workbook](03-Student-Workbook.md#assignment-l32) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 

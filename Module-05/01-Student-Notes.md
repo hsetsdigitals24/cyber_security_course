@@ -1,16 +1,30 @@
 # M05 — Linux Administration and Access Permissions
 
+<!-- HSETS-SELF-NAV -->
+**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L09: Files, Processes, Packages, and the Shell](#lesson-l09) · [L10: Users, Groups, Ownership, and Permissions](#lesson-l10)
+
+Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
+<!-- /HSETS-SELF-NAV -->
+
+
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L09, complete its guided activity and assignment, then continue to L10. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 
 H-SETS • L09/L10 • M01–M04 prerequisites. Six guided plus six independent hours, including P02. Read the [guided lab](02-Guided-Lab.md) and [workbook](03-Student-Workbook.md).
 
+<a id="lesson-l09"></a>
 ## L09 — Files, Processes, Packages, and the Shell
 
 ### General Overview
 
 Linux administration makes later security work understandable. Before calling a process suspicious, an analyst should know what a process is, which account runs it, and what it is expected to do. Before changing permissions, the analyst must locate the correct object and understand the surrounding directories. Cedarbridge uses a Linux host for departmental files; this lesson establishes safe observation and change habits.
+
+<!-- HSETS-SELF-READY-L09 -->
+**Before this lesson:** You can identify the correct guest/account and preserve a recovery copy. Revisit [L02 refresher](../Module-04/01-Student-Notes.md#lesson-l02).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l09) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L09 -->
 
 <!-- HSETS-TERMS-L09 -->
 ### Terms explained in context
@@ -128,15 +142,64 @@ Kernel: resource-managing core. Shell: command interpreter. Path: object locatio
 
 These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
+<!-- HSETS-SELF-STUDY-L09 -->
+<a id="self-study-l09"></a>
+### Self-study workshop — understand a command before running it
+
+#### Understand the mechanism
+
+The shell reads a command line and starts the requested program with its arguments. A command, an option and a path have different roles. The current directory affects how relative paths are interpreted. A file named `report.txt` in one folder is not automatically the same file as `report.txt` elsewhere. Before changing anything, establish your machine, account and working directory.
+
+An absolute path starts from the filesystem root; a relative path is interpreted from your current location. Quoting keeps spaces and certain special characters together as intended. Redirection such as `>` can replace a file, so it is not decorative punctuation. A command returning without an error does not prove you changed the intended file: inspect the named result.
+
+A process is a running program instance with an identity and state. A saved executable file is not the same thing as a running process. Stopping an unknown process because it uses memory can interrupt someone else's work. Identify the process you deliberately started and the result it provides before deciding to stop it.
+
+#### Follow a complete example
+
+In the disposable course directory, you need to retain a synthetic note while practising a text change.
+
+1. Confirm the guest and ordinary account specified in the lab. Inspect the current directory before using a relative filename.
+2. Create the small synthetic original using the existing guided instructions. Read it back immediately; this checks that you created the intended content at the intended path.
+3. Make the named backup copy before editing the working file. Record which file is the original, working copy and recovery copy.
+4. Change only the working copy and inspect the result. A filename extension does not verify content; actually read the small test file.
+5. Recover the working copy from the retained backup and compare. Explain whether you restored content, permissions, timestamps or only some of those properties under the method used.
+
+#### Practise before checking the explanation
+
+You expected to edit `notes/day1.txt`, but your current directory is a different project folder. The command succeeds and no error appears. What must you inspect before claiming the intended note changed?
+
+<details>
+<summary>Practice feedback</summary>
+
+Resolve the relative path from the actual current directory, inspect that resulting file and compare with the intended project location. Successful command execution can operate on the wrong valid path. Preserve both files while diagnosing the mistake; do not delete unfamiliar files to hide the accidental change.
+
+</details>
+
+#### If you get stuck
+
+Read the exact error before adding elevated privilege. “No such file” suggests a path or name problem; “permission denied” suggests an access check but still requires the correct path and identity. A missing program may mean it is not installed or not in the search path. Use the approved lab preparation route rather than downloading an unknown replacement.
+
+**Ready to continue:** explain each part of one existing lab command and locate the actual result. You should know when you are reading state and when you are changing it.
+
+**Continue:** [L09 lab entry](02-Guided-Lab.md#practice-l09) · [L09 assignment](03-Student-Workbook.md#assignment-l09) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L09 -->
+
 ### End-of-Lesson Assignment — L09
 
 Complete Workbook L09: five MCQs, two scenarios, and a file/process investigation. Submit actual path evidence, a safe copy/change/recovery sequence, package-version observation, and explanation of a process you created. Budget 60 minutes; 50 formative marks.
 
+<a id="lesson-l10"></a>
 ## L10 — Users, Groups, Ownership, and Permissions
 
 ### General Overview
 
 Permissions turn business access decisions into enforced rules. Cedarbridge's Finance staff need to edit shared drafts; Operations must not read them; an auditor may read one report without changing it. “Make the folder work” is not a sufficient requirement. We must demonstrate both intended use and excluded use.
+
+<!-- HSETS-SELF-READY-L10 -->
+**Before this lesson:** You can locate a file, identify the process/account and distinguish read from change. Revisit [L09 refresher](../Module-05/01-Student-Notes.md#lesson-l09) · [L07 refresher](../Module-01/01-Student-Notes.md#lesson-l07).
+
+**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l10) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
+<!-- /HSETS-SELF-READY-L10 -->
 
 <!-- HSETS-TERMS-L10 -->
 ### Terms explained in context
@@ -234,6 +297,48 @@ The instructor builds Finance access, creates a draft as Alice, and tests Bob's 
 Check identity, group refresh, parent traversal, object mode, ACL mask, and application controls before broadening permissions. A successful root test proves little about a normal account. Removing a group should be tested in a fresh context and assessed against active-session risk.
 
 UID/GID: numeric user/group identity. Ownership: user/group metadata. Umask: removed creation permissions. Setgid directory: group inheritance mechanism. ACL: additional access entries. Traversal: directory search permission. Least privilege: minimum required access.
+
+<!-- HSETS-SELF-STUDY-L10 -->
+<a id="self-study-l10"></a>
+### Self-study workshop — predict permission outcomes before testing
+
+#### Understand the mechanism
+
+Linux access decisions depend on the process identity and the permission information on the object and its path. A username typed in a report is not proof that a test ran as that user. Test with the assigned identity and record it. Administrative access can bypass restrictions that ordinary users face, so an administrator reading a file is not a useful denied-user test.
+
+The familiar permission bits have different practical effects for files and directories. For a regular file, read permits reading content, write permits changing content and execute permits execution where the file and environment support it. For a directory, read concerns listing names, execute concerns traversal/search, and write concerns changing entries, subject to other controls. Reaching a nested file therefore requires suitable path traversal as well as the relevant file access.
+
+Basic owner/group/other permissions are only part of the possible context. Access control lists can add entries and an effective mask; a fresh group membership may not appear in an already-running login session. These distinctions explain why repeatedly changing the final file's mode can fail to solve a parent-directory or stale-session problem.
+
+#### Follow a complete example
+
+The fictional Records team should read and update a draft. Other departments should not read it. An approved auditor should read a published copy but not edit the draft.
+
+1. Write the resource/action matrix before selecting permissions. Separate the draft from the published copy: they have different business requirements.
+2. Identify the responsible group and owner for each resource. Check each parent directory on the path rather than inspecting only the final filename.
+3. Apply only the lab's approved permission design to the synthetic directories. Avoid broad “everyone can write” changes as a troubleshooting shortcut.
+4. Test an allowed user's intended read/write action and the unrelated user's denied read. Test the auditor on both relevant resources.
+5. If the allowed user fails after a group change, inspect current session membership and path access before weakening the rule. After correcting the actual cause, repeat all boundary tests.
+
+#### Practise before checking the explanation
+
+A learner creates a synthetic file as an administrator and later cannot change it from the ordinary lab account. What should be inspected before granting everybody write access?
+
+<details>
+<summary>Practice feedback</summary>
+
+Inspect the file owner, actual ordinary-user identity, applicable group/mode/ACL and intended requirement. Creating the file under elevated authority can establish different ownership from what the learner expected. Apply only the approved narrow correction and repeat the ordinary allowed/denied tests; broad write access creates a different problem.
+
+</details>
+
+#### If you get stuck
+
+Trace **account/session → group membership → parent directories → final object → requested action**. Check for an applicable ACL when simple mode bits do not explain the result. Stop if the directory is outside the synthetic lab path. Do not treat deleting and recreating the resource as a neutral fix: it can change ownership and other metadata.
+
+**Ready to continue:** predict three identity/action outcomes, then explain actual results without relying on administrator access as proof.
+
+**Continue:** [L10 lab entry](02-Guided-Lab.md#practice-l10) · [L10 assignment](03-Student-Workbook.md#assignment-l10) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
+<!-- /HSETS-SELF-STUDY-L10 -->
 
 ### End-of-Lesson Assignment — L10
 

@@ -64,6 +64,7 @@ date --iso-8601=seconds
 
 On the sensor, also record `suricata -V`. These commands inspect configuration/time/version; they do not prove capture health. The address below is the lab example: replace it consistently only if the instructor assigned another server address.
 
+<a id="practice-l25"></a>
 ## A. Produce and observe a transaction
 
 **Server terminal — ordinary lab user:**
@@ -120,6 +121,7 @@ sudo tcpdump -i INTERFACE -nn -s 0 -w ~/hsets-m13/visibility.pcap 'tcp port 8080
 
 **Checkpoint:** match the captured request to the server log by endpoint, request and time. Record actual frame references. A missing packet is a visibility issue to investigate; an alert is not required at this stage.
 
+<a id="practice-l26"></a>
 ## B. Validate a small rule offline
 In an ordinary text editor on the sensor, save the following single line as `~/hsets-m13/hsets.rules`. Confirm the filename has no extra `.txt` extension:
 ```

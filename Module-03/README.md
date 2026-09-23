@@ -1,5 +1,19 @@
 # M03 — Network Services and Packet Analysis
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L05 — DNS, DHCP, ARP, NAT, and Web Connections | [Notes](01-Student-Notes.md#lesson-l05) → [worked case and self-check](01-Student-Notes.md#self-study-l05) | [Lab entry](02-Guided-Lab.md#practice-l05) → [workbook](03-Student-Workbook.md#assignment-l05) |
+| L06 — Wireshark Investigation | [Notes](01-Student-Notes.md#lesson-l06) → [worked case and self-check](01-Student-Notes.md#self-study-l06) | [Lab entry](02-Guided-Lab.md#practice-l06) → [workbook](03-Student-Workbook.md#assignment-l06) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Previous module](../Module-02/README.md) · [Next module](../Module-04/README.md)
 
 **Read in this order: L05 → L06.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.

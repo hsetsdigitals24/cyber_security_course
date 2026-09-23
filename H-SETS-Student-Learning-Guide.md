@@ -1,5 +1,7 @@
 # H-SETS Practical Cybersecurity Programme — Student Learning Guide
 
+Start with the [Self-study Handbook](H-SETS-Self-Study-Handbook.md) for the independent route, command-reading support, readiness checks, troubleshooting and help requests. Every lesson now includes a complete worked case and a new ungraded practice case with revealable feedback. The roughly 10% direct-help target requires learner trials; necessary instructor preparation and assessment remain.
+
 ## Your first four modules
 
 | Order | Open | What you do | Ready to continue when… |

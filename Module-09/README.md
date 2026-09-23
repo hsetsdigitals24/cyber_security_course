@@ -1,5 +1,19 @@
 # H-SETS — Module 09: Firewall Policy, Segmentation, and Secure Remote Access
 
+<!-- HSETS-SELF-ROUTE -->
+## Study independently
+
+Start with the [self-study handbook](../H-SETS-Self-Study-Handbook.md). Complete each row in order. The examples, practice feedback and troubleshooting are in the notes; formal assessment solutions remain private.
+
+| Lesson | Read and practise | Apply and submit |
+|---|---|---|
+| L17 — Traffic requirements and stateful firewall policy | [Notes](01-Student-Notes.md#lesson-l17) → [worked case and self-check](01-Student-Notes.md#self-study-l17) | [Lab entry](02-Guided-Lab.md#practice-l17) → [workbook](03-Student-Workbook.md#assignment-l17) |
+| L18 — Segmentation boundaries and remote-access design | [Notes](01-Student-Notes.md#lesson-l18) → [worked case and self-check](01-Student-Notes.md#self-study-l18) | [Lab entry](02-Guided-Lab.md#practice-l18) → [workbook](03-Student-Workbook.md#assignment-l18) |
+
+The lab entry does not bypass its setup: read the environment, shared preparation and stop conditions first. No new assignment or extra grade is added by this study route.
+<!-- /HSETS-SELF-ROUTE -->
+
+
 <!-- HSETS-STUDENT-START -->
 ## Your route through this module
 
