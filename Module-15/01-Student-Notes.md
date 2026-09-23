@@ -156,7 +156,7 @@ Continue with the detailed explanation below. Use the [course term index](../H-S
 <!-- /HSETS-TERMS-L30 -->
 
 ### Prerequisite refresher
-Recall M04 threats versus risk and M14 severity versus confidence. An indicator is an observable value associated with a report, such as an address or hash. Behaviour describes actions. Neither a label nor a lookup result substitutes for local evidence.
+Recall M01 threats versus risk and M14 severity versus confidence. An indicator is an observable value associated with a report, such as an address or hash. Behaviour describes actions. Neither a label nor a lookup result substitutes for local evidence.
 
 ### 1. Reliability and relevance
 A feed may report that an address hosted harmful content at a particular time. The address may now belong to someone else or host many services. Record source, observation time, publication time, confidence, context and expiry if provided. Evaluate whether your event used the relevant service during a relevant interval.

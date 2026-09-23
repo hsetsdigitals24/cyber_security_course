@@ -4,6 +4,12 @@ Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Lea
 
 **Start only after the L02 lab boundary and recovery checkpoint.** Read L03–L06 in M02–M03 before this pack. This is P01 practice, not four new lesson assignments. Keep the established lesson IDs when referencing concepts; label live evidence P01. The offline exercises from earlier weeks remain analysis evidence and do not prove these live tests passed.
 
+## Keep P01 and P02 work separate
+
+P01 networking practice overlaps M05/M06 in Weeks 5–6. Keep the M04 pair dedicated to P01. The instructor supplies a separate clean P02 server for M05 and a separate P02 client for M06, with unique VM names/MAC addresses and a different learner-specific internal network. A snapshot of one shared guest is not a substitute for keeping these concurrent projects separate: reverting it could erase the other project's files, users or services.
+
+Power off the P01 pair before running the P02 pair, and reverse this when returning to network practice. Do not run all four guests together on the 16 GB route. Record actual VM names, adapters, storage headroom and recovery points on the class lab sheet. The instructor checks capacity or provides a hosted equivalent before assigning the work. Restore only the named project's guest; preserve evidence outside it first.
+
 ## Stage A — Week 5: addressing and service diagnosis
 
 The name HSETS-M02 below identifies this networking exercise, not Week 2. Your L02 pair initially uses .11/.12 on its learner-specific internal network. Save its recovery evidence and take a clean powered-off snapshot. For Stage A, rename the attachment on both guests to the same instructor-assigned exercise name, then set the client to .20/24 and server to .30/24 using the same Ubuntu network GUI already learned. Keep gateway blank and IPv6 disabled for this exercise. On a shared host, the instructor supplies a unique network name per learner instead of the example HSETS-M02. Inspect all adapters again; add no external path. Record the new addresses and snapshot before fault practice. Stage B reuses Stage A's .20/.30 pair.
@@ -14,7 +20,7 @@ All tools must be in the approved offline-ready image before class: Python 3, cu
 
 Cedarbridge needs a disposable training web service. Use only two assigned Ubuntu 24.04 LTS guests on the same internal virtual network, named HSETS-M02. Reuse the L02 pair at its instructor-approved allocation (normally 2 vCPU/4 GB RAM each for the desktop images); measure actual headroom on the 16 GB host. Do not run the later Windows/SIEM range. Instructor preinstalls Python 3 and curl during controlled update access, then removes that adapter. Record `cat /etc/os-release`, `python3 --version`, `curl --version`, and hypervisor version. Version selection is a proposed baseline, not an executed compatibility claim.
 
-Use consoles, not remote shells, for address changes. Capture a clean snapshot, original address settings, and current routes. Disable extra guest adapters in the hypervisor. No router or DNS server is needed in M02. Use `10.10.10.20/24` for client and `.30/24` for server unless the instructor assigns a different isolated block. Never change the physical host's network settings.
+Use consoles, not remote shells, for address changes. Capture a clean snapshot, original address settings, and current routes. Disable extra guest adapters in the hypervisor. No router or DNS server is needed in Stage A. Use `10.10.10.20/24` for client and `.30/24` for server unless the instructor assigns a different isolated block. Never change the physical host's network settings.
 
 ## Lab A — L03, approximately 65 minutes
 
@@ -77,7 +83,7 @@ The instructor introduces one fault at a time using the private guide. Work on t
 
 ## Recovery and evidence
 
-Stop the teaching server; restore recorded address settings if changed. Keep only the isolated baseline for M03. Restore the snapshot if an unknown change prevents recovery; record that this is recovery, not a diagnosed root cause. Evidence: diagram, address plan, route output, allowed service result, absent-resource result, listener, two fault tickets, and a five-sentence handover. Store these under P01's implementation and evidence folders. Do not publish a PCAP or host details without sanitising them.
+Stop the teaching server; restore recorded address settings if changed. Keep the isolated P01 pair for Stage B; do not restore or repurpose a P02 guest. Restore the snapshot if an unknown change prevents recovery; record that this is recovery, not a diagnosed root cause. Evidence: diagram, address plan, route output, allowed service result, absent-resource result, listener, two fault tickets, and a five-sentence handover. Store these under P01's implementation and evidence folders. Do not publish a PCAP or host details without sanitising them.
 
 ## Stage B — Week 6: DNS and packet investigation
 
@@ -91,9 +97,9 @@ The instructor prepares a dedicated lab DNS responder on the server. Confirm por
 sudo dnsmasq --no-daemon --conf-file=/dev/null --bind-interfaces --listen-address=10.10.10.30 --no-resolv --no-hosts --address=/portal.cedarbridge.test/10.10.10.30
 ```
 
-Root privilege is required for port 53. The configuration ignores unrelated config, hosts files, and upstream resolution; it answers the assigned synthetic name locally. This is a teaching responder, not a production DNS architecture. Ctrl+C stops it. The instructor must validate these options against the installed dnsmasq version during pilot.
+Root privilege is required for port 53. The configuration ignores unrelated config, hosts files, and upstream resolution; the address rule answers A queries for the configured name and matching subdomains locally. It is not an exact-name-only rule. This is a teaching responder, not a production DNS architecture. Ctrl+C stops it. The instructor must validate these options against the installed dnsmasq version during pilot.
 
-Start the M02 HTTP service on `.30:8000`. On the client, record the current wired connection's DNS settings, then set DNS manually to `.30` in Settings → Network → Wired settings → IPv4, with automatic DNS off. Keep the static address, blank gateway, and existing mask. Reconnect the connection. Ensure no hosts-file override for the lab name exists. Do not replace unrelated resolver files.
+Start the Stage A HTTP service on `.30:8000`. On the client, record the current wired connection's DNS settings, then set DNS manually to `.30` in Settings → Network → Wired settings → IPv4, with automatic DNS off. Keep the static address, blank gateway, and existing mask. Reconnect the connection. Ensure no hosts-file override for the lab name exists. Do not replace unrelated resolver files.
 
 ## L05 — Healthy resolution and controlled failure
 
@@ -101,12 +107,12 @@ Start the M02 HTTP service on `.30:8000`. On the client, record the current wire
 2. Run `getent ahostsv4 portal.cedarbridge.test`. This uses the system's configured name-service path. Compare with explicit dig; differences can reveal overrides or resolver configuration.
 3. Run `curl --max-time 5 http://portal.cedarbridge.test:8000/index.html`. Expect the synthetic marker. Record actual results.
 4. Negative name test: query `unlisted.cedarbridge.test` explicitly. With no configured upstream, a failure response may vary; record actual DNS status rather than assuming NXDOMAIN. Explain the distinction from no DNS response.
-5. The instructor changes the responder's configured portal address to `.99`, restarting only this foreground responder. Run an explicit dig to see the changed answer. For a fresh system lookup, flush local resolver cache with `sudo resolvectl flush-caches` where systemd-resolved is the configured resolver. Repeat the name-based request. Do not flush caches on a production host.
+5. The instructor first confirms `.99` is unused in this isolated P01 range, then changes the responder's configured portal address to `.99`, restarting only this foreground responder. Run an explicit dig to see the changed answer. For a fresh system lookup, flush local resolver cache with `sudo resolvectl flush-caches` where systemd-resolved is the configured resolver. Repeat the name-based request. Do not flush caches on a production host.
 6. Compare the numerical request to `.30` with the named request. To preserve hostname while bypassing the incorrect DNS answer, use `curl --max-time 5 --resolve portal.cedarbridge.test:8000:10.10.10.30 http://portal.cedarbridge.test:8000/index.html`. This is a diagnostic override, not the permanent fix. Restore the responder's correct address, clear the relevant cache, and repeat the ordinary named request.
 
 ## L06 — Capture and interpret
 
-1. Open Wireshark on the client. Select the internal lab interface by its address and traffic indicator. Note interface, time zone, start time, and scope. Start capture with no restrictive display filter.
+1. Open Wireshark on the client. Select the internal lab interface by its address and traffic indicator. Note interface, time zone, start time, and scope. Before capture, clear any capture filter in Capture Options so DNS, ARP and the service transaction can be recorded. A display filter only changes the view of recorded packets; clearing it cannot recover traffic excluded by a capture filter. Clear the display filter too for the initial overview.
 2. Run the explicit dig query, then the named curl request. Stop capture promptly. Save `healthy.pcapng` in the private lab evidence directory. A short capture keeps analysis and sanitisation manageable.
 3. Apply `dns`; locate question and answer. Apply `tcp.port == 8000`; find handshake, HTTP request, and response. Use `arp` to check whether neighbour resolution was recorded. Absence may reflect cache; do not invent a frame.
 4. Select the HTTP connection and use Follow → TCP Stream. Find the marker and requested path. Record five or more frame references with one explanatory sentence each. Clear the display filter to verify the recording contains other traffic.
@@ -117,7 +123,7 @@ Start the M02 HTTP service on `.30:8000`. On the client, record the current wire
 
 The instructor supplies a fresh recording generated from the private variation. Identify endpoints, requested service, successful/failed stage, evidence references, and one uncertainty. Do not rely on the healthy file's frame numbers. Write a support ticket and propose the next discriminating check if the capture alone cannot prove the cause.
 
-Restore correct DNS responder configuration, original client DNS settings when finished, and the isolated M02 baseline. Stop foreground services with Ctrl+C. Preserve captures privately; publish only a sanitised copy after review. If capture permissions fail, the instructor corrects the preconfigured capture group and starts a fresh user session. If no packets appear, verify interface, filter, and fresh traffic before reinstalling tools.
+Restore correct DNS responder configuration, original client DNS settings when finished, and the isolated P01 Stage A baseline. Stop foreground services with Ctrl+C. Preserve captures privately; publish only a sanitised copy after review. If capture permissions fail, the instructor corrects the preconfigured capture group and starts a fresh user session. If no packets appear, verify interface, filter, and fresh traffic before reinstalling tools.
 
 Acceptance: named marker retrieval, explicit DNS evidence, five justified packet references, a controlled failure and retest, and an honest visibility limitation. These are P01 milestones, not a new project.
 
@@ -125,3 +131,6 @@ Acceptance: named marker retrieval, explicit DNS evidence, five justified packet
 ## Finish and return
 
 Submit actual addressing/routes, healthy service retrieval, two fault/retest records, named-service tests and annotated packet evidence to P01. Recheck the boundary and retain evidence outside the guests before any rollback. Return to the [M04 workbook](03-Student-Workbook.md), then prepare [G1](../H-SETS-Competency-Gates-Student.md). Start [M05](../Module-05/README.md) only when the required working guest is available.
+
+
+Technical references checked during QA: [Wireshark capture filters](https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html), [display filters](https://www.wireshark.org/docs/wsug_html_chunked/ChWorkDisplayFilterSection.html), and [dnsmasq options](https://thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html). Classroom versions and actual observations still require a pilot.

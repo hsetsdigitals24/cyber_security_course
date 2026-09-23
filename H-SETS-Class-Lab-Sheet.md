@@ -40,3 +40,10 @@ The instructor completes this sheet before class and gives each learner a copy. 
 If your screen or output differs, keep the exact message and say which step you reached. The instructor should confirm the correct version-specific route before you continue. Do not paste passwords or tokens into a help request.
 
 See the [learning guide](H-SETS-Student-Learning-Guide.md) and [assessment guide](H-SETS-Student-Assessment-Guide.md).
+
+
+## Keep P01 and P02 work separate
+
+P01 networking practice overlaps M05/M06 in Weeks 5–6. Keep the M04 pair dedicated to P01. The instructor supplies a separate clean P02 server for M05 and a separate P02 client for M06, with unique VM names/MAC addresses and a different learner-specific internal network. A snapshot of one shared guest is not a substitute for keeping these concurrent projects separate: reverting it could erase the other project's files, users or services.
+
+Power off the P01 pair before running the P02 pair, and reverse this when returning to network practice. Do not run all four guests together on the 16 GB route. Record actual VM names, adapters, storage headroom and recovery points on the class lab sheet. The instructor checks capacity or provides a hosted equivalent before assigning the work. Restore only the named project's guest; preserve evidence outside it first.

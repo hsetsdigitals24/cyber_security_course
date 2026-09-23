@@ -1,6 +1,13 @@
 # M06 Guided Lab — Service Protection, Recovery, and Parsing
 
 <!-- HSETS-LAB-AT-A-GLANCE -->
+## Keep P01 and P02 work separate
+
+P01 networking practice overlaps M05/M06 in Weeks 5–6. Keep the M04 pair dedicated to P01. The instructor supplies a separate clean P02 server for M05 and a separate P02 client for M06, with unique VM names/MAC addresses and a different learner-specific internal network. A snapshot of one shared guest is not a substitute for keeping these concurrent projects separate: reverting it could erase the other project's files, users or services.
+
+Power off the P01 pair before running the P02 pair, and reverse this when returning to network practice. Do not run all four guests together on the 16 GB route. Record actual VM names, adapters, storage headroom and recovery points on the class lab sheet. The instructor checks capacity or provides a hosted equivalent before assigning the work. Restore only the named project's guest; preserve evidence outside it first.
+
+
 ## Lab at a glance
 
 | Item | Student meaning |
@@ -46,7 +53,7 @@ Stop and ask the instructor if the named image, account, fixture, permission or 
 
 ## Starting state and scope
 
-Reuse M05 server `.30/24` and M02 client `.20/24` on one internal network. Two Ubuntu 24.04 LTS guests; 16 GB host with staged 2–4 GB guest allocations. Instructor preinstalls openssh-server/client, ufw, acl, Python 3. Record exact versions. Confirm console recovery, clean snapshots, no extra uplinks, and a reviewed clean UFW baseline. Do not reset an existing unknown firewall. All identities and files are synthetic. Budget approximately 160 guided minutes across L11/L12, with independent completion within the stated weekly hours.
+Reuse the dedicated M05/P02 server at `.30/24` and the instructor-supplied P02 client at `.20/24` on the separate P02 internal network. Do not borrow the P01 pair while its Week 6 capture work remains open. Two Ubuntu 24.04 LTS guests; 16 GB host with staged 2–4 GB guest allocations. Instructor preinstalls openssh-server/client, ufw, acl, Python 3. Record exact versions. Confirm console recovery, clean snapshots, no extra uplinks, and a reviewed clean UFW baseline. Do not reset an existing unknown firewall. All identities and files are synthetic. Budget approximately 160 guided minutes across L11/L12, with independent completion within the stated weekly hours.
 
 ## L11 — Observe and protect
 
