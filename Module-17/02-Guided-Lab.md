@@ -24,8 +24,8 @@ Before changing a setting, say which machine and account you are using. Your ins
 | Pause | What you should be able to show | If you cannot yet show it |
 |---|---|---|
 | Before L33 | M05/M12/M16: file hashes, access boundaries, HTTP operations and evidence preservation. | Revisit the prerequisite with the instructor |
-| After L33 | Show the assigned allowed and denied operations without exposing tokens. | Preserve the symptom; repeat the relevant demonstration with guidance |
-| After L34 | Recover from the independently protected copy and verify content, access and measured time. | Compare expected/actual results and test one explanation at a time |
+| After L33 | Complete sections A–C: allowed/denied operations, independent backup and measured content/access recovery. | Preserve the symptom; repeat the relevant demonstration with guidance |
+| After L34 | Complete section D: explain five risks, owners, treatments, responsibility boundaries and the management decision needed. | Link each claim to evidence or label it an assumption |
 | Before submission | Evidence filenames, statuses and the documented recovery state | Use the workbook checklist; do not replace missing tests with examples |
 
 For each procedure below, perform one action, inspect its result, then continue. Commands belong to the named lab system; `sudo` requires the assigned lab administrator authority. Example output and predictions are not evidence of execution.

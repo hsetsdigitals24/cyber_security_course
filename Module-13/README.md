@@ -2,6 +2,8 @@
 
 Before the practical, complete the [M09 → M13 P04 transition](06-P04-Transition.md) so detection uses the tested segmented path.
 
+L25 observes the instructor-prepared live marker rule and records both packet and alert evidence. L26 then validates rule behaviour offline and through authorised live changes. Missing live-rule access is an unfinished practical step, not an instruction to invent an alert or skip ahead.
+
 <!-- HSETS-SELF-ROUTE -->
 ## Study independently
 
