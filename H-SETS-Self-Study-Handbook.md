@@ -1,5 +1,7 @@
 # H-SETS — Learn independently, verify your understanding
 
+**Beginner starting point:** use the [computer-skills bridge](H-SETS-Computer-Skills-Bridge.md) for an observed diagnostic and targeted practice. The [weekly planner](H-SETS-Weekly-Study-Plan.md#week6-budget) now reserves guided time for the first Python exercises and part of P01 network practice.
+
 This handbook supports students with basic computer knowledge. The course is designed to reduce dependence on live explanation: read a concept, work through a complete example, try a new case, reveal its feedback, then complete the matching practical and assignment. Instructor help remains available for missing prerequisites, access, safety, unclear evidence and assessment.
 
 **The “about 10% instructor help” target is a design goal, not a measured result.** Independent learning does not mean installing every platform alone or proceeding without authorised access. The instructor/platform owner still provides tested environments, credentials, assessment assets and moderation. Do not count that preparation as work the notes have eliminated.

@@ -47,3 +47,10 @@ See the [learning guide](H-SETS-Student-Learning-Guide.md) and [assessment guide
 P01 networking practice overlaps M05/M06 in Weeks 5–6. Keep the M04 pair dedicated to P01. The instructor supplies a separate clean P02 server for M05 and a separate P02 client for M06, with unique VM names/MAC addresses and a different learner-specific internal network. A snapshot of one shared guest is not a substitute for keeping these concurrent projects separate: reverting it could erase the other project's files, users or services.
 
 Power off the P01 pair before running the P02 pair, and reverse this when returning to network practice. Do not run all four guests together on the 16 GB route. Record actual VM names, adapters, storage headroom and recovery points on the class lab sheet. The instructor checks capacity or provides a hosted equivalent before assigning the work. Restore only the named project's guest; preserve evidence outside it first.
+
+
+## Ready-to-start decision
+
+The instructor records **ready**, **not ready**, or **not applicable with reason** for each required input: image/tool version, named account role, network/target, fixture, expected observation/delay, recovery and after-class access. Add verifier, date and evidence reference. All applicable critical inputs must be ready before the practical starts. An unavailable item is a provisioning issue, not a learner failure; arrange another session and continue relevant paper study.
+
+For a changed environment, record old value → new value → every affected instruction → validation result. M13 uses its P04 transition sheet. For the computing bridge, add approved application/source/publisher, installation steps and launch test. Do not leave learners to choose an installer or guess network values.

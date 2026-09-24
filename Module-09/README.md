@@ -1,5 +1,7 @@
 # H-SETS — Module 09: Firewall Policy, Segmentation, and Secure Remote Access
 
+Keep the P04 baseline and evidence for the [M13 detection transition](../Module-13/06-P04-Transition.md).
+
 <!-- HSETS-SELF-ROUTE -->
 ## Study independently
 

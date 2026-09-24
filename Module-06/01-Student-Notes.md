@@ -1,5 +1,7 @@
 # M06 — Linux Services, Hardening, and Simple Automation
 
+**Before the L12 parser:** complete [Python first steps](06-Python-First-Steps.md), then return to the existing worked case and lab. No prior programming is assumed.
+
 <!-- HSETS-SELF-NAV -->
 **Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L11: Services, Logs, SSH, and Hardening](#lesson-l11) · [L12: Recovery and Small Explainable Scripts](#lesson-l12)
 

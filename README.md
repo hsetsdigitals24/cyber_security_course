@@ -44,6 +44,7 @@ Follow module order: M01–M03 build foundations without learner VMs. M04 introd
 
 ## Student resources
 
+- [Computer-skills diagnostic and practice](H-SETS-Computer-Skills-Bridge.md)
 - [Independent study, troubleshooting and help](H-SETS-Self-Study-Handbook.md)
 - [Eight portfolio projects](H-SETS-Portfolio-Projects.md)
 - [Portfolio submission guide](PORTFOLIO-SUBMISSION-GUIDE.md)

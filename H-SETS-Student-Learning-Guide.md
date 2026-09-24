@@ -1,5 +1,7 @@
 # H-SETS Practical Cybersecurity Programme — Student Learning Guide
 
+**Beginner starting point:** use the [computer-skills bridge](H-SETS-Computer-Skills-Bridge.md) for an observed diagnostic and targeted practice. The [weekly planner](H-SETS-Weekly-Study-Plan.md#week6-budget) now reserves guided time for the first Python exercises and part of P01 network practice.
+
 Start with the [Self-study Handbook](H-SETS-Self-Study-Handbook.md) for the independent route, command-reading support, readiness checks, troubleshooting and help requests. Every lesson now includes a complete worked case and a new ungraded practice case with revealable feedback. The roughly 10% direct-help target requires learner trials; necessary instructor preparation and assessment remain.
 
 ## Your first four modules

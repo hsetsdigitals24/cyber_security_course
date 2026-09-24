@@ -11,7 +11,7 @@ Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Lea
 3. Follow the [live network practice](06-Network-Practice.md): addressing/service tests first, DNS and capture second. These apply the concepts already studied in M02–M03.
 4. Complete the [workbook](03-Student-Workbook.md), update P01, and arrange G1 after the live practice is complete.
 
-Plan 180 guided minutes for L02 and 180 for L08, including explanation, practice and feedback. Budget the six independent hours as L02 assignment/variation 180 minutes, L08 75 minutes, and reading/feedback/evidence organisation 105 minutes. Reuse your own guided-lab evidence where it addresses the same requirement. Complete Stage A network practice during 140 minutes of Week 5 P01 time and Stage B during 140 minutes of Week 6 P01 time; the first P01 draft and G1 follow at the end of Week 6. This is a planning budget, not a measured beginner completion time. If setup or assessment needs more time, the instructor adjusts the deadline before G1; do not omit tests or claim unperformed work.
+Plan 180 guided minutes for L02 and 180 for L08, including explanation, practice and feedback. Budget the six independent hours as L02 assignment/variation 180 minutes, L08 75 minutes, and reading/feedback/evidence organisation 105 minutes. Reuse your own guided-lab evidence where it addresses the same requirement. Complete Stage A during 140 independent minutes in Week 5; Stage B uses 60 guided plus 80 independent minutes in Week 6 (see the weekly planner); the first P01 draft and G1 follow at the end of Week 6. This is a planning budget, not a measured beginner completion time. If setup or assessment needs more time, the instructor adjusts the deadline before G1; do not omit tests or claim unperformed work.
 
 Use the completed class lab sheet for images, versions and recovery. The instructor supplies offline-ready guests with the required tools. No full VM/platform run has been completed by the author.
 
@@ -74,7 +74,8 @@ Capture settings screenshots using the host. Record `M04-E01` for VM-A and `M04-
 
 **Why:** This establishes the intended boundary. The two guests need to communicate with each other, while no other network path is required for this exercise.
 
-### 5. Set the supplied guest addresses
+#<a id="guest-addresses"></a>
+## 5. Set the supplied guest addresses
 
 Start both guests. In each Ubuntu desktop, open **Settings → Network**, select the wired connection's settings, and open **IPv4**. Choose **Manual**. Enter the following:
 
@@ -201,7 +202,7 @@ Get-Location
 git --version
 ```
 
-Confirm the displayed path ends in your intended `Module-01` directory. Create these three text files with your editor: `README.md`, `scope.md`, and `change-log.md`. Save completed text, not just headings. Windows editors must not silently append `.txt` to the Markdown filename.
+Confirm the displayed path ends in your intended `Module-04` directory. An illustrative location is `C:\Users\Learner\Documents\HSETS-Portfolio\Module-04`; your username and parent location may differ. Match your actual folder, not that example. Create these three text files with your editor: `README.md`, `scope.md`, and `change-log.md`. Save completed text, not just headings. Windows editors must not silently append `.txt` to the Markdown filename.
 
 Create `.gitignore` with these lines:
 
@@ -225,7 +226,7 @@ git config --local user.email "student01@example.invalid"
 git add README.md scope.md change-log.md .gitignore
 git diff --cached --stat
 git diff --cached
-git commit -m "Document Module 01 scope and recovery evidence"
+git commit -m "Document Module 04 scope and recovery evidence"
 git status
 git log -1 --oneline
 ```

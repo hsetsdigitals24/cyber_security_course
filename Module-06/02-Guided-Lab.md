@@ -87,7 +87,7 @@ sudo ufw enable
 sudo ufw status verbose
 ```
 
-Explain each rule: only the assigned source may reach SSH on the lab destination; outgoing allowance is a lab choice, not universal production policy. Verify IPv6 behaviour and absence of unintended paths on the classroom image. Use a fresh Alice SFTP connection from `.20` and verify the file. Then disconnect, change the client's assigned static address temporarily to the instructor-reserved unused `.21/24` using M02's GUI, and try a new SSH connection with `ssh -o ConnectTimeout=5 alice@10.10.10.30`. It should fail at network reachability under this policy. Restore `.20`, verify a fresh allowed transaction, and record both actual results. No concurrent session should be used as the denied test.
+Explain each rule: only the assigned source may reach SSH on the lab destination; outgoing allowance is a lab choice, not universal production policy. Verify IPv6 behaviour and absence of unintended paths on the classroom image. Use a fresh Alice SFTP connection from `.20` and verify the file. Then disconnect, change the client's assigned static address temporarily to the instructor-reserved unused `.21/24` using the [M04 Ubuntu address procedure](../Module-04/02-Guided-Lab.md#guest-addresses) on the dedicated P02 client. Use the assigned P02 subnet, `.21/24` test address and P02 network from the lab sheet; do not copy M04 VM names or its `.11/.12` addresses. Then try a new SSH connection with `ssh -o ConnectTimeout=5 alice@10.10.10.30`. It should fail at network reachability under this policy. Restore `.20`, verify a fresh allowed transaction, and record both actual results. No concurrent session should be used as the denied test.
 
 <a id="practice-l12"></a>
 ## L12 — Recover one report
@@ -112,6 +112,8 @@ sudo sha256sum /srv/hsets-finance/draft.txt
 The ACL restore file names the original path; inspect it before use. Compare content and metadata, retrieve by Alice over SFTP, and verify Ben remains denied. Record elapsed recovery and the local-copy limitation.
 
 ## L12 — Small read-only parser
+
+First complete [Python first steps](06-Python-First-Steps.md). It teaches saving/running scripts, indentation, conditions and a trace of this parser before the assessed extension. Use its readiness check; this practice adds no marks.
 
 Create `events.jsonl` in the ordinary user's `~/hsets-m06` directory:
 

@@ -1,5 +1,7 @@
 # M06 — Linux Services, Hardening, and Simple Automation
 
+New to programming? Complete [Python first steps](06-Python-First-Steps.md) before the L12 parser. See the [Week 6 budget](../H-SETS-Weekly-Study-Plan.md#week6-budget).
+
 <!-- HSETS-SELF-ROUTE -->
 ## Study independently
 
@@ -44,3 +46,6 @@ H-SETS • L11 Services, logs, SSH, and hardening; L12 Recovery and small explai
 3. [Workbook](03-Student-Workbook.md)
 
 Deliver service, policy, access, recovery, log and parser evidence toward [P02](../H-SETS-Portfolio-Projects.md). Eight course projects remain. Written package authored; all VM execution and learner-pilot status pending.
+
+
+Use the [revised Week 6 budget](../H-SETS-Weekly-Study-Plan.md#week6-budget): P01 Stage B is 60 guided plus 80 independent minutes, with Python practice and assessment explicitly allocated.

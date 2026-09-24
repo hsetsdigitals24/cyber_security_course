@@ -46,7 +46,9 @@ Stop and ask the instructor if the named image, account, fixture, permission or 
 Use only your allocated isolated client, server, and sensor. No scanning or malware is required. Exact package versions must be recorded. The following Ubuntu/Suricata procedure is an authored candidate awaiting execution.
 
 ## Preparation and starting state
-Instructor supplies an Ubuntu sensor/server with Suricata, Python 3 and tcpdump installed, a separate client with curl, and isolated addressing. Example server is 10.10.30.10; substitute the allocated address consistently. Do not run a second Suricata process on an interface already owned by a lab service. Use the hosted instance or instructor-approved maintenance window instead.
+
+First complete the [P04 transition sheet](06-P04-Transition.md). The default route retains M09 USERS client 10.10.0.10, DMZ server 10.20.0.20 and TCP 8000; the sensor observes the server lab interface. The instructor must verify this path before the lesson. An alternative range needs a completed equivalent mapping, not inconsistent substitutions.
+Instructor supplies an Ubuntu sensor/server with Suricata, Python 3 and tcpdump installed, a separate client with curl, and isolated addressing. Example server is 10.20.0.20; substitute the allocated address consistently. Do not run a second Suricata process on an interface already owned by a lab service. Use the hosted instance or instructor-approved maintenance window instead.
 
 ### Instructor preparation and learner values
 
@@ -86,7 +88,7 @@ printf 'H-SETS marker only\n' > hsets-visibility-test
 3. Start the foreground server and leave this terminal open:
 
 ```bash
-python3 -m http.server 8080 --bind 10.10.30.10
+python3 -m http.server 8000 --bind 10.20.0.20
 ```
 
 **Client terminal — ordinary lab user:**
@@ -94,7 +96,7 @@ python3 -m http.server 8080 --bind 10.10.30.10
 4. Request the marker:
 
 ```bash
-curl --max-time 5 -i http://10.10.30.10:8080/hsets-visibility-test
+curl --max-time 5 -i http://10.20.0.20:8000/hsets-visibility-test
 ```
 
 `-i` includes response headers; `--max-time 5` bounds the wait. Expect a successful HTTP response and the marker text. Record the actual output. A server-start message alone does not establish client access.
@@ -111,13 +113,13 @@ mkdir -p ~/hsets-m13/output
 7. Start capture, replacing `INTERFACE` with the verified lab interface name:
 
 ```bash
-sudo tcpdump -i INTERFACE -nn -s 0 -w ~/hsets-m13/visibility.pcap 'tcp port 8080'
+sudo tcpdump -i INTERFACE -nn -s 0 -w ~/hsets-m13/visibility.pcap 'tcp port 8000'
 ```
 
 `-nn` avoids name conversion, `-s 0` retains captured packet content and `-w` writes the file. This command stays running. Do not paste the word `INTERFACE` unchanged.
 8. On the client, repeat step 4 once. Return to the capture terminal and stop capture with Ctrl+C.
 9. Open the capture in Wireshark through the approved private path. Apply display filter `http.request`.
-10. Find the request's endpoints and URI. If HTTP is not decoded on 8080, inspect TCP and use **Decode As → HTTP** for that flow with the instructor.
+10. Find the request's endpoints and URI. If HTTP is not decoded on 8000, inspect TCP and use **Decode As → HTTP** for that flow with the instructor.
 
 **Checkpoint:** match the captured request to the server log by endpoint, request and time. Record actual frame references. A missing packet is a visibility issue to investigate; an alert is not required at this stage.
 
@@ -125,7 +127,7 @@ sudo tcpdump -i INTERFACE -nn -s 0 -w ~/hsets-m13/visibility.pcap 'tcp port 8080
 ## B. Validate a small rule offline
 In an ordinary text editor on the sensor, save the following single line as `~/hsets-m13/hsets.rules`. Confirm the filename has no extra `.txt` extension:
 ```
-alert http any any -> any 8080 (msg:"H-SETS exact visibility marker"; flow:established,to_server; http.uri; content:"/hsets-visibility-test"; startswith; endswith; sid:1000001; rev:1;)
+alert http any any -> any 8000 (msg:"H-SETS exact visibility marker"; flow:established,to_server; http.uri; content:"/hsets-visibility-test"; startswith; endswith; sid:1000001; rev:1;)
 ```
 This SID must be confirmed unused in the allocated range. startswith and endswith express exact buffer matching; verify support in the installed version.
 

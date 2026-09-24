@@ -1,5 +1,7 @@
 # M13 — Network Detection and Visibility
 
+Before the practical, complete the [M09 → M13 P04 transition](06-P04-Transition.md) so detection uses the tested segmented path.
+
 <!-- HSETS-SELF-ROUTE -->
 ## Study independently
 

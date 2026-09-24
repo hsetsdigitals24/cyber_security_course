@@ -16,7 +16,7 @@ The eight projects may share base images to reduce setup time. Each has a distin
 
 | Project | Core prerequisites | Estimated independent hours | First complete draft | Final assessment |
 |---|---|---:|---|---|
-| P01 Network troubleshooting | M01–M04 | 8 | Week 6 | Week 21 |
+| P01 Network troubleshooting | M01–M04 | 7 (+1 guided) | Week 6 | Week 21 |
 | P02 Linux file service | M05–M06 | 10 | Week 7 | Week 21 |
 | P03 AD and endpoints | M07–M08 | 12 | Week 9 | Week 21 |
 | P04 Segmentation and detection | M09; M13 for detection | 12 | Week 13 | Week 21 |
@@ -24,9 +24,9 @@ The eight projects may share base images to reduce setup time. Each has a distin
 | P06 SOC and detections | M14–M15 | 16 | Week 16 | Week 21 |
 | P07 Data protection/recovery | M17 | 12 | Week 18 | Week 21 |
 | P08 Incident capstone | M01–M18 | 20 | Week 22 | Week 24 |
-| Total | | 104 | | |
+| Total | | 103 (+1 guided) | | |
 
-These 104 hours are included in the blueprint's 156 independent hours. The remaining 52 support preparation, weekly practice, knowledge checks, and career work. Guided labs provide the starting skills and some initial infrastructure. Instructors should adjust dates if a prerequisite gate requires remediation; preserve the acceptance standard.
+The project workload is 104 hours: 103 of the blueprint's 156 independent hours plus one guided hour for P01 Stage B. The remaining 53 independent hours support preparation, weekly practice, knowledge checks, and career work. Guided labs provide the starting skills and some initial infrastructure. Instructors should adjust dates if a prerequisite gate requires remediation; preserve the acceptance standard.
 
 ## 2. Common submission package
 
@@ -446,4 +446,4 @@ Run a mock interview using concrete questions: 'Which evidence changed your hypo
 
 ## Foundations-first sequencing for P01 and G1
 
-M01 supplies risk/access reasoning; M02–M03 supply addressing plans and analysis of synthetic evidence. Live configuration, fault correction, DNS testing and PCAP collection follow L02 setup in M04, using [the network practice pack](Module-04/06-Network-Practice.md). These exercises contribute to the existing P01 workload, not an additional project or set of lesson grades. Supplied worksheet results do not satisfy actual P01 implementation/retest requirements. The first P01 draft and G1 are planned for the end of Week 6: Stage A uses 140 minutes of Week 5 P01 time and Stage B 140 minutes of Week 6 P01 time. These hours are part of P01's existing eight-hour allocation; early planning and later practice count once. The instructor confirms the combined weekly workload and adjusts dated checkpoints if remediation needs more time. M05 requires the working guest from M04, but does not require G1 to have been assessed already.
+M01 supplies risk/access reasoning; M02–M03 supply addressing plans and analysis of synthetic evidence. Live configuration, fault correction, DNS testing and PCAP collection follow L02 setup in M04, using [the network practice pack](Module-04/06-Network-Practice.md). These exercises contribute to the existing P01 workload, not an additional project or set of lesson grades. Supplied worksheet results do not satisfy actual P01 implementation/retest requirements. The first P01 draft and G1 are planned for the end of Week 6: Stage A uses 140 independent minutes of Week 5 P01 time; Stage B uses 60 guided plus 80 independent minutes in Week 6, as allocated in the weekly planner. These hours are part of P01's existing eight-hour allocation; early planning and later practice count once. The instructor confirms the combined weekly workload and adjusts dated checkpoints if remediation needs more time. M05 requires the working guest from M04, but does not require G1 to have been assessed already.

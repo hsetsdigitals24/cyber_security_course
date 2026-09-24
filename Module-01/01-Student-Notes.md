@@ -1,5 +1,7 @@
 # M01 — Computer and Cybersecurity Foundations
 
+Need help creating, saving or finding files? Use the [step-by-step computer-skills bridge](../H-SETS-Computer-Skills-Bridge.md) before the foundation practice.
+
 <!-- HSETS-SELF-NAV -->
 **Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L01: Security, Business Risk, and Professional Practice](#lesson-l01) · [L07: Threats, Social Engineering, and Access Decisions](#lesson-l07)
 

@@ -89,7 +89,7 @@ Stop the teaching server; restore recorded address settings if changed. Keep the
 
 ## Preparation and scope
 
-Reuse Stage A's isolated Ubuntu client `.20` and server `.30` on 10.10.10.0/24. No external adapters or default gateway. Instructor preinstalls Wireshark, dnsutils, dnsmasq, Python 3, and curl before isolation. Record actual versions; Ubuntu 24.04 LTS is the proposed baseline. Use the normal non-root Wireshark capture setup approved for the classroom image; do not run the entire GUI as root. Guest consoles provide recovery. Snapshot both guests. Budget 140 minutes of Week 6 independent P01 time for this stage, with instructor support available. L05/L06 are the prerequisite concept references, not lessons to repeat.
+Reuse Stage A's isolated Ubuntu client `.20` and server `.30` on 10.10.10.0/24. No external adapters or default gateway. Instructor preinstalls Wireshark, dnsutils, dnsmasq, Python 3, and curl before isolation. Record actual versions; Ubuntu 24.04 LTS is the proposed baseline. Use the normal non-root Wireshark capture setup approved for the classroom image; do not run the entire GUI as root. Guest consoles provide recovery. Snapshot both guests. Budget 60 guided minutes in Week 6 class A and 80 independent minutes before class B, following the [weekly budget](../H-SETS-Weekly-Study-Plan.md#week6-budget). L05/L06 are the prerequisite concept references, not lessons to repeat.
 
 The instructor prepares a dedicated lab DNS responder on the server. Confirm port 53 is available on `.30`; Ubuntu's loopback resolver is a different bind address. If a conflicting service exists, use a prepared image rather than stopping an unknown service. Use this foreground command in a server terminal:
 

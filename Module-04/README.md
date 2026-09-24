@@ -40,3 +40,8 @@ Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Lea
 Finish L02/L08 and preserve the working guest before M05. Complete [Stage A in Week 5 and Stage B in Week 6](06-Network-Practice.md), then submit the first P01 draft and prepare G1. These project checkpoints follow the module lessons; they do not require repeating them.
 
 Use the [weekly planner](../H-SETS-Weekly-Study-Plan.md) and [assessment guide](../H-SETS-Student-Assessment-Guide.md). Planned weekly time remains six guided plus six independent hours; timings require a beginner pilot.
+
+
+
+
+Use the [revised Week 6 budget](../H-SETS-Weekly-Study-Plan.md#week6-budget): P01 Stage B is 60 guided plus 80 independent minutes, with Python practice and assessment explicitly allocated.

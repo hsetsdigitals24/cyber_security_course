@@ -72,8 +72,29 @@ Read the code: the token selects a role; GET reads one object, PUT changes it, D
 
 <a id="practice-l33"></a>
 ## A. Permission tests
-1. Create baseline.txt with two lines: Client: Training Consultancy and Classification: Confidential synthetic.
-2. In another terminal run client.py, choose PUT, enter writer token privately, and supply baseline.txt. Record status.
+1. Keep the service terminal open. Open a **second terminal on the same machine** and navigate from the course root to `Module-17/lab-work`. This is the working folder for your input and evidence files. Save `baseline.txt` there using the text editor, with two lines: `Client: Training Consultancy` and `Classification: Confidential synthetic`.
+2. Launch the client using its path relative to that folder. Ubuntu, starting from the course root:
+
+```bash
+cd Module-17/lab-work
+pwd
+ls -l baseline.txt ../fixtures/client.py
+python3 ../fixtures/client.py
+```
+
+Windows PowerShell, starting from the course root:
+
+```powershell
+Set-Location Module-17/lab-work
+Get-Location
+Get-Item -LiteralPath .\baseline.txt, ..\fixtures\client.py
+python ..\fixtures\client.py
+```
+
+If the configured Windows launcher is `py`, substitute `py` for `python`. Do not repeat the `cd`/`Set-Location` line if already in lab-work. The expected first prompt is `Method GET/PUT/DELETE:`. Enter `PUT`, then the writer token at the hidden prompt, then `baseline.txt` at the input-path prompt. The token is not displayed as you type; do not put it in a command argument or screenshot. Record the actual HTTP status.
+
+Each client run performs one operation and exits. For every later test rerun only `python3 ../fixtures/client.py` (Ubuntu), `python ..\fixtures\client.py` (Windows), or the configured `py` equivalent from lab-work. Create changed.txt and new evidence files in that same folder. When saving a response, choose a new filename; the client deliberately refuses to overwrite an existing file.
+
 3. GET with blank token: record denial.
 4. GET with reader token: verify content and save to a new evidence file when prompted.
 5. Create changed.txt with different harmless content. PUT with reader token: record denial, then GET to verify unchanged bytes.

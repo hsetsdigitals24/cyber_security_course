@@ -1,5 +1,7 @@
 # M01 — Computer and Cybersecurity Foundations
 
+Start with the [computer-skills diagnostic and bridge](../H-SETS-Computer-Skills-Bridge.md) if file handling or screenshots are unfamiliar. Practise only the skills you need.
+
 <!-- HSETS-SELF-ROUTE -->
 ## Study independently
 

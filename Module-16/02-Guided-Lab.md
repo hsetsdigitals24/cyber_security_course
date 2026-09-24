@@ -76,14 +76,44 @@ Instructor releases additional evidence only after initial hypotheses are submit
 
 <a id="practice-l32"></a>
 ## D. Recovery practice
-This recovery uses a new disposable file, not the evidence original.
-1. mkdir -p ~/hsets-m16/service ~/hsets-m16/backup.
-2. printf 'invoice,amount\nLAB001,100\n' > ~/hsets-m16/service/payments.csv.
-3. cp -p ~/hsets-m16/service/payments.csv ~/hsets-m16/backup/payments.csv and record sha256sum for both. This same-host copy is a teaching backup with a shared-failure limitation; P07 requires stronger separation.
-4. Change only the disposable service file to 'LAB001,999' using a text editor. Record its changed hash.
-5. Start a timer. Copy the backup over that explicit service file. Do not overwrite originals/events.md.
-6. Compare hashes and open the restored CSV as the authorised `finance.lab` identity supplied by the instructor. Record elapsed time, the exact restored content, and a successful application-level read. Then attempt the same read as the supplied unauthorised `operations.lab` identity and record the denial. Do not create these identities during the assessment or weaken file/directory permissions to obtain the expected result. If either identity or the required access baseline is absent, stop this access portion, record it as **not run**, and require the instructor to correct the fixture before completion; byte equality alone does not satisfy the access-recovery check.
-7. Explain what this proves and why it does not establish full server recovery or separate-failure resilience.
+This recovery uses a new disposable file, not the evidence original. Use the assigned Ubuntu guest and ordinary learner account. The instructor must first verify the finance.lab/operations.lab access baseline through these exact parent paths; do not repair permissions yourself during the assessed task.
+
+1. Create the two practice directories, then inspect their names:
+
+```bash
+mkdir -p ~/hsets-m16/service ~/hsets-m16/backup
+ls -ld ~/hsets-m16/service ~/hsets-m16/backup
+```
+
+2. Create the harmless service file and read it:
+
+```bash
+printf 'invoice,amount\nLAB001,100\n' > ~/hsets-m16/service/payments.csv
+cat ~/hsets-m16/service/payments.csv
+```
+
+3. Copy it and record both digests:
+
+```bash
+cp -p ~/hsets-m16/service/payments.csv ~/hsets-m16/backup/payments.csv
+sha256sum ~/hsets-m16/service/payments.csv ~/hsets-m16/backup/payments.csv
+```
+
+Expected: two identical digests for the initial copies. Preserve actual output. This same-host copy cannot survive loss of that host; P07 requires stronger backup separation.
+
+4. In the editor change only the disposable service file's amount to 999, retain its header, and save. Run `sha256sum ~/hsets-m16/service/payments.csv` and preserve the changed digest.
+5. Start a timer. Restore only the named service file:
+
+```bash
+cp -p ~/hsets-m16/backup/payments.csv ~/hsets-m16/service/payments.csv
+sha256sum ~/hsets-m16/backup/payments.csv ~/hsets-m16/service/payments.csv
+cat ~/hsets-m16/service/payments.csv
+```
+
+Do not overwrite originals/events.md. The restored content should have amount 100 and match the saved baseline digest.
+
+6. Open the restored CSV through the instructor's supplied identity-switch procedure as authorised `finance.lab`; then test the same read as unauthorised `operations.lab`. Record allowed read, denied read and exact identity contexts. Stop the timer after content and access checks. Do not create identities or weaken permissions to obtain the expected result. Missing accounts, a blocked parent path or missing access baseline means **not run** for that portion until the instructor corrects the fixture. Matching bytes alone do not pass recovery.
+7. Explain what was recovered and why this is not full server recovery or independent backup resilience.
 
 ## E. Response update
 After additional evidence, revise the hypothesis log and write a containment request with target, authority, impact, rollback and verification. Produce a 150-word management update and an analyst handover. Use proposed/executed labels.
