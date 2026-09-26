@@ -1,91 +1,32 @@
 # M17 — Cloud, Resilience, Risk, and Governance
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L33: Cloud trust, private data, and recovery](#lesson-l33) · [L34: Risk ownership, control evidence, and reporting](#lesson-l34)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L33, complete its guided activity and assignment, then continue to L34. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L33/L34**
+
 <a id="lesson-l33"></a>
 ## L33 — Cloud trust, private data, and recovery
-### General Overview
+### What you will learn
 Cedarbridge wants documents to remain private and recoverable. A provider can operate infrastructure, but cannot decide which employee should read a payroll file. This lesson connects identity, access, storage and recovery to clear business requirements.
 
-<!-- HSETS-SELF-READY-L33 -->
-**Before this lesson:** You can distinguish read/write authorisation, encryption and recovery. Revisit [L08 refresher](../Module-04/01-Student-Notes.md#lesson-l08) · [L10 refresher](../Module-05/01-Student-Notes.md#lesson-l10) · [L12 refresher](../Module-06/01-Student-Notes.md#lesson-l12).
+Before starting, make sure you can distinguish read/write authorisation, encryption and recovery. Revisit [L08 refresher](../Module-04/01-Student-Notes.md#lesson-l08) · [L10 refresher](../Module-05/01-Student-Notes.md#lesson-l10) · [L12 refresher](../Module-06/01-Student-Notes.md#lesson-l12). Cloud services change who operates particular components, but they do not remove the need to define access and recovery. Follow the responsibility boundary and test the actions the service must allow or deny.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l33) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L33 -->
-
-<!-- HSETS-TERMS-L33 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l33-01"></a>
-#### Cloud service models and shared responsibility
-
-**Definition:** Infrastructure as a Service (IaaS) supplies infrastructure resources; Platform as a Service (PaaS) supplies a managed application platform; Software as a Service (SaaS) supplies a managed application. Shared responsibility divides obligations between provider and customer according to the actual service.
-
-**Explanation:** These labels help ask questions but do not replace the service's documented boundary. Customer responsibilities can include identities, configuration and data even when infrastructure is managed. The local simulator does not implement a real provider's full controls.
-
-**Example or scenario:** Cedarbridge uses a managed storage service. The provider's infrastructure operation does not remove the team's duty to choose who can read the uploaded data.
-
-**Check your understanding:** Can the team infer all security responsibilities from the word “cloud” alone?
-
-<a id="term-l33-02"></a>
-#### Data plane, management plane and token
-
-**Definition:** The data plane handles ordinary resource operations. The management plane configures the service and its access. A token is a value used to convey an authentication or authorisation context in a specified system.
-
-**Explanation:** A reader of an object need not be allowed to change who can read every object. Protect management authority separately and keep tokens out of reports. The teaching fixture's token features are intentionally limited.
-
-**Example or scenario:** The synthetic reader token can request the object but cannot write it. The instructor separately controls service setup and backup authority.
-
-**Check your understanding:** Why is publishing a working token in a screenshot unsafe even when the screenshot is evidence?
-
-<a id="term-l33-03"></a>
-#### RPO, RTO and recovery measurement
-
-**Definition:** Recovery Point Objective (RPO) states the acceptable data-loss interval measured in time. Recovery Time Objective (RTO) states the target time to restore the defined service after disruption.
-
-**Explanation:** Objectives are targets, not automatically achieved results. Record the backup's age, when timing starts and which validation ends it. Restoring bytes before access works may not satisfy the service-recovery objective.
-
-**Example or scenario:** The exercise allows up to 24 hours of data loss and defines restoration to include permitted access and denied-write tests. The learner times through those checks, not only the copy operation.
-
-**Check your understanding:** If file copying ends at eight minutes but required access checks finish at twelve, which time meets this defined measurement?
-
-<a id="term-l33-04"></a>
-#### Independent backup and recovery boundary
-
-**Definition:** An independent backup is separated from relevant failure or authority paths that could affect the live data. A recovery boundary defines what is protected, from which failures and under whose control.
-
-**Explanation:** A second folder on the same writable service is not automatically independent. Consider storage, credentials, deletion authority and actual restore availability. Encryption and separation address different aspects of protection.
-
-**Example or scenario:** The writer can alter the live object but must not be able to alter the approved backup. The class verifies that authority boundary and later restores using the protected copy.
-
-**Check your understanding:** Does naming a folder backup prove that the service writer cannot damage it?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L33 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 Authentication establishes identity; authorisation decides permitted actions. A hash checks bytes, not availability. A backup must be recoverable under the relevant failure. Recall M16's distinction between restoring a file and restoring a useful service.
 
+<a id="term-l33-01"></a>
 ### 1. Service models and responsibility
+
+Infrastructure as a Service (IaaS) supplies infrastructure resources; Platform as a Service (PaaS) supplies a managed application platform; Software as a Service (SaaS) supplies a managed application. Shared responsibility divides obligations between provider and customer according to the actual service. These labels help ask questions but do not replace the service's documented boundary. Customer responsibilities can include identities, configuration and data even when infrastructure is managed. The local simulator does not implement a real provider's full controls.
 IaaS provides infrastructure on which the customer typically administers guest systems and applications. PaaS manages more of the platform while the customer maintains application and data decisions. SaaS provides an application but still requires appropriate tenant settings, identities and sharing.
 
-The exact boundary depends on the service contract and configuration. Do not infer identical controls across all PaaS services. Draw a responsibility matrix naming who configures, operates, monitors and verifies each control. “Shared” alone is too vague: describe the handoff.
+The exact boundary depends on the service contract and configuration. Do not infer identical controls across all PaaS services. Draw a responsibility matrix naming who configures, operates, monitors and verifies each control. “Shared” alone is too vague: describe the handoff. Cloud resources can be created quickly and may be short-lived. Inventory, ownership, configuration checks and budget controls matter because a forgotten resource can retain data or access. Our local simulator does not reproduce provider scale, availability or tenant isolation.
 
-Cloud resources can be created quickly and may be short-lived. Inventory, ownership, configuration checks and budget controls matter because a forgotten resource can retain data or access. Our local simulator does not reproduce provider scale, availability or tenant isolation.
-
+<a id="term-l33-02"></a>
 ### 2. Data and management paths
+
+The data plane handles ordinary resource operations. The management plane configures the service and its access. A token is a value used to convey an authentication or authorisation context in a specified system. A reader of an object need not be allowed to change who can read every object. Protect management authority separately and keep tokens out of reports. The teaching fixture's token features are intentionally limited.
 The data plane handles reading and writing objects. The management plane changes permissions, creates identities or configures service behaviour. An identity that can change access policy may indirectly reach data even without an ordinary read role.
 
 Our simulator has a fixed object and reader/writer tokens; its local operator controls the process and files. It demonstrates read/write decisions and anonymous denial. It does not implement a cloud management plane, MFA, federation, encryption at rest, distributed durability or production tenant isolation. State those limits in the portfolio.
@@ -100,12 +41,18 @@ Encryption in transit protects against some network observation; it does not cor
 
 The simulator uses HTTP on 127.0.0.1 solely to avoid transmitting temporary tokens across a network. Never change its bind address. A hosted route requires the institution's TLS and identity configuration. A person controlling the local host can read files or process state; this is not a hostile-local-user security boundary.
 
+<a id="term-l33-03"></a>
 ### 5. RPO and RTO
-Recovery point objective describes the acceptable interval of lost data. Recovery time objective describes the target time to restore required service after the defined disruption point. The lab requires a backup no older than 24 hours and verified recovery within 15 minutes. These are scenario requirements, not universal standards.
+
+Recovery Point Objective (RPO) states the acceptable data-loss interval measured in time. Recovery Time Objective (RTO) states the target time to restore the defined service after disruption. Objectives are targets, not automatically achieved results. Record the backup's age, when timing starts and which validation ends it. Restoring bytes before access works may not satisfy the service-recovery objective.
+  The lab requires a backup no older than 24 hours and verified recovery within 15 minutes. These are scenario requirements, not universal standards.
 
 Record failure time, backup timestamp, recovery start, verification finish and clock source. A copy taking 20 seconds does not imply a 20-second RTO if finding credentials and validating access took 18 minutes. State whether business downtime began before the timer.
 
+<a id="term-l33-04"></a>
 ### 6. Backup separation
+
+An independent backup is separated from relevant failure or authority paths that could affect the live data. A recovery boundary defines what is protected, from which failures and under whose control. A second folder on the same writable service is not automatically independent. Consider storage, credentials, deletion authority and actual restore availability. Encryption and separation address different aspects of protection.
 A copy in another folder on the same disk can rescue accidental deletion but shares hardware and administrator failures. A separate disk may still share credentials or site risk. Describe which failure domain is independent: device, account, system, site or provider.
 
 For P07 use an instructor-provided backup location outside the service writer's authority, on independent media/system or appropriately separate cloud recovery controls. Verify the writer cannot erase it through its service credentials. A same-host demonstration remains practice until stronger acceptance evidence is supplied.
@@ -116,24 +63,14 @@ The reader cannot overwrite the live object, but the writer can delete live and 
 ### Common mistakes and troubleshooting
 A 403 response is meaningful only when the intended identity and operation were used. Verify content after denied writes. A matching restored hash does not prove the backup was recent enough. If a backup fails, preserve the failed run and investigate rather than replacing its timing with a successful estimate.
 
-### Summary and glossary
+### Review and key terms
 An object is a stored unit addressed by a service. Shared responsibility allocates duties. RPO concerns data age; RTO concerns restoration time. A tested backup provides stronger evidence than a backup-job message.
-
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** A restored file matches its backup hash, but the intended reader is denied access. Content recovery is supported; service recovery is incomplete. Check the requested path, current identity and permissions before changing the data again. Stop the recovery timer only when the exercise's required content, access and control checks are complete. A nearby copy writable by the same service is not evidence of independent backup protection.
-
-**Try together:** List content, permitted read and denied write as separate recovery checks.
-
-**Try independently:** A restore takes eight minutes but the access checks take four more. If the objective includes those checks, what elapsed time is reportable?
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
 <!-- HSETS-SELF-STUDY-L33 -->
 <a id="self-study-l33"></a>
-### Self-study workshop — connect access, storage and recovery responsibilities
+### Applying the lesson: connect access, storage and recovery responsibilities
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 Cloud services distribute responsibilities between provider and customer according to the service and contract. A provider operating infrastructure does not automatically configure your application permissions or decide which user should receive a secret. Identify the exact resource and responsibility instead of treating “in the cloud” as a security conclusion.
 
@@ -176,71 +113,34 @@ Complete five MCQs, two scenarios and independent practical in the workbook: 30 
 
 <a id="lesson-l34"></a>
 ## L34 — Risk ownership, control evidence, and reporting
-### General Overview
+### What you will learn
 Technical controls need owners and decisions. Cedarbridge must choose which risks to reduce first, who is accountable, and what evidence shows a control works. This lesson turns practical results into a clear management recommendation.
 
-<!-- HSETS-SELF-READY-L34 -->
-**Before this lesson:** You can explain risk ownership and a verified recovery limitation. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01) · [L33 refresher](../Module-17/01-Student-Notes.md#lesson-l33).
+Before starting, make sure you can explain risk ownership and a verified recovery limitation. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01) · [L33 refresher](../Module-17/01-Student-Notes.md#lesson-l33). Risk reporting supports an owner’s decision. Connect the concern to its consequence, then explain the response and the evidence that supports it.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l34) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L34 -->
-
-<!-- HSETS-TERMS-L34 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l34-01"></a>
-#### Risk owner, likelihood and impact
-
-**Definition:** A risk owner is accountable for decisions about a risk. Likelihood concerns how plausible an adverse outcome is under stated conditions. Impact concerns the consequences if it occurs.
-
-**Explanation:** Qualitative ratings such as Low/Medium/High help discussion when assumptions are visible. They are not measured probabilities merely because numbers are assigned. Link the technical condition to a business decision and owner.
-
-**Example or scenario:** A recovery copy is unavailable during class. The report describes the affected service, plausible interruption and responsible owner instead of listing “backup risk” without context.
-
-**Check your understanding:** Why should a risk record name an owner as well as a technical weakness?
-
-<a id="term-l34-02"></a>
-#### Treatment, residual risk and acceptance
-
-**Definition:** Risk treatment changes how a risk is handled. Residual risk remains after that treatment. Acceptance is an authorised decision to retain defined remaining risk.
-
-**Explanation:** A safeguard rarely proves that all risk has disappeared. Explain what changed, what remains and when the decision should be reviewed. The administrator implementing a setting is not automatically the owner authorised to accept its consequences.
-
-**Example or scenario:** A temporary recovery arrangement reduces disruption risk but leaves a longer recovery time than desired. The owner records a bounded decision and an improvement deadline.
-
-**Check your understanding:** Does applying a control justify writing “zero risk” in the report?
-
-<a id="term-l34-03"></a>
-#### Policy, procedure, control evidence and framework
-
-**Definition:** A policy states an organisation's rules or expectations. A procedure explains how to carry out an activity. Control evidence supports a claim about implementation or operation. A framework organises practices and outcomes for assessment or planning.
-
-**Explanation:** Writing a rule, following a procedure and proving a result are different achievements. Mapping a classroom activity to a framework does not grant accreditation or establish complete organisational compliance.
-
-**Example or scenario:** The policy requires restricted access, the procedure describes group setup, and the learner's allowed/denied tests provide evidence of the tested boundary. A framework reference helps organise the discussion.
-
-**Check your understanding:** Which of these directly demonstrates the tested behaviour: policy text or functional test evidence?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L34 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 Risk links a valued asset to an adverse event and consequence. A vulnerability is a weakness, not the entire risk. M11 distinguished proposed, fixed and unverified conditions. Use the same accuracy in governance records.
 
+<a id="term-l34-01"></a>
 ### 1. Write a contextual risk
+
+A risk owner is accountable for decisions about a risk. Likelihood concerns how plausible an adverse outcome is under stated conditions. Impact concerns the consequences if it occurs. Qualitative ratings such as Low/Medium/High help discussion when assumptions are visible. They are not measured probabilities merely because numbers are assigned. Link the technical condition to a business decision and owner.
 “Cloud is dangerous” is not actionable. “If a writer token is exposed, an unauthorised person could alter client documents because that token permits overwrite, causing inaccurate advice and rework” identifies an asset, condition, event and consequence.
 
 Assess likelihood and impact using a declared qualitative scale and scenario facts. A score supports prioritisation; it is not a measured probability. State assumptions and do not treat multiplication of ordinal labels as a financial forecast.
 
+<a id="term-l34-02"></a>
 ### 2. Treatment and residual risk
+
+Risk treatment changes how a risk is handled. Residual risk remains after that treatment. Acceptance is an authorised decision to retain defined remaining risk. A safeguard rarely proves that all risk has disappeared. Explain what changed, what remains and when the decision should be reviewed. The administrator implementing a setting is not automatically the owner authorised to accept its consequences.
 Avoiding a risky service may remove a business capability. Mitigation reduces likelihood or impact. Transfer can shift some consequences through contracts or insurance without removing every operational duty. Acceptance needs an authorised owner and review conditions.
 
 Residual risk remains after treatment. Separate backup credentials reduce one loss path but may not address a site outage. Record owner, target date, evidence, residual risk and review trigger. The student recommends acceptance; the fictional business owner makes the scenario decision.
 
+<a id="term-l34-03"></a>
 ### 3. Policy, procedure and evidence
+
+A policy states an organisation's rules or expectations. A procedure explains how to carry out an activity. Control evidence supports a claim about implementation or operation. A framework organises practices and outcomes for assessment or planning. Writing a rule, following a procedure and proving a result are different achievements. Mapping a classroom activity to a framework does not grant accreditation or establish complete organisational compliance.
 A policy states a requirement such as least privilege. A procedure describes how to configure and verify it. Evidence records actual operation: anonymous denied, reader read allowed, overwrite denied, content unchanged.
 
 A permission screenshot supports configuration, not every access path. A successful test is a bounded observation, not proof of continuous effectiveness. Explain identity, time, object and limitations. An audit mechanism that logs API operations may miss direct filesystem changes; disclose that gap.
@@ -259,14 +159,14 @@ Restore finished in eight minutes but the backup was 30 hours old. The time targ
 ### Demonstration and independent practice
 The instructor converts one failed test into a risk with owner and evidence. Learners create five risks covering access, backup separation, logging, secrets and dependency failure, then respond to a changed contractor request. A contractor's one-week access requires lifecycle features the simple simulator lacks.
 
-### Summary and glossary
+### Review and key terms
 A risk owner accepts business accountability; a control owner operates a safeguard. Residual risk remains after treatment. Evidence distinguishes design, implementation and observed performance.
 
 <!-- HSETS-SELF-STUDY-L34 -->
 <a id="self-study-l34"></a>
-### Self-study workshop — make a risk report useful to its owner
+### Applying the lesson: make a risk report useful to its owner
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 A risk register is a decision record, not just a list of problems. It connects a business asset and plausible harm to current controls, evidence, ownership and a planned treatment. An analyst can recommend a response, but the appropriate business owner accepts the consequences and resources involved.
 

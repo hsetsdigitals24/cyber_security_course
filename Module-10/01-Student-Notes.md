@@ -1,85 +1,31 @@
 # H-SETS — M10: Authorised Assessment and Asset Discovery
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L19: Assessment scope and asset ownership](#lesson-l19) · [L20: Service validation and inventory reconciliation](#lesson-l20)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L19, complete its guided activity and assignment, then continue to L20. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
-
 
 <a id="lesson-l19"></a>
 ## L19 — Assessment scope and asset ownership
 
-### General Overview
+### What you will learn
 
 An assessment begins with permission and a question, not a scan button. An asset is anything of value requiring protection: a system, service, identity, dataset or business dependency. Discovery observes what appears to exist. Inventory records what is known. Asset management assigns owners and maintains that record over time. A responding IP address alone does not establish owner, business purpose or permission to test.
 
-<!-- HSETS-SELF-READY-L19 -->
-**Before this lesson:** You can explain scope and the actual network boundary. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01) · [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17).
+Before starting, make sure you can explain scope and the actual network boundary. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01) · [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17). An assessment starts with permission and an agreed scope. Only then can discovery results be interpreted as evidence about the resources the organisation owns or operates.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l19) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L19 -->
-
-<!-- HSETS-TERMS-L19 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l19-01"></a>
-#### Scope, authorisation and rules of engagement
-
-**Definition:** Scope identifies the systems and activities included in an assessment. Authorisation is permission from the responsible party. Rules of engagement describe permitted methods, timing, exclusions and stop conditions.
-
-**Explanation:** Knowing a target address does not grant permission to test it. Make the boundary explicit before using tools, including what to do if observations point outside the assigned range.
-
-**Example or scenario:** The instructor permits TCP checks on one synthetic host and excludes the old inventory address. The learner records the excluded entry without scanning it.
-
-**Check your understanding:** Does an address appearing in a scan result automatically extend the approved scope?
-
-<a id="term-l19-02"></a>
-#### Asset inventory, owner and discovery
-
-**Definition:** An asset inventory records known systems and their relevant properties. An owner is accountable for a resource's business use. Discovery gathers observations about assets or services.
-
-**Explanation:** Observed network responses and ownership records are different evidence sources. Inventory entries can be outdated; discovery may miss systems. Preserve discrepancies rather than inventing ownership from a banner.
-
-**Example or scenario:** The inventory lists an old server address but no responsible owner. The learner marks it excluded/unverified and asks the instructor for the ownership decision.
-
-**Check your understanding:** Can a software banner establish who owns the business service?
-
-<a id="term-l19-03"></a>
-#### Active discovery, passive observation and coverage
-
-**Definition:** Active discovery sends traffic to elicit responses. Passive observation examines available activity without sending those discovery probes. Coverage is the portion of the intended scope actually examined by the chosen method.
-
-**Explanation:** Both methods have limits. Passive data may omit quiet systems; active results depend on route, filtering and probe type. State the method and boundaries in the report.
-
-**Example or scenario:** The approved scan checks only TCP 22 and 8000 on one host. The learner reports those checks without claiming that every protocol or service on the host was assessed.
-
-**Check your understanding:** What is wrong with calling this scan a complete assessment of the entire network?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L19 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall risk, network addresses, ports and isolated lab scope. Active discovery sends traffic and can affect services; passive observations are limited to what their collection point can see.
 
-### Detailed teaching notes
-
+<a id="term-l19-02"></a>
 #### Asset Discovery as a Cybersecurity Foundation
+
+An asset inventory records known systems and their relevant properties. An owner is accountable for a resource's business use. Discovery gathers observations about assets or services. Observed network responses and ownership records are different evidence sources. Inventory entries can be outdated; discovery may miss systems. Preserve discrepancies rather than inventing ownership from a banner.
 
 An asset is anything valuable that an organization must protect, manage, monitor, or account for. In cybersecurity, assets are not limited to physical computers. Assets include servers, laptops, mobile devices, firewalls, cloud workloads, user accounts, service accounts, databases, applications, websites, APIs, certificates, backups, and business data.
 
 Asset discovery is the process of finding those assets and collecting enough information to make security decisions. A basic discovery result may say that a host exists. A mature discovery process explains what the host is, who owns it, what it does, whether it is approved, what data it handles, how it is exposed, and whether required controls are present.
 
 Professional security teams use asset discovery to reduce blind spots. A blind spot is an area of the environment that security staff cannot properly see, monitor, or control. Attackers often benefit from blind spots because unmanaged systems are less likely to be patched, logged, hardened, or reviewed.
-
 
 #### Common Cybersecurity Asset Categories
 
@@ -98,7 +44,6 @@ Professional security teams use asset discovery to reduce blind spots. A blind s
 
 This table shows why asset discovery is broader than scanning for IP addresses. A cloud role, SaaS integration, or service account can be just as important as a physical server.
 
-
 #### Discovery, Inventory, and Asset Management
 
 Asset discovery, asset inventory, and asset management work together.
@@ -113,12 +58,9 @@ Asset discovery, asset inventory, and asset management work together.
 
 A discovery result without ownership and business context is incomplete. A professional analyst should always ask: what is this asset, who owns it, why does it exist, how important is it, and how is it protected?
 
-
 #### Security Risk from Unknown Assets
 
-An unknown asset is any system, service, account, application, data store, or cloud resource that exists but is not properly recorded or governed.
-
-Unknown assets are dangerous because they may be:
+An unknown asset is any system, service, account, application, data store, or cloud resource that exists but is not properly recorded or governed. Unknown assets are dangerous because they may be:
 
 - Missing patches.
 - Missing endpoint detection and response.
@@ -134,7 +76,6 @@ Unknown assets are dangerous because they may be:
 
 Example: A marketing team creates an unsanctioned file-sharing account for campaign documents. The service is not monitored by IT, access is not reviewed, and a folder is accidentally made public. No malware was needed. The data exposure happened because the organization lacked visibility and governance.
 
-
 #### Asset Criticality
 
 Asset criticality describes how important an asset is to business operations. Criticality helps security teams prioritize protection, monitoring, patching, and response.
@@ -147,7 +88,6 @@ Asset criticality describes how important an asset is to business operations. Cr
 | Low | Limited business impact | Test workstation, training VM |
 
 Criticality should consider confidentiality, integrity, availability, safety, legal obligations, financial impact, and customer trust. A low-cost server can still be critical if it supports authentication, payments, medical care, or regulatory reporting.
-
 
 #### Asset Ownership
 
@@ -162,8 +102,10 @@ Every important asset should have clear ownership. Ownership does not mean one p
 
 Missing ownership creates delays during incidents. If a SOC analyst sees suspicious traffic from a server but nobody knows who owns it, containment, communication, and recovery become slower and riskier.
 
-
+<a id="term-l19-03"></a>
 #### Discovery Methods
+
+Active discovery sends traffic to elicit responses. Passive observation examines available activity without sending those discovery probes. Coverage is the portion of the intended scope actually examined by the chosen method. Both methods have limits. Passive data may omit quiet systems; active results depend on route, filtering and probe type. State the method and boundaries in the report.
 
 Mature organizations combine several discovery methods because each method has blind spots.
 
@@ -177,12 +119,12 @@ Mature organizations combine several discovery methods because each method has b
 
 Tools such as Nmap, Netdiscover, Microsoft Defender, Wazuh, Splunk, Microsoft Sentinel, Active Directory, cloud consoles, and vulnerability scanners can support discovery. The professional skill is knowing when each source is appropriate, how to stay within authorization, and how to validate conflicting evidence.
 
-
+<a id="term-l19-01"></a>
 #### Active Discovery and Authorization
 
-Active discovery sends traffic or queries to identify systems, open ports, services, or exposed interfaces. It may include host discovery, port scanning, service detection, or approved cloud/API queries.
+Scope identifies the systems and activities included in an assessment. Authorisation is permission from the responsible party. Rules of engagement describe permitted methods, timing, exclusions and stop conditions. Knowing a target address does not grant permission to test it. Make the boundary explicit before using tools, including what to do if observations point outside the assigned range.
 
-Active discovery must be authorized. Scanning the wrong network can trigger alerts, disrupt fragile systems, violate policy, or create legal problems.
+Active discovery sends traffic or queries to identify systems, open ports, services, or exposed interfaces. It may include host discovery, port scanning, service detection, or approved cloud/API queries. Active discovery must be authorized. Scanning the wrong network can trigger alerts, disrupt fragile systems, violate policy, or create legal problems.
 
 Before active discovery, confirm:
 
@@ -197,12 +139,9 @@ Before active discovery, confirm:
 
 In a lab, a student may use simple commands against an instructor-approved isolated network. In an enterprise, the same activity requires documented scope, change awareness, and communication with system owners.
 
-
 #### Passive Discovery
 
-Passive discovery identifies assets from existing evidence. It does not directly probe the target.
-
-Common passive sources include:
+Passive discovery identifies assets from existing evidence. It does not directly probe the target. Common passive sources include:
 
 - Firewall logs.
 - DHCP leases.
@@ -217,27 +156,15 @@ Common passive sources include:
 
 Passive discovery is valuable in healthcare, industrial, and production environments where aggressive scanning could disrupt sensitive devices. Its limitation is that it may miss quiet, offline, newly deployed, or poorly logged assets.
 
-
 #### Authenticated and Agent-Based Discovery
 
-Authenticated discovery uses approved credentials, management access, or installed agents to collect deeper information.
-
-Examples include:
-
-- Endpoint security reporting device health.
-- Active Directory listing domain-joined computers.
-- A scanner checking installed packages with approved credentials.
-- Wazuh agents reporting operating system and security events.
-- Microsoft Defender reporting exposure and endpoint status.
+Authenticated discovery uses approved credentials, management access, or installed agents to collect deeper information. Examples include: Endpoint security reporting device health; Active Directory listing domain-joined computers; A scanner checking installed packages with approved credentials; Wazuh agents reporting operating system and security events; Microsoft Defender reporting exposure and endpoint status.
 
 Authenticated discovery can reveal operating system version, installed software, local users, running services, patch state, and security configuration. The main risk is credential misuse. Discovery credentials should follow least privilege, be monitored, and be rotated when necessary.
 
-
 #### Cloud and Hybrid Discovery
 
-Cloud environments change quickly. A virtual machine, storage account, public IP, database, serverless function, or privileged role can be created in minutes.
-
-Cloud discovery should include:
+Cloud environments change quickly. A virtual machine, storage account, public IP, database, serverless function, or privileged role can be created in minutes. Cloud discovery should include:
 
 - Compute resources.
 - Storage accounts and buckets.
@@ -251,16 +178,11 @@ Cloud discovery should include:
 - SaaS applications and integrations.
 - Logging and monitoring settings.
 
-Traditional network scanning may miss many cloud assets because some resources are managed services rather than normal servers. Cloud consoles, cloud APIs, identity platforms, defender tools, and configuration reviews are important discovery sources.
-
-Hybrid environments require extra care because assets exist across on-premises networks, remote endpoints, cloud tenants, SaaS platforms, and third-party services. A single source rarely gives the full picture.
-
+Traditional network scanning may miss many cloud assets because some resources are managed services rather than normal servers. Cloud consoles, cloud APIs, identity platforms, defender tools, and configuration reviews are important discovery sources. Hybrid environments require extra care because assets exist across on-premises networks, remote endpoints, cloud tenants, SaaS platforms, and third-party services. A single source rarely gives the full picture.
 
 #### Asset Inventory
 
-An asset inventory is a structured record of assets and their important details. A good inventory helps teams make decisions during patching, incident response, audits, access reviews, and architecture planning.
-
-Useful inventory fields include:
+An asset inventory is a structured record of assets and their important details. A good inventory helps teams make decisions during patching, incident response, audits, access reviews, and architecture planning. Useful inventory fields include:
 
 | Field | Purpose |
 |---|---|
@@ -283,7 +205,6 @@ Useful inventory fields include:
 
 The inventory itself must be protected. It can reveal valuable information about systems, owners, software, exposure, and security gaps.
 
-
 #### Inventory Quality
 
 Poor inventory creates poor security decisions.
@@ -296,7 +217,6 @@ Poor inventory creates poor security decisions.
 | `Unknown device` | `Unknown device, IP/MAC/switch port recorded, investigation assigned` |
 
 Good records allow analysts to act quickly. Poor records force analysts to spend valuable time identifying basic facts during urgent events.
-
 
 ### Worked Cedarbridge scenario
 
@@ -314,25 +234,15 @@ Write a scope for an instructor-assigned different exact lab target/port and rec
 
 An offline host, blocked discovery, wrong route or missing listener can all produce incomplete results. Nmap's service label can be a port-name guess. A failed probe does not prove an asset was retired.
 
-### Summary and glossary
+### Review and key terms
 
 Asset owner: accountable person; scope: authorised boundary; active discovery: sent probes; passive discovery: observed traffic; inventory: maintained asset record. Unknowns must be recorded explicitly.
 
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** A scan reports an open port on an assigned lab address. It is evidence of the tool's observed response in that test window. A conventional port number suggests a possible service, but it does not establish its software version, business owner or vulnerability. Compare the result with approved inventory and a bounded service check before expanding the claim. Scope remains the assigned targets even if another address appears in output.
-
-**Try together:** Rewrite “this address is vulnerable” as an observation that the available scan actually supports.
-
-**Try independently:** A target is absent from discovery results. Give two reasons to check before declaring it powered off.
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
-
 <!-- HSETS-SELF-STUDY-L19 -->
 <a id="self-study-l19"></a>
-### Self-study workshop — make assessment scope operational
+### Applying the lesson: make assessment scope operational
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 Assessment scope defines the authority and limits for a specific activity. It is not merely a list of addresses. A useful scope also identifies owners, permitted methods, timing, exclusions, data handling, stop conditions and contacts. Technical reachability does not create permission. A private address can still belong to a real business system outside your assignment.
 
@@ -377,86 +287,34 @@ Complete the five MCQs, two scenarios, practical and reflection for L19 in [Stud
 <a id="lesson-l20"></a>
 ## L20 — Service validation and inventory reconciliation
 
-### General Overview
+### What you will learn
 
 Inventory reconciliation compares observations with expected records and explains differences. It is not merely adding every responding IP. One system may have several addresses, and one address may represent a proxy or load balancer. A scanner's view depends on source, route, time and selected ports. A professional report states those limits so another analyst does not read 'not observed' as 'not present'.
 
-<!-- HSETS-SELF-READY-L20 -->
-**Before this lesson:** You have an explicit authorised target/method and understand coverage limits. Revisit [L19 refresher](../Module-10/01-Student-Notes.md#lesson-l19) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04).
+Before you begin, confirm the following: You have an explicit authorised target/method and understand coverage limits. Revisit [L19 refresher](../Module-10/01-Student-Notes.md#lesson-l19) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04). A discovery result is an observation that needs reconciliation with other records. Learn how to explain differences before assigning ownership or claiming that an inventory is complete.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l20) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L20 -->
-
-<!-- HSETS-TERMS-L20 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l20-01"></a>
-#### Open, closed and filtered port states
-
-**Definition:** In the relevant scan context, open indicates a service accepting the tested communication; closed indicates a response consistent with no accepting service; filtered means filtering or lack of distinguishing responses prevents that determination.
-
-**Explanation:** These are tool observations under a method and viewpoint, not permanent properties of a machine. Validate the required application and consider differences in path or policy before comparing results.
-
-**Example or scenario:** A scan sees port 8000 open, and the learner retrieves the expected handbook. The application request adds useful evidence beyond the port state.
-
-**Check your understanding:** Does a filtered result establish which exact firewall rule caused it?
-
-<a id="term-l20-02"></a>
-#### Service identification, banner and validation
-
-**Definition:** Service identification attempts to determine what is listening. A banner is text or metadata a service exposes. Validation checks a claim using relevant additional evidence.
-
-**Explanation:** A label or version string can be incomplete, changed or affected by vendor packaging. An application response can support service behaviour without proving every software or vulnerability claim.
-
-**Example or scenario:** The server announces a version, but the learner also checks the required URL and owner-supplied package information before describing its state.
-
-**Check your understanding:** Can a banner alone prove the installed package lacks a security fix?
-
-<a id="term-l20-03"></a>
-#### Reconciliation and uncertainty
-
-**Definition:** Reconciliation compares records and observations and explains their differences. Uncertainty identifies what the available evidence cannot settle.
-
-**Explanation:** Do not silently overwrite an expected record with a scan guess. Keep the original, observation, reason for change and unanswered question so another person can review the decision.
-
-**Example or scenario:** The inventory expects the handbook on 8000, but it was moved under an approved change. The learner records the new evidence and change reference instead of declaring an unknown service without investigation.
-
-**Check your understanding:** Why retain the original inventory entry during reconciliation?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L20 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall scope, active discovery and TCP connection behaviour. Open means a listener responded; closed generally means reachable but no listener; filtered means the probe cannot determine normal port state because of filtering or another obstacle.
 
-### Detailed teaching notes
-
+<a id="term-l20-01"></a>
+<a id="term-l20-03"></a>
 #### Reconciliation
 
-Reconciliation means comparing asset records from multiple sources and resolving conflicts.
+In the relevant scan context, open indicates a service accepting the tested communication; closed indicates a response consistent with no accepting service; filtered means filtering or lack of distinguishing responses prevents that determination. These are tool observations under a method and viewpoint, not permanent properties of a machine. Validate the required application and consider differences in path or policy before comparing results.
 
-Example:
+Reconciliation compares records and observations and explains their differences. Uncertainty identifies what the available evidence cannot settle. Do not silently overwrite an expected record with a scan guess. Keep the original, observation, reason for change and unanswered question so another person can review the decision.
 
-- DHCP shows a device received an IP address.
-- Active Directory does not show the device.
-- Endpoint protection does not report an agent.
-- Firewall logs show Internet traffic from the device.
-- The inventory has no owner listed.
+Reconciliation means comparing asset records from multiple sources and resolving conflicts. Example: DHCP shows a device received an IP address; Active Directory does not show the device; Endpoint protection does not report an agent; Firewall logs show Internet traffic from the device; The inventory has no owner listed.
 
-This could mean the device is unmanaged, unauthorized, misclassified, newly deployed, or missing required security controls. A professional response would verify the finding, identify ownership, assess risk, apply required controls if approved, or remove the device if unauthorized.
+This could mean the device is unmanaged, unauthorized, misclassified, newly deployed, or missing required security controls. A professional response would verify the finding, identify ownership, assess risk, apply required controls if approved, or remove the device if unauthorized. Reconciliation matters because every source has blind spots. DHCP may see network presence. EDR may see protected endpoints. Cloud consoles may see cloud resources. The CMDB may show business ownership. Combining sources produces stronger visibility.
 
-Reconciliation matters because every source has blind spots. DHCP may see network presence. EDR may see protected endpoints. Cloud consoles may see cloud resources. The CMDB may show business ownership. Combining sources produces stronger visibility.
-
-
+<a id="term-l20-02"></a>
 #### Attack Surface Mapping
 
-Attack surface mapping identifies the systems, services, identities, and paths attackers could target.
+Service identification attempts to determine what is listening. A banner is text or metadata a service exposes. Validation checks a claim using relevant additional evidence. A label or version string can be incomplete, changed or affected by vendor packaging. An application response can support service behaviour without proving every software or vulnerability claim.
 
-Common attack-surface elements include:
+Attack surface mapping identifies the systems, services, identities, and paths attackers could target. Common attack-surface elements include:
 
 - Public websites.
 - VPN portals.
@@ -471,10 +329,7 @@ Common attack-surface elements include:
 - Vendor connections.
 - Internal services reachable after compromise.
 
-External attack surface includes what can be reached from outside the organization. Internal attack surface includes what can be reached after an attacker compromises a device, account, VPN session, or internal network segment.
-
-Reducing attack surface may involve disabling unused services, restricting remote access, applying firewall rules, segmenting networks, removing stale accounts, enforcing MFA, and retiring unused systems.
-
+External attack surface includes what can be reached from outside the organization. Internal attack surface includes what can be reached after an attacker compromises a device, account, VPN session, or internal network segment. Reducing attack surface may involve disabling unused services, restricting remote access, applying firewall rules, segmenting networks, removing stale accounts, enforcing MFA, and retiring unused systems.
 
 #### Rogue Assets, Stale Assets, and Shadow IT
 
@@ -485,7 +340,6 @@ Reducing attack surface may involve disabling unused services, restricting remot
 | Shadow IT | Technology used outside approved governance | Department uses unsanctioned cloud file sharing | Assess risk, bring under governance, replace, or block |
 
 These asset types are common in real organizations. They often appear because business teams move quickly, documentation is weak, or old systems are not retired properly.
-
 
 #### Security Controls for Asset Discovery
 
@@ -503,7 +357,6 @@ Asset discovery supports security controls, and it also needs controls.
 | Directive control | Policy requiring assets to be registered before production use |
 
 This follows the Security+ SY0-701 distinction between control categories by nature and control functions by purpose. Technical, managerial, operational, and physical describe the nature of a control. Preventive, detective, corrective, deterrent, compensating, and directive describe what the control is intended to do.
-
 
 #### Enterprise Scenarios
 
@@ -535,12 +388,9 @@ A government office finds an unknown remote access service exposed to the Intern
 
 A cloud team finds a public storage bucket not linked to an approved project. The team identifies the owner, checks for sensitive data, removes public access, reviews IAM permissions, and improves resource-tagging rules.
 
-
 #### SOC and Incident Response Relevance
 
-SOC analysts use asset information to understand alerts. An alert that says "suspicious login from server" is incomplete without asset context.
-
-The analyst needs to know:
+SOC analysts use asset information to understand alerts. An alert that says "suspicious login from server" is incomplete without asset context. The analyst needs to know:
 
 - Which server is affected.
 - Who owns it.
@@ -554,22 +404,11 @@ The analyst needs to know:
 
 During incident response, accurate asset information helps teams contain the right systems, notify the correct owners, preserve evidence, assess business impact, and restore service.
 
-
 #### Vulnerability Management Relevance
 
-Vulnerability management depends on asset discovery. A vulnerability scanner can only assess assets that are in scope and visible to the scanner or management platform.
-
-If discovery is incomplete:
-
-- Vulnerabilities may remain hidden.
-- Patch reports may look better than reality.
-- Unsupported systems may be missed.
-- Internet-facing exposure may be underestimated.
-- Risk ranking may be inaccurate.
-- Remediation ownership may be unclear.
+Vulnerability management depends on asset discovery. A vulnerability scanner can only assess assets that are in scope and visible to the scanner or management platform. If discovery is incomplete: Vulnerabilities may remain hidden; Patch reports may look better than reality; Unsupported systems may be missed; Internet-facing exposure may be underestimated; Risk ranking may be inaccurate; Remediation ownership may be unclear.
 
 Before a team can rank vulnerabilities, it must know what assets exist, how important they are, who owns them, and where they are exposed.
-
 
 #### Practical Asset Discovery Workflow
 
@@ -588,7 +427,6 @@ A practical workflow for security teams is:
 
 This workflow prepares students for entry-level cybersecurity roles because it teaches careful scope handling, evidence review, risk thinking, ownership, and practical decision-making.
 
-
 ### Worked Cedarbridge scenario
 
 Cedarbridge inventory says handbook on 8000. The scan finds 8000 open and a bounded HTTP request returns the expected page. The analyst can report a validated HTTP service, but still cannot infer every installed package. When the instructor stops the listener, the changed result is an availability observation requiring explanation, not automatic evidence of remediation.
@@ -605,19 +443,17 @@ Diagnose an instructor-changed service port or stopped listener within a newly a
 
 A version banner may be changed or patched by backport. Successful ping proves neither HTTP availability nor identity. Different scan vantage points can legitimately disagree. Report negative evidence with test scope.
 
-### Summary and glossary
+### Review and key terms
 
 Reconciliation explains differences; coverage describes what was actually tested; validation adds independent evidence; uncertainty records what remains unknown. Service restoration requires useful content, not only an open port.
 
 <!-- HSETS-SELF-STUDY-L20 -->
 <a id="self-study-l20"></a>
-### Self-study workshop — separate discovery from verified service identity
+### Applying the lesson: separate discovery from verified service identity
 
-#### Understand the mechanism
+#### Putting the ideas together
 
-Discovery methods observe responses under particular conditions. A host can be available while not responding to one discovery probe. A reported port state depends on the method, network path and timing. It is not a permanent property that remains true after the environment changes.
-
-An open transport port indicates a relevant accepting endpoint under the test conditions, but the port number alone does not establish the software or business owner. A banner or version guess is useful evidence with limits. Proxies, altered banners and packaged fixes can complicate the inference. Use normal protocol behaviour and approved host/configuration evidence to strengthen the service identification.
+Discovery methods observe responses under particular conditions. A host can be available while not responding to one discovery probe. A reported port state depends on the method, network path and timing. It is not a permanent property that remains true after the environment changes. An open transport port indicates a relevant accepting endpoint under the test conditions, but the port number alone does not establish the software or business owner. A banner or version guess is useful evidence with limits. Proxies, altered banners and packaged fixes can complicate the inference. Use normal protocol behaviour and approved host/configuration evidence to strengthen the service identification.
 
 Inventory reconciliation combines the approved list, discovered observations and justified follow-up. Keep “expected,” “observed” and “confirmed” separate. An unexpected service needs an owner and purpose review; it is not automatically malicious. A missing observation needs a coverage explanation; it is not automatically absence.
 

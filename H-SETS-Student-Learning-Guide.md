@@ -38,7 +38,7 @@ After class, use the same notes and checkpoints to repeat the exercise while the
 
 ## The learning method
 
-Each lesson now begins its detailed study with **terms explained in context**. Read the definition, follow the explanation, and picture the fictional scenario. Then answer the short question in your own words before continuing. These checks are for discussion, not extra marks. Ask the instructor to clarify a term you cannot yet explain; you do not need to memorise the exact sentence. The [term index](H-SETS-Terms-in-Context.md) links back to the lesson examples when a term appears again later.
+The notes are organised as textbook chapters. Read one concept section at a time: unfamiliar terms are explained beside the ideas that use them. Follow the teaching before working through the application or scenario. Explain the idea in your own words rather than memorising the exact sentence. Use the [term index](H-SETS-Terms-in-Context.md) to return to a definition, and attempt the ungraded practice before opening its feedback. Formal workbook questions remain separate.
 
 Keep these four resources beside your module: [weekly plan](H-SETS-Weekly-Study-Plan.md), [how marks work](H-SETS-Student-Assessment-Guide.md), [your instructor-completed lab sheet](H-SETS-Class-Lab-Sheet.md), and [portfolio starter](H-SETS-Portfolio-Starter.md). They explain what to do this week, what counts, which systems to use and where to save your work.
 

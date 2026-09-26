@@ -1,6 +1,6 @@
 # H-SETS — Terms in context
 
-Use this index to revisit definitions, explanations, scenarios and understanding checks. Follow module order; stable lesson IDs are not a numerical reading sequence.
+Use this index to return to the textbook section that explains a term. Read the connected explanation before its worked application. Follow module order; stable lesson IDs are not a numerical reading sequence.
 
 ## M01 — Computer and Cybersecurity Foundations
 

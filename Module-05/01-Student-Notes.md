@@ -1,104 +1,32 @@
 # M05 — Linux Administration and Access Permissions
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L09: Files, Processes, Packages, and the Shell](#lesson-l09) · [L10: Users, Groups, Ownership, and Permissions](#lesson-l10)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L09, complete its guided activity and assignment, then continue to L10. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
-
 
 H-SETS • L09/L10 • M01–M04 prerequisites. Six guided plus six independent hours, including P02. Read the [guided lab](02-Guided-Lab.md) and [workbook](03-Student-Workbook.md).
 
 <a id="lesson-l09"></a>
 ## L09 — Files, Processes, Packages, and the Shell
 
-### General Overview
+### What you will learn
 
 Linux administration makes later security work understandable. Before calling a process suspicious, an analyst should know what a process is, which account runs it, and what it is expected to do. Before changing permissions, the analyst must locate the correct object and understand the surrounding directories. Cedarbridge uses a Linux host for departmental files; this lesson establishes safe observation and change habits.
 
-<!-- HSETS-SELF-READY-L09 -->
-**Before this lesson:** You can identify the correct guest/account and preserve a recovery copy. Revisit [L02 refresher](../Module-04/01-Student-Notes.md#lesson-l02).
-
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l09) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L09 -->
-
-<!-- HSETS-TERMS-L09 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+Before starting, make sure you can identify the correct guest/account and preserve a recovery copy. Revisit [L02 refresher](../Module-04/01-Student-Notes.md#lesson-l02). The shell gives you a precise way to ask the operating system to perform an action. Read the command, its target and its effect before running it in the assigned lab.
 
 <a id="term-l09-01"></a>
-#### Kernel, distribution, terminal and shell
-
-**Definition:** The kernel manages core operating-system resources. A distribution packages the kernel with tools and software. A terminal provides an interaction window; a shell interprets commands entered there.
-
-**Explanation:** These are related but different layers. The shell can interpret quoting and redirection before starting a tool, so understanding command structure is part of safe administration, not merely memorising command names.
-
-**Example or scenario:** In the Ubuntu guest, the learner opens a terminal and asks the shell to list files. Ubuntu is the distribution; the terminal itself is not the whole operating system.
-
-**Check your understanding:** Does closing one terminal necessarily shut down the Linux guest?
-
-<a id="term-l09-02"></a>
-#### Path, absolute path and relative path
-
-**Definition:** A path identifies a filesystem location. An absolute path starts from the filesystem root. A relative path is interpreted from a current location.
-
-**Explanation:** The same relative filename can identify different files in different working directories. Check location before copying or changing data, especially when names are similar.
-
-**Example or scenario:** The learner has draft.txt in two lab folders. A command using only draft.txt affects the one under the current directory, not necessarily the one the learner intended.
-
-**Check your understanding:** What observation helps resolve this uncertainty before editing?
-
-<a id="term-l09-03"></a>
-#### Standard output and redirection
-
-**Definition:** Standard output is a program's ordinary output stream. Redirection sends a stream somewhere else, such as a file. In the shell examples, > replaces a target file's content and >> appends to it.
-
-**Explanation:** The shell handles this operation around the command. Confirm the target path because a successful command can still overwrite the wrong file. Practice only on disposable synthetic files.
-
-**Example or scenario:** A learner uses > to create a stock note, then >> to add a review line. Repeating the second action with > would replace the earlier note instead.
-
-**Check your understanding:** Which operator preserves the current file content while adding a new line in this example?
-
-<a id="term-l09-04"></a>
-#### Process, PID, service and package
-
-**Definition:** A process is a running program instance. A process identifier (PID) identifies that instance. A service performs a managed background function. A package is a managed unit of installed software.
-
-**Explanation:** Installed software and running processes are different states. More than one instance can run, and a stopped process can leave the package installed. Match identity and context before stopping anything.
-
-**Example or scenario:** The learner starts a temporary sleep process, identifies its user and PID, then stops that instance. The shell and other users' processes must remain unaffected.
-
-**Check your understanding:** Does an installed web-server package prove that its service is currently running?
-
-<a id="term-l09-05"></a>
-#### Root, sudo and privilege elevation
-
-**Definition:** Root is the traditional highly privileged Linux account. sudo is a tool that can run authorised commands under another identity according to policy. Privilege elevation obtains authority beyond the current ordinary process context.
-
-**Explanation:** Use only the authority required for the approved action. A permission refusal may be the intended boundary, not a reason to elevate. Record which identity performed an operation so the test remains meaningful.
-
-**Example or scenario:** Ben is supposed to be refused access to a departmental file. Reading it through an administrator's elevated command does not demonstrate Ben's own permitted access.
-
-**Check your understanding:** Why is “it worked with sudo” insufficient to close Ben's normal-user access test?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L09 -->
-
 ### 1. Kernel, distribution, terminal, and shell
 
-Linux is a kernel: the component managing resources such as memory, processes, and device access. A distribution combines it with libraries, utilities, services, and package management. Ubuntu is the classroom distribution, but exact tools and defaults vary across systems.
+The kernel manages core operating-system resources. A distribution packages the kernel with tools and software. A terminal provides an interaction window; a shell interprets commands entered there. These are related but different layers. The shell can interpret quoting and redirection before starting a tool, so understanding command structure is part of safe administration, not merely memorising command names.
 
-A terminal provides the interactive window. A shell interprets commands and launches programs. In `ls -l /srv`, `ls` is the program, `-l` requests a detailed listing, and `/srv` is an argument naming a directory. The shell handles quoting and redirection before the program runs. A command copied from a document can therefore do more than the visible program name suggests.
+Linux is a kernel: the component managing resources such as memory, processes, and device access. A distribution combines it with libraries, utilities, services, and package management. Ubuntu is the classroom distribution, but exact tools and defaults vary across systems. A terminal provides the interactive window. A shell interprets commands and launches programs. In `ls -l /srv`, `ls` is the program, `-l` requests a detailed listing, and `/srv` is an argument naming a directory. The shell handles quoting and redirection before the program runs. A command copied from a document can therefore do more than the visible program name suggests.
 
 Run ordinary work without administrator privileges. `sudo` requests an authorised action as another identity, commonly root. It is not a general cure for errors. If a file cannot be read, determine whether the current user should have access before bypassing the restriction. Root's success is not proof that a normal user has correct access.
 
+<a id="term-l09-02"></a>
 ### 2. Paths and filesystem purpose
+
+A path identifies a filesystem location. An absolute path starts from the filesystem root. A relative path is interpreted from a current location. The same relative filename can identify different files in different working directories. Check location before copying or changing data, especially when names are similar.
 
 An absolute path begins at `/`, the filesystem root. A relative path starts from the current directory. `pwd` shows that directory; `cd` changes it. `~` commonly refers to the current user's home, `.` means current directory, and `..` means parent. Linux names are generally case-sensitive: Report.txt and report.txt can be different files.
 
@@ -106,7 +34,13 @@ Common locations have different purposes. `/home` holds ordinary user homes, `/e
 
 Use `ls -la` to include hidden names and metadata, `file` to identify likely content type, `less` to page through text, and `head` or `tail` for bounded views. Hidden names begin with a dot; hidden does not mean encrypted or protected. A symbolic link points to another path, so changing its target can affect a different object than expected. Confirm paths before privileged or recursive changes.
 
+<a id="term-l09-03"></a>
+<a id="term-l09-05"></a>
 ### 3. Create and inspect safely
+
+Standard output is a program's ordinary output stream. Redirection sends a stream somewhere else, such as a file. In the shell examples, > replaces a target file's content and >> appends to it. The shell handles this operation around the command. Confirm the target path because a successful command can still overwrite the wrong file. Practice only on disposable synthetic files.
+
+Root is the traditional highly privileged Linux account. sudo is a tool that can run authorised commands under another identity according to policy. Privilege elevation obtains authority beyond the current ordinary process context. Use only the authority required for the approved action. A permission refusal may be the intended boundary, not a reason to elevate. Record which identity performed an operation so the test remains meaningful.
 
 `mkdir` creates a directory; `cp` copies; `mv` moves or renames; `rm` removes a directory entry. There is no general terminal recycle-bin guarantee. Practise only inside the designated lab directory and preserve a copy before replacement. Avoid broad recursive commands until scope, links, and mounts are understood.
 
@@ -114,7 +48,10 @@ Quotes keep a filename containing spaces together. `cat 'quarter one.txt'` suppl
 
 Use `man COMMAND` or `COMMAND --help` to check local behaviour. Search only within the approved directory: `grep -n 'invoice' notes.txt` reports matching lines and their line numbers. Matching text is evidence about the file content, not a verdict about security. Do not display secrets or complete authentication databases in portfolio screenshots.
 
+<a id="term-l09-04"></a>
 ### 4. Processes and packages
+
+A process is a running program instance. A process identifier (PID) identifies that instance. A service performs a managed background function. A package is a managed unit of installed software. Installed software and running processes are different states. More than one instance can run, and a stopped process can leave the package installed. Match identity and context before stopping anything.
 
 A process is a running instance of a program with an identifier, owner, and resources. `ps -eo pid,user,comm` lists selected process fields. `top` gives a changing view. The same program may have many processes; a name alone is not proof of legitimacy. Inspect owner, executable path, expected role, and relevant logs before escalation.
 
@@ -122,31 +59,21 @@ A foreground process occupies the terminal until it finishes or is interrupted. 
 
 Packages provide a managed way to install and update software from configured repositories. On Ubuntu, `apt update` refreshes package metadata; it does not itself upgrade installed software. Installation and upgrades change the system and require an approved maintenance path. The classroom preinstalls dependencies before network isolation. Record installed versions with `dpkg-query` rather than adding random repositories to solve a missing command.
 
-### Worked example, demonstration, and practice
+### Worked example and practical work
 
 Cedarbridge reports that a report “disappeared.” The instructor first uses `pwd`, a detailed directory listing, and a bounded search; the file is in another directory, not deleted. Next, create a disposable process and compare its PID and owner with the listing. Lab A rehearses these actions and records a small change log.
 
-### Common mistakes, summary, and glossary
+### Review and key distinctions
 
 Wrong directory, case, quoting, and overwriting redirection explain many beginner errors. Read the error, inspect the actual path, and change one thing. Do not add sudo to a misspelled filename. A process name is not an identity guarantee; a package version is not by itself proof that all security updates apply.
 
 Kernel: resource-managing core. Shell: command interpreter. Path: object location. Process: running program instance. PID: process identifier. Package: managed software unit. Standard output: ordinary result stream. Exit status: numeric process result.
 
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** Suppose a fictional contractor can open a known file but cannot list its directory. These are different operations. Directory traversal permits reaching a known name; listing requires directory read permission. File read permission controls reading that file's content. Therefore “I can read the file” does not establish “I can list every name.” Test the required operations separately with the contractor identity, not the administrator.
-
-**Try together:** Draw directory → known filename → file content. Mark where traversal, listing and content reading differ.
-
-**Try independently:** A read test passes but an append test also passes when it should fail. What evidence would you inspect before changing permissions?
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
-
 <!-- HSETS-SELF-STUDY-L09 -->
 <a id="self-study-l09"></a>
-### Self-study workshop — understand a command before running it
+### Applying the lesson: understand a command before running it
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 The shell reads a command line and starts the requested program with its arguments. A command, an option and a path have different roles. The current directory affects how relative paths are interpreted. A file named `report.txt` in one folder is not automatically the same file as `report.txt` elsewhere. Before changing anything, establish your machine, account and working directory.
 
@@ -191,84 +118,34 @@ Complete Workbook L09: five MCQs, two scenarios, and a file/process investigatio
 <a id="lesson-l10"></a>
 ## L10 — Users, Groups, Ownership, and Permissions
 
-### General Overview
+### What you will learn
 
 Permissions turn business access decisions into enforced rules. Cedarbridge's Finance staff need to edit shared drafts; Operations must not read them; an auditor may read one report without changing it. “Make the folder work” is not a sufficient requirement. We must demonstrate both intended use and excluded use.
 
-<!-- HSETS-SELF-READY-L10 -->
-**Before this lesson:** You can locate a file, identify the process/account and distinguish read from change. Revisit [L09 refresher](../Module-05/01-Student-Notes.md#lesson-l09) · [L07 refresher](../Module-01/01-Student-Notes.md#lesson-l07).
-
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l10) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L10 -->
-
-<!-- HSETS-TERMS-L10 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+Before starting, make sure you can locate a file, identify the process/account and distinguish read from change. Revisit [L09 refresher](../Module-05/01-Student-Notes.md#lesson-l09) · [L07 refresher](../Module-01/01-Student-Notes.md#lesson-l07). Permissions connect an identity to an action on a resource. The meaning of the action changes between a file and a directory, so understand that distinction before changing permissions.
 
 <a id="term-l10-01"></a>
-#### User, group, owner and effective identity
-
-**Definition:** A user account represents an identity. A group collects identities for access decisions. An owner is the identity associated with a file's ownership. Effective identity is the security context used for an operation.
-
-**Explanation:** Permissions are evaluated using the relevant identity and group context. Administrator success can bypass restrictions that affect an ordinary user. Check who is actually performing each test.
-
-**Example or scenario:** Alice and Bob share a Finance group. Ben is not a member. The learner runs the required file operation separately under each identity rather than using one administrator terminal for every claim.
-
-**Check your understanding:** Why record the test identity next to the result?
-
-<a id="term-l10-02"></a>
-#### Read, write, execute and directory traversal
-
-**Definition:** Read permits obtaining file contents; write permits changing file contents; execute permits running an executable file where other conditions allow. On a directory, read lists names, write relates to changing entries, and execute permits searching/traversing it.
-
-**Explanation:** File and directory permissions answer different questions. Reaching a known filename can be possible without listing its parent directory. Deletion generally depends on the directory's permissions and additional restrictions, not simply the file's write bit.
-
-**Example or scenario:** A contractor can read one known report but cannot list the Finance directory. The instructor uses this to separate traversal from listing and from reading the report's bytes.
-
-**Check your understanding:** Does being able to read one known file prove that the user can list its directory?
-
-<a id="term-l10-03"></a>
-#### Setgid, umask and inheritance
-
-**Definition:** The setgid bit on a directory can cause new entries to inherit its group. A umask removes permission bits from the mode requested when an object is created. Inheritance passes selected attributes or rules to new objects.
-
-**Explanation:** Inherited group ownership and write permission are not the same thing. A shared group does not guarantee that every newly created file is group-writable. Inspect the resulting object rather than assuming a setting's name proves the outcome.
-
-**Example or scenario:** Two Finance users create files in the same group directory. One file is not writable by the other user because its resulting mode lacks group write.
-
-**Check your understanding:** Would changing group ownership alone necessarily add group-write permission?
-
-<a id="term-l10-04"></a>
-#### ACL, ACL mask and privilege
-
-**Definition:** An access control list (ACL) records additional permission entries for identities or groups. An ACL mask limits certain entries' effective permissions. Privilege is authority to perform protected operations.
-
-**Explanation:** An ACL entry can exist while its effective access is limited by the mask. Inspect the effective result and test the intended operation. Elevated authority should be used for approved administration, not to make a denied-user test appear successful.
-
-**Example or scenario:** Cara receives a file-read exception. The learner inspects the ACL and tests reading and appending as Cara, preserving the expected append refusal.
-
-**Check your understanding:** Does seeing an ACL entry with read permission always settle the effective-access question?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L10 -->
-
 ### 1. Identity in an access decision
+
+A user account represents an identity. A group collects identities for access decisions. An owner is the identity associated with a file's ownership. Effective identity is the security context used for an operation. Permissions are evaluated using the relevant identity and group context. Administrator success can bypass restrictions that affect an ordinary user. Check who is actually performing each test.
 
 Linux uses numeric user and group identifiers, with readable names supplied by identity services. `id USER` shows configured identity information; `id` inside a session shows that process's current identity context. A user's supplementary groups can differ between an old session and a fresh one after a membership change.
 
 The owning user and owning group are metadata on each filesystem object. Traditional permissions have owner, group, and other classes. These classes are not simply added together: if the process matches the owner, owner bits are used; otherwise matching group membership is considered, then others. Extended ACLs add rules, and privileged processes may bypass ordinary discretionary checks. Test with the intended nonprivileged identity.
 
+<a id="term-l10-02"></a>
 ### 2. Read, write, and execute mean different things on directories
 
-For an ordinary file, read permits reading content, write permits modifying content, and execute permits executing it when its format and other controls allow. For a directory, read permits listing names, execute permits traversal/search, and write permits changing entries, usually together with execute. A user may delete a file they cannot read if the parent directory permits entry removal. Therefore inspect both the file and every parent directory.
+Read permits obtaining file contents; write permits changing file contents; execute permits running an executable file where other conditions allow. On a directory, read lists names, write relates to changing entries, and execute permits searching/traversing it. File and directory permissions answer different questions. Reaching a known filename can be possible without listing its parent directory. Deletion generally depends on the directory's permissions and additional restrictions, not simply the file's write bit.
 
-Numeric permissions use read=4, write=2, execute=1. Mode 640 means owner read/write, group read, others none. Mode 750 on a directory means owner full access, group list/traverse, others none. These are examples, not universal “secure” settings: a service must retain its required access.
+For a directory, read permits listing names, execute permits traversal/search, and write permits changing entries, usually together with execute. A user may delete a file they cannot read if the parent directory permits entry removal. Therefore inspect both the file and every parent directory. Numeric permissions use read=4, write=2, execute=1. Mode 640 means owner read/write, group read, others none. Mode 750 on a directory means owner full access, group list/traverse, others none. These are examples, not universal “secure” settings: a service must retain its required access.
 
 `chmod` changes mode bits; `chown` changes owner and optionally group; `chgrp` changes group. Avoid `chmod 777` as a troubleshooting shortcut because it grants broad write and execute permissions without explaining the failure. Record before and after metadata and perform a real action as each test user.
 
+<a id="term-l10-03"></a>
 ### 3. Collaboration and inheritance
+
+The setgid bit on a directory can cause new entries to inherit its group. A umask removes permission bits from the mode requested when an object is created. Inheritance passes selected attributes or rules to new objects. Inherited group ownership and write permission are not the same thing. A shared group does not guarantee that every newly created file is group-writable. Inspect the resulting object rather than assuming a setting's name proves the outcome.
 
 A setgid directory makes newly created entries inherit its group in the usual Linux filesystem behaviour. It does not automatically grant group write on every new file. The creating application's requested mode, umask, and any default ACL influence the result. A umask removes permission bits from requested defaults; it is not decimal subtraction. A common file request 666 with mask 027 gives 640, while a directory request 777 gives 750.
 
@@ -276,7 +153,10 @@ For the lab's shared Finance directory, setgid plus a controlled `umask 007` whe
 
 The sticky bit on shared writable directories adds ownership-related deletion restrictions. It does not grant confidentiality. Advanced setuid executables and privilege escalation are conceptual extensions, not required configuration tasks here.
 
+<a id="term-l10-04"></a>
 ### 4. ACLs and exceptions
+
+An access control list (ACL) records additional permission entries for identities or groups. An ACL mask limits certain entries' effective permissions. Privilege is authority to perform protected operations. An ACL entry can exist while its effective access is limited by the mask. Inspect the effective result and test the intended operation. Elevated authority should be used for approved administration, not to make a denied-user test appear successful.
 
 An access control list can give a named user read permission without changing the owning group. `getfacl` shows ACL entries and effective permissions. The ACL mask limits named user, named group, and owning-group entries, but not the owning user or others. A displayed read/write entry can therefore have only read effective permission.
 
@@ -288,21 +168,19 @@ Create accounts from approved business requests, assign groups, review changes, 
 
 Sudo rules can be more powerful than they look. Permission to run a root editor or modify a script executed by root may provide full administration. This module inspects existing privilege with `sudo -l` but does not invent a custom sudoers policy. Later operations must preserve a known recovery account.
 
-### Worked example, demonstration, and practice
+### Worked example and practical work
 
 The instructor builds Finance access, creates a draft as Alice, and tests Bob's collaborative write and Ben's denied read. Add Cara's read-only exception to one report, including traversal, and test that writing remains denied. Lab B supplies exact commands and explains privilege use. The independent contractor requirement changes the access matrix and requires fresh tests.
 
-### Common mistakes, summary, and glossary
+### Review and key distinctions
 
-Check identity, group refresh, parent traversal, object mode, ACL mask, and application controls before broadening permissions. A successful root test proves little about a normal account. Removing a group should be tested in a fresh context and assessed against active-session risk.
-
-UID/GID: numeric user/group identity. Ownership: user/group metadata. Umask: removed creation permissions. Setgid directory: group inheritance mechanism. ACL: additional access entries. Traversal: directory search permission. Least privilege: minimum required access.
+Check identity, group refresh, parent traversal, object mode, ACL mask, and application controls before broadening permissions. A successful root test proves little about a normal account. Removing a group should be tested in a fresh context and assessed against active-session risk. UID/GID: numeric user/group identity. Ownership: user/group metadata. Umask: removed creation permissions. Setgid directory: group inheritance mechanism. ACL: additional access entries. Traversal: directory search permission. Least privilege: minimum required access.
 
 <!-- HSETS-SELF-STUDY-L10 -->
 <a id="self-study-l10"></a>
-### Self-study workshop — predict permission outcomes before testing
+### Applying the lesson: predict permission outcomes before testing
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 Linux access decisions depend on the process identity and the permission information on the object and its path. A username typed in a report is not proof that a test ran as that user. Test with the assigned identity and record it. Administrative access can bypass restrictions that ordinary users face, so an administrator reading a file is not a useful denied-user test.
 

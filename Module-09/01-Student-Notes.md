@@ -1,84 +1,27 @@
 # H-SETS — M09: Firewall Policy, Segmentation, and Secure Remote Access
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L17: Traffic requirements and stateful firewall policy](#lesson-l17) · [L18: Segmentation boundaries and remote-access design](#lesson-l18)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L17, complete its guided activity and assignment, then continue to L18. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
-
 
 <a id="lesson-l17"></a>
 ## L17 — Traffic requirements and stateful firewall policy
 
-### General Overview
+### What you will learn
 
 A route says where a packet should travel; a firewall decides whether that communication is permitted. Separating these questions prevents a common mistake: treating any failed connection as a firewall problem. A stateful firewall records permitted connections so return traffic can follow the established flow. An existing state can outlive a rule change, so a fresh test connection matters.
 
-<!-- HSETS-SELF-READY-L17 -->
-**Before this lesson:** You can draw a routed connection and explain source/destination ports. Revisit [L03 refresher](../Module-02/01-Student-Notes.md#lesson-l03) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04).
+Before starting, make sure you can draw a routed connection and explain source/destination ports. Revisit [L03 refresher](../Module-02/01-Student-Notes.md#lesson-l03) · [L04 refresher](../Module-02/01-Student-Notes.md#lesson-l04). A firewall implements a traffic requirement. Start with the required conversation and its direction before deciding which rule can allow or refuse it.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l17) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L17 -->
-
-<!-- HSETS-TERMS-L17 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l17-01"></a>
-#### Firewall policy, rule and default deny
-
-**Definition:** A firewall policy expresses permitted and prohibited communication. A rule matches traffic attributes and applies an action. Default deny refuses traffic unless a permitted path has been specified.
-
-**Explanation:** Translate the business requirement into source, destination, protocol and service. Then test required traffic as well as prohibited traffic. A rule set that blocks everything can fail the business requirement.
-
-**Example or scenario:** Users may read the handbook on TCP 8000 but may not administer the server over SSH. The class creates and verifies those distinct paths.
-
-**Check your understanding:** Why is “all requests fail” not enough to call the firewall policy successful?
-
-<a id="term-l17-02"></a>
-#### Stateful inspection and connection state
-
-**Definition:** Stateful inspection tracks information about communication flows. Connection state is the firewall's recorded context used to evaluate related packets.
-
-**Explanation:** Return traffic for an allowed connection is different from a new connection initiated in the reverse direction. Existing state can also affect a test after a rule change, so use the assigned fresh-connection procedure.
-
-**Example or scenario:** The Users client requests a DMZ page and receives its response. That does not imply the DMZ server can start an unrelated new connection into Users.
-
-**Check your understanding:** Why test a new reverse-direction connection separately from the page response?
-
-<a id="term-l17-03"></a>
-#### Ingress interface and rule order
-
-**Definition:** An ingress interface is where traffic enters a device. Rule order is the sequence in which the relevant rule set is evaluated.
-
-**Explanation:** The classroom firewall applies the taught rules on the ingress path. A rule on the wrong interface may not evaluate the intended traffic. A broad earlier permit can defeat a later restriction in the first-match policy being taught.
-
-**Example or scenario:** A learner places a restriction after an earlier broad Users permit. The traffic still succeeds, so they inspect the actual matching path and order.
-
-**Check your understanding:** What should be checked before concluding that the firewall ignores the new rule?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L17 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall addresses, gateways, TCP destination ports and host firewalls. A rule must express source, destination, protocol, service and business reason. NAT changes addresses; it does not replace filtering.
 
-### Detailed teaching notes
-
+<a id="term-l17-01"></a>
 #### Firewalls
 
-A firewall evaluates network traffic and permits, rejects, or drops it according to policy.
+A firewall policy expresses permitted and prohibited communication. A rule matches traffic attributes and applies an action. Default deny refuses traffic unless a permitted path has been specified. Translate the business requirement into source, destination, protocol and service. Then test required traffic as well as prohibited traffic. A rule set that blocks everything can fail the business requirement.
 
-Network reachability should match business need and trust boundaries.
-
-A firewall may evaluate:
+A firewall evaluates network traffic and permits, rejects, or drops it according to policy. Network reachability should match business need and trust boundaries. A firewall may evaluate:
 
 - Interface.
 - Direction.
@@ -92,8 +35,10 @@ A firewall may evaluate:
 
 Firewalls operate on hosts, network gateways, cloud networks, applications, and virtual environments.
 
-
+<a id="term-l17-02"></a>
 #### Stateless and Stateful Filtering
+
+Stateful inspection tracks information about communication flows. Connection state is the firewall's recorded context used to evaluate related packets. Return traffic for an allowed connection is different from a new connection initiated in the reverse direction. Existing state can also affect a test after a rule change, so use the assigned fresh-connection procedure.
 
 #### Stateless
 
@@ -101,59 +46,21 @@ Evaluates each packet independently.
 
 #### Stateful
 
-Tracks connection state. A rule permitting an initial connection can create state allowing related return traffic without a separate broad reverse rule.
-
-State tables improve policy and performance but can be exhausted or contain stale entries. Rule changes may not affect existing states until they expire or are deliberately cleared.
-
+Tracks connection state. A rule permitting an initial connection can create state allowing related return traffic without a separate broad reverse rule. State tables improve policy and performance but can be exhausted or contain stale entries. Rule changes may not affect existing states until they expire or are deliberately cleared.
 
 #### Default Deny
 
-Default deny blocks traffic not explicitly allowed.
-
-Benefits:
-
-- Reduces unintended exposure.
-- Makes business requirements explicit.
-- Limits lateral movement.
-
-Requirements:
-
-- Accurate flow inventory.
-- Management and recovery path.
-- Logging.
-- Rule ownership.
-- Exception process.
-- Validation.
-
-Default deny should not be enabled blindly on a remote firewall.
-
+Default deny blocks traffic not explicitly allowed. Benefits: Reduces unintended exposure; Makes business requirements explicit; Limits lateral movement. Requirements: Accurate flow inventory; Management and recovery path; Logging; Rule ownership; Exception process; Validation. Default deny should not be enabled blindly on a remote firewall.
 
 #### pfSense Architecture
 
-pfSense is a FreeBSD-based firewall and routing platform with a web interface and underlying packet-filtering capabilities.
-
-It provides routing, firewalling, NAT, DHCP, VPN, DNS, monitoring, and package integration in one platform.
-
-Interfaces receive assignments and addresses. Services and rules apply to those interfaces. Stateful filtering controls traffic.
+pfSense is a FreeBSD-based firewall and routing platform with a web interface and underlying packet-filtering capabilities. It provides routing, firewalling, NAT, DHCP, VPN, DNS, monitoring, and package integration in one platform. Interfaces receive assignments and addresses. Services and rules apply to those interfaces. Stateful filtering controls traffic.
 
 pfSense can run on supported appliances, physical hardware, or VMs.
 
-
 #### pfSense Security Boundary
 
-The firewall is a high-value control-plane system.
-
-Protect:
-
-- Web administration.
-- Console.
-- Configuration backups.
-- Administrator accounts.
-- API or automation credentials.
-- Package installation.
-- Update process.
-
-Use:
+The firewall is a high-value control-plane system. Protect: Web administration; Console; Configuration backups; Administrator accounts; API or automation credentials; Package installation; Update process. Use:
 
 - Dedicated management access.
 - HTTPS with valid certificate.
@@ -163,7 +70,6 @@ Use:
 - Central logging.
 - Configuration backups.
 - Tested recovery.
-
 
 #### Interface Configuration
 
@@ -180,12 +86,9 @@ Common interfaces:
 
 Interface labels express intended role, not automatic trust. Security comes from addressing, routing, rules, NAT, and services.
 
-
 #### Interface Addressing
 
-Each routed interface typically uses a different IP subnet.
-
-Example:
+Each routed interface typically uses a different IP subnet. Example:
 
 | Interface | Address |
 |---|---|
@@ -198,106 +101,46 @@ Overlapping subnets cause ambiguous routing and VPN problems.
 
 #### Configuration Checks
 
-- Correct virtual or physical adapter.
-- Link state.
-- Static or dynamic address.
-- Prefix length.
-- Upstream gateway.
-- DNS behavior.
-- Private-address blocking options appropriate to actual WAN design.
-
-In a lab, a "WAN" connected to a private NAT network may require settings different from a real Internet-facing WAN.
-
+Correct virtual or physical adapter; Link state; Static or dynamic address; Prefix length; Upstream gateway; DNS behavior; Private-address blocking options appropriate to actual WAN design. In a lab, a "WAN" connected to a private NAT network may require settings different from a real Internet-facing WAN.
 
 #### Routing
 
-pfSense routes between directly connected networks and configured gateways.
-
-Routing does not itself permit firewall traffic. A route says where traffic goes; firewall policy says whether it may pass.
-
-Avoid adding static routes for directly connected networks. Validate:
-
-- Destination network.
-- Next-hop gateway.
-- Return route.
-- Firewall rules.
-- NAT requirements.
+pfSense routes between directly connected networks and configured gateways. Routing does not itself permit firewall traffic. A route says where traffic goes; firewall policy says whether it may pass. Avoid adding static routes for directly connected networks. Validate: Destination network; Next-hop gateway; Return route; Firewall rules; NAT requirements.
 
 Asymmetric routing can cause a stateful firewall to drop traffic if it does not observe both directions.
 
-
 #### NAT
 
-Network Address Translation changes address or port information as traffic passes.
-
-NAT supports private-address Internet access, publishing selected services, overlapping constraints, and policy design.
-
-The firewall creates translation and connection state.
-
-NAT commonly operates at Internet boundaries and selected interconnection points.
-
-NAT is not a complete security control. Filtering policy remains necessary.
-
+Network Address Translation changes address or port information as traffic passes. NAT supports private-address Internet access, publishing selected services, overlapping constraints, and policy design. The firewall creates translation and connection state. NAT commonly operates at Internet boundaries and selected interconnection points. NAT is not a complete security control. Filtering policy remains necessary.
 
 #### Source NAT
 
-Source NAT changes the source of outbound traffic.
-
-Common use:
+Source NAT changes the source of outbound traffic. Common use:
 
 - Internal private addresses access an upstream network through the firewall address.
 
-pfSense outbound NAT modes generally include automatic, hybrid, manual, and disabled behavior. Choose based on architecture and understand generated rules before customization.
-
-Risks:
-
-- Logs at the destination show translated source.
-- Over-broad translation hides segmentation errors.
-- Incorrect ordering selects the wrong rule.
-- Return traffic depends on state.
-
+pfSense outbound NAT modes generally include automatic, hybrid, manual, and disabled behavior. Choose based on architecture and understand generated rules before customization. Risks: Logs at the destination show translated source; Over-broad translation hides segmentation errors; Incorrect ordering selects the wrong rule; Return traffic depends on state.
 
 #### Destination NAT and Port Forwarding
 
-Destination NAT changes the destination so inbound traffic reaches an internal service.
-
-Example concept:
+Destination NAT changes the destination so inbound traffic reaches an internal service. Example concept:
 
 ```text
 WAN address:443 -> DMZ web server:443
 ```
 
-Port forwarding requires:
+Port forwarding requires: External interface and address; Protocol and port; Internal destination; Corresponding firewall permission; Service listener; Return path; TLS and application security. Publishing a service expands attack surface. Prefer a reverse proxy, application gateway, VPN, or identity-aware access where appropriate.
 
-- External interface and address.
-- Protocol and port.
-- Internal destination.
-- Corresponding firewall permission.
-- Service listener.
-- Return path.
-- TLS and application security.
-
-Publishing a service expands attack surface. Prefer a reverse proxy, application gateway, VPN, or identity-aware access where appropriate.
-
-
+<a id="term-l17-03"></a>
 #### Firewall Rule Direction
 
-In pfSense, interface rules are generally evaluated on traffic as it enters an interface.
+An ingress interface is where traffic enters a device. Rule order is the sequence in which the relevant rule set is evaluated. The classroom firewall applies the taught rules on the ingress path. A rule on the wrong interface may not evaluate the intended traffic. A broad earlier permit can defeat a later restriction in the first-match policy being taught.
 
-Examples:
-
-- A LAN rule controls traffic entering from LAN clients.
-- A DMZ rule controls traffic initiated from DMZ systems.
-- WAN rules control new traffic entering from WAN.
-
-This direction is a common source of errors. Think from the packet's first pfSense interface.
-
+In pfSense, interface rules are generally evaluated on traffic as it enters an interface. Examples: A LAN rule controls traffic entering from LAN clients; A DMZ rule controls traffic initiated from DMZ systems; WAN rules control new traffic entering from WAN. This direction is a common source of errors. Think from the packet's first pfSense interface.
 
 #### Rule Evaluation
 
-Rules are generally evaluated top to bottom, and the first matching rule determines action.
-
-Rule fields:
+Rules are generally evaluated top to bottom, and the first matching rule determines action. Rule fields:
 
 - Action.
 - Interface.
@@ -312,7 +155,6 @@ Rule fields:
 
 Place specific exceptions before broader rules where required.
 
-
 #### Rule Design
 
 Weak rule:
@@ -321,49 +163,15 @@ Weak rule:
 Allow any from LAN to any
 ```
 
-More controlled design:
-
-- User network to approved DNS resolvers.
-- User network to approved web proxy or Internet ports.
-- Management network to administration ports.
-- DMZ web server to specific database service.
-- Guest network to Internet only.
-- Explicit block and log for sensitive segments.
-
-Rules should describe business flows, not vague trust.
-
+More controlled design: User network to approved DNS resolvers; User network to approved web proxy or Internet ports; Management network to administration ports; DMZ web server to specific database service; Guest network to Internet only; Explicit block and log for sensitive segments. Rules should describe business flows, not vague trust.
 
 #### Aliases
 
-Aliases group addresses, networks, or ports.
-
-Benefits:
-
-- Readability.
-- Reuse.
-- Easier change.
-
-Risks:
-
-- One alias change affects many rules.
-- Nested aliases obscure scope.
-- Stale entries retain access.
-
-Document owner and review aliases like rules.
-
+Aliases group addresses, networks, or ports. Benefits: Readability; Reuse; Easier change. Risks: One alias change affects many rules; Nested aliases obscure scope; Stale entries retain access. Document owner and review aliases like rules.
 
 #### Anti-Lockout and Management
 
-pfSense may include anti-lockout behavior to preserve web or SSH administration from the LAN.
-
-Enterprise practice should not depend only on implicit anti-lockout behavior. Design:
-
-- Dedicated management interface or VLAN.
-- Explicit management-source alias.
-- HTTPS only.
-- Console or out-of-band recovery.
-- Tested backup and restore.
-- Change approval.
+pfSense may include anti-lockout behavior to preserve web or SSH administration from the LAN. Enterprise practice should not depend only on implicit anti-lockout behavior. Design: Dedicated management interface or VLAN; Explicit management-source alias; HTTPS only; Console or out-of-band recovery; Tested backup and restore; Change approval.
 
 Before changing management rules:
 
@@ -372,7 +180,6 @@ Before changing management rules:
 3. Add and test replacement access.
 4. Apply restriction.
 5. Validate new session.
-
 
 #### Logging
 
@@ -391,19 +198,9 @@ Firewall logs commonly include:
 
 A blocked packet is not automatically an attack. Background scanning, misconfiguration, stale clients, and asymmetric routing can generate denies.
 
-
 #### State Table
 
-State inspection helps answer:
-
-- Was a connection permitted?
-- Which translation applies?
-- How much traffic passed?
-- Is state stale?
-- Which rule created it?
-
-Clearing states can interrupt active sessions. Do so only with impact assessment.
-
+State inspection helps answer: Was a connection permitted?; Which translation applies?; How much traffic passed?; Is state stale?; Which rule created it?. Clearing states can interrupt active sessions. Do so only with impact assessment.
 
 #### Segmentation Matrix
 
@@ -417,7 +214,6 @@ Clearing states can interrupt active sessions. Do so only with impact assessment
 | Management | Managed devices | Approved admin ports | Allow |
 
 Every allow should have owner, purpose, scope, and review.
-
 
 #### Rule Change Management
 
@@ -441,7 +237,6 @@ After implementation:
 - Check state.
 - Remove temporary access at expiry.
 
-
 #### Troubleshooting
 
 1. Confirm interface link and address.
@@ -456,7 +251,6 @@ After implementation:
 10. Capture packets at relevant interfaces if authorized.
 
 Packet capture points can show traffic entering one interface but not leaving another, narrowing the fault.
-
 
 ### Worked Cedarbridge scenario
 
@@ -474,25 +268,15 @@ Implement a changed requirement: only one USERS host may read the handbook. Demo
 
 Same-subnet traffic may bypass the router entirely. Wrong gateways and host firewalls mimic network policy failure. Existing states may explain continued traffic after changes. Limit state removal to the test connection if needed.
 
-### Summary and glossary
+### Review and key terms
 
 State: tracked connection; default deny: unapproved traffic blocked; ingress: entry interface; NAT: address translation. Test required business traffic and a prohibited path.
 
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** A USERS client may read a DMZ handbook on TCP 8000 but must not use SSH to that server. Write these as two requirements before touching rules. A passed handbook request tests the permit; a separate SSH attempt tests the restriction. If SSH has no listener, its failure alone cannot establish firewall enforcement. Correlate the test with the firewall observation and the known service state.
-
-**Try together:** Draw client → ingress interface → rule → server, then add the response path.
-
-**Try independently:** A VPN access policy exists only on paper. What can you claim, and what would require a later deployed test?
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
-
 <!-- HSETS-SELF-STUDY-L17 -->
 <a id="self-study-l17"></a>
-### Self-study workshop — turn business needs into a traffic policy
+### Applying the lesson: turn business needs into a traffic policy
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 A traffic rule expresses a decision about a defined communication path. It needs a source, destination, protocol, service and action, along with its placement and applicable context. “Allow the application” is incomplete if it does not say which systems or service are involved. A diagram provides the route; a traffic matrix provides the required decisions on that route.
 
@@ -541,71 +325,22 @@ Complete the five MCQs, two scenarios, practical and reflection for L17 in [Stud
 <a id="lesson-l18"></a>
 ## L18 — Segmentation boundaries and remote-access design
 
-### General Overview
+### What you will learn
 
 A zone groups systems with similar trust or business purpose. Segmentation becomes meaningful only when communication between zones is enforced and tested. Two differently named subnets are not enough if another adapter bypasses the firewall. Remote access extends the same problem: a VPN can protect transport while granting excessive reach. Identity verification, device condition, narrow resource access and session logging still matter.
 
-<!-- HSETS-SELF-READY-L18 -->
-**Before this lesson:** You can convert a required connection into a narrow traffic-matrix row. Revisit [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17).
+Before starting, make sure you can convert a required connection into a narrow traffic-matrix row. Revisit [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17). A network boundary is useful only when it controls the paths that actually exist. Segmentation and remote access both require clear decisions about which identities and systems may reach which resources.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l18) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L18 -->
-
-<!-- HSETS-TERMS-L18 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l18-01"></a>
-#### Segmentation, zone and DMZ
-
-**Definition:** Segmentation divides a network into areas with controlled communication. A zone groups systems with related trust or policy needs. A demilitarised zone (DMZ) is a separated area used for services with different exposure needs from internal resources.
-
-**Explanation:** Separate names or subnets alone do not guarantee enforcement. Intended cross-zone traffic must pass through the control, without an unnoticed alternate adapter or path bypassing it.
-
-**Example or scenario:** The handbook server is placed in a DMZ. A second adapter connecting it directly to Users would undermine the intended firewall path even though the diagram still labels it DMZ.
-
-**Check your understanding:** Why inspect actual adapters as well as the diagram?
-
-<a id="term-l18-02"></a>
-#### VPN, tunnel and remote-access policy
-
-**Definition:** A virtual private network (VPN) establishes a protected logical connection over another network. A tunnel carries traffic through that connection. Remote-access policy determines which authenticated users/devices may reach which resources.
-
-**Explanation:** A protected tunnel does not justify unlimited internal access. The termination point, identity checks, destination permissions, logging and expiry still need a design and verification. This lesson's VPN component is a tabletop design unless explicitly deployed later.
-
-**Example or scenario:** A contractor needs one maintenance service for one week. The policy names that service and expiry rather than granting general access to every internal host.
-
-**Check your understanding:** Does drawing a VPN on the diagram prove it has been implemented and tested?
-
-<a id="term-l18-03"></a>
-#### MFA, full tunnel and split tunnel
-
-**Definition:** Multi-factor authentication (MFA) combines evidence from different authentication factor categories. A full-tunnel design routes the intended general traffic through the VPN; a split-tunnel design sends only selected traffic through it.
-
-**Explanation:** Different designs change routing and inspection responsibilities. Two passwords are not automatically two different factor categories. Match the design to requirements instead of assuming one label settles all security questions.
-
-**Example or scenario:** The contractor uses an approved security key and sign-in process, then receives a route only to the approved lab service in the proposed design. Access rules still limit the destination.
-
-**Check your understanding:** Does MFA itself decide which internal files the contractor may read?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L18 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall stateful rules, default deny and authentication versus authorisation. A VPN tunnel carries traffic across another network; encryption does not make the connecting endpoint trustworthy.
 
-### Detailed teaching notes
-
+<a id="term-l18-01"></a>
 #### Network Segmentation
 
-Network segmentation divides a network into controlled zones based on function, sensitivity, trust, exposure, or administrative need.
+Segmentation divides a network into areas with controlled communication. A zone groups systems with related trust or policy needs. A demilitarised zone (DMZ) is a separated area used for services with different exposure needs from internal resources. Separate names or subnets alone do not guarantee enforcement. Intended cross-zone traffic must pass through the control, without an unnoticed alternate adapter or path bypassing it.
 
-It limits who and what can communicate, reducing attack paths and incident impact.
-
-Segmentation combines:
+Network segmentation divides a network into controlled zones based on function, sensitivity, trust, exposure, or administrative need. It limits who and what can communicate, reducing attack paths and incident impact. Segmentation combines:
 
 - Subnets.
 - VLANs.
@@ -617,7 +352,6 @@ Segmentation combines:
 - Identity-aware policy.
 
 Segmentation operates in campuses, data centers, branches, cloud virtual networks, industrial environments, and endpoint networks.
-
 
 #### Segmentation Objectives
 
@@ -633,50 +367,21 @@ Segmentation operates in campuses, data centers, branches, cloud virtual network
 
 Segmentation should follow data and business flows, not only organizational charts.
 
-
 #### Physical and Logical Segmentation
 
 #### Physical
 
-Uses separate switching, cabling, devices, or infrastructure.
-
-Benefits:
-
-- Strong separation.
-- Clear failure boundaries.
-
-Costs:
-
-- Higher expense.
-- Operational complexity.
+Uses separate switching, cabling, devices, or infrastructure. Benefits: Strong separation; Clear failure boundaries. Costs: Higher expense; Operational complexity.
 
 #### Logical
 
-Uses VLANs, virtual networks, routing, ACLs, and software-defined controls on shared infrastructure.
-
-Benefits:
-
-- Flexibility.
-- Scalability.
-- Lower hardware cost.
-
-Risks:
-
-- Misconfiguration.
-- Shared control-plane compromise.
-- Hidden dependencies.
-
+Uses VLANs, virtual networks, routing, ACLs, and software-defined controls on shared infrastructure. Benefits: Flexibility; Scalability; Lower hardware cost. Risks: Misconfiguration; Shared control-plane compromise; Hidden dependencies.
 
 #### VLANs
 
-A virtual LAN (VLAN) creates a logical Layer 2 broadcast domain on switching infrastructure.
-
-It separates devices without requiring a separate physical switch for every zone.
-
-Ethernet frames may be assigned to VLANs by switch-port configuration and, on trunk links, commonly identified with IEEE 802.1Q tags.
+A virtual LAN (VLAN) creates a logical Layer 2 broadcast domain on switching infrastructure. It separates devices without requiring a separate physical switch for every zone. Ethernet frames may be assigned to VLANs by switch-port configuration and, on trunk links, commonly identified with IEEE 802.1Q tags.
 
 VLANs separate users, voice, guests, servers, management, IoT, and other device classes.
-
 
 #### Access Ports and Trunks
 
@@ -690,9 +395,7 @@ Carries multiple VLANs between switches, routers, firewalls, hypervisors, or acc
 
 #### Native VLAN
 
-Some trunk configurations carry one VLAN untagged. Native-VLAN mismatches can create connectivity and security problems.
-
-Security practices:
+Some trunk configurations carry one VLAN untagged. Native-VLAN mismatches can create connectivity and security problems. Security practices:
 
 - Disable unused ports.
 - Assign unused ports to an unused VLAN.
@@ -701,57 +404,19 @@ Security practices:
 - Use explicit native-VLAN design.
 - Monitor topology and configuration changes.
 
-
 #### VLAN Is Not a Complete Security Boundary
 
-Devices in different VLANs cannot communicate at Layer 2 directly under normal design, but inter-VLAN routing may permit communication.
-
-A secure boundary requires:
-
-- Layer 3 routing through an enforcement point.
-- Firewall or ACL policy.
-- Correct switch configuration.
-- Protected management plane.
-- Host controls.
-- Monitoring.
-
-Putting a sensitive server in a different VLAN while allowing unrestricted inter-VLAN routing provides little security benefit.
-
+Devices in different VLANs cannot communicate at Layer 2 directly under normal design, but inter-VLAN routing may permit communication. A secure boundary requires: Layer 3 routing through an enforcement point; Firewall or ACL policy; Correct switch configuration; Protected management plane; Host controls; Monitoring. Putting a sensitive server in a different VLAN while allowing unrestricted inter-VLAN routing provides little security benefit.
 
 #### Inter-VLAN Routing
 
-Routing between VLANs may occur on:
-
-- Router.
-- Firewall.
-- Layer 3 switch.
-- Virtual router.
-- Cloud routing service.
-
-Design choice:
-
-- A firewall provides stateful policy and richer logging.
-- A Layer 3 switch provides high-performance routing and ACLs but may offer different inspection depth.
-
-High-risk boundaries should use controls appropriate to the threat and evidence requirements.
-
+Routing between VLANs may occur on: Router; Firewall; Layer 3 switch; Virtual router; Cloud routing service. Design choice: A firewall provides stateful policy and richer logging; A Layer 3 switch provides high-performance routing and ACLs but may offer different inspection depth. High-risk boundaries should use controls appropriate to the threat and evidence requirements.
 
 #### DMZ Architecture
 
-A demilitarized zone is a controlled network segment for systems requiring exposure to less trusted networks.
-
-It limits direct paths from public services into internal systems.
-
-Firewalls enforce separate flows:
-
-- Internet to DMZ.
-- DMZ to internal.
-- Internal to DMZ.
-- Management to DMZ.
-- DMZ to Internet.
+A demilitarized zone is a controlled network segment for systems requiring exposure to less trusted networks. It limits direct paths from public services into internal systems. Firewalls enforce separate flows: Internet to DMZ; DMZ to internal; Internal to DMZ; Management to DMZ; DMZ to Internet.
 
 DMZs host reverse proxies, web servers, email gateways, authoritative DNS, remote-access gateways, and transfer services.
-
 
 #### DMZ Traffic Policy
 
@@ -771,34 +436,13 @@ Restrict outbound communication to updates, DNS, monitoring, or application requ
 
 Use a dedicated management zone, bastion, strong identity, and monitored administration. Do not manage exposed systems directly from ordinary user networks.
 
-
 #### Access Control Lists
 
-A network ACL is an ordered set of permit or deny conditions controlling traffic.
-
-ACLs enforce which sources can reach destinations using selected protocols and ports.
-
-Fields may include:
-
-- Direction.
-- Source.
-- Destination.
-- Protocol.
-- Port.
-- Action.
-- Logging.
-
-ACLs appear on routers, switches, firewalls, cloud networks, wireless systems, and hosts.
-
+A network ACL is an ordered set of permit or deny conditions controlling traffic. ACLs enforce which sources can reach destinations using selected protocols and ports. Fields may include: Direction; Source; Destination; Protocol; Port; Action; Logging. ACLs appear on routers, switches, firewalls, cloud networks, wireless systems, and hosts.
 
 #### Stateless ACLs
 
-A stateless ACL evaluates packets independently. Return traffic may require an explicit reverse permit.
-
-Cloud network ACLs may be stateless, while security groups may be stateful, depending on platform.
-
-Stateful firewall behavior should not be assumed for every ACL.
-
+A stateless ACL evaluates packets independently. Return traffic may require an explicit reverse permit. Cloud network ACLs may be stateless, while security groups may be stateful, depending on platform. Stateful firewall behavior should not be assumed for every ACL.
 
 #### ACL Design
 
@@ -816,7 +460,6 @@ Principles:
 
 An explicit deny placed before a required allow can shadow the allow. A broad allow before a deny can make the deny ineffective.
 
-
 #### Traffic Isolation
 
 #### North-South Traffic
@@ -825,32 +468,11 @@ Traffic entering or leaving a data center, campus, cloud, or application environ
 
 #### East-West Traffic
 
-Traffic among internal systems, workloads, or zones.
-
-Perimeter firewalls mainly observe north-south paths. Internal segmentation is required to control east-west movement.
-
+Traffic among internal systems, workloads, or zones. Perimeter firewalls mainly observe north-south paths. Internal segmentation is required to control east-west movement.
 
 #### Management-Plane Isolation
 
-Management interfaces should be reachable only from:
-
-- Dedicated management networks.
-- Privileged workstations.
-- Bastions.
-- Approved administrator identities.
-
-Protect:
-
-- Switches.
-- Firewalls.
-- Hypervisors.
-- Domain controllers.
-- EDR consoles.
-- Backup systems.
-- Cloud control planes.
-
-A user-network compromise should not provide direct management access.
-
+Management interfaces should be reachable only from: Dedicated management networks; Privileged workstations; Bastions; Approved administrator identities. Protect: Switches; Firewalls; Hypervisors; Domain controllers; EDR consoles; Backup systems; Cloud control planes. A user-network compromise should not provide direct management access.
 
 #### Segmentation Matrix
 
@@ -864,7 +486,6 @@ Required fields:
 | Management | Servers | Administration | Approved protocols | PAW | IT | Allow |
 
 The matrix is a design and review artifact. Technical rules must be validated against it.
-
 
 #### Segmentation Validation
 
@@ -881,7 +502,6 @@ Test:
 
 Testing only successful flows is insufficient.
 
-
 #### Segmentation Failure Modes
 
 | Failure | Impact |
@@ -896,20 +516,9 @@ Testing only successful flows is insufficient.
 | Stale exception | Preserves obsolete access |
 | Asymmetric route | Breaks state or inspection |
 
-
 #### Segmentation and Encryption
 
-Segmentation controls reachability. Encryption protects communication content and authentication.
-
-Use both:
-
-- TLS for application traffic.
-- SSH for administration.
-- SMB encryption/signing where required.
-- IPsec for selected system paths.
-
-An allowed flow can still be intercepted or abused if the application protocol is weak.
-
+Segmentation controls reachability. Encryption protects communication content and authentication. Use both: TLS for application traffic; SSH for administration; SMB encryption/signing where required; IPsec for selected system paths. An allowed flow can still be intercepted or abused if the application protocol is weak.
 
 #### Segmentation Governance
 
@@ -925,46 +534,20 @@ Required processes:
 - Drift detection.
 - Incident testing.
 
-Metrics:
-
-- Any-any rules.
-- Expired exceptions.
-- Unused rules.
-- Unmanaged zones.
-- Denied-flow trends.
-- Time to quarantine.
-- IPv6 policy coverage.
-
+Metrics: Any-any rules; Expired exceptions; Unused rules; Unmanaged zones; Denied-flow trends; Time to quarantine; IPv6 policy coverage.
 
 #### Remote Access
 
-Remote access allows an identity or system outside a resource's immediate network to connect and perform authorized actions.
-
-Organizations operate across homes, branches, cloud platforms, vendors, and mobile workforces.
-
-Remote access may use:
-
-- VPN.
-- Secure application proxy.
-- Bastion or jump host.
-- Remote desktop gateway.
-- SSH gateway.
-- Virtual desktop infrastructure.
-- Zero Trust Network Access.
+Remote access allows an identity or system outside a resource's immediate network to connect and perform authorized actions. Organizations operate across homes, branches, cloud platforms, vendors, and mobile workforces. Remote access may use: VPN; Secure application proxy; Bastion or jump host; Remote desktop gateway; SSH gateway; Virtual desktop infrastructure; Zero Trust Network Access.
 
 Connections may terminate at a firewall, VPN concentrator, cloud gateway, identity-aware proxy, application, or managed endpoint service.
 
-
+<a id="term-l18-02"></a>
 #### VPN Concepts
 
-A virtual private network creates a protected logical communication path across another network.
+A virtual private network (VPN) establishes a protected logical connection over another network. A tunnel carries traffic through that connection. Remote-access policy determines which authenticated users/devices may reach which resources. A protected tunnel does not justify unlimited internal access. The termination point, identity checks, destination permissions, logging and expiry still need a design and verification. This lesson's VPN component is a tabletop design unless explicitly deployed later.
 
-Traffic may traverse untrusted infrastructure such as the Internet.
-
-A VPN encapsulates packets and commonly provides encryption, integrity, peer authentication, and replay protection.
-
-VPNs connect users to organizations, branches to headquarters, cloud networks to data centers, and administrators to management networks.
-
+Traffic may traverse untrusted infrastructure such as the Internet. A VPN encapsulates packets and commonly provides encryption, integrity, peer authentication, and replay protection. VPNs connect users to organizations, branches to headquarters, cloud networks to data centers, and administrators to management networks.
 
 #### VPN Security Properties
 
@@ -978,7 +561,6 @@ VPNs connect users to organizations, branches to headquarters, cloud networks to
 | Replay protection | Are repeated captured packets rejected? |
 
 A tunnel can be cryptographically strong but still grant excessive access to a compromised user or device.
-
 
 #### VPN Types
 
@@ -1000,17 +582,13 @@ Protects communication between specific systems.
 | Site to site | Gateways | Network prefixes |
 | Host to host | Systems | Specific endpoint communication |
 
-
 #### Common VPN Technologies
 
 #### IPsec
 
-IPsec protects IP traffic using security associations and protocols such as ESP. IKE negotiates authentication, algorithms, keys, and tunnel parameters.
+IPsec protects IP traffic using security associations and protocols such as ESP. IKE negotiates authentication, algorithms, keys, and tunnel parameters. IPsec can operate in:
 
-IPsec can operate in:
-
-- **Transport mode:** protects the IP payload between hosts.
-- **Tunnel mode:** encapsulates the original IP packet, common for gateways.
+**Transport mode:** protects the IP payload between hosts; **Tunnel mode:** encapsulates the original IP packet, common for gateways.
 
 #### TLS VPN
 
@@ -1018,23 +596,11 @@ Uses TLS-based communication, often for remote-access clients or browser-based a
 
 #### Platform-Specific Protocols
 
-Organizations may use IKEv2, SSTP, WireGuard, or vendor-specific implementations. Security depends on current support, implementation, configuration, identity, and operations.
-
-Avoid obsolete protocols with known weaknesses, such as PPTP.
-
+Organizations may use IKEv2, SSTP, WireGuard, or vendor-specific implementations. Security depends on current support, implementation, configuration, identity, and operations. Avoid obsolete protocols with known weaknesses, such as PPTP.
 
 #### VPN Authentication
 
-Possible authentication:
-
-- Certificates.
-- Password plus MFA.
-- EAP methods.
-- Device identity.
-- Pre-shared keys for selected gateway scenarios.
-- Federated identity.
-
-Security practices:
+Possible authentication: Certificates; Password plus MFA; EAP methods; Device identity; Pre-shared keys for selected gateway scenarios; Federated identity. Security practices:
 
 - Use MFA for users.
 - Prefer phishing-resistant methods for privileged access.
@@ -1046,65 +612,22 @@ Security practices:
 
 A pre-shared key used across many sites increases exposure and complicates attribution.
 
-
+<a id="term-l18-03"></a>
 #### Full Tunnel and Split Tunnel
+
+Multi-factor authentication (MFA) combines evidence from different authentication factor categories. A full-tunnel design routes the intended general traffic through the VPN; a split-tunnel design sends only selected traffic through it. Different designs change routing and inspection responsibilities. Two passwords are not automatically two different factor categories. Match the design to requirements instead of assuming one label settles all security questions.
 
 #### Full Tunnel
 
-Routes all or most endpoint traffic through the organization.
-
-Benefits:
-
-- Central inspection.
-- Consistent egress policy.
-- Reduced direct Internet exposure.
-
-Costs:
-
-- Higher bandwidth and infrastructure demand.
-- Latency.
-- Dependency on VPN availability.
+Routes all or most endpoint traffic through the organization. Benefits: Central inspection; Consistent egress policy; Reduced direct Internet exposure. Costs: Higher bandwidth and infrastructure demand; Latency; Dependency on VPN availability.
 
 #### Split Tunnel
 
-Routes selected enterprise traffic through VPN while other traffic exits locally.
-
-Benefits:
-
-- Lower central bandwidth.
-- Better performance for Internet and SaaS.
-
-Risks:
-
-- Reduced centralized visibility.
-- Endpoint simultaneously connected to trusted and untrusted networks.
-- Route and DNS leakage.
-
-Split tunneling is a risk decision, not automatically insecure. Strong endpoint controls, scoped routes, DNS protection, and monitoring are required.
-
+Routes selected enterprise traffic through VPN while other traffic exits locally. Benefits: Lower central bandwidth; Better performance for Internet and SaaS. Risks: Reduced centralized visibility; Endpoint simultaneously connected to trusted and untrusted networks; Route and DNS leakage. Split tunneling is a risk decision, not automatically insecure. Strong endpoint controls, scoped routes, DNS protection, and monitoring are required.
 
 #### VPN Routing and DNS
 
-The client may receive:
-
-- Tunnel address.
-- Enterprise routes.
-- Default route.
-- DNS servers.
-- DNS suffixes.
-- Proxy configuration.
-
-Common failures:
-
-- Overlapping home and enterprise subnets.
-- Incorrect route priority.
-- DNS requests using the wrong resolver.
-- IPv6 bypassing IPv4-only policy.
-- Stale routes after disconnect.
-- MTU and fragmentation issues.
-
-Troubleshoot interface, routes, DNS, tunnel status, firewall, and application separately.
-
+The client may receive: Tunnel address; Enterprise routes; Default route; DNS servers; DNS suffixes; Proxy configuration. Common failures: Overlapping home and enterprise subnets; Incorrect route priority; DNS requests using the wrong resolver; IPv6 bypassing IPv4-only policy; Stale routes after disconnect; MTU and fragmentation issues. Troubleshoot interface, routes, DNS, tunnel status, firewall, and application separately.
 
 #### Remote-Access Security
 
@@ -1122,7 +645,6 @@ Secure remote access requires:
 
 VPN authentication does not prove that the endpoint remains healthy throughout the session.
 
-
 #### Device Posture
 
 Posture checks may evaluate:
@@ -1139,7 +661,6 @@ Posture checks may evaluate:
 
 Posture is evidence, not certainty. Checks can be stale, spoofed, unavailable, or too broad. High-risk access may require continuous evaluation and stronger isolation.
 
-
 #### Network-Level Versus Application-Level Access
 
 Traditional VPN may provide network reachability to many systems. Application-level access publishes a specific resource through an identity-aware proxy.
@@ -1151,17 +672,9 @@ Traditional VPN may provide network reachability to many systems. Application-le
 | Application proxy or ZTNA | Named application | Requires application integration and policy |
 | Bastion | Managed administrative session | Bastion becomes critical infrastructure |
 
-
 #### RDP
 
-Remote Desktop Protocol provides graphical remote interaction with Windows systems.
-
-Administrators and users need remote access to Windows applications and desktops.
-
-RDP carries display, keyboard, mouse, audio, device redirection, clipboard, and authentication-related communication according to configuration.
-
-RDP is used for servers, workstations, virtual desktops, support, and administration.
-
+Remote Desktop Protocol provides graphical remote interaction with Windows systems. Administrators and users need remote access to Windows applications and desktops. RDP carries display, keyboard, mouse, audio, device redirection, clipboard, and authentication-related communication according to configuration. RDP is used for servers, workstations, virtual desktops, support, and administration.
 
 #### RDP Risks
 
@@ -1176,7 +689,6 @@ RDP is used for servers, workstations, virtual desktops, support, and administra
 - Weak logging.
 
 Directly exposing TCP 3389 to the Internet is high risk.
-
 
 #### RDP Hardening
 
@@ -1195,19 +707,15 @@ Directly exposing TCP 3389 to the Internet is high risk.
 
 Changing the port reduces noise at most; it is not a primary security control.
 
-
 #### Network Level Authentication
 
-NLA requires authentication before creating a full graphical session, reducing unauthenticated resource use and attack surface.
-
-NLA does not:
+NLA requires authentication before creating a full graphical session, reducing unauthenticated resource use and attack surface. NLA does not:
 
 - Replace MFA.
 - Correct stolen credentials.
 - Remove RDP vulnerabilities.
 - Restrict authorization automatically.
 - Protect a compromised remote endpoint.
-
 
 #### Vendor Remote Access
 
@@ -1223,7 +731,6 @@ Vendor access should be:
 - Disabled after work.
 
 Shared permanent vendor VPN accounts create weak accountability.
-
 
 #### VPN Logging
 
@@ -1242,7 +749,6 @@ Collect:
 
 Correlate with identity, EDR, DNS, firewall, application, and cloud logs.
 
-
 ### Worked Cedarbridge scenario
 
 A Cedarbridge vendor needs one application, not the whole management network. A design specifies named identity, MFA where supported, approval expiry, a restricted application route, session records and revocation. It distinguishes full tunnel (general traffic through gateway) from split tunnel (selected routes), considering DNS and unintended simultaneous paths.
@@ -1259,21 +765,19 @@ Design a temporary vendor access policy for a different service, then implement 
 
 VLAN tagging separates layer-2 domains but inter-zone policy still requires enforcement. A multi-NIC endpoint can bypass segmentation. A VPN success event does not prove resource access was appropriate.
 
-### Summary and glossary
+### Review and key terms
 
 Zone: trust grouping; DMZ: separated service zone; VLAN: logical layer-2 partition; VPN: protected logical transport; full/split tunnel: routing choices. Design claims and executed tests must be distinguished.
 
 <!-- HSETS-SELF-STUDY-L18 -->
 <a id="self-study-l18"></a>
-### Self-study workshop — explain what segmentation and remote access protect
+### Applying the lesson: explain what segmentation and remote access protect
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 Segmentation divides communication into boundaries with deliberately controlled crossings. A VLAN or subnet label does not, by itself, prove those crossings are restricted. The topology must place traffic on the intended path, and policy must enforce the required decision. A diagram describing three zones can still represent one effectively unrestricted environment if broad routing permissions connect everything.
 
-Remote access adds another trust boundary. An encrypted tunnel protects a communication path under its design; it does not automatically make the remote user, device or requested resource trustworthy. Authentication, device conditions, allowed destinations, session duration, logging and revocation are separate design decisions.
-
-Management access deserves explicit treatment because losing it can prevent repair. Least privilege applies to reachable services as well as accounts. A user who needs one application should not automatically receive broad access to every server administration port through a VPN.
+Remote access adds another trust boundary. An encrypted tunnel protects a communication path under its design; it does not automatically make the remote user, device or requested resource trustworthy. Authentication, device conditions, allowed destinations, session duration, logging and revocation are separate design decisions. Management access deserves explicit treatment because losing it can prevent repair. Least privilege applies to reachable services as well as accounts. A user who needs one application should not automatically receive broad access to every server administration port through a VPN.
 
 #### Follow a complete example
 

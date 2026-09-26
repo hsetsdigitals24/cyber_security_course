@@ -1,103 +1,50 @@
 # M14 — SIEM Operations and Wazuh
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L27: Log collection, fields, and source health](#lesson-l27) · [L28: Triage, tickets, and missing-source diagnosis](#lesson-l28)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L27, complete its guided activity and assignment, then continue to L28. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
 **H-SETS · L27/L28**
+
 <a id="lesson-l27"></a>
 ## L27 — Log collection, fields, and source health
-### General Overview
+### What you will learn
 Cedarbridge's file server, Windows workstation and firewall each know a different part of an event. A SIEM makes selected records searchable together. It does not automatically know what happened: its conclusions depend on collection, parsing, time, context and analyst reasoning. This lesson follows a single record before introducing dashboards.
 
-<!-- HSETS-SELF-READY-L27 -->
-**Before this lesson:** You can identify an event source and distinguish an event from an alert. Revisit [L11 refresher](../Module-06/01-Student-Notes.md#lesson-l11) · [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13) · [L25 refresher](../Module-13/01-Student-Notes.md#lesson-l25).
+Before starting, make sure you can identify an event source and distinguish an event from an alert. Revisit [L11 refresher](../Module-06/01-Student-Notes.md#lesson-l11) · [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13) · [L25 refresher](../Module-13/01-Student-Notes.md#lesson-l25). A dashboard is the end of a collection process, not the original event itself. Follow the record from its source through parsing, time handling and storage.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l27) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L27 -->
-
-<!-- HSETS-TERMS-L27 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l27-01"></a>
-#### SIEM, agent, manager, indexer and dashboard
-
-**Definition:** Security information and event management (SIEM) brings selected records together for analysis. An agent collects endpoint data; a manager processes it; an indexer makes stored records searchable; a dashboard displays selected results.
-
-**Explanation:** These roles form a chain with different failure points. A connected agent establishes a connection condition, not complete collection, correct parsing or complete displayed history. Follow one actual event through the configured path.
-
-**Example or scenario:** The Wazuh dashboard lists an active agent, but the Security channel is not being collected as intended. The green status cannot substitute for a fresh source-event test.
-
-**Check your understanding:** Which observation would add stronger source-specific health evidence?
-
-<a id="term-l27-02"></a>
-#### Raw record, field, parsing and normalisation
-
-**Definition:** A raw record is the source or collected representation before a particular interpretation step. A field is a named property. Parsing extracts fields; normalisation maps different representations to a consistent meaning.
-
-**Explanation:** The same word can describe different roles across sources. Distinguish the initiating account from the target account before linking events. Preserve enough original context to review how a normalised value was derived.
-
-**Example or scenario:** One log calls an identity account and another calls it user. The analyst confirms their meaning before treating them as the same actor.
-
-**Check your understanding:** Why is simply renaming both fields to user insufficient?
-
-<a id="term-l27-03"></a>
-#### Event time, ingestion time and time zone
-
-**Definition:** Event time is when the recorded activity occurred according to its source. Ingestion time is when a later system received it. A time zone or offset explains how a displayed local time relates to a shared reference.
-
-**Explanation:** Keep both timestamps where available. Delay can arise from queues or processing as well as clock problems. Preserve original strings while making an interpreted timeline comparable.
-
-**Example or scenario:** An event at 10:05 +01:00 corresponds to 09:05 UTC and is received at 09:08 UTC. The three-minute difference is a delivery/processing observation, not automatic proof of a wrong clock.
-
-**Check your understanding:** Which timestamp should not silently replace the source time when reconstructing activity?
-
-<a id="term-l27-04"></a>
-#### Retention, archive and FIM
-
-**Definition:** Retention describes how long specified records remain available. An archive retains data for later retrieval under its own conditions. File integrity monitoring (FIM) observes configured file-property changes against a baseline.
-
-**Explanation:** Searchable alerts and retained raw records can have different coverage and lifetimes. FIM can establish a monitored change without identifying its human cause or preserving every intermediate content version.
-
-**Example or scenario:** The dashboard shows a file-change alert, but the relevant older raw history is outside retention. The analyst records the limit instead of assuming the view contains everything.
-
-**Check your understanding:** Does extending today's search time range recreate records that were already discarded?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L27 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 Recall Event Viewer, Linux service logs, authentication versus authorisation, and the evidence register. A source record describes what that component observed. A Windows failed logon does not establish that a password was stolen; a file-change record does not necessarily identify the person who caused it.
 
+<a id="term-l27-01"></a>
 ### 1. The collection pipeline
+
+Security information and event management (SIEM) brings selected records together for analysis. An agent collects endpoint data; a manager processes it; an indexer makes stored records searchable; a dashboard displays selected results. These roles form a chain with different failure points. A connected agent establishes a connection condition, not complete collection, correct parsing or complete displayed history. Follow one actual event through the configured path.
 An application or operating system generates a record. An agent reads a configured channel or file. Transport carries records to a manager; processing interprets fields and applies rules. Storage supports searches and the dashboard displays results. Each transition is a possible failure boundary.
 
 Wazuh separates endpoint agents, server analysis, indexing and dashboard functions. A green agent state indicates a connection, not that every required log source is complete. An agent can send inventory while its configured log path is wrong. Conversely, events may remain on an endpoint while manager connectivity is interrupted.
 
 Create a source inventory before onboarding: business use case, host, channel/path, event type, expected volume or test frequency, owner, timestamp field, required fields, and recovery method. Collect information for a reason. More data without retention and access planning can make useful evidence harder to find.
 
+<a id="term-l27-02"></a>
 ### 2. Raw records, fields and normalisation
-A raw record is the original representation available from the source or collector. Parsing extracts properties such as user, action and result. Normalisation maps different names to shared meanings. If one source calls a field account and another calls it user, the names can be aligned—but a service account, target account and initiating account are not interchangeable.
 
-Inspect an actual event before composing a query. Windows event properties may appear under data.win.system or data.win.eventdata in Wazuh alerts. Fields differ with decoder and source. Use the field names observed in your record, not a guessed spelling copied from another platform.
+A raw record is the source or collected representation before a particular interpretation step. A field is a named property. Parsing extracts fields; normalisation maps different representations to a consistent meaning. The same word can describe different roles across sources. Distinguish the initiating account from the target account before linking events. Preserve enough original context to review how a normalised value was derived.
+ Parsing extracts properties such as user, action and result. Normalisation maps different names to shared meanings. If one source calls a field account and another calls it user, the names can be aligned—but a service account, target account and initiating account are not interchangeable.
 
-An alert index does not necessarily contain every collected raw event. Events that do not generate stored alerts may not appear in the same view. The instructor must document raw-event retention and its access route. A missing raw record must not be silently replaced by an invented example.
+Inspect an actual event before composing a query. Windows event properties may appear under data.win.system or data.win.eventdata in Wazuh alerts. Fields differ with decoder and source. Use the field names observed in your record, not a guessed spelling copied from another platform. An alert index does not necessarily contain every collected raw event. Events that do not generate stored alerts may not appear in the same view. The instructor must document raw-event retention and its access route. A missing raw record must not be silently replaced by an invented example.
 
+<a id="term-l27-03"></a>
 ### 3. Time as data
+
+Event time is when the recorded activity occurred according to its source. Ingestion time is when a later system received it. A time zone or offset explains how a displayed local time relates to a shared reference. Keep both timestamps where available. Delay can arise from queues or processing as well as clock problems. Preserve original strings while making an interpreted timeline comparable.
 Record event time, ingestion time, zone and any clock uncertainty. 10:05 at +01:00 equals 09:05 UTC; a record ingested at 09:08 UTC was received three minutes later. Delay is not automatically a clock fault. It can come from buffering, transport, processing or batch export.
 
 Order an incident timeline by the relevant event time while preserving original strings. If clock drift is unknown, mark the ordering uncertain. Do not overwrite the source record to make a timeline look tidy.
 
+<a id="term-l27-04"></a>
 ### 4. Retention and access
+
+Retention describes how long specified records remain available. An archive retains data for later retrieval under its own conditions. File integrity monitoring (FIM) observes configured file-property changes against a baseline. Searchable alerts and retained raw records can have different coverage and lifetimes. FIM can establish a monitored change without identifying its human cause or preserving every intermediate content version.
 Searchable retention, archive retention and endpoint retention can differ. A seven-day dashboard range cannot recover records discarded after one day. An archive is useful only if it can be retrieved within the investigation's needs.
 
 Logs may contain names, command arguments and sensitive filenames. Grant analyst access according to role and tenant, protect transport and credentials, and sanitise exports. This course uses fictional accounts and harmless files.
@@ -108,24 +55,14 @@ The HR file changes at 14:00. The endpoint reports a hash change, Wazuh generate
 ### Demonstration and guided practice
 Follow lab A–C. The instructor selects one source record, expands its collected JSON, and maps five fields. The learner then repeats on the other endpoint type. Explain one useful event not covered by the current configuration.
 
-### Common mistakes, summary and glossary
+### Review and key distinctions
 Avoid confusing active agent, healthy channel and complete history. Collection means obtaining records; parsing means extracting fields; indexing makes records searchable; retention describes how long they remain available. A source-health claim requires a current event through the intended path.
-
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** A dashboard shows an agent as active, but no application event appears. Active connectivity is one stage, not proof of every source. Start with a fresh local application event. If it exists, follow configuration, collection and the selected downstream view. If it does not exist, changing dashboard filters will not create it. After repair, use a different fresh event so an old record cannot be mistaken for recovery.
-
-**Try together:** Identify endpoint, timestamp, action, result and source reference in the instructor's sanitised event.
-
-**Try independently:** A new event arrives after restart. What remains to be checked about the interval when collection was stopped?
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
 <!-- HSETS-SELF-STUDY-L27 -->
 <a id="self-study-l27"></a>
-### Self-study workshop — follow a log from source to search result
+### Applying the lesson: follow a log from source to search result
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 A security information and event management system brings observations together for analysis. A typical path includes source generation, local storage or channel, collection, transport, parsing, storage/indexing and the analyst's query. An agent connected to its manager establishes one part of this path; it does not prove every intended log channel is collected and searchable.
 
@@ -170,71 +107,34 @@ Complete the L27 workbook: five MCQs, two scenarios and independent two-endpoint
 
 <a id="lesson-l28"></a>
 ## L28 — Triage, tickets, and missing-source diagnosis
-### General Overview
+### What you will learn
 A SOC analyst turns an alert into a justified next action. The task is not to label everything malicious. It is to establish the entities, verify evidence, assess potential business harm, identify uncertainties, and communicate what should happen next.
 
-<!-- HSETS-SELF-READY-L28 -->
-**Before this lesson:** You can trace source, collection, parsing and searchable fields. Revisit [L27 refresher](../Module-14/01-Student-Notes.md#lesson-l27).
+Before starting, make sure you can trace source, collection, parsing and searchable fields. Revisit [L27 refresher](../Module-14/01-Student-Notes.md#lesson-l27). Triage turns an alert into a justified decision and a useful record. It also requires checking whether missing data reflects quiet activity or a broken collection path.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l28) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L28 -->
-
-<!-- HSETS-TERMS-L28 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l28-01"></a>
-#### Triage and disposition
-
-**Definition:** Triage determines the priority and next investigative step for a case. Disposition records the assessed outcome, such as expected activity, suspicious or unresolved.
-
-**Explanation:** The analyst tests explanations rather than assigning every alert an attack label. A conclusion should say which events it explains and what remains open. Running out of time is not evidence that an unexplained case is benign.
-
-**Example or scenario:** Repeated failures stop after an approved service-password correction. A separate sign-in from another source remains unexplained, so the learner does not close all activity for the account together.
-
-**Check your understanding:** Why might part of the account's activity remain unresolved after the service fault is explained?
-
-<a id="term-l28-02"></a>
-#### Severity, confidence and escalation
-
-**Definition:** Severity expresses the potential consequence and urgency under the scenario's policy. Confidence expresses how strongly the evidence supports a conclusion. Escalation passes a case to a person with the needed authority or expertise.
-
-**Explanation:** High uncertainty can coexist with high potential impact. Explain both rather than using the tool's score as a substitute for business reasoning. Name the evidence or condition that should trigger the next owner.
-
-**Example or scenario:** An uncertain alert affects a critical payment service. The analyst escalates for urgent validation while clearly marking what is not yet confirmed.
-
-**Check your understanding:** Can a low-confidence case still deserve prompt escalation?
-
-<a id="term-l28-03"></a>
-#### Source silence, fresh-event test and historical gap
-
-**Definition:** Source silence means expected records are absent from the observation path. A fresh-event test generates new activity to check current flow. A historical gap is an interval for which expected evidence is missing or incomplete.
-
-**Explanation:** Repairing collection and recovering old records are separate tasks. Follow source, collector and downstream views in order. Reconcile originals where available rather than assuming a restart backfills everything.
-
-**Example or scenario:** After repair, a new harmless file change arrives. The earlier outage still needs investigation because intermediate changes may not have been retained or replayed.
-
-**Check your understanding:** What does the new event prove about records from the outage?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L28 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 Use M11's finding/confirmation distinction and M13's pipeline diagnosis. A detection condition can match legitimate behaviour. A false negative cannot be counted from a quiet alert list without known missed activity.
 
+<a id="term-l28-01"></a>
 ### 1. A repeatable triage sequence
+
+Triage determines the priority and next investigative step for a case. Disposition records the assessed outcome, such as expected activity, suspicious or unresolved. The analyst tests explanations rather than assigning every alert an attack label. A conclusion should say which events it explains and what remains open. Running out of time is not evidence that an unexplained case is benign.
 Start with the alert's rule and observation window. Confirm source identity and field meaning. Open underlying evidence and search a bounded interval before and after it. Check asset owner, privileges, known change windows, and associated success or file activity. Record the query and range so another analyst can reproduce the search.
 
 A source address shared through NAT does not identify one device. A username reused on two machines may represent different local identities. Resolve entities using available host, domain, session and asset information before linking events.
 
+<a id="term-l28-02"></a>
 ### 2. Severity, confidence and disposition
+
+Severity expresses the potential consequence and urgency under the scenario's policy. Confidence expresses how strongly the evidence supports a conclusion. Escalation passes a case to a person with the needed authority or expertise. High uncertainty can coexist with high potential impact. Explain both rather than using the tool's score as a substitute for business reasoning. Name the evidence or condition that should trigger the next owner.
 Severity expresses likely business impact and urgency under the scenario policy. Confidence describes strength of evidence. An uncertain alert on a payment system can deserve urgent validation; a well-understood harmless file edit may need routine documentation.
 
 Use dispositions consistently. A benign positive is expected authorised behaviour that matches the rule. A false positive can arise from inappropriate logic or interpretation under the defined objective. An unresolved case should remain unresolved with a next step, not be closed as benign because time expired.
 
+<a id="term-l28-03"></a>
 ### 3. Diagnose source silence
+
+Source silence means expected records are absent from the observation path. A fresh-event test generates new activity to check current flow. A historical gap is an interval for which expected evidence is missing or incomplete. Repairing collection and recovering old records are separate tasks. Follow source, collector and downstream views in order. Reconcile originals where available rather than assuming a restart backfills everything.
 Walk outward from the source: does a fresh local event exist; is the right path/channel configured; can the agent read it; is the service running; does it reach the manager; is decoding working; is an alert expected; are index and time filters correct? Preserve observations before restart.
 
 Repairing an agent proves only current recovery unless historical records are reconciled. A queue may replay older events, drop some, or contain duplicates. Record the gap interval and compare source originals against arrivals.
@@ -251,14 +151,14 @@ The instructor writes a ticket aloud from a raw event. In lab D, diagnose a stop
 ### Common mistakes
 Zero search results can reflect wrong fields, time, index or collection. A screenshot without the time range is hard to interpret. Historical evidence on screen does not prove repair. A high rule level is not a substitute for business-impact reasoning.
 
-### Summary and glossary
+### Review and key terms
 Triage determines priority and next action. Disposition states the investigation outcome. Confidence and severity answer different questions. A handover names outstanding work and who owns it.
 
 <!-- HSETS-SELF-STUDY-L28 -->
 <a id="self-study-l28"></a>
-### Self-study workshop — write a triage decision another analyst can use
+### Applying the lesson: write a triage decision another analyst can use
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 Triage is an initial evidence-based decision about what an event may mean, how urgent it is and what should happen next. Severity describes a rule or event's assessed importance under its scheme. Priority includes current business context. Confidence describes how strongly the evidence supports a conclusion. A high-severity alert can still have uncertain cause, and low confidence does not make a potentially serious impact unimportant.
 

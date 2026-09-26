@@ -1,432 +1,229 @@
-# M01 — Computer and Cybersecurity Foundations
+# H-SETS — Computer and Cybersecurity Foundations
 
-Need help creating, saving or finding files? Use the [step-by-step computer-skills bridge](../H-SETS-Computer-Skills-Bridge.md) before the foundation practice.
+**Module 1** · [Course contents](../README.md) · [Module activities](README.md)
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L01: Security, Business Risk, and Professional Practice](#lesson-l01) · [L07: Threats, Social Engineering, and Access Decisions](#lesson-l07)
+This chapter explains how computers handle information and how we protect the work people do with them. It contains two lessons. Read [Security fundamentals](#lesson-l01) first, then [Threats and access](#lesson-l07). Their permanent course references are L01 and L07.
 
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
+You need basic typing and file-handling skills. If those are unfamiliar, the [computer-skills bridge](../H-SETS-Computer-Skills-Bridge.md) provides supported practice. No virtual machine or software installation is needed here.
 
-
-Navigation: [Course map](../README.md) · [Learning guide](../H-SETS-Student-Learning-Guide.md) · [Module start](README.md) · [Next module](../Module-02/README.md)
-
-**Read in this order: L01 → L07.** Lesson IDs are permanent references, not reading-order numbers. Use the links in the module route.
-
-**Lesson links:** [L01](#lesson-l01) · [L07](#lesson-l07)
+The chapter uses invented records and organisations. Cedarbridge Services is a fictional company whose Finance team handles payments, HR handles staff records, and Operations organises customer work. Read the explanations first, then work through the examples and activities.
 
 <a id="lesson-l01"></a>
 ## L01 — Security, Business Risk, and Professional Practice
 
-### General Overview
+### What you will learn
 
-Cybersecurity protects the systems, information, and services that people depend on. A business needs employees to access the right records, customers to receive services, and decisions to be based on trustworthy information. A security control is useful when it helps achieve those needs while reducing a meaningful risk.
+Cybersecurity protects computer-based information and the services that use it. Its purpose is to help the right people do their work while reducing harmful access, improper changes and disruption. To understand a security problem, we first need to understand the computer, the information it holds and the people who depend on it.
 
-This lesson develops the language used to explain security problems. You will distinguish assets, threats, vulnerabilities, and risk; analyse confidentiality, integrity, and availability; choose controls with a reason; and practise the habits expected of a junior professional. These concepts will support every later task, from changing a Linux permission to investigating a SOC alert.
+By the end of this lesson, you should be able to explain the main computer components, distinguish the three central security goals, describe a risk and propose a safeguard with a useful test. These skills support everyday work such as investigating a support request, reviewing access or explaining an alert.
 
-### First, understand the computer you are protecting
+<a id="l01-computer-basics"></a>
+### 1. How a computer handles your work
 
-You do not need prior cybersecurity knowledge. Start with these relationships before the business-risk case. A computer accepts input, processes it using software, keeps working data in memory, and saves persistent data to storage. A network connects it to other systems; it does not make those systems automatically trustworthy.
+A computer receives input, follows instructions and produces output. Typing provides input; a program processes it; the screen displays the result. **Hardware** is the physical equipment. **Software** is the collection of programs and instructions that make that equipment useful.
 
 <a id="term-l01-computing-01"></a>
-#### Hardware, CPU, RAM and storage
+#### Processing, memory and storage
 
-**Definition:** Hardware is the physical equipment. The central processing unit (CPU) executes instructions. Random access memory (RAM) holds active working data; ordinary RAM loses its contents when power is removed. Storage retains saved data, for example on a solid-state drive (SSD).
+The **central processing unit**, or CPU, carries out instructions. **Random access memory**, or RAM, holds data that running programs are working with. **Storage** keeps saved files and installed software. These parts cooperate, but they do different jobs. A large storage drive does not provide more RAM, and a fast CPU cannot recover work that was never saved.
 
-**Explanation:** These resources do different jobs. A 500 GB drive does not provide 500 GB of RAM. Opening more applications uses memory; keeping more saved files uses storage. More CPU capacity does not recover an unsaved document after a power failure.
+Ordinary RAM loses its contents when power is removed. Storage normally retains saved information after shutdown. When you edit a document, some of its current state is held in memory. Saving writes the work to its storage location. Automatic saving can help, but you need to know whether it is active and where the file is saved.
 
-**Example or scenario:** Cedarbridge's receptionist opens a browser and a large spreadsheet. Both need RAM while running. Saving the spreadsheet writes it to storage. If the laptop stops responding, record the symptom before assuming a virus: resource pressure is one possible cause.
+Common storage devices include hard disk drives and solid-state drives. A hard disk drive uses rotating magnetic disks; a solid-state drive uses electronic memory without moving mechanical parts. Both store saved data. Neither is the same as working RAM, and either can fail. Keeping important information on a drive does not remove the need for a recovery copy.
 
-**Check your understanding:** Which resource keeps a saved spreadsheet after shutdown, and why does that not protect an unsaved edit?
+For example, a student writes an attendance note and saves it. The student then adds another sentence without saving again. If power fails, the saved version may still be available while the latest edit is lost. The difference comes from when the information was saved, not from how expensive the computer is.
 
 <a id="term-l01-computing-02"></a>
-#### Operating system, application and process
+#### The operating system and applications
 
-**Definition:** An operating system (OS), such as Windows or Linux, manages hardware and provides services for programs. An application performs a user task. A process is a running instance of a program.
+An **operating system**, or OS, manages the computer's resources and provides services for other programs. Windows and Linux are operating systems. They manage processor time, memory, files and connected devices. They also apply access rules when accounts and programs request resources.
 
-**Explanation:** A browser is an application; the OS controls its access to memory, files and devices. Closing one application is different from shutting down the computer. Administrative permission allows important system changes and should not be granted merely to make an error disappear.
+An **application** helps a user perform a task. A browser displays web content; a text editor creates text files; a payroll application helps prepare staff payments. Applications use operating-system services to carry out underlying actions such as reading a file or sending work to a printer.
 
-**Example or scenario:** A payroll application cannot open a file. The file may be missing, its permission may deny access, or the application may have a problem. The error alone does not establish which explanation is correct.
+A **process** is a running instance of a program. Software can be installed without currently running. When it runs, the OS manages its processes and the resources they use. One application can use several processes, so the number of processes need not match the number of open windows.
 
-**Check your understanding:** Why is reinstalling the whole operating system an unreasonable first response to one missing document?
+These distinctions help with troubleshooting. Closing one application does not normally shut down the whole computer. If an application cannot open a document, the file could be missing, damaged or protected by permissions. Record the error and check the file location before making a major system change. Reinstalling the OS would be a poor first response to a single missing document because the cause has not yet been established.
 
 <a id="term-l01-computing-03"></a>
-#### File, folder, path and extension
+#### Files and their locations
 
-**Definition:** A file stores named data; a folder organises files. A path describes a location. An extension is a filename suffix often associated with a format, such as .txt or .csv.
+A **file** holds named information, such as text or a picture. A **folder** organises files. A **path** describes a file's location. In `H-SETS/M01/attendance.txt`, the file is inside the M01 folder, which is inside H-SETS. Windows commonly displays backslashes between folder names.
 
-**Explanation:** Saving, copying and moving have different effects. A copy leaves the original; a move changes its location. An extension is a clue, not proof of safe content. A screenshot records what was displayed, not every action that produced it.
+The ending `.txt` is a filename **extension**, usually associated with plain text. Extensions help identify expected formats, but they do not prove that a file is safe. Changing an extension also does not safely convert the contents into a new format.
 
-**Example or scenario:** Save a synthetic text file in a course folder, close the editor and reopen that exact file. A same-named file in Downloads may be a different copy. Record the path when explaining which version you inspected.
+Saving, copying and moving are different actions. Saving records your work. Copying creates another copy while leaving the original in place. Moving changes the file's location. Two files can have the same name in different folders, so a name alone may not identify the file you examined. Record the path when the distinction matters.
 
-**Check your understanding:** How would you distinguish two same-named files without deleting either one?
+For example, an attendance file in Downloads may be an older copy than the one in the course folder. Before saying that your edits have disappeared, reopen the file from the location where you saved it. Compare both copies without deleting either one.
 
 <a id="term-l01-computing-04"></a>
-#### Account, permission and evidence
+#### Accounts, permissions and records
 
-**Definition:** An account represents an identity in a system. A permission allows a specified action on a resource. Evidence is recorded information supporting a claim.
+An **account** represents an identity in a system. Some accounts belong to people; others support applications or automated work. A **permission** allows a particular action on a resource. Reading a file, changing it and deleting it are separate actions, and an account may be allowed to do one without being allowed to do the others.
 
-**Explanation:** Being signed in does not mean every action is allowed. Use your ordinary assigned account, and ask the instructor before changing system settings. Record what you actually observed; label a suggested correction as proposed until it is performed and checked.
+Administrative permissions allow important management changes. They should be used for authorised management tasks, rather than granted whenever an error appears. An access refusal may be the intended protection. Later in this chapter, you will learn how to distinguish signing in from being allowed to perform an action.
 
-**Example or scenario:** A learner can read a class document but cannot edit it. That may be the intended permission. Save a synthetic observation note rather than attempting to bypass the restriction.
+**Evidence** is recorded information that supports a claim. A useful observation identifies the file or system, the account used, the action attempted and the result. A screenshot may help, but it does not show every earlier action or hidden setting. Keep secrets and personal information out of course evidence, and describe proposed changes as proposals until they are performed and checked.
 
-**Check your understanding:** Does successful sign-in prove you may change payroll data? Explain.
+#### File practice
 
-**Foundation practice:** Create a course folder using your file manager. Save a harmless text note, copy it to a second folder, reopen both, and record which is the original. Locate the OS name and installed RAM in the instructor-demonstrated system information screen; omit serial numbers and personal details. Do not change network settings or install virtual machines. If file handling is unfamiliar, complete this with instructor support before continuing.
+Use invented information in an approved course folder. If any step is unfamiliar, follow the computer-skills bridge linked at the start of this chapter.
 
-<!-- HSETS-SELF-READY-L01 -->
-**Before this lesson:** You can save and reopen a harmless text file; use the computing starter in this lesson if needed.
+1. Create a folder named `H-SETS`, then create `Original` and `Copy` inside it.
+2. Open a text editor and write `Three students attended today.` Save the file as `attendance.txt` in Original.
+3. Close the editor. Find and reopen the saved file to confirm that the sentence remains.
+4. Copy the file into Copy. Open that second file, add another sentence and save it.
+5. Reopen both files from their respective folders. Record their paths and explain which file changed.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l01) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L01 -->
+The exercise succeeds when you can locate both versions and explain the difference. Two folders on the same drive do not protect against failure of that drive. Recovery needs a suitable backup and a successful restore check.
 
-<!-- HSETS-TERMS-L01 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+<a id="l01-security-purpose"></a>
+### 2. What needs protection?
 
 <a id="term-l01-01"></a>
-#### Cybersecurity and assets
+An **asset** is something valuable that needs protection. It can be equipment, information, an account or a service. Begin by asking what people need the asset to do. The value of an attendance list comes from the record it provides, not merely from the laptop that stores it.
 
-**Definition:** Cybersecurity protects computer-based information and services against harmful access, change or disruption. An asset is something valuable that needs protection.
+An **asset owner** is responsible for decisions about the asset's business use. The person maintaining the equipment may have a different responsibility. A training manager might decide who needs attendance information while a technician maintains the storage system. The technician's ability to operate the system does not automatically give them authority to approve every use of its information.
 
-**Explanation:** Start by identifying what people need the system to do. An asset can be information, an account or a service, not only a physical device. This helps you choose a protection that addresses a real business need.
+A **dependency** is something a service needs to work. A file-sharing service may depend on power, storage, a network connection and a working account system. A **server** is a computer or program that provides a service to other systems. If a required dependency fails, the service can stop being useful even while some of its components remain running.
 
-**Example or scenario:** Cedarbridge's payroll spreadsheet is an asset because staff depend on its correct figures. Protecting the laptop while leaving an unrestricted copy online would leave that information exposed.
+An asset inventory records what exists so that it can be managed. Start with the asset's name, purpose, owner, location and importance. Distinguish confirmed information from assumptions. If an owner is unknown, record the gap rather than inventing a name.
 
-**Check your understanding:** Why is the payroll spreadsheet an asset even if the laptop is inexpensive?
+At Cedarbridge, the payroll workbook is an information asset, while the file service that stores it is a supporting service. Finance needs accurate payment information on time. Protecting the server without controlling access to copies of the workbook would leave part of that need unaddressed.
+
+### 3. Three goals of information security
 
 <a id="term-l01-02"></a>
-#### Confidentiality, integrity and availability
+**Confidentiality, integrity and availability** describe three central security goals. Their initials form the CIA triad. The goals help explain what kind of harm matters; they do not identify an attacker or prescribe a particular product.
 
-**Definition:** Confidentiality limits disclosure to permitted parties. Integrity protects against improper change or destruction. Availability means authorised users can obtain the needed service when required.
+#### Confidentiality
 
-**Explanation:** These three goals describe different ways a service can fail. Reading a private record, changing its amount and preventing access are different problems. A useful control and test identify which goal they address.
+Confidentiality protects against unauthorised disclosure. It asks who may receive or see information. Permissions can restrict access, while encryption can protect readable contents by making the appropriate key necessary to recover them. These protections serve different purposes: an application that is allowed to read encrypted information may still disclose it through an inappropriate sharing decision.
 
-**Example or scenario:** An unauthorised person reads a salary file: confidentiality is affected. An incorrect salary is entered: integrity is affected. Payroll staff cannot open the file on payment day: availability is affected.
+Confidentiality applies to copies as well as originals. Email attachments, exported reports, backups, printed pages and visible screens can all expose information. Removing access after a disclosure may prevent further exposure without retrieving copies already received by someone else. A useful check therefore identifies the specific access route being tested and the limits of the result.
 
-**Check your understanding:** A file opens normally but contains unauthorised edits. Which goal is most directly affected?
+For example, only HR should read a confidential personnel folder. The intended HR user should be able to open it, while a user without permission should be refused. If both can open it, the server being online does not establish good security.
+
+#### Integrity
+
+Integrity protects against improper change or destruction. It helps people trust the information and system state they use. Legitimate changes are necessary, so integrity does not mean that information must never change. It means that changes follow the required authority and checks.
+
+Restricted edit permissions, approval procedures and change history can support integrity. Input validation checks whether a value meets expected rules, but a correctly formatted value may still be wrong. A file hash is a value calculated from its contents. Comparing hashes can help identify a difference, but does not explain who made a change or prove that the original information was correct. You will practise hashes in Module 4.
+
+For example, a payroll workbook can remain private and open normally while containing an unauthorised bank-detail change. The immediate concern is the improper change. Investigation may also need to establish how the person or account gained access.
+
+#### Availability
+
+Availability means that authorised users can obtain the required information or service when needed. A computer can be switched on while failing to provide a useful service. The check must therefore relate to the user's task, rather than only to a running process or a green status indicator.
+
+Capacity planning considers whether enough resources exist for expected work. Redundancy provides additional resources so one failure need not stop the service. Failover moves service to an alternative resource when needed. Backups support recovery, but recovery may take time; a backup does not necessarily keep a service running during an outage.
+
+A meaningful availability test might open the required record and complete an approved task. If that task fails, possible causes include power, connectivity, storage, software or malicious activity. An outage alone does not prove an attack.
+
+#### Balancing the goals
+
+The three goals must work together. Denying everyone access to a record can reduce a disclosure route while preventing legitimate work. Giving everyone full access may remove some support problems while allowing inappropriate changes. A useful design identifies who needs which action, then tests both required access and required refusal.
+
+One event can affect more than one goal. An incident that changes files and prevents staff from using them can affect integrity and availability. Disclosure may also have occurred, but it needs evidence. Avoid assuming that the first visible problem explains the whole event.
+
+### 4. Understanding risk
 
 <a id="term-l01-03"></a>
-#### Threat, vulnerability and risk
+A **threat** is a potential cause of harm. A **vulnerability** is a weakness that could enable or worsen that harm. **Risk** considers a possible adverse outcome, how plausible it is and how serious its consequences would be. These ideas belong together, but they describe different parts of the problem.
 
-**Definition:** A threat is a potential cause of harm. A vulnerability is a weakness that could enable harm. Risk concerns the likelihood and impact of an adverse outcome in a particular situation.
+Threats are not limited to criminals. Mistakes, technical failures and environmental events can also cause harm. A **threat source** is the person or condition from which harm could arise; a **threat event** is what might happen. A missing approval step is a process weakness. An unauthorised change is an event that could take advantage of it.
 
-**Explanation:** These terms connect a possible event to a business consequence. Finding a weakness does not prove someone used it. Prioritise using exposure, existing safeguards and the harm that could follow, rather than a frightening label alone.
+**Likelihood** concerns how plausible the event is under the relevant conditions. **Impact** concerns the resulting harm. Consider exposure, existing safeguards, the information's sensitivity and the service it supports. A weakness in a disposable test system may need a different priority from the same weakness in a system required for daily operations.
 
-**Example or scenario:** A former worker might use a still-enabled account. The forgotten access is a weakness; unauthorised use is the threatening event; possible disclosure of customer records creates business risk.
+Write a risk statement that connects the parts: “Because this weakness exists, this event could affect this asset, leading to this consequence.” Conditional language matters when the event has not been observed. An account left active after someone leaves is an access concern; it is not proof that the former employee stole records.
 
-**Check your understanding:** Does an enabled former-worker account prove that records were stolen?
+For classroom prioritisation, use Low, Medium or High with an explanation. These are discussion categories, not measured probabilities. Record unknowns and reconsider the priority when new evidence arrives. A long list of minor findings is not automatically more urgent than one weakness affecting an essential service.
 
-<a id="term-l01-04"></a>
-#### Control, least privilege and defence in depth
+#### Responding to risk
 
-**Definition:** A control is a safeguard that changes risk. Least privilege grants only the access needed for a task. Defence in depth uses multiple protective measures so one failure need not defeat every protection.
+An organisation can avoid an activity, reduce risk with safeguards, share some responsibilities or consequences through an arrangement, or accept a defined remaining risk. Acceptance belongs to an authorised owner. A junior analyst should explain the evidence and recommendation rather than silently accept a business risk on someone else's behalf.
 
-**Explanation:** Controls can prevent an action, detect it or help recover afterwards. Choose complementary measures and test their behaviour. More products do not automatically produce better protection if they depend on the same failing mechanism.
+Sharing or transferring some consequences does not remove every responsibility or prevent an outage. **Residual risk** is what remains after the response. A proposed safeguard should not be treated as effective before implementation and verification. Record the response, owner, intended result and review point.
 
-**Example or scenario:** Cedarbridge restricts payroll editing to the payroll group, reviews change records and keeps protected backups. Permission limits, monitoring and recovery address different failure paths.
+For example, disabling a departed worker's account can reduce future use of that account. It does not establish whether the account was used earlier or whether copies of information already exist. Those are separate questions for the relevant records and investigation.
 
-**Check your understanding:** Does a backup replace the need to restrict who can edit payroll?
-
-<a id="term-l01-05"></a>
-#### Event, alert and incident
-
-**Definition:** An event is an observable occurrence. An alert is a notification that a condition deserves attention. A security incident is an occurrence that meets the organisation's criteria for harmful or policy-violating security activity.
-
-**Explanation:** Tools observe and flag conditions; analysts interpret the evidence and consequences. The terms describe different stages of understanding, not automatic escalation from every log line to a confirmed attack.
-
-**Example or scenario:** One failed sign-in is recorded as an event. A rule flags repeated failures as an alert. Investigation determines whether this is an employee mistake, a configuration problem or an incident.
-
-**Check your understanding:** Can the analyst label every alert a confirmed incident?
+### 5. Where systems can be reached
 
 <a id="term-l01-06"></a>
-#### Attack surface, exposure and trust boundary
+An **attack surface** is the set of points through which an environment can be interacted with or attacked. Login pages, shared folders, email, user devices and management interfaces are examples. **Exposure** describes how reachable or accessible a resource is in the situation being examined.
 
-**Definition:** An attack surface is the set of places through which a system can be interacted with or attacked. Exposure describes how reachable or accessible a resource is. A trust boundary separates areas governed by different trust or authority assumptions.
+A reachable service is not automatically a vulnerability. It may need to be reachable to perform its purpose. The security questions are whether that exposure is needed, what actions it allows and whether a weakness exists. An internal location also does not automatically make a service safe: misused accounts and connected devices may still reach it.
 
-**Explanation:** List real entry points and the checks at their boundaries. An unnecessary reachable interface can add opportunities for misuse even if no incident has yet occurred. Reducing exposure supports risk reduction but does not establish perfect safety.
+A **trust boundary** separates areas with different trust or authority assumptions. A request to perform an administrator action crosses a permission boundary. Controls at that point should check the requested authority rather than assume that every signed-in user may proceed.
 
-**Example or scenario:** Cedarbridge exposes a handbook page but keeps its management interface reachable only from the approved management path. The two interfaces have different purposes and access needs.
+Consider Cedarbridge's public handbook page and its management page. Visitors need to read the handbook. They do not need the ability to change it or manage accounts. The two interfaces therefore have different access requirements, even though both support the same website.
 
-**Check your understanding:** Why should the management interface not simply inherit the handbook's broad access?
+### 6. Choosing safeguards
 
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+<a id="term-l01-04"></a>
+A **security control** is a safeguard intended to reduce risk or meet a security requirement. Its value depends on what it does under the conditions that matter. An installed product or written policy is not, by itself, proof that the intended protection works.
 
-<!-- /HSETS-TERMS-L01 -->
+Controls can be described by their function. Preventive controls reduce the chance of an unwanted action. Detective controls reveal activity that needs attention. Corrective and recovery measures address a problem or restore useful work. Deterrent measures discourage misuse. A safeguard can serve more than one function.
 
-### 1. Cybersecurity starts with the service
+Controls can also be described by how they are delivered. Technical controls use systems to enforce or observe behaviour. Organisational controls establish responsibilities and rules, while operational procedures put them into practice. Physical controls protect equipment and locations. A locked equipment room is both physical and preventive; the two descriptions answer different questions.
 
-A computer can be powered on and still fail the organisation. A payroll server may respond to a network request while containing incorrect bank details. A learning portal may work for administrators while students cannot sign in. A backup application may report success even though nobody has checked whether a file can be restored.
+#### Least privilege and separate responsibilities
 
-Security work therefore starts with a business question: what must this service do, for whom, and under what conditions? Only then can an analyst decide what to protect and how to verify success.
+**Least privilege** gives an identity only the access needed for its task and for an appropriate period. Reading, creating, modifying and deleting a record are different operations. A person who needs one should not automatically receive all of them. Temporary access needs an end date or review point.
 
-Consider Cedarbridge Services, the fictional organisation used throughout this course. It has 40 employees in Finance, HR, and Operations. HR keeps personnel records, Finance prepares payments, and Operations manages customer work. Employees use workstations, shared documents, and a small internal portal.
-
-For Cedarbridge, good security includes allowing HR to work efficiently while keeping personnel files away from other departments. It includes preventing unauthorised payment changes and restoring access when a service fails. These are different outcomes, and they require different evidence.
-
-Cybersecurity overlaps with information security, IT operations, privacy, and business continuity. Information can require protection even when printed on paper. Privacy concerns how information about people is handled; restricting a folder is only one part of that responsibility. Business continuity considers how essential work continues through disruption, including arrangements beyond technology. In this course, you will learn the technical foundations while keeping those wider responsibilities in view.
-
-### 2. Assets, owners, and dependencies
-
-An asset is something the organisation values and needs to protect. It may be a database, a laptop, a user account, an application, a service, a document, or a supporting resource. Security decisions become clearer when the asset is described precisely. 'The server' is less useful than 'the file service that stores the monthly payroll workbook used by Finance'.
-
-An asset owner is accountable for its business use and the decisions surrounding it. A technical administrator may maintain the system without having authority to decide who should see every record. For example, HR may own personnel information while IT operates the storage platform.
-
-A dependency is something an asset or service needs to function. A portal may depend on power, network connectivity, name resolution, an identity service, an application server, and a database. Failure in any one can prevent legitimate work. Dependencies also create security relationships: an account with access to a backup may indirectly have access to the sensitive data inside it.
-
-| Asset | Business purpose | Example owner | Important dependency |
-|---|---|---|---|
-| Personnel folder | Maintain staff records | HR manager | File service and staff identities |
-| Payroll workbook | Prepare approved payments | Finance manager | Accurate input and controlled edits |
-| Internal portal | Coordinate customer tasks | Operations manager | Network, application, and sign-in service |
-| Administrator account | Maintain systems | IT service owner | Authentication and accountable use |
-| Backup copy | Recover required information | Relevant data/service owner | Usable media and a tested restore process |
-
-An inventory records these assets so that they can be managed. A useful first inventory includes a unique ID, name, purpose, owner, location, and importance. Later modules add addresses, software versions, exposure, and technical dependencies.
-
-Data can be stored, moving between systems, or actively being processed. Protecting a stored file does not automatically protect a copy sent by email. The same information may require controls in more than one place.
-
-### 3. Confidentiality, integrity, and availability
-
-The CIA triad describes three central security needs. Use it to ask what kind of harm has occurred or could occur. A single event can affect more than one need.
-
-#### Confidentiality: access and disclosure
-
-Confidentiality concerns whether information is available only to authorised people or processes. Cedarbridge's HR records should be accessible to the staff who need them for their duties. A technically valid account is not automatically entitled to every document.
-
-If a public share exposes personnel files, confidentiality can be lost even though the files remain accurate and the server remains online. A control should address the disclosure path: remove public access, assign appropriate permissions, and review who can access copies. Encrypting a laptop helps with some loss/theft scenarios, but it does not prevent an authorised session from opening an overly permissive share.
-
-Test the actual permission boundary using both an allowed user and a user who should be denied. [NIST: confidentiality](https://csrc.nist.gov/glossary/term/confidentiality)
-
-#### Integrity: trustworthy state and authorised change
-
-Integrity concerns protection against improper modification or destruction. Finance must be able to trust the payment details it uses. A workbook can be private but still have an integrity problem if someone changes account numbers without authority.
-
-Integrity does not mean that information never changes. Business records need legitimate updates. The important questions are who may make a change, whether the change is correct and authorised, and whether the organisation can detect or investigate inappropriate changes.
-
-Approval workflows, restricted edit permissions, validation, and change history support integrity. A file hash can help detect a difference between two byte sequences; by itself, it cannot tell you who changed the file or whether its original contents were correct. [NIST: integrity](https://csrc.nist.gov/glossary/term/integrity)
-
-#### Availability: usable access when required
-
-Availability concerns whether authorised users can reliably use the information or service when needed. A server that is running but cannot complete the required transaction has not necessarily met that need.
-
-If Operations cannot access its task portal during the working day, an availability problem may exist. Possible causes include a power interruption, an accidental configuration change, a failed disk, a software problem, or malicious activity. Do not assume every outage is an attack.
-
-Appropriate capacity, maintained systems, resilient design, recovery procedures, and tested backups can support availability. Verification should include a meaningful user action, such as signing in and retrieving a required record. [NIST: availability](https://csrc.nist.gov/glossary/term/availability)
-
-#### Balancing the three needs
-
-Making a folder unavailable to everyone would reduce one disclosure path but prevent legitimate work. Granting everyone full access might remove support tickets but expose information and allow improper changes. A useful control achieves the business requirement while restricting unnecessary access.
-
-| Event | Primary concern | Additional concern to consider |
-|---|---|---|
-| HR file sent to an unauthorised recipient | Confidentiality | Whether other copies remain exposed |
-| Bank details changed without approval | Integrity | Whether unauthorised access also occurred |
-| Portal inaccessible during business hours | Availability | Whether records were altered or disclosed |
-| Ransomware encrypts files | Availability and integrity | Possible prior disclosure; investigate rather than assume |
-
-### 4. Threats, vulnerabilities, and risk
-
-These terms describe different parts of a security problem.
-
-A **threat** is a circumstance or event capable of causing harm. It may involve a malicious actor, a mistake, an equipment failure, or an environmental event. A threat source is the person or condition from which the harm could arise. A threat event is what happens, such as unauthorised access or loss of power. [NIST: threat](https://csrc.nist.gov/glossary/term/threat)
-
-A **vulnerability** is a weakness that a threat can exploit or trigger. Examples include an incorrect permission, an unpatched flaw, a missing verification step, or a single point of failure. A vulnerability is not proof that an incident has happened. [NIST: vulnerability](https://csrc.nist.gov/glossary/term/vulnerability)
-
-**Risk** concerns possible adverse consequences and how likely they are in the relevant situation. Explain the affected asset, plausible event, weakness, and business consequence. A statement such as 'we have a high risk' is incomplete without that context. Risk analysis is affected by uncertainty, available evidence, and existing controls. [NIST: risk](https://csrc.nist.gov/glossary/term/risk)
-
-For example, a former employee may retain access to the personnel share because their account was not disabled. The former employee is a possible threat source; unauthorised access is the threat event; the missed offboarding step is the weakness; and disclosure of personnel information is a possible consequence.
-
-This describes a risk. It does not establish that the former employee actually opened a file. That requires evidence.
-
-#### Writing a useful risk statement
-
-Use this structure:
-
-> Because [specific weakness], [plausible event] could affect [asset/service], leading to [business consequence].
-
-Worked example:
-
-> Because Cedarbridge has not removed a departed user's access, that account could be used to read personnel records, exposing staff information and creating investigation and remediation work.
-
-This wording helps someone decide what to do next. It identifies a control problem and the affected service. It also leaves room to investigate whether the event has occurred.
-
-#### Prioritising risk
-
-Ask what could happen, how plausible it is, how serious the effect would be, and what controls already exist. Consider how easily the weakness could be reached, how often the relevant activity occurs, the sensitivity of the data, and the organisation's tolerance for interruption.
-
-The classroom uses Low/Medium/High with written reasoning. These are discussion categories, not measured probabilities. A numerical classroom score should not disguise uncertainty. Two assessors may reasonably choose different ratings if the assumptions differ; the reasoning must be visible.
-
-One missing offboarding action may deserve urgent attention even though only one account is involved. A long list of less important findings is not automatically the highest priority. Quantity is not a substitute for business context.
-
-#### Risk treatment and residual risk
-
-An organisation may reduce risk by applying a control, avoid a risky activity, share or transfer some consequences through an arrangement, or accept the remaining risk through an authorised decision. These decisions need an owner. A junior analyst can explain evidence and recommend action but should not silently accept significant business risk on behalf of management.
-
-Residual risk is what remains after the selected response. Disabling a departed account reduces future use through that identity, but it does not prove that earlier copies of data do not exist. Follow-up investigation or monitoring may still be needed.
-
-### 5. Attack surface, exposure, and trust boundaries
-
-The attack surface consists of the places where an attacker could attempt to interact with or affect a system. Think about network services, login pages, email, shared folders, user devices, physical access, and third-party connections. A person handling a suspicious request can also be part of the path into a business process.
-
-Exposure describes how accessible a particular point is in the scenario. An internal application and an Internet-facing application may contain the same defect, but their reachability differs. An internal location does not remove all risk: staff, compromised accounts, or other connected systems may still reach it.
-
-A trust boundary is where information or actions move between areas with different trust assumptions or permissions. A normal user's request to perform an administrator action crosses a permission boundary. Moving from a guest VM to host files crosses another important boundary.
-
-Reducing unnecessary services and permissions can reduce opportunities for misuse. However, closing a port does not address every possible route, and disconnecting a service can harm legitimate work. Record what is required before removing access.
-
-### 6. Controls: what they do and how they operate
-
-A security control is a measure used to achieve a security purpose. It may be a policy, a procedure, a technical configuration, a physical safeguard, or a combination. The presence of a control does not establish its effectiveness. Someone must check whether it works under the conditions that matter.
-
-One useful classification asks **what the control does**:
-
-| Function | Purpose | Cedarbridge example | Evidence of operation |
-|---|---|---|---|
-| Preventive | Reduce the chance of an unwanted action | Restrict HR folder access | Unauthorised user is denied |
-| Detective | Reveal or help identify an event | Review access alerts | A known test event is recorded and reviewed |
-| Corrective/recovery | Correct a condition or restore capability | Restore a damaged document | Correct contents are recovered and usable |
-| Deterrent | Discourage inappropriate behaviour | Clear acceptable-use expectations | Communication and acknowledgement records |
-
-A second classification asks **how it is delivered**: administrative/organisational controls set rules and responsibilities; technical controls enforce or observe through systems; physical controls protect buildings and equipment. These classifications are not competing labels. A locked equipment room is physical and preventive. An offboarding procedure is organisational and supports preventive action.
-
-People, processes, and technology must work together. An access-removal tool cannot know every departure unless the business supplies accurate information. A policy cannot stop a technical action unless the appropriate controls and operating practices support it.
+**Separation of duties** divides sensitive responsibilities so that one person does not control every stage. One person might prepare a payment change while another approves it. This can reduce the chance that a single mistake or abusive action completes unnoticed. The arrangement must fit the organisation; a small team may need another meaningful review where complete separation is impractical.
 
 #### Defence in depth
 
-Defence in depth uses complementary measures so that one failure does not remove all protection. For a sensitive share, Cedarbridge could use limited access, protected identities, access logging, and a recovery procedure. Each serves a different purpose.
+**Defence in depth** uses complementary safeguards so that one failure does not remove all protection. Permissions can limit an action, monitoring can reveal misuse, and a tested recovery process can restore information. These measures act at different points and serve different purposes.
 
-Adding products is not necessarily adding useful layers. Two controls with the same dependency may fail together. Two backup copies on the same failing disk do not offer the same resilience as a usable copy in a separate failure location.
+Adding more products does not necessarily add useful protection. Several controls can fail together if they depend on the same account, device or location. Two recovery copies on one failed disk do not provide independent recovery. Consider what each layer contributes, who maintains it and what remains if it fails.
 
-#### Least privilege and separation of duties
+For example, Cedarbridge limits payroll edits, records important changes and maintains protected backups. A **log** records system events; a **restore** recovers information from a backup. The company should check that an approved editor can work, an unauthorised editor is refused and the required information can be restored. A recovery test does not replace the access tests.
 
-Least privilege means assigning only the access needed for the task and for an appropriate period. It reduces unnecessary opportunities for mistakes or misuse. A normal account should be used for ordinary work; administrative access should be used deliberately for tasks that require it.
+### 7. Evidence and professional judgement
 
-Separation of duties distributes sensitive responsibilities. For example, one person might prepare a payment change and another approve it. This can reduce the chance that a single mistake or abusive action completes the whole process unnoticed. The right arrangement depends on the business size and risk; a tiny organisation may need a different compensating review.
+<a id="term-l01-05"></a>
+An **event** is an observable occurrence. An **alert** is a notification that a condition deserves attention. A **security incident** meets the organisation's criteria for harmful or policy-violating security activity and the corresponding response. These words should not be used as if every event automatically becomes an incident.
 
-### 7. Events, alerts, and incidents
+One failed sign-in may be a typing mistake. Repeated failures may justify investigation, but their cause still needs evidence. A false positive incorrectly indicates the condition of interest; a false negative misses it when it is present. These possibilities explain why an alert needs interpretation and why no alerts does not prove complete safety.
 
-An event is an observable occurrence, such as a login failure or a file change. An alert is a notification that a condition met a rule or otherwise deserves attention. An incident is an occurrence that meets the organisation's criteria for a security response.
+Separate what you observed from what you think it means. “The record shows five failures for this account” is an observation. “Someone may have repeatedly entered an old password” is a hypothesis. “We do not yet know who controlled the account” states an uncertainty. Together with a proposed next check, these make a useful handover.
 
-One failed login could be a typing mistake. Many failures followed by success may deserve investigation, but still require context. A junior analyst should identify the affected identity and system, check supporting evidence, and follow the escalation process rather than immediately declaring a breach.
+#### Permission to work and change control
 
-Use precise language:
+**Scope** defines the systems, accounts, activities and times you are authorised to work on. Knowing an address or owning a tool does not create permission to test a system. In this module, work only with harmless course files and the supplied fictional material. Later labs introduce explicitly assigned training systems.
 
-- **Observation:** 'The log contains five failed login events for the test account during the recorded interval.'
-- **Hypothesis:** 'Someone may have entered an incorrect password repeatedly.'
-- **Unknown:** 'The current evidence does not establish whether the attempts were made by the account owner.'
-- **Next action:** 'Check the authorised test record and relevant sign-in context.'
+**Change control** records what will change, why it is needed, who authorised it, how success will be checked and how the earlier state could be recovered. Returning to an earlier state is often called rollback. A planned recovery route is not proof that recovery works; the appropriate lab or system procedure must verify it.
 
-This distinction prevents unsupported claims and makes handovers easier to trust.
-
-### 8. Professional conduct and change control
-
-Having a tool or knowing an address does not give permission to test it. Scope states which systems, accounts, activities, and times are authorised. It also identifies exclusions and a contact for unexpected behaviour. Work beyond that scope needs a new decision from the authorised owner.
-
-In this course, the permitted targets are the disposable training VMs and synthetic case material assigned by the instructor. Your employer's systems, neighbours' networks, public websites, other learners' ranges, and personal accounts are not included. If a lab exposes an unexpected route, stop active testing and correct the configuration with the instructor.
-
-Change control means planning a change well enough to understand its purpose, impact, validation, and reversal. A brief record can answer: what will change, why, on which asset, who authorised it, how success will be checked, and how the prior state can be recovered. Not every task needs a long approval form, but significant changes should not be undocumented surprises.
-
-Physical security matters too. An unlocked screen can expose a signed-in session even when the password is strong. Device access, removable media, printed documents, and equipment storage are relevant parts of the system's protection.
-
-For a junior role, knowing when to escalate is a skill. Record the evidence, explain the uncertainty, identify the service at risk, and request the decision needed. Do not make changes merely to make an alert disappear.
-
-### 9. Worked example: the departed employee
-
-Cedarbridge's HR manager reports that a former employee appears in a folder-access group. The account's current sign-in state has not been checked. There is no confirmed evidence of recent file access.
-
-The asset is the personnel folder. The weakness is a possible incomplete offboarding action. A plausible event is continued access through the old identity. The business consequence could be disclosure of staff records. At this point, describe it as an access-control concern requiring verification.
-
-A reasonable response is to confirm the departure and assigned access with the responsible owner, follow the authorised account-removal procedure, and validate that fresh access is denied. Review relevant records to establish whether access occurred during the period in question. Keep any investigation separate from the assumption that the former employee acted maliciously.
-
-Three complementary controls are a reliable HR-to-IT departure notification, group/account access removal, and a review of relevant access events. The first improves the process; the second enforces the decision; the third supports detection and investigation. Each has an owner and a different verification method.
-
-### 10. L01 practice and professional relevance
-
-Complete Lab 1A in the guided lab using the case file and workbook. You will create an inventory, write risk statements, select controls, and explain how to check them. The assessor will change one fact so that you must reconsider the priority.
-
-This is the reasoning used in support tickets, access reviews, vulnerability reports, and incident handovers. Tools will become more complex later, but the questions remain: what is affected, what does the evidence show, what is the consequence, and what action is justified?
-
-### L01 glossary
-
-| Term | Meaning in this lesson |
-|---|---|
-| Asset | Something of value that needs protection |
-| Asset owner | Person accountable for business decisions about an asset |
-| Dependency | A resource or service needed by another service |
-| Confidentiality | Protection against inappropriate access or disclosure |
-| Integrity | Protection against improper change or destruction |
-| Availability | Usable access for authorised needs |
-| Threat | Potential cause or circumstance of harm |
-| Vulnerability | Weakness that can be exploited or triggered |
-| Risk | Possible adverse outcome considered with likelihood and context |
-| Residual risk | Risk remaining after the chosen response |
-| Attack surface | Points through which a system may be affected |
-| Control | Measure intended to achieve a security purpose |
-| Least privilege | Only the access needed for the assigned task |
-| Scope | The authorised boundaries of work |
-| Escalation | Passing a decision or issue to the appropriate authority |
-
-### L01 lesson summary
-
-Security decisions should protect required business outcomes. Identify the asset and owner, distinguish threat from weakness, explain risk in context, and choose controls with observable tests. A vulnerability is not proof of compromise, and an alert is not a complete incident conclusion. Record what you know, what remains uncertain, and who owns the next action.
-
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** A training centre keeps its attendance register on one laptop. The register is the asset; accidental deletion is a possible event; having no usable backup is a weakness. The consequence is losing evidence of attendance. A copied file is only a candidate backup until a restore test shows the required content can be recovered. Notice how the explanation begins with a service people need, not a product name.
-
-**Try together:** With the instructor, replace attendance with a fictional stock record. Name its owner and one required recovery result.
-
-**Try independently:** Choose another fictional service. Separate an observed fact from a possible event, then propose one test of the chosen control.
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+If a task reveals unexpected access or an unclear boundary, stop and refer the decision to the responsible person. This is **escalation**. Record enough evidence to explain the issue without exploring unrelated private information. Good professional judgement includes knowing which decisions are yours to make.
 
 <!-- HSETS-SELF-STUDY-L01 -->
 <a id="self-study-l01"></a>
-### Self-study workshop — reason from business need to evidence
+### Worked example: a shared rota
 
-#### Understand the mechanism
+Cedarbridge keeps a staff rota in a shared folder. Scheduling staff need to edit it. Other employees need to read it. Everyone currently has edit permission, but no incorrect change has been confirmed.
 
-A computer problem becomes a security concern because of its effect on a person, service or information. Start with that effect. A broken keyboard and a locked customer database can both affect availability, but their business consequences differ. The same weakness can also have different consequences in different organisations. A publicly readable staff rota and a publicly readable medical record are not equivalent merely because both are files.
+The asset is the rota and the scheduling work it supports. The weakness is unnecessary edit permission. An accidental or deliberate improper change could lead to missed shifts. That is the risk explanation; it does not claim that the event has already happened.
 
-Separate four parts of a risk explanation. The **asset** is what has value. The **vulnerability** is a weakness that could enable harm. The **threat event** is what might exploit that weakness. The **impact** is the business consequence. An observed weakness does not prove the event already happened. “The folder allows unnecessary access” is a configuration fact; “someone stole the files” needs separate evidence.
+Separate reader and editor permissions would address the weakness. Scheduling staff should be able to save an approved change. An ordinary employee should be able to read the rota but be refused when trying to change it. These are proposed tests because this is a written case. Earlier changes would need separate investigation through available records.
 
-A control should interrupt a specific part of that chain. Permissions can limit access, an approval process can reduce inappropriate changes, logs can support detection and investigation, and a tested backup can support recovery. A single control rarely covers all four jobs. To check a control, define what must still work as well as what must fail. Blocking everybody from the payroll folder prevents disclosure but also prevents payroll work.
-
-#### Follow a complete example
-
-Cedarbridge stores a synthetic shift rota in a shared folder. Scheduling staff need to edit it; other employees need to read it. Everyone currently has edit permission. No incorrect rota has been confirmed.
-
-1. The asset is the rota and the scheduling service it supports. Its business owner is the scheduling manager, not automatically the person who owns the server.
-2. The weakness is unnecessary edit permission. A plausible event is an accidental or deliberate unauthorised change. The impact could be missed shifts and incorrect staffing.
-3. Recommend separate reader/editor access and an approved change process. Label these **proposed**, because no configuration has been changed in this paper case.
-4. Define two checks: a scheduling identity can save an approved edit; an ordinary employee can read but cannot save an edit. Also confirm the reader can still obtain the current rota.
-5. Record uncertainty: permission review does not establish whether old unauthorised changes occurred. Relevant version history and logs would help investigate that different question.
-
-#### Practise before checking the explanation
-
-A synthetic customer contact list has one saved copy on a receptionist's laptop. The laptop works today. Write an asset, weakness, possible event, consequence and recovery test. Does “it opens today” prove recoverability?
+Now consider a different case: a customer contact list exists only on one laptop. It opens today, but there is no recovery copy. Write down the asset, weakness, possible event, consequence and a useful test of your proposed safeguard.
 
 <details>
-<summary>Practice feedback — open after writing your reasoning</summary>
+<summary>Compare your reasoning after writing your answer</summary>
 
-The contact information and the customer-contact service are assets. Depending on one copy is a recovery weakness. Device failure or accidental deletion could make the information unavailable. A useful test restores an approved backup to a separate safe location and checks the required records can be used. Opening the working file proves current access, not recovery after loss. This is a new practice case, not a workbook answer.
+The contact information supports customer communication. Depending on one copy is a recovery weakness. Device failure or accidental deletion could make it unavailable. A protected backup should be restored to a safe separate location and checked for the required records. Opening today's working copy proves current access, not recovery after loss.
 
 </details>
-
-#### If you get stuck
-
-| Difficulty | Recheck | Next useful action |
-|---|---|---|
-| Every risk sounds like “hackers” | Which asset and weakness are actually specified? | Rewrite one complete cause-and-consequence sentence |
-| Every priority is high | Business use, scope and available evidence | Explain the relative consequence instead of inventing precise probabilities |
-| You cannot design a test | The intended business permission or recovery result | Write one permitted outcome and one prohibited or failure outcome |
-
-**Ready to continue:** explain one risk without using “threat,” “vulnerability” and “impact” interchangeably. Keep proposed controls separate from observed results. This lesson requires no VM.
-
-**Continue:** [L01 lab entry](02-Guided-Lab.md#practice-l01) · [L01 assignment](03-Student-Workbook.md#assignment-l01) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
 <!-- /HSETS-SELF-STUDY-L01 -->
+
+### Review and practical work
+
+The lesson's main reasoning chain is asset, weakness, possible event, consequence and safeguard. Use CIA to explain the kind of harm. Then describe evidence that would show whether the safeguard works. Keep facts, assumptions and proposed actions distinct.
+
+Before the assignment, explain a new example aloud. If you cannot distinguish its weakness from its consequence, reread the risk section. If you cannot design a useful test, return to the safeguard's intended purpose.
+
+Complete [Lab 1A](02-Guided-Lab.md#practice-l01) using its setup and Cedarbridge case. The [term index](../H-SETS-Terms-in-Context.md) links back to definitions in this chapter when you need a refresher. The next lesson applies these foundations to messages and account access.
 
 ### End-of-lesson assignment — L01-A
 
@@ -442,182 +239,134 @@ Allow 120 minutes within this module's six independent hours: 30 for questions/s
 <a id="lesson-l07"></a>
 ## L07 — Threats, Social Engineering, and Access Decisions
 
-### General Overview
+### What you will learn
 
-Technical failures are not always attacks, and a convincing message is not proof of identity. Security work combines system evidence with knowledge of who should be allowed to do what. Cedarbridge's Finance team must approve payments without trusting every urgent email. This lesson connects M01 risk language with the identity controls that later Linux and Active Directory lessons implement.
+A security problem can begin with harmful software, a misleading request or an account that has unnecessary permission. Understanding the action and its authority is more useful than deciding from appearances alone.
 
-<!-- HSETS-SELF-READY-L07 -->
-**Before this lesson:** You can distinguish an asset, weakness, possible event and impact. Revisit [L01 refresher](../Module-01/01-Student-Notes.md#lesson-l01).
+This lesson explains common threat behaviours and the difference between identity checks and access decisions. You will learn to examine a fictional message, select an independent verification route and write clear allowed and denied actions. Complete L01 first; the ideas of assets, evidence and controls are used throughout.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l07) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L07 -->
-
-<!-- HSETS-TERMS-L07 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
+<a id="l07-behaviour"></a>
+### 1. Harmful software and observable behaviour
 
 <a id="term-l07-01"></a>
-#### Malware and attack behaviour
+**Malware** is software designed to perform harmful or unauthorised actions. It may collect information, alter data, interrupt work or help someone gain access. A **behaviour** is an action; a **symptom** is something noticed by a person or tool. A symptom may have several causes.
 
-**Definition:** Malware is software designed to perform harmful or unauthorised actions. Attack behaviour is what an actor or tool actually does, such as attempting unwanted access.
-
-**Explanation:** A label describes a category, not a complete explanation. Record actions, affected resources and evidence before naming an actor or assuming a particular motive. The course uses harmless examples rather than live malware.
-
-**Example or scenario:** A fictional case says files were renamed. That observation alone does not establish ransomware: an approved script or a mistake might also rename files.
-
-**Check your understanding:** What makes “files were renamed” different from “ransomware caused it”?
-
-<a id="term-l07-02"></a>
-#### Social engineering and phishing
-
-**Definition:** Social engineering manipulates people into decisions that help an attacker. Phishing uses deceptive messages or sites to prompt actions such as disclosing information or visiting a destination.
-
-**Explanation:** Pressure, apparent authority and requests to bypass normal checks can influence decisions. An unusual message calls for verification through a known independent route, not through contact details supplied by the message itself.
-
-**Example or scenario:** A fictional supplier message demands a bank-detail change and says not to call the usual contact. Finance checks the approved supplier record before acting.
-
-**Check your understanding:** Why is replying to the suspicious sender a weak independent verification method?
-
-<a id="term-l07-03"></a>
-#### Identity and authentication
-
-**Definition:** An identity is the account or entity being represented. Authentication checks the evidence supporting a claimed identity.
-
-**Explanation:** A username states which account is being claimed; a password or security key can help verify that claim. Successful authentication does not mean the account may perform every operation, and possession of credentials does not prove the real person's intent.
-
-**Example or scenario:** Alice enters her account name and completes the portal's sign-in check. The system establishes a session for that identity before considering which records she may open.
-
-**Check your understanding:** If Alice signs in but cannot open payroll, has authentication necessarily failed?
-
-<a id="term-l07-04"></a>
-#### Authorisation, access matrix and least privilege
-
-**Definition:** Authorisation decides which actions an identity may perform on a resource. An access matrix lists identities or roles against resources and allowed actions. Least privilege limits those grants to what the task needs.
-
-**Explanation:** Write the intended access before changing settings. This turns “secure the folder” into testable operations, including who must be refused. Test as the intended identity rather than relying on administrator access.
-
-**Example or scenario:** The matrix says Finance may edit payroll, Audit may read it and Operations may not open it. The instructor asks students to test each distinct operation.
-
-**Check your understanding:** Why is one successful Finance edit insufficient to validate this whole matrix?
+A changed filename, slow computer or failed sign-in does not by itself establish malware. An approved task, resource shortage or mistake may produce a similar observation. Start with the affected resource, the exact change and the time or context. Then identify a useful next check. Never run an unknown attachment to investigate it in this beginner course.
 
 <a id="term-l07-05"></a>
-#### Ransomware, Trojan, worm and spyware
+#### Common malware categories
 
-**Definition:** Ransomware seeks to deny access or exert pressure for payment, often through encryption and sometimes data theft. A Trojan presents an apparently useful function while concealing harmful behaviour. A worm spreads between systems. Spyware collects information covertly or without the intended user's informed permission.
+**Ransomware** uses denied access or threatened harm to information to seek payment, often by encrypting files and sometimes by stealing data. Encryption changes readable data into a form that requires the appropriate key to recover. A renamed file alone does not prove that encryption occurred.
 
-**Explanation:** These categories describe behaviours and can overlap. Learn the concepts without running unknown samples. A filename, visual warning or single changed file is insufficient to establish which behaviour occurred.
+A **Trojan** presents an apparently useful function while hiding harmful behaviour. A **worm** can propagate between systems without a person manually copying it to each one. **Spyware** covertly collects information or does so without the intended user's informed permission. These categories can overlap because they describe different aspects of behaviour.
 
-**Example or scenario:** A fictional report says a useful-looking installer collected private data. The student distinguishes the deceptive presentation from the collection behaviour instead of assuming only one category can apply.
+For example, an installer may claim to provide a useful tool while secretly collecting private information. The deceptive presentation fits Trojan behaviour; the collection fits spyware behaviour. Evidence about the actual collection is still needed before claiming which records were taken.
 
-**Check your understanding:** Can one malicious program fit more than one category?
+Controls address different parts of a harmful sequence. Updates can correct known software defects, limited permissions restrict available actions, logs support investigation and tested backups support recovery. No single control establishes that every threat has been stopped.
+
+<a id="l07-messages"></a>
+### 2. Deceptive requests
+
+<a id="term-l07-02"></a>
+**Social engineering** manipulates a person into a decision that helps an attacker. **Phishing** uses deceptive messages or websites to induce an action. The action might disclose information, reveal a sign-in secret, approve a payment or open a harmful attachment.
+
+Pressure can involve urgency, fear, secrecy, apparent authority or a promised benefit. These features are reasons to examine a request, not automatic proof of fraud. Correct spelling does not establish legitimacy, and a poorly written message is not necessarily malicious. A familiar name can be imitated or used through a compromised account.
+
+Read the request by identifying the action, the affected information or service, and the required approval. Compare it with the normal process. A **domain name** identifies an Internet service or mail domain; similar spelling does not make two domains the same. Do not rely on a logo or displayed name as proof of the destination's identity.
+
+Verification should use contact information already held in an approved record or another established route. Contact details supplied by the questionable message cannot independently verify that same message. If the normal route is unavailable, record the gap and escalate. A deadline does not create authority to disclose information.
+
+#### Worked example: a new upload request
+
+A message asks Cedarbridge to upload its customer list to a new form before noon. It displays a familiar supplier name and says not to call the usual office number.
+
+The requested action is disclosure of the customer list. The new transfer route and request to bypass the normal contact are observations. They justify checking the supplier's need for the information and the authority to disclose it through a previously approved route. They do not establish who wrote the message. In this course, describe the verification plan without contacting anyone or uploading information.
+
+### 3. What email authentication tells you
 
 <a id="term-l07-06"></a>
-#### SPF, DKIM and DMARC
+Email authentication mechanisms check particular domain-related claims. They do not approve the business action requested in the message. You need to understand that distinction here; configuring a mail system is not part of this module.
 
-**Definition:** Sender Policy Framework (SPF) checks whether a sending host is authorised for a relevant mail-sending domain. DomainKeys Identified Mail (DKIM) uses a domain signature to verify covered message content. Domain-based Message Authentication, Reporting and Conformance (DMARC) uses aligned SPF or DKIM authentication results for the visible From domain and expresses policy/reporting information.
+**Sender Policy Framework (SPF)** checks whether a sending host is authorised for the relevant mail-sending domain. **DomainKeys Identified Mail (DKIM)** uses a domain signature to verify covered message content. The signature is a cryptographic check, not the typed name at the bottom of an email.
 
-**Explanation:** These mechanisms support particular domain-related checks. They do not approve the requested business action or prove that a person is honest. A compromised legitimate account or a deceptive sender using its own domain can still send a harmful request.
+**Domain-based Message Authentication, Reporting and Conformance (DMARC)** relates a passing SPF or DKIM result to the visible From domain through alignment and expresses policy and reporting information. These mechanisms have different roles, so a single result should not be treated as a verdict about every aspect of a message.
 
-**Example or scenario:** A fictional payment-change email passes the available domain checks. Finance still verifies the change using its approved supplier contact and authorisation process.
+For example, a payment-change request might pass the relevant domain checks while coming from a misused legitimate account. The request still needs the normal supplier verification and business approval. Failed checks also need context before their cause is established. Later technical investigation can examine details that this introductory review does not cover.
 
-**Check your understanding:** Does a passing mail authentication result make a bank-detail change automatically authorised?
+<a id="l07-identity"></a>
+### 4. Identity, sign-in and permission
 
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
+<a id="term-l07-03"></a>
+An **identity** is the account or entity represented in a system. **Identification** presents the claim, such as a username. **Authentication** checks the required evidence for that claim. **Authorisation** determines which actions the identity may perform on a resource.
 
-<!-- /HSETS-TERMS-L07 -->
+After authentication, a system may establish a **session** associated with the account. This allows continued interaction without requiring a new sign-in for every action. Protecting that session matters: someone at an unattended, unlocked device may be able to use an already signed-in account.
 
-### 1. Describe behaviour before attaching a label
+An account appearing in a log supports a statement about account activity. It does not always establish which human controlled it. Shared passwords, stolen credentials and unattended sessions can complicate the conclusion. Preserve that distinction when describing evidence.
 
-Malware is software used for harmful or unauthorised purposes. Ransomware may deny access by encrypting data and may also steal it. A Trojan presents itself as useful while performing another function; a worm propagates between systems; spyware collects information. These categories can overlap. Knowing a category does not establish what a particular file did.
+For example, Alice signs in successfully but cannot open payroll. Her authentication may have worked correctly while a separate permission decision refused the file. Granting more access merely to remove the refusal could break the organisation's intended rule.
 
-A vulnerability is a weakness; a threat is a potential source of harm; an event is an observable occurrence. A failed login is an event, not automatically an incident. Repeated failures might be a forgotten password, an automated service with stale credentials, or hostile activity. Record what is known, consider alternatives, and choose the next check. Never execute a suspicious attachment to “see what it does” in this beginner course. We use synthetic text fixtures and harmless files.
+### 5. Multiple authentication factors
 
-Controls work in layers. Restricting privileges limits what compromised software can change; updates reduce exposure to known defects; filtering may block delivery; backups support recovery; logs support investigation. None guarantees that every threat is stopped. A backup that cannot be restored is weak evidence of resilience, and a security product's absence of alerts is not proof of a clean system.
+An **authentication factor** is a category of evidence. Common categories are something you know, such as a password; something you have, such as a registered security key; and something you are, such as a biometric characteristic used by an authentication device.
 
-### 2. Social engineering manipulates a decision
+**Multi-factor authentication (MFA)** uses more than one distinct factor category. A password and a separate memorised answer both rely on knowledge. Two questions or two screens do not automatically provide two different factors. A registered security key activated by a PIN can combine possession of the key with knowledge of the PIN; the actual mechanism matters.
 
-Phishing often combines an apparent authority, a plausible context, and pressure to act. An attacker may use urgency, secrecy, curiosity, or fear. The important question is not whether the message has spelling mistakes: polished messages can be fraudulent, and genuine messages can be poorly written.
+MFA can make a stolen password less useful, but methods differ. Some codes can be captured through deceptive sites, and approval prompts can be misused to pressure someone into authorising a sign-in. Phishing-resistant methods bind authentication to the intended service. An unexpected request to share a code or approve a sign-in should be handled through the approved support process.
 
-Compare displayed sender name, actual address, destination, requested action, and normal business process. A lookalike domain can resemble a known supplier without being the same name. A legitimate account can also be compromised. The safest verification path is an independently known contact or approved internal workflow, not the phone number supplied in the suspicious message.
+**Account recovery** restores access when a normal sign-in method is lost. It is part of the authentication system and needs protection too. Strong sign-in checks can be undermined by an easily abused recovery route. None of these checks removes the need for correct resource permissions and business approval.
 
-Do not equate a mail authentication result with business approval. SPF, DKIM, and DMARC help with specific aspects of domain-based mail authentication and policy; they do not prove that the sender's request is honest or authorised. This lesson analyses visible synthetic evidence and does not teach full email forensics.
+### 6. Planning access
 
-### 3. Identity, authentication, and authorisation
+<a id="term-l07-04"></a>
+An **access matrix** records which identities or roles may perform which actions on resources. A **role** groups job responsibilities. Instead of saying that Finance “has access,” specify whether a role may read, create, modify, delete or approve the relevant records.
 
-Identification is the claim “I am this account.” Authentication checks evidence supporting the claim. Authorisation decides what the authenticated account may do. Accounting or audit records help reconstruct activity. These functions are related but distinct: a valid employee login does not grant permission to read every departmental document.
+The matrix describes intended access. It does not prove that the system enforces it. Use the intended identity when checking an action; an administrator's successful test does not show what an ordinary account can do. A **positive test** checks that a required action succeeds. A **negative test** checks that a prohibited action is refused.
 
-Authentication factors are commonly grouped as something known, possessed, or inherent. A password plus a PIN is two knowledge secrets, not two independent factor categories. MFA can reduce some credential risks, but implementation matters. Some methods can be relayed or trick users into approving requests; phishing-resistant approaches bind authentication to the intended service. Account recovery is part of the authentication system and must not become an easy bypass. These distinctions are supported by [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html).
+Consider this fictional equipment register:
 
-Authorisation should follow the business role and least privilege. A Finance clerk may read invoices but need a separate approver for payment release. A contractor's access should have an owner and an end date. On a role change, remove obsolete permissions as well as adding new ones. Disabling an account may not immediately terminate every existing session; effective removal requires verification using fresh sessions and relevant session-revocation controls.
+| Role | Read the register | Add or correct entries | Delete entries |
+|---|---|---|---|
+| Equipment staff | Allow | Allow | Deny; refer to the manager |
+| Tutor | Allow | Deny | Deny |
+| Visitor | Deny | Deny | Deny |
 
-### 4. Access matrices make intentions testable
+Equipment staff need to maintain the record, while tutors only need to check it. Deletion has a separate requirement because removing records can affect accountability. A tutor test should confirm that reading succeeds and an attempted edit is refused. For this module, write the test plan on paper; later authorised labs implement access decisions.
 
-An access matrix lists subjects, resources, and permitted actions. “Finance has access” is too vague. Specify read, create, modify, delete, and approve where relevant. Group-based permissions simplify consistent administration, but only when membership is current. Shared accounts weaken attribution and complicate offboarding.
+#### Keeping access current
 
-For Cedarbridge, Alice in Finance may read and update invoice drafts; Ben in Operations must be denied; Cara the auditor may read approved reports but not change them. Testing only Alice proves little about Ben's restriction. Positive and negative tests together demonstrate the boundary. Later modules implement these decisions on real lab systems.
+Access needs review throughout an account's life. When someone joins, approve the permissions required by their role. When their role changes, remove obsolete permissions as well as adding new ones. When they leave, follow the authorised removal process. Temporary access needs an expiry or review point.
 
-### Worked example, demonstration, and practice
+Individual accounts make attribution clearer than shared accounts, and group-based permissions can simplify administration if membership stays correct. Record the request, approval and implementation so that someone can explain why access exists. A periodic review should compare actual access with current duties.
 
-The instructor displays a synthetic message requesting a supplier bank-account change and demanding secrecy. Students separate observable features from conclusions, verify through a known supplier contact in the fictional process, and document escalation. No message is sent to a real person. Next, complete the access matrix in Lab A and explain two allowed and two denied decisions.
-
-### Common mistakes, summary, and glossary
-
-Urgency is a reason to verify efficiently, not to bypass approval. A successful login does not establish data-access entitlement. An account name in a log does not prove the named human controlled it. Describe evidence and limits precisely.
-
-Phishing: deceptive communication intended to induce an action. Authentication: verification of an identity claim. Authorisation: permitted actions. MFA: authentication using multiple factor categories. Least privilege: only required permissions. Access review: checking current access against business need.
-
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** A fictional payment message asks you to change bank details and avoid the usual contact. Those requests are observations. They justify checking the request through the approved contact record; they do not identify who wrote the message. Likewise, matching hashes of two supplied files support byte consistency under the comparison used, not that the file is harmless. Each conclusion must stay within the test's purpose.
-
-**Try together:** Underline the observations in the message and circle one claim that would need more evidence.
-
-**Try independently:** A certificate has a matching hostname and current dates. State one question about the organisation or requested action that this does not answer.
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
+Disabling an account may not immediately end every existing session. Later live verification must consider relevant continuing sessions as well as fresh sign-ins. Record what was checked instead of declaring removal complete because one setting changed.
 
 <!-- HSETS-SELF-STUDY-L07 -->
 <a id="self-study-l07"></a>
-### Self-study workshop — separate identity, permission and approval
+### Applying the lesson
 
-#### Understand the mechanism
+A worker moves from stock control to customer support. Their sign-in still works, and they can still edit the stock register. The business owner confirms that the new job no longer needs that editing permission.
 
-Identification is presenting an identity claim, such as a username. Authentication evaluates evidence for that claim. Authorisation decides whether the identity may perform a particular action on a resource. Business approval adds context such as who may approve a payment change. Successfully signing in does not grant every resource permission or prove every request is legitimate.
+Authentication is not the problem simply because sign-in succeeded. The concern is retained authorisation. The appropriate response is to review approved role requirements, remove obsolete access through the authorised process and verify the resulting permissions. It is unnecessary to assume that the worker intended to misuse the account.
 
-Multi-factor authentication combines different factor categories, not simply two prompts. Two knowledge secrets, such as a password and PIN, do not become two independent categories because they appear on different screens. Additional authentication can reduce certain risks, but cannot repair a workflow that permits an authenticated user to send information to an unapproved recipient.
-
-Social engineering targets decisions. An urgent request may pressure someone to bypass the normal owner, verification route or review step. Poor spelling can be a clue, but correct spelling is not evidence of legitimacy. Evaluate the requested action, the authority for it and the route used to verify it.
-
-#### Follow a complete example
-
-An apparent supplier contact asks Cedarbridge to upload an invoice register through a new link before lunch. The sender's display name is familiar. The message also asks staff not to use the normal verification number.
-
-1. Preserve the synthetic message as supplied evidence. Do not open the link to “check whether it looks real.”
-2. Separate observations from conclusions. The changed transfer route and attempt to bypass verification are observations. The sender's criminal identity is not established.
-3. Check the business requirement: does this supplier need the full register, and who can approve its disclosure?
-4. Use a previously approved contact route obtained independently of the request. Contact information inside the questionable message cannot independently validate that message.
-5. Record the verification outcome or escalate the unresolved decision. Do not send data merely because the requester appears to know a staff name.
-
-#### Practise before checking the explanation
-
-An employee changes from stock control to customer support. They successfully sign in and can still edit the old stock register. Which question is about authentication, and which is about authorisation? Is the successful sign-in itself the access defect?
+Now consider a message from a familiar-looking account asking you to send a private register to a new destination. It says the usual approval process can be skipped because the matter is urgent. Identify the requested action, the approval gap and an independent verification route.
 
 <details>
-<summary>Practice feedback</summary>
+<summary>Compare your reasoning after writing your answer</summary>
 
-Sign-in concerns authentication. Continued edit access concerns authorisation and the role-change process. The sign-in may be entirely appropriate while the retained old permission is wrong. Review owner-approved role requirements, remove obsolete access, add only required new access and verify using the relevant fresh session in a later live lab.
+The action is disclosure of the register. Familiar appearance does not approve that disclosure, and the message asks to bypass a protective process. Use an already approved contact route and involve the person authorised to decide whether the information may be sent. If verification remains incomplete, record that and escalate rather than acting on the deadline alone.
 
 </details>
-
-#### If you get stuck
-
-Write the request as **identity → resource → action → business approval → expiry**. An access matrix missing the action is incomplete: read and edit differ. If a message analysis only labels the sender “suspicious,” add the exact requested behaviour and a safe verification route. If the owner or approval is unknown, report that gap rather than guessing.
-
-**Ready to continue:** explain why a trusted-looking account can make an unapproved request. Complete this lesson's message and access cases on paper; do not send a real test message.
-
-**Continue:** [L07 lab entry](02-Guided-Lab.md#practice-l07) · [L07 assignment](03-Student-Workbook.md#assignment-l07) · [Module route](README.md). Read the lab starting state before jumping into an action; shared preparation applies to both lessons.
 <!-- /HSETS-SELF-STUDY-L07 -->
+
+### Review and next steps
+
+The key distinction is between an identity claim, its authentication, the account's permissions and approval for a particular business action. A successful check at one stage does not automatically satisfy the others. Explain the action and evidence before deciding what conclusion is justified.
+
+Complete the [message and access workshop](02-Guided-Lab.md#practice-l07), then use the workbook assignment below. Review definitions through the [term index](../H-SETS-Terms-in-Context.md) as needed. Module 2 introduces networking and continues the habits of careful observation and justified conclusions. Live network implementation follows Module 4 setup.
+
+### Further reading
+
+The explanations use the security distinctions described by NIST for [confidentiality](https://csrc.nist.gov/glossary/term/confidentiality), [integrity](https://csrc.nist.gov/glossary/term/integrity), [availability](https://csrc.nist.gov/glossary/term/availability) and [digital authentication](https://pages.nist.gov/800-63-4/sp800-63b.html). Technical email references are [SPF](https://www.rfc-editor.org/rfc/rfc7208), [DKIM](https://www.rfc-editor.org/rfc/rfc6376) and [DMARC](https://www.rfc-editor.org/rfc/rfc7489). You do not need to read the specifications to complete this introductory chapter.
 
 ### End-of-Lesson Assignment — L07
 

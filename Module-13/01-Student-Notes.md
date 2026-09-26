@@ -1,12 +1,5 @@
 # M13 — Network Detection and Visibility
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L25: Sensors, signatures, and visibility](#lesson-l25) · [L26: Correlation, validation, and missing visibility](#lesson-l26)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L25, complete its guided activity and assignment, then continue to L26. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
 
@@ -14,78 +7,37 @@ Read the worked case, attempt the new practice case, then reveal its feedback. U
 
 <a id="lesson-l25"></a>
 ## L25 — Sensors, signatures, and visibility
-### General Overview
+### What you will learn
 A firewall decides whether a connection may pass according to policy. A network intrusion detection system inspects observed traffic and reports selected conditions. These solve related but different problems: a permitted web connection can carry suspicious activity, while a blocked connection may be harmless but unnecessary. Cedarbridge needs evidence that its sensor actually sees the traffic it is supposed to inspect.
 
-<!-- HSETS-SELF-READY-L25 -->
-**Before this lesson:** You can identify a capture viewpoint and a service path through zones. Revisit [L06 refresher](../Module-03/01-Student-Notes.md#lesson-l06) · [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17).
+Before starting, make sure you can identify a capture viewpoint and a service path through zones. Revisit [L06 refresher](../Module-03/01-Student-Notes.md#lesson-l06) · [L17 refresher](../Module-09/01-Student-Notes.md#lesson-l17). Detection depends on a chain from observable activity to a usable alert. Establish where the sensor observes traffic and what the rule can recognise.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l25) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L25 -->
-
-<!-- HSETS-TERMS-L25 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l25-01"></a>
-#### Sensor, IDS and IPS
-
-**Definition:** A sensor observes activity. An intrusion detection system (IDS) analyses activity and reports conditions of interest. An intrusion prevention system (IPS) can enforce blocking when deployed in an appropriate traffic path.
-
-**Explanation:** Observation and prevention are different capabilities. A sensor that only sees a copied stream cannot be assumed to control the original traffic. Verify deployment position and the actual action before describing a system as blocking.
-
-**Example or scenario:** The class replays a packet capture through a detection engine and obtains an alert. This demonstrates that test's detection result, not that a live user connection was blocked.
-
-**Check your understanding:** Does an alert from an offline capture prove prevention occurred on the network?
-
-<a id="term-l25-02"></a>
-#### Signature, behavioural baseline and anomaly
-
-**Definition:** A signature is a specified pattern used to identify activity of interest. A behavioural baseline describes expected activity. An anomaly is a departure from that expectation.
-
-**Explanation:** A match is evidence that a condition was met, not automatic proof of hostile intent. A baseline also needs context: a legitimate new application can change activity. Define the detection objective before interpreting results.
-
-**Example or scenario:** The teaching rule matches one exact harmless URL marker. The alert confirms the marker condition in the observed data; it does not mean the learner launched malware.
-
-**Check your understanding:** Why should the alert's meaning mention the exact rule objective?
-
-<a id="term-l25-03"></a>
-#### Visibility, observation path and encrypted payload
-
-**Definition:** Visibility is the activity an observer can actually inspect. An observation path is the route by which that activity reaches the sensor. An encrypted payload is content protected so that an observer without the required keys cannot simply read it.
-
-**Explanation:** Seeing packets is not equivalent to seeing all application content. Placement, protocol parsing and encryption affect what can be concluded. State the visible fields and the missing context rather than guessing the hidden message.
-
-**Example or scenario:** The sensor sees a protected connection's endpoints and timing but cannot read its application message. The analyst uses those observations without claiming to know the private content.
-
-**Check your understanding:** Can endpoint and timing evidence alone establish the exact encrypted message text?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L25 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 A packet has a source, destination, protocol, and—for TCP or UDP—ports. A TCP conversation may span many packets. A capture interface determines what reaches the analyst. M09's route diagram therefore matters as much as a detection rule: traffic bypassing the monitored path cannot be inspected there.
 
+<a id="term-l25-01"></a>
 ### 1. From packet to alert
+
+A sensor observes activity. An intrusion detection system (IDS) analyses activity and reports conditions of interest. An intrusion prevention system (IPS) can enforce blocking when deployed in an appropriate traffic path. Observation and prevention are different capabilities. A sensor that only sees a copied stream cannot be assumed to control the original traffic. Verify deployment position and the actual action before describing a system as blocking.
 A sensor receives packets, decodes protocols, tracks flows, and applies rules to available fields or reassembled application data. An alert is a record that a rule's conditions matched. It is neither the original traffic nor a verdict that a person committed an attack. Preserve the time, sensor, rule ID/revision, endpoint tuple, and related flow or packet references so another analyst can examine the basis.
 
 An IDS observes and alerts. An IPS is deployed so it can prevent selected traffic. Changing a rule action to drop is not proof of prevention; the sensor must be in an appropriate inline mode and the blocked transaction must be tested. This module uses alert-only detection. Firewall acceptance tests remain independent of alert tests.
 
+<a id="term-l25-03"></a>
 ### 2. Where to put the sensor
+
+Visibility is the activity an observer can actually inspect. An observation path is the route by which that activity reaches the sensor. An encrypted payload is content protected so that an observer without the required keys cannot simply read it. Seeing packets is not equivalent to seeing all application content. Placement, protocol parsing and encryption affect what can be concluded. State the visible fields and the missing context rather than guessing the hidden message.
 A sensor beside the DMZ web server can observe requests reaching that interface. It may miss user-to-internal-server traffic or traffic blocked upstream. A mirror port or virtual switch mirror can provide copies, but its configuration and capacity must be verified. Promiscuous mode alone does not force a switch to send every frame to a guest.
 
-Draw both the expected path and capture point. NAT can change the addresses a sensor sees. Record the pre/post-NAT perspective before correlating firewall and sensor logs. Seeing a server response alone may indicate asymmetric capture; complete application interpretation can require both directions.
+Draw both the expected path and capture point. NAT can change the addresses a sensor sees. Record the pre/post-NAT perspective before correlating firewall and sensor logs. Seeing a server response alone may indicate asymmetric capture; complete application interpretation can require both directions. Encryption limits content visibility. An ordinary passive sensor may observe addresses, timing, and some handshake metadata but cannot read an HTTPS URI simply because the service uses port 443. Missing a plaintext URI rule on encrypted traffic is a coverage limitation, not proof of safe content.
 
-Encryption limits content visibility. An ordinary passive sensor may observe addresses, timing, and some handshake metadata but cannot read an HTTPS URI simply because the service uses port 443. Missing a plaintext URI rule on encrypted traffic is a coverage limitation, not proof of safe content.
-
+<a id="term-l25-02"></a>
 ### 3. Signatures and behavioural baselines
+
+A signature is a specified pattern used to identify activity of interest. A behavioural baseline describes expected activity. An anomaly is a departure from that expectation. A match is evidence that a condition was met, not automatic proof of hostile intent. A baseline also needs context: a legitimate new application can change activity. Define the detection objective before interpreting results.
 A signature expresses a specific condition such as an HTTP URI marker. A behavioural method compares activity with a model or baseline. Both depend on useful input and appropriate thresholds. A signature can miss a variant; a baseline can flag a legitimate unusual event. The business context determines whether the matched behaviour deserves investigation.
 
-A true positive refers to the explicitly defined target condition. If the rule detects a training marker and the marker exists, the rule worked even though there was no attack. Avoid reporting that as a successfully detected real intrusion.
-
-A false positive is a match treated as unwanted under the chosen detection objective. A false negative requires known relevant activity that the detection missed. A quiet dashboard alone supplies no count of false negatives.
+A true positive refers to the explicitly defined target condition. If the rule detects a training marker and the marker exists, the rule worked even though there was no attack. Avoid reporting that as a successfully detected real intrusion. A false positive is a match treated as unwanted under the chosen detection objective. A false negative requires known relevant activity that the detection missed. A quiet dashboard alone supplies no count of false negatives.
 
 ### Worked Cedarbridge example
 Operations may access the DMZ website but may not administer the internal file server. The firewall enforces that matrix. A harmless request to /hsets-visibility-test should produce an IDS alert on the DMZ path. The instructor then sends /ordinary-page. If the marker request reaches the server without an alert, first check captured packets, rule loading, and parsing. Disabling all firewall rules would neither identify the detection fault nor preserve the business requirement.
@@ -96,24 +48,14 @@ The instructor draws the path, sends one marker request, and follows its timesta
 ### Common mistakes
 An empty alert file can mean wrong interface, no traffic, unloaded rule, wrong protocol, or a legitimate non-match. Test these in that order using narrow evidence. A sensor seeing traffic from its own endpoint proves that observation point only; do not claim full inter-zone coverage.
 
-### Summary and glossary
+### Review and key terms
 Visibility is the traffic and fields available at a specific observation point. A signature is a rule condition. A flow groups related packets. IDS reports; inline IPS may prevent. The strongest result links a controlled action to raw evidence and the rule that matched.
-
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** The client receives its page but the sensor capture is empty. The application path worked for that request; the sensor evidence path did not establish visibility. Check capture placement, interface and filter using fresh traffic. Editing the alert rule cannot repair a capture that never contained the request. After visibility is established, test the rule offline and then on the allocated live sensor as separate stages.
-
-**Try together:** Draw request → capture → parsing → rule → alert. Put a marker at the last stage for which you have evidence.
-
-**Try independently:** An offline PCAP produces an alert. What extra evidence is needed before claiming the live sensor detects the same request?
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
 
 <!-- HSETS-SELF-STUDY-L25 -->
 <a id="self-study-l25"></a>
-### Self-study workshop — prove visibility before interpreting an alert
+### Applying the lesson: prove visibility before interpreting an alert
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 A detector can evaluate only the information available to it. Network placement, capture settings, packet loss and encryption affect that information. A sensor on one endpoint does not automatically observe another segment. If the relevant request never reaches the sensor, editing a signature cannot make that missing traffic appear.
 
@@ -157,66 +99,26 @@ Complete the workbook’s five MCQs, two written scenarios, and L25 practical. S
 
 <a id="lesson-l26"></a>
 ## L26 — Correlation, validation, and missing visibility
-### General Overview
+### What you will learn
 Detection work becomes useful when another analyst can repeat the test and understand its limits. This lesson develops a small validation method: define expected behaviour, generate controlled inputs, inspect actual output, investigate discrepancies, and repeat after a change.
 
-<!-- HSETS-SELF-READY-L26 -->
-**Before this lesson:** You can distinguish traffic visibility, offline detection and live detection. Revisit [L25 refresher](../Module-13/01-Student-Notes.md#lesson-l25).
+Before starting, make sure you can distinguish traffic visibility, offline detection and live detection. Revisit [L25 refresher](../Module-13/01-Student-Notes.md#lesson-l25). A detection rule expresses a condition that needs testing. Separate whether traffic was observed, whether the condition matched and whether the result reached the analyst.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l26) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L26 -->
-
-<!-- HSETS-TERMS-L26 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l26-01"></a>
-#### Rule condition, SID and revision
-
-**Definition:** A rule condition describes the activity to match. A signature ID (SID) identifies a rule in the detection system. A revision distinguishes updates to that rule's definition.
-
-**Explanation:** An identifier helps locate results, but interpreting them also requires knowing which version and data were used. Avoid mixing old output with a fresh test and assuming all matching IDs refer to the current logic.
-
-**Example or scenario:** The learner changes the exact marker and increments the rule revision. They use a fresh output location and check the new request against that version.
-
-**Check your understanding:** Why retain the rule revision with a test result?
-
-<a id="term-l26-02"></a>
-#### Positive, negative and boundary detection tests
-
-**Definition:** A positive test supplies activity that should match. A negative test supplies activity that should not match. A boundary test challenges the edge of the stated condition.
-
-**Explanation:** Testing only an intended match can hide a rule that matches too broadly. Use cases derived from the requirement, not only from whichever input first produced an alert.
-
-**Example or scenario:** For an exact-path rule, the class tests the intended path, an unrelated path and the intended path with an extra suffix. The expected outcomes are written before replay.
-
-**Check your understanding:** What defect might the suffix case reveal that the unrelated case does not?
-
-<a id="term-l26-03"></a>
-#### Correlation, parsing and detection pipeline
-
-**Definition:** Correlation relates observations using meaningful shared attributes. Parsing extracts structured meaning from raw data. A detection pipeline moves observations through capture, parsing, rule evaluation and output.
-
-**Explanation:** A missing alert can originate at any stage. Find the last stage with verified evidence before editing the rule. Correlate by the relevant event, flow and time, not merely by the fact that two screenshots look similar.
-
-**Example or scenario:** The packet exists in the capture but is not interpreted as the expected application protocol. The learner investigates parsing before changing the content pattern.
-
-**Check your understanding:** Why is changing the signature a weak first response when no packet was captured?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L26 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 Recall source/destination ports, display filters, timestamps, and M11's before/after retest method. Detection validation uses the same discipline, but distinguishes traffic generation, rule matching, collection, and analyst display.
 
+<a id="term-l26-01"></a>
 ### 1. Read a rule as a requirement
+
+A rule condition describes the activity to match. A signature ID (SID) identifies a rule in the detection system. A revision distinguishes updates to that rule's definition. An identifier helps locate results, but interpreting them also requires knowing which version and data were used. Avoid mixing old output with a fresh test and assuming all matching IDs refer to the current logic.
 Our lab rule selects HTTP requests towards a server and matches an exact URI. Its action is alert; its protocol selects application parsing; its direction and flow condition select the request side. The message is a human label, SID identifies the signature, and revision tracks a change. A readable message does not alter what the rule detects.
 
 Exact matching matters. A rule using only a substring may also match /hsets-visibility-test-extra. When the requirement is an exact path, the end-of-buffer condition must be tested. A query string may alter a URI buffer. State how your chosen engine and buffer treat it and test that behaviour instead of assuming.
 
+<a id="term-l26-02"></a>
 ### 2. Design three distinct cases
+
+A positive test supplies activity that should match. A negative test supplies activity that should not match. A boundary test challenges the edge of the stated condition. Testing only an intended match can hide a rule that matches too broadly. Use cases derived from the requirement, not only from whichever input first produced an alert.
 The matching case is the expected URI. The non-match is an ordinary page. The edge case is a near match with an extra suffix or query. Record the expected result before execution. For every case capture time, actual URL, source/destination, HTTP result, and alert count or explicit no-match observation.
 
 A 404 response can still accompany a successful URI detection because the request existed even if no resource did. A successful page load proves application availability, not sensor visibility. Keep these assertions separate.
@@ -226,7 +128,10 @@ Use time plus endpoints, ports, flow ID where available, and URI to connect even
 
 Do not compare all-time alert totals before and after a test on a shared sensor. Filter by your allocated signature and narrow time window. Duplicate monitoring points can duplicate evidence without indicating two separate client actions.
 
+<a id="term-l26-03"></a>
 ### 4. Diagnose by pipeline stage
+
+Correlation relates observations using meaningful shared attributes. Parsing extracts structured meaning from raw data. A detection pipeline moves observations through capture, parsing, rule evaluation and output. A missing alert can originate at any stage. Find the last stage with verified evidence before editing the rule. Correlate by the relevant event, flow and time, not merely by the fact that two screenshots look similar.
 Ask: did the client send the request; did the server receive it; did the capture see it; did the engine parse it; was the correct rule loaded; was the alert written; did the dashboard ingest it? Each question has a different test. Restarting everything erases useful evidence and rarely explains the failure.
 
 After a correction generate a fresh event. An old alert remaining on screen does not prove recovery. Save configuration before changes and restore the original baseline when the exercise ends.
@@ -234,14 +139,14 @@ After a correction generate a fresh event. An old alert remaining on screen does
 ### Worked example and independent practice
 The instructor deliberately selects a non-traffic interface. The web page works but the capture lacks the request. The correct response is to identify the route and select the observed interface, then repeat. In independent practice, change the exact marker, increment the rule revision, and test old marker, new marker, and new marker with suffix.
 
-### Summary and glossary
+### Review and key terms
 Correlation connects records using multiple shared properties. A non-match tests discrimination. A boundary case tests a condition near its limit. End-to-end validation tests the complete path, while an offline replay checks only the parts that receive the recording.
 
 <!-- HSETS-SELF-STUDY-L26 -->
 <a id="self-study-l26"></a>
-### Self-study workshop — validate the edges of a detection rule
+### Applying the lesson: validate the edges of a detection rule
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 A detection objective describes the behaviour or condition to identify. Rule syntax implements that objective using fields the engine actually provides. A rule can run without a syntax error and still implement the wrong meaning. Matching a substring is not necessarily the same as matching an exact path; the correct interpretation depends on the inspected buffer and conditions.
 

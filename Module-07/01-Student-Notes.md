@@ -1,98 +1,26 @@
 # H-SETS — M07: Windows Administration and Endpoint Defence
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L13: Local identities, permissions, services, and evidence](#lesson-l13) · [L14: Endpoint controls and controlled change](#lesson-l14)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L13, complete its guided activity and assignment, then continue to L14. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
-
 
 <a id="lesson-l13"></a>
 ## L13 — Local identities, permissions, services, and evidence
 
-### General Overview
+### What you will learn
 
 Opening a file looks simple, but Windows first decides whose request it is and which operation that identity may perform. Logging in establishes identity; it does not grant every permission. A process carries an access token containing the user's SID and groups. Windows compares it with the file's access rules. Consequently, the same path can work for one employee and fail for another. Testing only as an administrator hides errors affecting ordinary users.
 
-<!-- HSETS-SELF-READY-L13 -->
-**Before this lesson:** You can explain identity, resource, action and allowed/denied tests. Revisit [L07 refresher](../Module-01/01-Student-Notes.md#lesson-l07) · [L10 refresher](../Module-05/01-Student-Notes.md#lesson-l10).
+Before starting, make sure you can explain identity, resource, action and allowed/denied tests. Revisit [L07 refresher](../Module-01/01-Student-Notes.md#lesson-l07) · [L10 refresher](../Module-05/01-Student-Notes.md#lesson-l10). Windows access decisions depend on the account context and the object being accessed. Follow that relationship from identity to permission and then to the evidence the system records.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l13) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L13 -->
-
-<!-- HSETS-TERMS-L13 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l13-01"></a>
-#### Local account, SID and access token
-
-**Definition:** A local account belongs to one Windows computer. A security identifier (SID) identifies a security principal such as a user or group. An access token carries the security context used by a process.
-
-**Explanation:** A display name is not the underlying identity. Access decisions use the relevant security context, including groups and privileges. A newly changed membership may require a fresh session before a test reflects the intended context.
-
-**Example or scenario:** Cedarbridge renames a local user without deleting the account. Its SID remains associated with that account; creating a different account with a similar name would not make it the same identity.
-
-**Check your understanding:** Does matching the visible username on two computers prove the accounts are the same identity?
-
-<a id="term-l13-02"></a>
-#### NTFS, DACL and inherited permission
-
-**Definition:** NTFS is a Windows filesystem. A discretionary access control list (DACL) describes access entries on a securable object. An inherited permission comes from a parent container rather than a direct entry added only to that object.
-
-**Explanation:** A user's effective access can come through groups and inherited entries, not just one visible user entry. Inspect the relevant permissions and test under the correct account before claiming the boundary works.
-
-**Example or scenario:** Ben has no direct entry on Finance, but a broadly permitted group still gives him access. The learner checks the group and inheritance path rather than assuming the missing direct entry means denial.
-
-**Check your understanding:** Why can removing one direct user grant leave access working?
-
-<a id="term-l13-03"></a>
-#### SACL, auditing and Event Viewer
-
-**Definition:** A system access control list (SACL) specifies auditing conditions for an object. Auditing records selected activity when the required policies and conditions apply. Event Viewer is a Windows tool for inspecting event logs.
-
-**Explanation:** Access permission and audit recording are separate controls. The relevant audit policy, object configuration and event source must be available; an allowed or refused operation does not guarantee every desired detail is recorded.
-
-**Example or scenario:** The learner tests a file operation but finds no expected audit record. The instructor checks audit configuration and the selected log before interpreting the absence.
-
-**Check your understanding:** Does configuring auditing itself grant access to the file?
-
-<a id="term-l13-04"></a>
-#### Service, event provider and channel
-
-**Definition:** A service is a managed background function. An event provider produces a defined class of records. A channel is a destination/category in which Windows stores events.
-
-**Explanation:** Interpret an event using provider, channel, ID and fields together. Numbers and severity icons without context are insufficient. Service health also needs a functional test, not only a status label.
-
-**Example or scenario:** Two events share an ID but come from different providers. The learner reads the provider and message fields before deciding what either event means.
-
-**Check your understanding:** Why should a report retain the provider and channel alongside the event ID?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L13 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall users, groups and directory permissions from Linux. Windows uses different management tools but still distinguishes authentication, authorisation and auditing. A process is a running instance of a program; a service is managed background work.
 
-### Detailed teaching notes
-
 #### Windows Architecture
 
-Windows is an operating-system family built around kernel-mode and user-mode components, securable objects, services, identities, and management interfaces.
-
-Security decisions depend on identity, privilege, object permissions, process context, policy, and protective services.
-
-Applications run primarily in user mode and request operating-system functions through defined interfaces. Kernel-mode components manage memory, processes, devices, security enforcement, and system resources.
+Windows is an operating-system family built around kernel-mode and user-mode components, securable objects, services, identities, and management interfaces. Security decisions depend on identity, privilege, object permissions, process context, policy, and protective services. Applications run primarily in user mode and request operating-system functions through defined interfaces. Kernel-mode components manage memory, processes, devices, security enforcement, and system resources.
 
 Windows operates on endpoints, servers, VMs, cloud instances, virtual desktops, kiosks, and specialized systems.
-
 
 #### Core Security Components
 
@@ -111,126 +39,55 @@ Windows operates on endpoints, servers, VMs, cloud instances, virtual desktops, 
 
 `lsass.exe` is a high-value process because it handles authentication and security policy functions. Attempts to access its memory can indicate credential theft, but legitimate security tools may also interact with it under controlled conditions.
 
-
+<a id="term-l13-01"></a>
 #### Security Identifiers and Access Tokens
 
-A SID identifies a security principal. An access token represents the security context of a process or thread.
+A local account belongs to one Windows computer. A security identifier (SID) identifies a security principal such as a user or group. An access token carries the security context used by a process. A display name is not the underlying identity. Access decisions use the relevant security context, including groups and privileges. A newly changed membership may require a fresh session before a test reflects the intended context.
 
-Windows uses SIDs rather than display names for access decisions. Renaming an account does not change its SID.
-
-An access token may contain:
-
-- User SID.
-- Group SIDs.
-- Privileges.
-- Integrity level.
-- Logon session information.
-- Restrictions.
-- Elevation state.
+A SID identifies a security principal. An access token represents the security context of a process or thread. Windows uses SIDs rather than display names for access decisions. Renaming an account does not change its SID. An access token may contain: User SID; Group SIDs; Privileges; Integrity level; Logon session information; Restrictions; Elevation state.
 
 Tokens are created during logon and used whenever processes access files, Registry keys, services, processes, and other securable objects.
 
-
+<a id="term-l13-02"></a>
 #### Windows Access Control
 
-Windows securable objects can have a security descriptor containing ownership and access control lists.
+NTFS is a Windows filesystem. A discretionary access control list (DACL) describes access entries on a securable object. An inherited permission comes from a parent container rather than a direct entry added only to that object. A user's effective access can come through groups and inherited entries, not just one visible user entry. Inspect the relevant permissions and test under the correct account before claiming the boundary works.
 
-Permissions determine which principals can read, modify, execute, delete, administer, or audit an object.
+Windows securable objects can have a security descriptor containing ownership and access control lists. Permissions determine which principals can read, modify, execute, delete, administer, or audit an object. A DACL defines allowed and denied access; A SACL defines auditing behavior; Access control entries reference SIDs and rights; Inheritance can propagate entries from parent objects.
 
-- A DACL defines allowed and denied access.
-- A SACL defines auditing behavior.
-- Access control entries reference SIDs and rights.
-- Inheritance can propagate entries from parent objects.
-
-Access control applies to files, folders, Registry keys, services, processes, shares, Active Directory objects, and other resources.
-
-An empty DACL and a null DACL are not equivalent. A null DACL can allow full access, while an empty DACL grants no access. Administrators should use supported tools rather than manually constructing descriptors.
-
+Access control applies to files, folders, Registry keys, services, processes, shares, Active Directory objects, and other resources. An empty DACL and a null DACL are not equivalent. A null DACL can allow full access, while an empty DACL grants no access. Administrators should use supported tools rather than manually constructing descriptors.
 
 #### User Account Control and Integrity
 
-UAC separates normal activity from elevated administrative activity. Mandatory Integrity Control assigns integrity levels such as low, medium, high, and system.
-
-An administrator should not perform every task with a fully elevated token.
-
-An administrative user commonly operates with a filtered token and requests elevation for administrative actions. UAC is an elevation and usability control, not an administrator-to-standard-user security boundary, but it is not a substitute for separate accounts, least privilege, application control, or endpoint protection.
+UAC separates normal activity from elevated administrative activity. Mandatory Integrity Control assigns integrity levels such as low, medium, high, and system. An administrator should not perform every task with a fully elevated token. An administrative user commonly operates with a filtered token and requests elevation for administrative actions. UAC is an elevation and usability control, not an administrator-to-standard-user security boundary, but it is not a substitute for separate accounts, least privilege, application control, or endpoint protection.
 
 UAC affects interactive administration, installers, system settings, Registry access, services, and administrative PowerShell sessions.
 
-
+<a id="term-l13-04"></a>
 #### Windows Services
 
-A Windows service is a long-running program managed by the Service Control Manager (SCM).
+A service is a managed background function. An event provider produces a defined class of records. A channel is a destination/category in which Windows stores events. Interpret an event using provider, channel, ID and fields together. Numbers and severity icons without context are insufficient. Service health also needs a functional test, not only a status label.
 
-Services provide operating-system, security, networking, database, application, and management functions.
-
-A service definition includes:
-
-- Service name and display name.
-- Executable path.
-- Startup type.
-- Service account.
-- Dependencies.
-- Recovery actions.
-- Permissions.
-
-Services run on endpoints and servers, often without an interactive user session.
-
+A Windows service is a long-running program managed by the Service Control Manager (SCM). Services provide operating-system, security, networking, database, application, and management functions. A service definition includes: Service name and display name; Executable path; Startup type; Service account; Dependencies; Recovery actions; Permissions. Services run on endpoints and servers, often without an interactive user session.
 
 #### Service Security
 
-Risks include:
-
-- Unquoted executable paths containing spaces.
-- Writable service executable or directory.
-- Excessive service-account privilege.
-- Weak service-control permissions.
-- Malicious or unexpected service creation.
-- Disabled security services.
-- Recovery actions launching unsafe commands.
-
-Defenses include:
-
-- Least-privileged service identities.
-- Managed service accounts where appropriate.
-- Restricted file and service permissions.
-- Quoted paths.
-- Application control.
-- Service inventory and baseline.
-- Event and EDR monitoring.
+Risks include: Unquoted executable paths containing spaces; Writable service executable or directory; Excessive service-account privilege; Weak service-control permissions; Malicious or unexpected service creation; Disabled security services; Recovery actions launching unsafe commands. Defenses include: Least-privileged service identities; Managed service accounts where appropriate; Restricted file and service permissions; Quoted paths; Application control; Service inventory and baseline; Event and EDR monitoring.
 
 An unquoted path is exploitable only when additional conditions, such as a writable candidate location and execution behavior, are satisfied.
 
-
 #### Windows Processes
 
-A process is a running program with virtual memory, handles, threads, token, executable image, parent relationship, and other state.
-
-Process behavior reveals application function, malware execution, persistence, credential access, and system failures.
-
-Processes are created by other processes or operating-system mechanisms. Each has a process ID, but PIDs are reused.
+A process is a running program with virtual memory, handles, threads, token, executable image, parent relationship, and other state. Process behavior reveals application function, malware execution, persistence, credential access, and system failures. Processes are created by other processes or operating-system mechanisms. Each has a process ID, but PIDs are reused.
 
 Inspect through Task Manager, Resource Monitor, Process Explorer where approved, PowerShell, CIM, EDR, and event logs.
 
-
+<a id="term-l13-03"></a>
 #### Windows Event Logs
 
-Windows Event Logs store structured events from operating-system components, applications, security auditing, and services.
+A system access control list (SACL) specifies auditing conditions for an object. Auditing records selected activity when the required policies and conditions apply. Event Viewer is a Windows tool for inspecting event logs. Access permission and audit recording are separate controls. The relevant audit policy, object configuration and event source must be available; an allowed or refused operation does not guarantee every desired detail is recorded.
 
-They support troubleshooting, monitoring, compliance, and incident investigation.
-
-Event providers write records to channels. Records contain system metadata and event-specific data.
-
-Common channels include:
-
-- Security.
-- System.
-- Application.
-- Setup.
-- PowerShell operational logs.
-- Windows Defender operational logs.
-- Task Scheduler operational logs.
-
+Windows Event Logs store structured events from operating-system components, applications, security auditing, and services. They support troubleshooting, monitoring, compliance, and incident investigation. Event providers write records to channels. Records contain system metadata and event-specific data. Common channels include: Security; System; Application; Setup; PowerShell operational logs; Windows Defender operational logs; Task Scheduler operational logs.
 
 #### Event Record Fields
 
@@ -247,7 +104,6 @@ Common channels include:
 | Event data | Provider-specific fields |
 
 An Event ID is meaningful only with its provider and channel. The same number can mean different things from different providers.
-
 
 #### Important Security Events
 
@@ -268,7 +124,6 @@ Examples commonly used in investigations include:
 
 Event presence depends on audit policy, edition, version, and configuration. Event 4688 command-line data requires relevant policy.
 
-
 #### Logon Types
 
 Event 4624 includes a logon type, such as:
@@ -285,7 +140,6 @@ Event 4624 includes a logon type, such as:
 
 A network logon is not automatically malicious. File sharing, remote management, applications, and services create network logons.
 
-
 #### Event Log Limitations
 
 - Required auditing may be disabled.
@@ -298,7 +152,6 @@ A network logon is not automatically malicious. File sharing, remote management,
 - A failed event does not prove an attack.
 
 Central forwarding and source-health monitoring improve resilience.
-
 
 #### Windows Security Architecture in Operation
 
@@ -314,7 +167,6 @@ Example access sequence:
 
 Authentication success, token privilege, object authorization, and auditing are separate stages.
 
-
 #### Troubleshooting Workflow
 
 1. Confirm the symptom and business impact.
@@ -329,7 +181,6 @@ Authentication success, token privilege, object authorization, and auditing are 
 10. Document evidence and rollback.
 
 Do not disable Defender, firewall, UAC, or auditing merely to make a problem disappear.
-
 
 ### Worked Cedarbridge scenario
 
@@ -347,25 +198,15 @@ Create a third standard user and a CB-Audit group with read-only access to the l
 
 Unexpected access often comes from inherited grants or another group. Missing events may indicate audit policy, wrong log, time filter or credential-provider differences. A service name alone does not establish legitimacy; inspect identity, path and baseline. Do not clear logs while troubleshooting.
 
-### Summary and glossary
+### Review and key terms
 
 A SID is a stable identity identifier; a token carries process security context; a DACL specifies access; a SACL specifies auditing. Permissions, auditing and successful authentication are separate. Preserve provider and channel with event IDs.
 
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** An administrator can open a departmental file, but the employee cannot. The administrator's success proves only that account's tested access. It does not validate the employee requirement. First confirm the employee identity and exact path, inspect the relevant permissions, then repeat the operation as the intended user. A screenshot of the permission dialog helps explain the setup; the employee's functional result answers the business question.
-
-**Try together:** Write a two-row test table for the intended employee and a user who must be denied.
-
-**Try independently:** An event number matches the lesson but its provider differs. What else must you examine before treating it as the same event?
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
-
 <!-- HSETS-SELF-STUDY-L13 -->
 <a id="self-study-l13"></a>
-### Self-study workshop — trace a Windows access decision
+### Applying the lesson: trace a Windows access decision
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 An identity, an application process and a resource permission participate in an access decision. A display name is not enough to establish which identity performed a test. A local account belongs to its local system; a domain account belongs to the directory context introduced later. Two accounts with similar names need not be the same security identity.
 
@@ -414,82 +255,22 @@ Complete the five MCQs, two scenarios, practical and reflection for L13 in [Stud
 <a id="lesson-l14"></a>
 ## L14 — Endpoint controls and controlled change
 
-### General Overview
+### What you will learn
 
 Endpoint defence combines controls that address different failure paths. A firewall limits network communication; antivirus inspects suspicious content and behaviour; updates correct known defects; disk encryption protects data when storage is accessed offline. An authenticated application can still read an unlocked encrypted volume. The analyst must connect the business risk to the appropriate control, then verify that legitimate work survives the change.
 
-<!-- HSETS-SELF-READY-L14 -->
-**Before this lesson:** You can distinguish a configured setting from an actual access result. Revisit [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13).
+Before starting, make sure you can distinguish a configured setting from an actual access result. Revisit [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13). Endpoint protection is a set of cooperating controls across a device’s life. Understand each control’s purpose before changing settings or interpreting a product status.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l14) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L14 -->
-
-<!-- HSETS-TERMS-L14 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l14-01"></a>
-#### Endpoint, antivirus and EDR
-
-**Definition:** An endpoint is a device such as a workstation or server at which users or applications operate. Antivirus detects or blocks known or suspicious malicious software activity. Endpoint detection and response (EDR) collects and analyses endpoint activity to support investigation and response.
-
-**Explanation:** These controls address parts of the device's risk. Their presence does not establish complete prevention or complete visibility. Check the actual protection state and the allowed teaching test, without disabling unrelated controls.
-
-**Example or scenario:** A workstation has security software installed, but its reporting is disconnected. The installed-product list cannot establish that the analyst receives fresh detections.
-
-**Check your understanding:** Does an installed endpoint product prove it is healthy and reporting?
-
-<a id="term-l14-02"></a>
-#### Host firewall, rule and network profile
-
-**Definition:** A host firewall controls network communication at the endpoint. A rule states a matching condition and action. A network profile selects a set of settings according to the network context recognised by the system.
-
-**Explanation:** A correct-looking rule can be irrelevant if it applies to the wrong profile or source. Preserve normal access and test from the intended client. One working application does not validate every firewall boundary.
-
-**Example or scenario:** Cedarbridge permits a diagnostic request only from one lab client. The learner confirms the active profile and tests that client plus another source that should be refused.
-
-**Check your understanding:** What two observations help show the source restriction works?
-
-<a id="term-l14-03"></a>
-#### Patch, patch ring and configuration drift
-
-**Definition:** A patch updates software to fix or change it. A patch ring is a staged group used to roll out updates gradually. Configuration drift is a difference from the recorded expected configuration.
-
-**Explanation:** Testing changes on a smaller approved group can reveal disruption before wider rollout. A difference from baseline requires explanation; it is not automatically evidence of malicious activity.
-
-**Example or scenario:** An update changes a service setting on a pilot workstation. The team checks the expected application transaction before extending the update to the remaining class machines.
-
-**Check your understanding:** Why record the before-state rather than only the new version?
-
-<a id="term-l14-04"></a>
-#### Encryption at rest and recovery key
-
-**Definition:** Encryption at rest protects stored content by requiring suitable key material to read it outside the intended access path. A recovery key is protected key material used by an approved recovery process.
-
-**Explanation:** Disk encryption can reduce exposure after device loss, but a running authorised session may already have access to decrypted content. Protect recovery material separately and verify the institutional recovery process.
-
-**Example or scenario:** A fictional laptop is lost while powered off. Its disk protection may help protect stored data, but the organisation still needs to account for recovery keys and any other exposed copies.
-
-**Check your understanding:** Does disk encryption prevent every action by someone already signed in with authorised access?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L14 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall local permissions, services and event context. A baseline is a recorded expected state used for comparison; drift is a difference that requires explanation, not automatically malicious activity.
 
-### Detailed teaching notes
-
+<a id="term-l14-01"></a>
 #### Endpoint Security
 
-Endpoint security protects devices throughout provisioning, operation, monitoring, incident response, recovery, and retirement.
+An endpoint is a device such as a workstation or server at which users or applications operate. Antivirus detects or blocks known or suspicious malicious software activity. Endpoint detection and response (EDR) collects and analyses endpoint activity to support investigation and response. These controls address parts of the device's risk. Their presence does not establish complete prevention or complete visibility. Check the actual protection state and the allowed teaching test, without disabling unrelated controls.
 
-Endpoints execute untrusted content, store data, authenticate users, and connect to enterprise resources.
-
-Controls include:
+Endpoint security protects devices throughout provisioning, operation, monitoring, incident response, recovery, and retirement. Endpoints execute untrusted content, store data, authenticate users, and connect to enterprise resources. Controls include:
 
 - Secure build.
 - Patch management.
@@ -504,7 +285,6 @@ Controls include:
 - Backup and recovery.
 
 Controls operate locally and through centralized management platforms.
-
 
 #### Endpoint Security Lifecycle
 
@@ -521,7 +301,6 @@ Controls operate locally and through centralized management platforms.
 
 Security begins before the first user logon and continues after reassignment.
 
-
 #### Antivirus, EDR, and XDR
 
 | Capability | Primary Focus |
@@ -533,14 +312,9 @@ Security begins before the first user logon and continues after reassignment.
 
 Product labels vary. Evaluate actual telemetry, detection, response, retention, integration, and operational maturity.
 
-
 #### Microsoft Defender
 
-Microsoft Defender is a family of security capabilities. On Windows, Microsoft Defender Antivirus provides antimalware protection. Microsoft Defender for Endpoint adds enterprise endpoint detection, investigation, response, vulnerability-related visibility, and centralized operations according to licensing and configuration.
-
-Organizations need prevention and endpoint-level behavioral evidence.
-
-Capabilities may include:
+Microsoft Defender is a family of security capabilities. On Windows, Microsoft Defender Antivirus provides antimalware protection. Microsoft Defender for Endpoint adds enterprise endpoint detection, investigation, response, vulnerability-related visibility, and centralized operations according to licensing and configuration. Organizations need prevention and endpoint-level behavioral evidence. Capabilities may include:
 
 - Real-time protection.
 - Cloud-delivered protection.
@@ -556,7 +330,6 @@ Capabilities may include:
 
 Defender capabilities can protect supported Windows, Linux, macOS, mobile, server, and cloud-connected environments, with platform-specific differences.
 
-
 #### Defender Antivirus
 
 PowerShell inspection examples:
@@ -568,60 +341,24 @@ Get-MpThreatDetection
 Update-MpSignature
 ```
 
-Important status:
-
-- Antivirus and antispyware enabled.
-- Real-time protection.
-- Behavior monitoring.
-- Signature age.
-- Cloud protection.
-- Tamper protection visibility.
-- Last scan.
-
-Do not change exclusions or disable protection for troubleshooting without documented risk, approval, validation, and removal of the exception.
-
+Important status: Antivirus and antispyware enabled; Real-time protection; Behavior monitoring; Signature age; Cloud protection; Tamper protection visibility; Last scan. Do not change exclusions or disable protection for troubleshooting without documented risk, approval, validation, and removal of the exception.
 
 #### Defender Exclusions
 
-Exclusions can improve compatibility but create blind spots.
+Exclusions can improve compatibility but create blind spots. Review: Exact path, process, extension, or IP; Business owner; Vendor justification; Scope; Compensating controls; Expiration; Evidence that the exclusion solves the problem. Attackers may target excluded paths. Broad exclusions such as entire drives or temporary directories are high risk.
 
-Review:
-
-- Exact path, process, extension, or IP.
-- Business owner.
-- Vendor justification.
-- Scope.
-- Compensating controls.
-- Expiration.
-- Evidence that the exclusion solves the problem.
-
-Attackers may target excluded paths. Broad exclusions such as entire drives or temporary directories are high risk.
-
-
+<a id="term-l14-04"></a>
 #### BitLocker
 
-BitLocker provides full-volume encryption for supported Windows volumes.
+Encryption at rest protects stored content by requiring suitable key material to read it outside the intended access path. A recovery key is protected key material used by an approved recovery process. Disk encryption can reduce exposure after device loss, but a running authorised session may already have access to decrypted content. Protect recovery material separately and verify the institutional recovery process.
 
-It reduces data disclosure if a powered-off device or drive is lost, stolen, or accessed offline.
-
-BitLocker uses volume encryption keys protected by one or more key protectors. A Trusted Platform Module (TPM) can release key material when expected platform measurements and policy conditions are satisfied.
+BitLocker provides full-volume encryption for supported Windows volumes. It reduces data disclosure if a powered-off device or drive is lost, stolen, or accessed offline. BitLocker uses volume encryption keys protected by one or more key protectors. A Trusted Platform Module (TPM) can release key material when expected platform measurements and policy conditions are satisfied.
 
 BitLocker protects operating-system, fixed-data, and removable volumes according to configuration.
 
-
 #### BitLocker Protectors
 
-Possible protectors include:
-
-- TPM.
-- TPM plus PIN.
-- Recovery password.
-- Startup key.
-- Password for selected data or removable scenarios.
-- Certificate-based mechanisms in supported contexts.
-
-TPM-only provides transparent startup protection. TPM plus PIN adds preboot knowledge but increases support and recovery requirements.
-
+Possible protectors include: TPM; TPM plus PIN; Recovery password; Startup key; Password for selected data or removable scenarios; Certificate-based mechanisms in supported contexts. TPM-only provides transparent startup protection. TPM plus PIN adds preboot knowledge but increases support and recovery requirements.
 
 #### BitLocker Operations
 
@@ -632,60 +369,22 @@ Get-BitLockerVolume
 manage-bde -status
 ```
 
-Administrators should verify:
-
-- Protection status.
-- Encryption percentage.
-- Encryption method.
-- Protectors.
-- Recovery escrow.
-- Volume type.
-
-Suspending protection is not the same as decrypting. Suspension temporarily permits startup without normal protector enforcement while data remains encrypted, and must be controlled and re-enabled.
-
+Administrators should verify: Protection status; Encryption percentage; Encryption method; Protectors; Recovery escrow; Volume type. Suspending protection is not the same as decrypting. Suspension temporarily permits startup without normal protector enforcement while data remains encrypted, and must be controlled and re-enabled.
 
 #### BitLocker Recovery
 
-Recovery may be needed after:
-
-- Firmware or boot changes.
-- TPM changes.
-- Hardware replacement.
-- Policy changes.
-- Repeated PIN failure.
-- Boot integrity concern.
-
-Recovery requirements:
-
-- Secure escrow before deployment.
-- Restricted access.
-- Identity verification.
-- Logging.
-- Help-desk procedure.
-- Testing.
-- Rotation where exposure requires it.
-
-A recovery key grants access to protected data and must be treated as a high-value secret.
-
+Recovery may be needed after: Firmware or boot changes; TPM changes; Hardware replacement; Policy changes; Repeated PIN failure; Boot integrity concern. Recovery requirements: Secure escrow before deployment; Restricted access; Identity verification; Logging; Help-desk procedure; Testing; Rotation where exposure requires it. A recovery key grants access to protected data and must be treated as a high-value secret.
 
 #### BitLocker Limitations
 
-BitLocker does not protect:
+BitLocker does not protect: Data after an authorized user unlocks the device; Data exfiltrated by malware during use; Cloud data outside the encrypted volume; Network traffic; Availability if recovery material is lost. Combine it with secure boot, endpoint protection, authentication, least privilege, and remote device-management actions.
 
-- Data after an authorized user unlocks the device.
-- Data exfiltrated by malware during use.
-- Cloud data outside the encrypted volume.
-- Network traffic.
-- Availability if recovery material is lost.
-
-Combine it with secure boot, endpoint protection, authentication, least privilege, and remote device-management actions.
-
-
+<a id="term-l14-03"></a>
 #### Patch Management
 
-Patch management identifies, evaluates, tests, deploys, verifies, and documents software and firmware updates.
+A patch updates software to fix or change it. A patch ring is a staged group used to roll out updates gradually. Configuration drift is a difference from the recorded expected configuration. Testing changes on a smaller approved group can reveal disruption before wider rollout. A difference from baseline requires explanation; it is not automatically evidence of malicious activity.
 
-Known vulnerabilities are common attack paths, but poorly managed updates can cause outages.
+Patch management identifies, evaluates, tests, deploys, verifies, and documents software and firmware updates. Known vulnerabilities are common attack paths, but poorly managed updates can cause outages.
 
 1. Maintain asset and software inventory.
 2. Monitor updates and vulnerabilities.
@@ -698,7 +397,6 @@ Known vulnerabilities are common attack paths, but poorly managed updates can ca
 9. Report exceptions.
 
 Patch operating systems, applications, browsers, drivers, firmware, security tools, and third-party software.
-
 
 #### Risk-Based Prioritization
 
@@ -716,7 +414,6 @@ Consider:
 
 CVSS alone does not determine enterprise priority.
 
-
 #### Deployment Rings
 
 | Ring | Purpose |
@@ -727,7 +424,6 @@ CVSS alone does not determine enterprise priority.
 | Critical or specialized | Controlled schedule based on service needs |
 
 Emergency updates may compress timelines but still require validation and monitoring.
-
 
 #### Patch Exceptions
 
@@ -745,14 +441,12 @@ An exception should include:
 
 Offline, forgotten, and unsupported devices require active escalation, not silent exclusion from compliance reports.
 
-
+<a id="term-l14-02"></a>
 #### Endpoint Hardening
 
-Endpoint hardening applies secure configuration to reduce attack surface and constrain behavior.
+A host firewall controls network communication at the endpoint. A rule states a matching condition and action. A network profile selects a set of settings according to the network context recognised by the system. A correct-looking rule can be irrelevant if it applies to the wrong profile or source. Preserve normal access and test from the intended client. One working application does not validate every firewall boundary.
 
-Default functionality may exceed business need.
-
-Use:
+Endpoint hardening applies secure configuration to reduce attack surface and constrain behavior. Default functionality may exceed business need. Use:
 
 - Security baselines.
 - MDM or Group Policy.
@@ -767,22 +461,9 @@ Use:
 
 Hardening differs for standard users, developers, kiosks, servers, and privileged workstations.
 
-
 #### Configuration Drift
 
-Drift occurs when endpoint state departs from baseline.
-
-Causes:
-
-- User changes.
-- Application installation.
-- Troubleshooting exceptions.
-- Failed policy.
-- Offline devices.
-- attacker defense impairment.
-
-Detect through compliance reporting, configuration assessment, EDR, vulnerability scanning, and change monitoring.
-
+Drift occurs when endpoint state departs from baseline. Causes: User changes; Application installation; Troubleshooting exceptions; Failed policy; Offline devices; attacker defense impairment. Detect through compliance reporting, configuration assessment, EDR, vulnerability scanning, and change monitoring.
 
 ### Worked Cedarbridge scenario
 
@@ -800,21 +481,19 @@ Create a diagnostic rule for a different approved client, document both permitte
 
 A rule may apply to the wrong profile, be shadowed by other permissions, or use the wrong source. Verify addressing and baseline before blaming the firewall. An update installed without its required restart is not confirmed remediation. Encryption recovery keys must not appear in portfolios.
 
-### Summary and glossary
+### Review and key terms
 
 Baseline means expected configuration; patch ring means staged rollout; EDR means endpoint detection and response; encryption at rest protects stored data against offline access. Verification must include service continuity.
 
 <!-- HSETS-SELF-STUDY-L14 -->
 <a id="self-study-l14"></a>
-### Self-study workshop — verify endpoint controls without disrupting the endpoint
+### Applying the lesson: verify endpoint controls without disrupting the endpoint
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 A security setting is intended to influence behaviour. The configured value, the effective state and the actual test outcome are different evidence items. A policy can be present but not apply to the relevant profile, user or resource. A control can be working while a dashboard view is stale. Build the evidence chain rather than choosing whichever screenshot looks reassuring.
 
-Endpoint controls also address different boundaries. Malware protection evaluates covered content or behaviour; host firewall policy governs specified communication; patching changes software; disk encryption protects data under its designed access conditions. No single enabled setting proves all those boundaries are effective.
-
-A change has a starting state, intended outcome and recovery method. Record these before acting. An excluded folder, permitted firewall rule or disabled check may make a test appear successful by removing the requirement. A valid correction must preserve required protection and the approved business function.
+Endpoint controls also address different boundaries. Malware protection evaluates covered content or behaviour; host firewall policy governs specified communication; patching changes software; disk encryption protects data under its designed access conditions. No single enabled setting proves all those boundaries are effective. A change has a starting state, intended outcome and recovery method. Record these before acting. An excluded folder, permitted firewall rule or disabled check may make a test appear successful by removing the requirement. A valid correction must preserve required protection and the approved business function.
 
 #### Follow a complete example
 

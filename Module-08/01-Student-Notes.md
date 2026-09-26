@@ -1,109 +1,27 @@
 # H-SETS — M08: Windows Server, Active Directory, and IAM
 
-<!-- HSETS-SELF-NAV -->
-**Independent study:** [Self-study handbook](../H-SETS-Self-Study-Handbook.md) · [L15: Domain services and departmental access](#lesson-l15) · [L16: Identity lifecycle and Group Policy](#lesson-l16)
-
-Read the worked case, attempt the new practice case, then reveal its feedback. Use the troubleshooting path before requesting help, except when the target, authority or recovery route is unclear.
-<!-- /HSETS-SELF-NAV -->
-
-
 <!-- HSETS-NOTES-ROUTE -->
 > **Student route:** Study L15, complete its guided activity and assignment, then continue to L16. Before each practical action, write the expected result. Afterward, record the actual result, evidence and limitation. Keep a personal glossary and use the [Student Learning Guide](../H-SETS-Student-Learning-Guide.md) when troubleshooting.
-
 
 <a id="lesson-l15"></a>
 ## L15 — Domain services and departmental access
 
-### General Overview
+### What you will learn
 
 A local account belongs to one computer. Recreating each employee everywhere creates inconsistent passwords and forgotten access. A directory stores identities centrally so multiple systems recognise the same employee. The domain controller authenticates identity, while the resource server evaluates permissions. DNS is essential because clients discover domain services through service records. Public DNS resolving a website does not prove domain discovery works.
 
-<!-- HSETS-SELF-READY-L15 -->
-**Before this lesson:** You can explain DNS and standard-user access testing. Revisit [L05 refresher](../Module-03/01-Student-Notes.md#lesson-l05) · [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13).
+Before starting, make sure you can explain DNS and standard-user access testing. Revisit [L05 refresher](../Module-03/01-Student-Notes.md#lesson-l05) · [L13 refresher](../Module-07/01-Student-Notes.md#lesson-l13). A domain brings identities and administration together, but organising an account is different from granting it file access. Follow the directory structure, authentication process and permission path separately.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l15) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L15 -->
-
-<!-- HSETS-TERMS-L15 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l15-01"></a>
-#### AD DS, domain and domain controller
-
-**Definition:** Active Directory Domain Services (AD DS) stores directory objects and supports domain identity services. A domain is a managed directory grouping. A domain controller (DC) runs the directory services for that domain.
-
-**Explanation:** Central accounts and groups reduce the need to recreate identities separately on each computer. Clients depend on suitable network connectivity and name resolution to locate domain services. Central identity does not remove the need for resource permissions.
-
-**Example or scenario:** Cedarbridge joins the client to cedarbridge.test. Alice uses her domain identity, while the Finance share still applies its own access rules.
-
-**Check your understanding:** Does joining the domain automatically let every user read Finance?
-
-<a id="term-l15-02"></a>
-#### Organisational unit and security group
-
-**Definition:** An organisational unit (OU) is a directory container used for organisation, delegation and policy scope. A security group collects identities for security assignments such as resource access.
-
-**Explanation:** An OU and a group are not interchangeable. Moving a user into a departmental OU does not automatically grant a folder permission. Use the approved group chain and test the resource operation.
-
-**Example or scenario:** Alice's object is in the Users OU, while her Finance group membership leads to the permission on the Finance folder. The two placements serve different purposes.
-
-**Check your understanding:** Which object should appear in the designed file-permission chain: the OU or the authorised security group?
-
-<a id="term-l15-03"></a>
-#### Global group, domain-local group and resource permission
-
-**Definition:** A global security group can represent a business role within its domain. A domain-local security group can collect principals for permissions on resources in its domain. A resource permission grants an operation on the target object.
-
-**Explanation:** The classroom group chain separates who performs a role from which resource rights the role needs. Keeping those decisions separate makes changes easier to review. This lesson uses the documented same-domain pattern rather than every possible group-scope combination.
-
-**Example or scenario:** Alice joins GG-Finance; GG-Finance joins DL-Finance-Modify; the resource group receives Finance permissions. Moving a role member does not require editing every individual file entry.
-
-**Check your understanding:** Why is the role group nested into a resource group in this design?
-
-<a id="term-l15-04"></a>
-#### Kerberos, LDAP and DNS in a domain
-
-**Definition:** Kerberos is a ticket-based authentication protocol. Lightweight Directory Access Protocol (LDAP) accesses directory information. Domain Name System (DNS) records help clients locate services, including domain services.
-
-**Explanation:** These functions cooperate but answer different questions: where a service is, what directory information exists and how identity is authenticated. Troubleshoot the dependency rather than treating every failure as a bad password.
-
-**Example or scenario:** A domain client points to the wrong DNS server and cannot locate the intended domain services. Repeatedly resetting Alice's password would not fix that discovery problem.
-
-**Check your understanding:** Which dependency should be checked before assuming domain-join failure proves a credential problem?
-
-<a id="term-l15-05"></a>
-#### Forest, schema and global catalogue
-
-**Definition:** An AD DS forest is the top-level grouping of domains sharing a common directory structure. Its schema defines directory object types and attributes. A global catalogue supports forest-wide directory searching and related identity functions.
-
-**Explanation:** A forest establishes shared structures and security relationships. Creating another domain within it does not provide the same separation as an independent forest. Protect highly privileged forest administration and domain controllers accordingly.
-
-**Example or scenario:** The classroom builds one domain in one forest. The instructor explains that adding a department does not automatically require a new domain; organisational units and groups solve different needs.
-
-**Check your understanding:** Would creating a second domain in the same forest guarantee independence from powerful forest administrators?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L15 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall DNS, SIDs, tokens, groups and NTFS permissions. A domain account and similarly named local account are different identities.
 
-### Detailed teaching notes
-
+<a id="term-l15-01"></a>
 #### Active Directory Domain Services
 
-AD DS is a directory service that stores objects and provides identity, authentication, authorization, policy, and discovery.
+Active Directory Domain Services (AD DS) stores directory objects and supports domain identity services. A domain is a managed directory grouping. A domain controller (DC) runs the directory services for that domain. Central accounts and groups reduce the need to recreate identities separately on each computer. Clients depend on suitable network connectivity and name resolution to locate domain services. Central identity does not remove the need for resource permissions.
 
-Enterprises need consistent identity and access decisions across many systems.
-
-Domain controllers store replicated directory data, authenticate principals, issue Kerberos tickets, process LDAP requests, publish services through DNS, and apply directory security.
-
-AD DS operates in on-premises and hybrid environments and may integrate with Microsoft Entra ID, SaaS services, PKI, VPNs, applications, and Linux systems.
-
+Enterprises need consistent identity and access decisions across many systems. Domain controllers store replicated directory data, authenticate principals, issue Kerberos tickets, process LDAP requests, publish services through DNS, and apply directory security. AD DS operates in on-premises and hybrid environments and may integrate with Microsoft Entra ID, SaaS services, PKI, VPNs, applications, and Linux systems.
 
 #### Directory Objects and Attributes
 
@@ -119,9 +37,7 @@ Objects represent:
 - Contacts.
 - Printers and other published resources.
 
-Attributes hold properties such as name, SID, group membership, service principal names, and account state.
-
-Every object has a distinguished name representing its location in the directory hierarchy, for example:
+Attributes hold properties such as name, SID, group membership, service principal names, and account state. Every object has a distinguished name representing its location in the directory hierarchy, for example:
 
 ```text
 CN=Amina Yusuf,OU=Finance,DC=corp,DC=example
@@ -129,59 +45,28 @@ CN=Amina Yusuf,OU=Finance,DC=corp,DC=example
 
 Moving an object changes its distinguished name but not necessarily its SID or globally unique identifier.
 
-
 #### Domains
 
-A domain is an administrative, replication, authentication, and policy boundary within a forest.
-
-It groups directory objects under a DNS namespace and common domain policies.
-
-Domain controllers replicate the domain partition and authenticate domain principals.
-
-A forest may contain one or multiple domains. Modern designs often prefer fewer domains unless legal, administrative, namespace, or technical requirements justify more.
+A domain is an administrative, replication, authentication, and policy boundary within a forest. It groups directory objects under a DNS namespace and common domain policies. Domain controllers replicate the domain partition and authenticate domain principals. A forest may contain one or multiple domains. Modern designs often prefer fewer domains unless legal, administrative, namespace, or technical requirements justify more.
 
 #### Domain Is Not a Complete Security Boundary
 
 The forest is the primary security boundary in traditional AD DS. Highly privileged forest roles and domain controllers can affect domains across the forest. Creating another domain in the same forest does not provide the isolation of a separate forest.
 
-
+<a id="term-l15-05"></a>
 #### Forests
 
-A forest is the top-level AD DS structure sharing:
+An AD DS forest is the top-level grouping of domains sharing a common directory structure. Its schema defines directory object types and attributes. A global catalogue supports forest-wide directory searching and related identity functions. A forest establishes shared structures and security relationships. Creating another domain within it does not provide the same separation as an independent forest. Protect highly privileged forest administration and domain controllers accordingly.
 
-- Schema.
-- Configuration partition.
-- Global Catalog.
-- Trust relationships among its domains.
-
-It creates a common directory and trust architecture.
-
-The first domain is the forest root. Additional domains share forest-wide structures and automatic transitive trusts.
-
-Organizations may use one forest or multiple forests based on security isolation, mergers, legal boundaries, and operational requirements.
+A forest is the top-level AD DS structure sharing: Schema; Configuration partition; Global Catalog; Trust relationships among its domains. It creates a common directory and trust architecture. The first domain is the forest root. Additional domains share forest-wide structures and automatic transitive trusts. Organizations may use one forest or multiple forests based on security isolation, mergers, legal boundaries, and operational requirements.
 
 #### Forest Security
 
-Forest compromise may affect:
-
-- Schema.
-- Configuration.
-- Cross-domain trust.
-- Global Catalog.
-- Enterprise-wide administrative roles.
-
-Forest-level administrators and domain controllers require the highest protection tier.
-
+Forest compromise may affect: Schema; Configuration; Cross-domain trust; Global Catalog; Enterprise-wide administrative roles. Forest-level administrators and domain controllers require the highest protection tier.
 
 #### Domain Controllers
 
-A domain controller hosts AD DS and provides directory and authentication services.
-
-Clients require trusted systems to validate identity and retrieve directory information.
-
-Domain controllers replicate changes through multi-master replication, subject to role-specific exceptions. They depend on DNS and accurate time.
-
-Deploy based on site, availability, recovery, security, and network requirements.
+A domain controller hosts AD DS and provides directory and authentication services. Clients require trusted systems to validate identity and retrieve directory information. Domain controllers replicate changes through multi-master replication, subject to role-specific exceptions. They depend on DNS and accurate time. Deploy based on site, availability, recovery, security, and network requirements.
 
 #### Security Practices
 
@@ -194,7 +79,6 @@ Deploy based on site, availability, recovery, security, and network requirements
 - Use privileged access workstations.
 - Avoid unrelated applications.
 - Maintain tested forest recovery procedures.
-
 
 #### Users and Computers
 
@@ -219,19 +103,14 @@ Run applications or services. Prefer managed service accounts where supported to
 - Protect privileged accounts with stronger authentication and workstations.
 - Review stale accounts and service principal names.
 
-
 #### Groups
 
-Groups assign permissions, roles, communication, and policy to collections of principals.
+Groups assign permissions, roles, communication, and policy to collections of principals. Group-based authorization scales better than direct user permissions. Security groups appear in access tokens and can receive permissions. Distribution groups are intended for communication and are not security principals for ACL authorization. Groups control files, applications, servers, delegation, remote access, and administrative privilege.
 
-Group-based authorization scales better than direct user permissions.
-
-Security groups appear in access tokens and can receive permissions. Distribution groups are intended for communication and are not security principals for ACL authorization.
-
-Groups control files, applications, servers, delegation, remote access, and administrative privilege.
-
-
+<a id="term-l15-03"></a>
 #### Group Scopes
+
+A global security group can represent a business role within its domain. A domain-local security group can collect principals for permissions on resources in its domain. A resource permission grants an operation on the target object. The classroom group chain separates who performs a role from which resource rights the role needs. Keeping those decisions separate makes changes easier to review. This lesson uses the documented same-domain pattern rather than every possible group-scope combination.
 
 | Scope | Typical Membership | Typical Permission Use |
 |---|---|---|
@@ -249,50 +128,27 @@ This is often summarized as AGDLP. In multi-domain designs, universal groups may
 
 #### Group Risks
 
-- Nested privilege is difficult to see.
-- Stale members retain access.
-- Protected administrative groups create high impact.
-- Group membership may not affect existing tokens until a new logon.
-- Universal group changes can increase replication impact.
+Nested privilege is difficult to see; Stale members retain access; Protected administrative groups create high impact; Group membership may not affect existing tokens until a new logon; Universal group changes can increase replication impact.
 
-
+<a id="term-l15-02"></a>
 #### Organizational Units
 
-An organizational unit (OU) is a directory container used to organize objects, delegate administration, and link Group Policy.
+An organisational unit (OU) is a directory container used for organisation, delegation and policy scope. A security group collects identities for security assignments such as resource access. An OU and a group are not interchangeable. Moving a user into a departmental OU does not automatically grant a folder permission. Use the approved group chain and test the resource operation.
 
-OUs allow policy and delegated management aligned with technical administration.
-
-Objects are placed in OUs, permissions are delegated through ACLs, and GPOs are linked.
-
-OU design may reflect device types, administrative teams, security tiers, locations, or management requirements.
+OUs allow policy and delegated management aligned with technical administration. Objects are placed in OUs, permissions are delegated through ACLs, and GPOs are linked. OU design may reflect device types, administrative teams, security tiers, locations, or management requirements.
 
 #### OU Limitations
 
-- OUs are not security groups.
-- Moving an object can change policy.
-- Geographic structure is not always the best administrative design.
-- Excessive depth complicates inheritance.
-- Delegated permissions can create indirect privilege.
+OUs are not security groups; Moving an object can change policy; Geographic structure is not always the best administrative design; Excessive depth complicates inheritance; Delegated permissions can create indirect privilege.
 
-
+<a id="term-l15-04"></a>
 #### Kerberos
 
-Kerberos is the preferred AD DS authentication protocol for supported domain scenarios. It uses tickets and symmetric cryptography.
+Kerberos is a ticket-based authentication protocol. Lightweight Directory Access Protocol (LDAP) accesses directory information. Domain Name System (DNS) records help clients locate services, including domain services. These functions cooperate but answer different questions: where a service is, what directory information exists and how identity is authenticated. Troubleshoot the dependency rather than treating every failure as a bad password.
 
-It enables centralized authentication without sending the user's password to every service.
-
-Key components:
-
-- Client.
-- Key Distribution Center (KDC).
-- Authentication Service.
-- Ticket-Granting Service.
-- Ticket-Granting Ticket (TGT).
-- Service ticket.
-- Service Principal Name (SPN).
+Kerberos is the preferred AD DS authentication protocol for supported domain scenarios. It uses tickets and symmetric cryptography. It enables centralized authentication without sending the user's password to every service. Key components: Client; Key Distribution Center (KDC); Authentication Service; Ticket-Granting Service; Ticket-Granting Ticket (TGT); Service ticket; Service Principal Name (SPN).
 
 The KDC role is performed by domain controllers.
-
 
 #### Kerberos Flow
 
@@ -308,27 +164,13 @@ Simplified flow:
 
 The service ticket is not authorization by itself. The service and operating system still evaluate permissions.
 
-
 #### Kerberos Requirements
 
-- Correct DNS.
-- Accurate time within policy tolerance.
-- Reachable domain controllers.
-- Unique and correct SPNs.
-- Healthy machine and service-account secrets.
-- Supported encryption and policy.
-- Trust path where cross-domain access occurs.
-
-Duplicate or missing SPNs can cause authentication failure or fallback.
-
+Correct DNS; Accurate time within policy tolerance; Reachable domain controllers; Unique and correct SPNs; Healthy machine and service-account secrets; Supported encryption and policy; Trust path where cross-domain access occurs. Duplicate or missing SPNs can cause authentication failure or fallback.
 
 #### LDAP
 
-Lightweight Directory Access Protocol (LDAP) is used to query and modify directory information.
-
-Applications and administrators need structured directory access.
-
-LDAP operations include:
+Lightweight Directory Access Protocol (LDAP) is used to query and modify directory information. Applications and administrators need structured directory access. LDAP operations include:
 
 - Bind.
 - Search.
@@ -339,17 +181,11 @@ LDAP operations include:
 
 LDAP is used by management tools, applications, identity integrations, Linux clients, and security tools.
 
-
 #### DNS
 
-DNS translates names into records and supports service discovery and infrastructure operation.
-
-Users and applications rely on names. Active Directory also depends heavily on DNS service records.
-
-Windows DNS Server can host zones, answer authoritative queries, perform recursion, forward requests, cache answers, and integrate zone data with Active Directory.
+DNS translates names into records and supports service discovery and infrastructure operation. Users and applications rely on names. Active Directory also depends heavily on DNS service records. Windows DNS Server can host zones, answer authoritative queries, perform recursion, forward requests, cache answers, and integrate zone data with Active Directory.
 
 DNS supports internal domains, public services, cloud networks, domain controllers, applications, email, and hybrid connectivity.
-
 
 #### DNS Zones
 
@@ -373,7 +209,6 @@ Stores zone data in Active Directory and uses directory replication. It can supp
 
 Contains selected records identifying authoritative servers for another zone and helps maintain referral information.
 
-
 #### Common DNS Records
 
 | Record | Purpose |
@@ -390,7 +225,6 @@ Contains selected records identifying authoritative servers for another zone and
 
 An Active Directory client uses SRV records to locate domain services. A general A record alone is not enough for full domain-service discovery.
 
-
 #### DNS Query Flow
 
 1. Client checks local information and cache.
@@ -400,7 +234,6 @@ An Active Directory client uses SRV records to locate domain services. A general
 5. Resolver returns a response and caches it according to TTL and policy.
 
 Authoritative service and recursive resolution are different functions. An internal authoritative server does not necessarily need unrestricted recursion for every client.
-
 
 ### Worked Cedarbridge scenario
 
@@ -418,25 +251,15 @@ Create a read-only departmental role for a new standard domain user via the grou
 
 Wrong DNS, local/domain name confusion and stale tokens cause misleading failures. Inspect both share and NTFS rights. Do not disable all firewalls.
 
-### Summary and glossary
+### Review and key terms
 
 DC: directory/authentication server; OU: policy/delegation container; Kerberos: ticket authentication; LDAP: directory access. Authentication and resource authorisation are distinct.
 
-### Worked practice — explain it before you change it
-
-**Illustrative case, not an executed lab result.** A learner puts a Finance user in the Finance organisational unit and expects file access. An organisational unit groups directory objects for administration and policy scope; it is not the file permission grant. Follow the security-group chain to the resource permission instead. Then test the user through the share. A correct-looking membership still needs a fresh-session functional test after changes.
-
-**Try together:** On paper, label which object organises the user and which group receives the resource permission.
-
-**Try independently:** The user was removed from a department but an existing file session still works. What should be refreshed or closed before the lab retest?
-
-These are ungraded practice prompts. Explain your reasoning to the instructor before the workbook task; their feedback is kept in the separate instructor guide.
-
 <!-- HSETS-SELF-STUDY-L15 -->
 <a id="self-study-l15"></a>
-### Self-study workshop — connect domain identity to resource access
+### Applying the lesson: connect domain identity to resource access
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 Active Directory Domain Services supplies a directory of identities and related objects in a domain. A domain controller provides directory and authentication-related services; it is not automatically the file server for every business resource. A workstation joining a domain gains a relationship with that domain, but domain join alone does not prove a particular user may read a particular folder.
 
@@ -483,82 +306,22 @@ Complete the five MCQs, two scenarios, practical and reflection for L15 in [Stud
 <a id="lesson-l16"></a>
 ## L16 — Identity lifecycle and Group Policy
 
-### General Overview
+### What you will learn
 
 Identity management continues after creation. A mover needs previous rights reviewed, not merely new rights added. A leaver needs new access denied and existing sessions handled. Disabling an account does not erase every issued token. Group Policy distributes user and computer settings; actual scope and processing determine whether a setting applies.
 
-<!-- HSETS-SELF-READY-L16 -->
-**Before this lesson:** You can distinguish a directory user, security group, OU and resource permission. Revisit [L15 refresher](../Module-08/01-Student-Notes.md#lesson-l15).
+Before starting, make sure you can distinguish a directory user, security group, OU and resource permission. Revisit [L15 refresher](../Module-08/01-Student-Notes.md#lesson-l15). Identity management continues after an account is created. This lesson follows changing responsibilities and the policies that must reach the correct users and computers.
 
-**Study path:** terms → detailed explanation → [self-study workshop](#self-study-l16) → practical → assignment. The workshop feedback is for new ungraded practice; it is not a workbook answer key.
-<!-- /HSETS-SELF-READY-L16 -->
-
-<!-- HSETS-TERMS-L16 -->
-### Terms explained in context
-
-Read one term group at a time. Say the definition in your own words, follow the scenario, then discuss the question before moving on. These examples illustrate meaning; they are not lab results or extra graded assignments.
-
-<a id="term-l16-01"></a>
-#### IAM and the joiner–mover–leaver lifecycle
-
-**Definition:** Identity and access management (IAM) coordinates identities and their access over time. A joiner gains approved initial access; a mover changes responsibilities; a leaver loses access according to the offboarding process.
-
-**Explanation:** Access decisions need a business owner and a record, not only an administrator clicking settings. Review old rights when duties change; adding new rights without removing obsolete ones can leave excessive access.
-
-**Example or scenario:** Chidi moves from Finance to Operations. The owner approves the new role, the administrator updates the groups and fresh tests verify Operations access plus Finance denial.
-
-**Check your understanding:** Why is granting Operations access alone an incomplete mover process?
-
-<a id="term-l16-02"></a>
-#### Privilege creep and access review
-
-**Definition:** Privilege creep is the accumulation of access beyond current need. An access review checks whether existing rights remain justified.
-
-**Explanation:** Accounts can acquire rights through several roles, exceptions and old projects. Review the effective access and its owner rather than simply checking whether the account is active.
-
-**Example or scenario:** A worker keeps two previous departmental memberships after successive transfers. Each change seemed small, but together they allow unnecessary access.
-
-**Check your understanding:** What evidence should justify retaining an old departmental permission?
-
-<a id="term-l16-03"></a>
-#### Group Policy, GPO and resultant policy
-
-**Definition:** Group Policy applies managed settings to domain users or computers. A Group Policy Object (GPO) contains settings linked to an applicable scope. Resultant policy is the effective outcome after relevant settings are processed.
-
-**Explanation:** Where the object is located, the link, filtering and processing all matter. A setting existing in an editor does not prove a client received it. Test the resulting behaviour and inspect the policy result.
-
-**Example or scenario:** The instructor links a workstation notice to the Workstations OU. The client must be in the relevant scope and process the setting before the expected notice can be verified.
-
-**Check your understanding:** Is a screenshot of the GPO editor enough to prove the client displays the notice?
-
-<a id="term-l16-04"></a>
-#### Account disablement, session and revocation
-
-**Definition:** Disablement changes an account's ability to authenticate as configured. A session is an existing authenticated interaction. Revocation removes or invalidates access that was previously granted.
-
-**Explanation:** Changing the directory account does not automatically prove every existing session or cached credential has ceased working. Follow the assigned closure and fresh-test procedure and distinguish online checks from offline cached sign-in.
-
-**Example or scenario:** The class disables Chidi, closes the assigned file session, signs out and tests new access with the DC reachable. That is clearer than testing an already-open file handle.
-
-**Check your understanding:** Why is a fresh-session test important after an access change?
-
-Continue with the detailed explanation below. Use the [course term index](../H-SETS-Terms-in-Context.md) when you meet a term again.
-
-<!-- /HSETS-TERMS-L16 -->
-
-### Prerequisite refresher
+### Connecting with earlier lessons
 
 Recall standard versus admin identities and the group chain. Business owners approve access; administrators implement it. Computer policy must reach the computer object.
 
-### Detailed teaching notes
-
+<a id="term-l16-01"></a>
 #### Identity and Access Management
 
-IAM is the combination of governance, processes, technologies, and controls used to manage identities and access.
+Identity and access management (IAM) coordinates identities and their access over time. A joiner gains approved initial access; a mover changes responsibilities; a leaver loses access according to the offboarding process. Access decisions need a business owner and a record, not only an administrator clicking settings. Review old rights when duties change; adding new rights without removing obsolete ones can leave excessive access.
 
-Organizations need the right identities to receive the right access for the right purpose and duration.
-
-IAM connects:
+IAM is the combination of governance, processes, technologies, and controls used to manage identities and access. Organizations need the right identities to receive the right access for the right purpose and duration. IAM connects:
 
 - Authoritative identity sources.
 - Directories and identity providers.
@@ -571,29 +334,13 @@ IAM connects:
 
 IAM applies to on-premises, cloud, SaaS, applications, networks, databases, endpoints, APIs, physical access, and machine identities.
 
-
 #### Identity Governance and Administration
 
-Identity governance defines:
-
-- Who owns an identity.
-- Who approves access.
-- Which roles exist.
-- Which conflicts are prohibited.
-- How access is reviewed.
-- How exceptions expire.
-- Which evidence proves compliance.
-
-Administration executes lifecycle changes and integrates target systems.
-
-IAM is not only an IT account-creation function. Business owners must define appropriate access.
-
+Identity governance defines: Who owns an identity; Who approves access; Which roles exist; Which conflicts are prohibited; How access is reviewed; How exceptions expire; Which evidence proves compliance. Administration executes lifecycle changes and integrates target systems. IAM is not only an IT account-creation function. Business owners must define appropriate access.
 
 #### Authentication and Authorization
 
-Authentication verifies identity. Authorization determines allowed actions.
-
-Example:
+Authentication verifies identity. Authorization determines allowed actions. Example:
 
 1. An analyst authenticates with a passkey.
 2. The identity provider issues a token.
@@ -603,7 +350,6 @@ Example:
 6. Activity is logged.
 
 Strong MFA cannot correct excessive authorization.
-
 
 #### Authorization Models
 
@@ -617,19 +363,15 @@ Strong MFA cannot correct excessive authorization.
 
 Enterprises often combine models.
 
-
 #### Role-Based Access Control
 
-RBAC assigns permissions to roles and users to appropriate roles.
-
-It reduces direct user entitlements and aligns access with job functions.
+RBAC assigns permissions to roles and users to appropriate roles. It reduces direct user entitlements and aligns access with job functions.
 
 ```text
 User -> Business Role -> Technical Entitlements -> Resources
 ```
 
 RBAC appears in Active Directory groups, cloud roles, databases, SaaS applications, SIEM platforms, and business systems.
-
 
 #### RBAC Design
 
@@ -645,85 +387,31 @@ RBAC appears in Active Directory groups, cloud roles, databases, SaaS applicatio
 
 #### Role Types
 
-- Business role: job function such as Accounts Payable Clerk.
-- Technical role: platform permission bundle such as Storage Reader.
-- Privileged role: administrative capability.
-- Emergency role: temporary crisis access.
-
+Business role: job function such as Accounts Payable Clerk; Technical role: platform permission bundle such as Storage Reader; Privileged role: administrative capability; Emergency role: temporary crisis access.
 
 #### Role Engineering Risks
 
-- **Role explosion:** too many highly specific roles.
-- **Over-broad role:** one role grants unrelated privileges.
-- **Privilege creep:** access accumulates through job changes.
-- **Toxic combination:** separately reasonable roles create fraud or control bypass.
-- **Orphan role:** no owner or business purpose.
-- **Direct assignment:** bypasses governed role model.
+**Role explosion:** too many highly specific roles; **Over-broad role:** one role grants unrelated privileges; **Privilege creep:** access accumulates through job changes; **Toxic combination:** separately reasonable roles create fraud or control bypass; **Orphan role:** no owner or business purpose; **Direct assignment:** bypasses governed role model.
 
 RBAC should not force every exceptional need into a permanent role.
 
-
 #### Separation of Duties
 
-Separation of duties divides sensitive processes among multiple people or roles.
-
-It reduces fraud, error, and unilateral abuse.
-
-Examples:
-
-- Requester cannot approve own access.
-- Payment creator cannot release payment.
-- Developer cannot directly approve production deployment.
-- PAM administrator cannot freely use every vaulted credential.
-
-Apply to finance, identity administration, cloud, code deployment, key management, audit, and security operations.
+Separation of duties divides sensitive processes among multiple people or roles. It reduces fraud, error, and unilateral abuse. Examples: Requester cannot approve own access; Payment creator cannot release payment; Developer cannot directly approve production deployment; PAM administrator cannot freely use every vaulted credential. Apply to finance, identity administration, cloud, code deployment, key management, audit, and security operations.
 
 Small teams may require compensating controls such as independent review, stronger logging, transaction limits, and retrospective approval.
 
-
 #### Least Privilege
 
-Least privilege grants only the access necessary for an approved task, scope, and duration.
-
-It limits errors, misuse, malware impact, and lateral movement.
-
-Apply least privilege across:
-
-- Permissions.
-- Resource scope.
-- Time.
-- Network location.
-- device trust.
-- command or action.
-- data set.
-
-It applies to users, administrators, service accounts, applications, scripts, APIs, databases, and cloud workloads.
-
+Least privilege grants only the access necessary for an approved task, scope, and duration. It limits errors, misuse, malware impact, and lateral movement. Apply least privilege across: Permissions; Resource scope; Time; Network location; device trust; command or action; data set. It applies to users, administrators, service accounts, applications, scripts, APIs, databases, and cloud workloads.
 
 #### Least Privilege Is Dynamic
 
-A person may need elevated access for one hour to resolve an incident, not permanent membership in an administrator group.
-
-Dynamic controls include:
-
-- Just-in-time access.
-- Just-enough administration.
-- Time-bound roles.
-- Approval workflows.
-- Conditional access.
-- Session brokering.
-- Attribute-based restrictions.
-
-Least privilege must preserve operational capability. Access that is too restrictive may cause unsafe workarounds or service delay.
-
+A person may need elevated access for one hour to resolve an incident, not permanent membership in an administrator group. Dynamic controls include: Just-in-time access; Just-enough administration; Time-bound roles; Approval workflows; Conditional access; Session brokering; Attribute-based restrictions. Least privilege must preserve operational capability. Access that is too restrictive may cause unsafe workarounds or service delay.
 
 #### Account Lifecycle Management
 
-Account lifecycle management controls identities from creation through retirement.
-
-Uncontrolled accounts become orphaned, excessive, stale, or exploitable.
-
-The lifecycle includes:
+Account lifecycle management controls identities from creation through retirement. Uncontrolled accounts become orphaned, excessive, stale, or exploitable. The lifecycle includes:
 
 1. Authoritative identity event.
 2. Approval.
@@ -738,7 +426,6 @@ The lifecycle includes:
 
 Lifecycle applies to employees, contractors, students, vendors, customers, services, devices, and workloads.
 
-
 #### Joiner Process
 
 Required controls:
@@ -752,12 +439,9 @@ Required controls:
 - Record evidence.
 - Avoid copying all access from another user without review.
 
-
 #### Mover Process
 
-Job or responsibility changes can create privilege creep.
-
-Mover workflow:
+Job or responsibility changes can create privilege creep. Mover workflow:
 
 1. Identify new role.
 2. Compare current and required access.
@@ -769,8 +453,10 @@ Mover workflow:
 
 Adding new access without removing old access is a common failure.
 
-
+<a id="term-l16-04"></a>
 #### Leaver Process
+
+Disablement changes an account's ability to authenticate as configured. A session is an existing authenticated interaction. Revocation removes or invalidates access that was previously granted. Changing the directory account does not automatically prove every existing session or cached credential has ceased working. Follow the assigned closure and fresh-test procedure and distinguish online checks from offline cached sign-in.
 
 Offboarding may require:
 
@@ -787,7 +473,6 @@ Offboarding may require:
 
 Timing depends on risk and employment process. Involuntary departure may require coordinated immediate action.
 
-
 #### Non-Human Identity Lifecycle
 
 Service, application, API, device, and workload identities require:
@@ -803,7 +488,6 @@ Service, application, API, device, and workload identities require:
 - Decommissioning with the workload.
 
 Workload identities often outnumber human accounts and can become long-lived blind spots.
-
 
 #### Access Requests
 
@@ -822,36 +506,16 @@ A sound request records:
 
 Approval does not prove correct implementation. Provisioning and later removal must be validated.
 
-
+<a id="term-l16-02"></a>
 #### Access Reviews
 
-An access review asks accountable owners to confirm whether identities still require access.
+Privilege creep is the accumulation of access beyond current need. An access review checks whether existing rights remain justified. Accounts can acquire rights through several roles, exceptions and old projects. Review the effective access and its owner rather than simply checking whether the account is active.
 
-Roles, relationships, and risk change over time.
-
-Provide reviewers with:
-
-- Identity.
-- Access.
-- Source of assignment.
-- Last use.
-- Risk and privilege.
-- Manager and owner.
-- Prior decisions.
-
-Reviews cover privileged groups, applications, cloud roles, shared files, service accounts, and third parties.
+An access review asks accountable owners to confirm whether identities still require access. Roles, relationships, and risk change over time. Provide reviewers with: Identity; Access; Source of assignment; Last use; Risk and privilege; Manager and owner; Prior decisions. Reviews cover privileged groups, applications, cloud roles, shared files, service accounts, and third parties.
 
 #### Review Quality
 
-Avoid "rubber-stamp" reviews. Use:
-
-- Focused scope.
-- Plain-language entitlement descriptions.
-- Escalation for non-response.
-- Evidence of removal.
-- Independent review of high privilege.
-- Metrics for revoked access and overdue decisions.
-
+Avoid "rubber-stamp" reviews. Use: Focused scope; Plain-language entitlement descriptions; Escalation for non-response; Evidence of removal; Independent review of high privilege; Metrics for revoked access and overdue decisions.
 
 #### Privileged Account Protection
 
@@ -867,12 +531,9 @@ Avoid "rubber-stamp" reviews. Use:
 - Review memberships frequently.
 - Alert on dormant privileged use.
 
-
 #### Emergency Access
 
-Break-glass identities support recovery when normal IAM controls fail.
-
-Requirements:
+Break-glass identities support recovery when normal IAM controls fail. Requirements:
 
 - Exclude from the same failure mode where justified.
 - Strong protected credentials.
@@ -885,31 +546,18 @@ Requirements:
 
 An emergency account that is never tested may not work during an emergency.
 
-
 #### Shared Accounts
 
-Shared accounts weaken accountability because activity cannot be reliably attributed to one person.
+Shared accounts weaken accountability because activity cannot be reliably attributed to one person. Prefer: Named identities; Role assignment; PAM credential injection; Session recording. If unavoidable, apply owner, vaulting, rotation, approval, logging, and narrow scope.
 
-Prefer:
-
-- Named identities.
-- Role assignment.
-- PAM credential injection.
-- Session recording.
-
-If unavoidable, apply owner, vaulting, rotation, approval, logging, and narrow scope.
-
-
+<a id="term-l16-03"></a>
 #### Group Policy
 
-Group Policy centrally configures users and computers through Group Policy Objects (GPOs).
+Group Policy applies managed settings to domain users or computers. A Group Policy Object (GPO) contains settings linked to an applicable scope. Resultant policy is the effective outcome after relevant settings are processed. Where the object is located, the link, filtering and processing all matter. A setting existing in an editor does not prove a client received it. Test the resulting behaviour and inspect the policy result.
 
-Enterprises need repeatable settings for security, software, scripts, firewall, auditing, and operating-system behavior.
-
-GPOs are linked to sites, domains, or OUs. Clients process applicable policy based on location, inheritance, security filtering, WMI filtering where used, and policy rules.
+Group Policy centrally configures users and computers through Group Policy Objects (GPOs). Enterprises need repeatable settings for security, software, scripts, firewall, auditing, and operating-system behavior. GPOs are linked to sites, domains, or OUs. Clients process applicable policy based on location, inheritance, security filtering, WMI filtering where used, and policy rules.
 
 Group Policy applies to domain-joined Windows systems and users.
-
 
 #### Group Policy Processing
 
@@ -919,49 +567,15 @@ A common order is:
 Local -> Site -> Domain -> OU hierarchy
 ```
 
-Often summarized as LSDOU.
-
-Later applicable settings commonly take precedence for conflicts, subject to:
-
-- Enforced links.
-- Block inheritance.
-- Security filtering.
-- Loopback processing.
-- WMI filters.
-- Setting-specific behavior.
-
-Not every policy setting behaves as a simple overwrite.
-
+Often summarized as LSDOU. Later applicable settings commonly take precedence for conflicts, subject to: Enforced links; Block inheritance; Security filtering; Loopback processing; WMI filters; Setting-specific behavior. Not every policy setting behaves as a simple overwrite.
 
 #### GPO Components
 
-A GPO has:
-
-- Group Policy Container in Active Directory.
-- Group Policy Template in SYSVOL.
-
-Healthy replication of both is required. Permission or replication mismatch can create inconsistent policy.
-
-Useful tools:
-
-GUI administration is required in this course; follow the accompanying guided lab.
-
-For this GUI-only course, restart the lab client in an approved window and verify applied settings through the Group Policy Results Wizard and Event Viewer. Policy refresh can trigger scripts, software and security changes, so preserve a recovery path.
-
+A GPO has: Group Policy Container in Active Directory; Group Policy Template in SYSVOL. Healthy replication of both is required. Permission or replication mismatch can create inconsistent policy. Useful tools: GUI administration is required in this course; follow the accompanying guided lab. For this GUI-only course, restart the lab client in an approved window and verify applied settings through the Group Policy Results Wizard and Event Viewer. Policy refresh can trigger scripts, software and security changes, so preserve a recovery path.
 
 #### Group Policy Security
 
-Risks:
-
-- Excessive GPO edit rights.
-- Startup script modification.
-- Weak SYSVOL permissions.
-- Policy disabling security controls.
-- Broad local administrator assignment.
-- Unsafe scheduled tasks or preferences.
-- Uncontrolled link changes.
-
-Controls:
+Risks: Excessive GPO edit rights; Startup script modification; Weak SYSVOL permissions; Policy disabling security controls; Broad local administrator assignment; Unsafe scheduled tasks or preferences; Uncontrolled link changes. Controls:
 
 - Restrict GPO creation, edit, and link rights.
 - Separate privileged policy administration.
@@ -971,7 +585,6 @@ Controls:
 - Test in staged OUs.
 - Monitor SYSVOL integrity.
 - Maintain rollback.
-
 
 ### Worked Cedarbridge scenario
 
@@ -989,15 +602,15 @@ Process a different joiner/mover/leaver and harmless workstation notice. Submit 
 
 Computer settings linked only to a user OU may miss the computer. Cached sign-in while the DC is unreachable confuses revocation tests. Existing sessions need explicit handling.
 
-### Summary and glossary
+### Review and key terms
 
 Lifecycle: joiner/mover/leaver; privilege creep: excess accumulated rights; resultant policy: processed settings. Disable, preserve, handle sessions and verify.
 
 <!-- HSETS-SELF-STUDY-L16 -->
 <a id="self-study-l16"></a>
-### Self-study workshop — manage identities as a lifecycle
+### Applying the lesson: manage identities as a lifecycle
 
-#### Understand the mechanism
+#### Putting the ideas together
 
 An employee's access should follow an approved business role over time. A joiner needs approved initial access. A mover may need old access removed as well as new access added. A leaver needs the appropriate account/session/resource actions under the organisation's process. Adding permissions without reviewing previous access gradually accumulates privilege.
 

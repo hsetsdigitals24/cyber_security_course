@@ -9,8 +9,8 @@ This handbook supports students with basic computer knowledge. The course is des
 ## Start with the right route
 
 1. Open the [course module index](README.md), then the current module's README.
-2. Follow the module's first-lesson link. Read its General Overview and the terms before attempting unfamiliar procedures.
-3. Work through the **Self-study workshop**. Write your practice reasoning before expanding the feedback. The worked examples and feedback are teaching material, not your assessment results.
+2. Follow the module's first-lesson link. Read **What you will learn**, then the concept sections in order. Definitions appear alongside the relevant explanations, before unfamiliar procedures.
+3. Work through the lesson's worked example and application practice. Write your reasoning before expanding the feedback. The worked examples and feedback are teaching material, not your assessment results.
 4. Use the matching guided practical. Complete one checkpoint, inspect the result and record your evidence before continuing.
 5. Complete the matching workbook assignment. Its marks and rubric are separate from the ungraded self-study case.
 6. Repeat for the second lesson, review feedback and follow the module's completion checkpoint.
