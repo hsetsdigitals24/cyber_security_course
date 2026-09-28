@@ -1,3 +1,5 @@
+> **Earlier course version:** for the current forty-lesson course, use the [course homepage](H-SETS-40-Lesson-Course/README.md). The material below belongs to the preserved eighteen-module draft.
+
 # H-SETS Practical Cybersecurity Programme — Student Learning Guide
 
 **Beginner starting point:** use the [computer-skills bridge](H-SETS-Computer-Skills-Bridge.md) for an observed diagnostic and targeted practice. The [weekly planner](H-SETS-Weekly-Study-Plan.md#week6-budget) now reserves guided time for the first Python exercises and part of P01 network practice.
