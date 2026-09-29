@@ -1,5 +1,7 @@
 # Tool Lab Index
 
+**H-SETS 18-week delivery:** use the [weekly module and practical plan](../../18-WEEK-STUDY-PLAN.md) to schedule this work. Start only stages whose prerequisites are met. The complete lab/project requirements and estimates below remain in force; longer integration projects may continue after Week 18.
+
 Use these labs with the [Core Tool Skills Pathway](../CORE_TOOL_SKILLS_PATHWAY.md). The labs are now organised around the main tools students must operate confidently: Kali Linux, Ubuntu Server, pfSense, Windows Server, Greenbone/OpenVAS, and Wazuh.
 
 ## Required Tool Labs

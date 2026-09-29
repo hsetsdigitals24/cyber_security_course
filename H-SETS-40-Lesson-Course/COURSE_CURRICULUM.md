@@ -1,6 +1,31 @@
-# H-SETS — Cybersecurity Course Curriculum
+# H-SETS — 18-Week Cybersecurity Curriculum
 
-This curriculum is the source of truth for the 40-lesson professional cybersecurity course.
+This curriculum groups the 40 detailed lessons into 18 H-SETS weekly modules. Lesson content and numbering remain unchanged. Use the [18-week study plan](18-WEEK-STUDY-PLAN.md) for practice timing and project dependencies.
+
+| Week / module | Topic | Lessons |
+|---|---|---|
+| 01 | [Security Foundations and the Profession](modules/Module-01/README.md) | 01, 02, 03 |
+| 02 | [Cryptography, Identity and Access](modules/Module-02/README.md) | 04, 05, 06 |
+| 03 | [Social Engineering and Attack Fundamentals](modules/Module-03/README.md) | 07, 08, 09 |
+| 04 | [Virtualisation and Linux Foundations](modules/Module-04/README.md) | 10, 11 |
+| 05 | [Linux Identity, Permissions and Services](modules/Module-05/README.md) | 12, 13 |
+| 06 | [Linux Hardening and Security Scripting](modules/Module-06/README.md) | 14, 15 |
+| 07 | [Linux Networking and Windows Foundations](modules/Module-07/README.md) | 16, 17 |
+| 08 | [Windows Server and Active Directory](modules/Module-08/README.md) | 18, 19 |
+| 09 | [Identity Operations and Endpoint Security](modules/Module-09/README.md) | 20, 21 |
+| 10 | [Remote Access and Firewall Administration](modules/Module-10/README.md) | 22, 23 |
+| 11 | [Segmentation and Network Detection](modules/Module-11/README.md) | 24, 25 |
+| 12 | [Cloud Fundamentals and Asset Discovery](modules/Module-12/README.md) | 26, 27 |
+| 13 | [Vulnerability Assessment and Remediation](modules/Module-13/README.md) | 28, 29 |
+| 14 | [SIEM Foundations and Wazuh Operations](modules/Module-14/README.md) | 30, 31 |
+| 15 | [Detection Engineering and Incident Response](modules/Module-15/README.md) | 32, 33 |
+| 16 | [Threat Intelligence and Digital Forensics](modules/Module-16/README.md) | 34, 35 |
+| 17 | [Risk, Compliance and Professional Reporting](modules/Module-17/README.md) | 36, 37, 38 |
+| 18 | [Integration Review and Capstone Investigation](modules/Module-18/README.md) | 39, 40 |
+
+## Module 01 — Week 1: Security Foundations and the Profession
+
+[Open module notes and weekly work](modules/Module-01/README.md).
 
 ## Lesson 1: Security Fundamentals
 
@@ -31,6 +56,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
   - OSCP
   - CISSP
 - Continuous Learning Strategies
+
+## Module 02 — Week 2: Cryptography, Identity and Access
+
+[Open module notes and weekly work](modules/Module-02/README.md).
 
 ## Lesson 4: Cryptography Fundamentals
 
@@ -68,6 +97,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Defense in Depth
 - Security Control Categories and Functions
 
+## Module 03 — Week 3: Social Engineering and Attack Fundamentals
+
+[Open module notes and weekly work](modules/Module-03/README.md).
+
 ## Lesson 7: Social Engineering
 
 - Phishing
@@ -101,6 +134,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Indicators of Compromise (IOC)
 - Indicators of Attack (IOA)
 
+## Module 04 — Week 4: Virtualisation and Linux Foundations
+
+[Open module notes and weekly work](modules/Module-04/README.md).
+
 ## Lesson 10: Virtualization Fundamentals
 
 - Hypervisors
@@ -119,6 +156,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Package Management
 - Process Management
 - File Permissions
+
+## Module 05 — Week 5: Linux Identity, Permissions and Services
+
+[Open module notes and weekly work](modules/Module-05/README.md).
 
 ## Lesson 12: Users, Groups and Permissions
 
@@ -139,6 +180,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Cron Jobs
 - Reading and Interpreting Linux Logs
 
+## Module 06 — Week 6: Linux Hardening and Security Scripting
+
+[Open module notes and weekly work](modules/Module-06/README.md).
+
 ## Lesson 14: Linux Hardening
 
 - SSH Configuration
@@ -157,6 +202,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Regular Expressions
 - Log Parsing
 - Simple Security Scripts
+
+## Module 07 — Week 7: Linux Networking and Windows Foundations
+
+[Open module notes and weekly work](modules/Module-07/README.md).
 
 ## Lesson 16: Linux Networking
 
@@ -177,6 +226,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Event Logs
 - PowerShell Basics
 - Windows Security Architecture
+
+## Module 08 — Week 8: Windows Server and Active Directory
+
+[Open module notes and weekly work](modules/Module-08/README.md).
 
 ## Lesson 18: Windows Server
 
@@ -199,6 +252,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - LDAP
 - Group Policy Basics
 
+## Module 09 — Week 9: Identity Operations and Endpoint Security
+
+[Open module notes and weekly work](modules/Module-09/README.md).
+
 ## Lesson 20: IAM Fundamentals
 
 - RBAC
@@ -214,6 +271,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - EDR Concepts
 - Patch Management
 - Endpoint Hardening
+
+## Module 10 — Week 10: Remote Access and Firewall Administration
+
+[Open module notes and weekly work](modules/Module-10/README.md).
 
 ## Lesson 22: Remote Access and VPN
 
@@ -231,6 +292,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Firewall Rules
 - Logging
 - Segmentation Design
+
+## Module 11 — Week 11: Segmentation and Network Detection
+
+[Open module notes and weekly work](modules/Module-11/README.md).
 
 ## Lesson 24: Network Segmentation
 
@@ -250,6 +315,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Signature-Based Detection
 - Anomaly-Based Detection
 
+## Module 12 — Week 12: Cloud Fundamentals and Asset Discovery
+
+[Open module notes and weekly work](modules/Module-12/README.md).
+
 ## Lesson 26: Cloud Fundamentals
 
 - IaaS
@@ -267,6 +336,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Attack Surface Mapping
 - Asset Management
 
+## Module 13 — Week 13: Vulnerability Assessment and Remediation
+
+[Open module notes and weekly work](modules/Module-13/README.md).
+
 ## Lesson 28: Vulnerability Assessment
 
 - Nessus
@@ -282,6 +355,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Remediation Prioritization
 - Validation Testing
 - Writing Vulnerability Reports
+
+## Module 14 — Week 14: SIEM Foundations and Wazuh Operations
+
+[Open module notes and weekly work](modules/Module-14/README.md).
 
 ## Lesson 30: SIEM Fundamentals
 
@@ -299,6 +376,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Dashboards
 - Querying
 - Alert Tuning
+
+## Module 15 — Week 15: Detection Engineering and Incident Response
+
+[Open module notes and weekly work](modules/Module-15/README.md).
 
 ## Lesson 32: Detection Engineering
 
@@ -318,6 +399,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Lessons Learned
 - Incident Report Writing
 
+## Module 16 — Week 16: Threat Intelligence and Digital Forensics
+
+[Open module notes and weekly work](modules/Module-16/README.md).
+
 ## Lesson 34: Threat Intelligence
 
 - VirusTotal
@@ -334,6 +419,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Disk Artifacts
 - Chain of Custody
 - Evidence Documentation
+
+## Module 17 — Week 17: Risk, Compliance and Professional Reporting
+
+[Open module notes and weekly work](modules/Module-17/README.md).
 
 ## Lesson 36: Risk Assessment
 
@@ -360,6 +449,10 @@ This curriculum is the source of truth for the 40-lesson professional cybersecur
 - Portfolio Building
 - GitHub Usage
 - Certification Planning
+
+## Module 18 — Week 18: Integration Review and Capstone Investigation
+
+[Open module notes and weekly work](modules/Module-18/README.md).
 
 ## Lesson 39: Integration Review
 

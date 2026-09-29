@@ -1,8 +1,8 @@
 # Lesson 4: Cryptography Fundamentals
 
-**H-SETS · Lesson 04 of 40**
+**H-SETS · Module 02 · Week 2 of 18 · Lesson 04 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 3](lesson-03-the-security-profession.md) · [Next: Lesson 5](lesson-05-authentication-and-identity.md)
+[Module 02: Cryptography, Identity and Access](../modules/Module-02/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 3](lesson-03-the-security-profession.md) · [Next: Lesson 5](lesson-05-authentication-and-identity.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -1063,4 +1063,4 @@ Students should carry forward these questions:
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 3](lesson-03-the-security-profession.md) · [Next: Lesson 5](lesson-05-authentication-and-identity.md)
+[Module 02: Cryptography, Identity and Access](../modules/Module-02/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 3](lesson-03-the-security-profession.md) · [Next: Lesson 5](lesson-05-authentication-and-identity.md)

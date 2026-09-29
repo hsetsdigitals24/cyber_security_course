@@ -1,8 +1,8 @@
 # Lesson 39: Integration Review
 
-**H-SETS · Lesson 39 of 40**
+**H-SETS · Module 18 · Week 18 of 18 · Lesson 39 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 38](lesson-38-career-and-professional-skills.md) · [Next: Lesson 40](lesson-40-capstone-investigation.md)
+[Module 18: Integration Review and Capstone Investigation](../modules/Module-18/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 38](lesson-38-career-and-professional-skills.md) · [Next: Lesson 40](lesson-40-capstone-investigation.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -805,4 +805,4 @@ This lesson integrates the complete architecture and operations taught throughou
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 38](lesson-38-career-and-professional-skills.md) · [Next: Lesson 40](lesson-40-capstone-investigation.md)
+[Module 18: Integration Review and Capstone Investigation](../modules/Module-18/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 38](lesson-38-career-and-professional-skills.md) · [Next: Lesson 40](lesson-40-capstone-investigation.md)

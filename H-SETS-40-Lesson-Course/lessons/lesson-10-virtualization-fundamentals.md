@@ -1,8 +1,8 @@
 # Lesson 10: Virtualization Fundamentals
 
-**H-SETS · Lesson 10 of 40**
+**H-SETS · Module 04 · Week 4 of 18 · Lesson 10 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 9](lesson-09-web-attacks-and-malware.md) · [Next: Lesson 11](lesson-11-linux-fundamentals.md)
+[Module 04: Virtualisation and Linux Foundations](../modules/Module-04/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 9](lesson-09-web-attacks-and-malware.md) · [Next: Lesson 11](lesson-11-linux-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -640,4 +640,4 @@ Technical reference for the clarification: [Oracle VirtualBox networking documen
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 9](lesson-09-web-attacks-and-malware.md) · [Next: Lesson 11](lesson-11-linux-fundamentals.md)
+[Module 04: Virtualisation and Linux Foundations](../modules/Module-04/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 9](lesson-09-web-attacks-and-malware.md) · [Next: Lesson 11](lesson-11-linux-fundamentals.md)

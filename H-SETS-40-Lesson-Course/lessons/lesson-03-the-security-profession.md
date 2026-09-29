@@ -1,8 +1,8 @@
 # Lesson 3: The Security Profession
 
-**H-SETS · Lesson 03 of 40**
+**H-SETS · Module 01 · Week 1 of 18 · Lesson 03 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 2](lesson-02-threat-landscape.md) · [Next: Lesson 4](lesson-04-cryptography-fundamentals.md)
+[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 2](lesson-02-threat-landscape.md) · [Next: Lesson 4](lesson-04-cryptography-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -908,4 +908,4 @@ Future lessons will keep connecting technical concepts to real job responsibilit
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 2](lesson-02-threat-landscape.md) · [Next: Lesson 4](lesson-04-cryptography-fundamentals.md)
+[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 2](lesson-02-threat-landscape.md) · [Next: Lesson 4](lesson-04-cryptography-fundamentals.md)

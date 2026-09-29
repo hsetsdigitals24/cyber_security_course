@@ -1,8 +1,8 @@
 # Lesson 1: Security Fundamentals
 
-**H-SETS · Lesson 01 of 40**
+**H-SETS · Module 01 · Week 1 of 18 · Lesson 01 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Next: Lesson 2](lesson-02-threat-landscape.md)
+[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Next: Lesson 2](lesson-02-threat-landscape.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -830,4 +830,4 @@ Technical reference for the clarification: [NIST vulnerability definitions](http
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Next: Lesson 2](lesson-02-threat-landscape.md)
+[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Next: Lesson 2](lesson-02-threat-landscape.md)

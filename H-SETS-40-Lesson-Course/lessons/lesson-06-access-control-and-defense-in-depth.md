@@ -1,8 +1,8 @@
 # Lesson 6: Access Control and Defense in Depth
 
-**H-SETS · Lesson 06 of 40**
+**H-SETS · Module 02 · Week 2 of 18 · Lesson 06 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 5](lesson-05-authentication-and-identity.md) · [Next: Lesson 7](lesson-07-social-engineering.md)
+[Module 02: Cryptography, Identity and Access](../modules/Module-02/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 5](lesson-05-authentication-and-identity.md) · [Next: Lesson 7](lesson-07-social-engineering.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -764,4 +764,4 @@ Lessons 11 and 12 expand Linux permissions, users, groups, ACLs, ownership, and 
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 5](lesson-05-authentication-and-identity.md) · [Next: Lesson 7](lesson-07-social-engineering.md)
+[Module 02: Cryptography, Identity and Access](../modules/Module-02/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 5](lesson-05-authentication-and-identity.md) · [Next: Lesson 7](lesson-07-social-engineering.md)

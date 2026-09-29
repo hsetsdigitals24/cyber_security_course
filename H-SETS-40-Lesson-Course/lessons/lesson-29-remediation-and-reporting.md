@@ -1,8 +1,8 @@
 # Lesson 29: Remediation and Reporting
 
-**H-SETS · Lesson 29 of 40**
+**H-SETS · Module 13 · Week 13 of 18 · Lesson 29 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 28](lesson-28-vulnerability-assessment.md) · [Next: Lesson 30](lesson-30-siem-fundamentals.md)
+[Module 13: Vulnerability Assessment and Remediation](../modules/Module-13/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 28](lesson-28-vulnerability-assessment.md) · [Next: Lesson 30](lesson-30-siem-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -782,4 +782,4 @@ Students should retain that vulnerability data becomes more valuable when correl
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 28](lesson-28-vulnerability-assessment.md) · [Next: Lesson 30](lesson-30-siem-fundamentals.md)
+[Module 13: Vulnerability Assessment and Remediation](../modules/Module-13/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 28](lesson-28-vulnerability-assessment.md) · [Next: Lesson 30](lesson-30-siem-fundamentals.md)

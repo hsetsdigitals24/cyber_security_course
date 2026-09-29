@@ -1,8 +1,8 @@
 # Lesson 15: Bash and Python Basics
 
-**H-SETS · Lesson 15 of 40**
+**H-SETS · Module 06 · Week 6 of 18 · Lesson 15 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 14](lesson-14-linux-hardening.md) · [Next: Lesson 16](lesson-16-linux-networking.md)
+[Module 06: Linux Hardening and Security Scripting](../modules/Module-06/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 14](lesson-14-linux-hardening.md) · [Next: Lesson 16](lesson-16-linux-networking.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -792,4 +792,4 @@ Lesson 16 applies Linux commands and scripting to interfaces, sockets, DNS, HTTP
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 14](lesson-14-linux-hardening.md) · [Next: Lesson 16](lesson-16-linux-networking.md)
+[Module 06: Linux Hardening and Security Scripting](../modules/Module-06/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 14](lesson-14-linux-hardening.md) · [Next: Lesson 16](lesson-16-linux-networking.md)

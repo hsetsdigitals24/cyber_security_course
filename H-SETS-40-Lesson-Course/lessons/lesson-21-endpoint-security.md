@@ -1,8 +1,8 @@
 # Lesson 21: Endpoint Security
 
-**H-SETS · Lesson 21 of 40**
+**H-SETS · Module 09 · Week 9 of 18 · Lesson 21 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 20](lesson-20-iam-fundamentals.md) · [Next: Lesson 22](lesson-22-remote-access-and-vpn.md)
+[Module 09: Identity Operations and Endpoint Security](../modules/Module-09/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 20](lesson-20-iam-fundamentals.md) · [Next: Lesson 22](lesson-22-remote-access-and-vpn.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -817,4 +817,4 @@ Students should retain:
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 20](lesson-20-iam-fundamentals.md) · [Next: Lesson 22](lesson-22-remote-access-and-vpn.md)
+[Module 09: Identity Operations and Endpoint Security](../modules/Module-09/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 20](lesson-20-iam-fundamentals.md) · [Next: Lesson 22](lesson-22-remote-access-and-vpn.md)

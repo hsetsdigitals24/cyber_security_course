@@ -1,8 +1,8 @@
 # Lesson 22: Remote Access and VPN
 
-**H-SETS · Lesson 22 of 40**
+**H-SETS · Module 10 · Week 10 of 18 · Lesson 22 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 21](lesson-21-endpoint-security.md) · [Next: Lesson 23](lesson-23-firewall-and-pfsense.md)
+[Module 10: Remote Access and Firewall Administration](../modules/Module-10/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 21](lesson-21-endpoint-security.md) · [Next: Lesson 23](lesson-23-firewall-and-pfsense.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -820,4 +820,4 @@ Students should retain:
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 21](lesson-21-endpoint-security.md) · [Next: Lesson 23](lesson-23-firewall-and-pfsense.md)
+[Module 10: Remote Access and Firewall Administration](../modules/Module-10/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 21](lesson-21-endpoint-security.md) · [Next: Lesson 23](lesson-23-firewall-and-pfsense.md)

@@ -1,8 +1,8 @@
 # Lesson 17: Windows Fundamentals
 
-**H-SETS · Lesson 17 of 40**
+**H-SETS · Module 07 · Week 7 of 18 · Lesson 17 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 16](lesson-16-linux-networking.md) · [Next: Lesson 18](lesson-18-windows-server.md)
+[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 16](lesson-16-linux-networking.md) · [Next: Lesson 18](lesson-18-windows-server.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -844,4 +844,4 @@ Students should carry forward:
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 16](lesson-16-linux-networking.md) · [Next: Lesson 18](lesson-18-windows-server.md)
+[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 16](lesson-16-linux-networking.md) · [Next: Lesson 18](lesson-18-windows-server.md)

@@ -1,8 +1,8 @@
 # Lesson 33: Incident Response
 
-**H-SETS · Lesson 33 of 40**
+**H-SETS · Module 15 · Week 15 of 18 · Lesson 33 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 32](lesson-32-detection-engineering.md) · [Next: Lesson 34](lesson-34-threat-intelligence.md)
+[Module 15: Detection Engineering and Incident Response](../modules/Module-15/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 32](lesson-32-detection-engineering.md) · [Next: Lesson 34](lesson-34-threat-intelligence.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -836,4 +836,4 @@ Technical reference for the clarification: [NIST SP 800-61 Revision 3](https://c
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 32](lesson-32-detection-engineering.md) · [Next: Lesson 34](lesson-34-threat-intelligence.md)
+[Module 15: Detection Engineering and Incident Response](../modules/Module-15/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 32](lesson-32-detection-engineering.md) · [Next: Lesson 34](lesson-34-threat-intelligence.md)

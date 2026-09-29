@@ -1,8 +1,8 @@
 # Lesson 25: IDS and IPS
 
-**H-SETS · Lesson 25 of 40**
+**H-SETS · Module 11 · Week 11 of 18 · Lesson 25 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 24](lesson-24-network-segmentation.md) · [Next: Lesson 26](lesson-26-cloud-fundamentals.md)
+[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 24](lesson-24-network-segmentation.md) · [Next: Lesson 26](lesson-26-cloud-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -747,4 +747,4 @@ Students should retain that cloud visibility requires intentional traffic, platf
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 24](lesson-24-network-segmentation.md) · [Next: Lesson 26](lesson-26-cloud-fundamentals.md)
+[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 24](lesson-24-network-segmentation.md) · [Next: Lesson 26](lesson-26-cloud-fundamentals.md)

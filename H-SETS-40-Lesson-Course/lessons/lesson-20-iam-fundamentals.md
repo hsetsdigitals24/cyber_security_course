@@ -1,8 +1,8 @@
 # Lesson 20: IAM Fundamentals
 
-**H-SETS · Lesson 20 of 40**
+**H-SETS · Module 09 · Week 9 of 18 · Lesson 20 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 19](lesson-19-active-directory.md) · [Next: Lesson 21](lesson-21-endpoint-security.md)
+[Module 09: Identity Operations and Endpoint Security](../modules/Module-09/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 19](lesson-19-active-directory.md) · [Next: Lesson 21](lesson-21-endpoint-security.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -862,4 +862,4 @@ Students should retain:
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 19](lesson-19-active-directory.md) · [Next: Lesson 21](lesson-21-endpoint-security.md)
+[Module 09: Identity Operations and Endpoint Security](../modules/Module-09/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 19](lesson-19-active-directory.md) · [Next: Lesson 21](lesson-21-endpoint-security.md)

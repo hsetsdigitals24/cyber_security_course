@@ -1,8 +1,8 @@
 # Lesson 5: Authentication and Identity
 
-**H-SETS · Lesson 05 of 40**
+**H-SETS · Module 02 · Week 2 of 18 · Lesson 05 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 4](lesson-04-cryptography-fundamentals.md) · [Next: Lesson 6](lesson-06-access-control-and-defense-in-depth.md)
+[Module 02: Cryptography, Identity and Access](../modules/Module-02/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 4](lesson-04-cryptography-fundamentals.md) · [Next: Lesson 6](lesson-06-access-control-and-defense-in-depth.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -858,4 +858,4 @@ Technical reference for the clarification: [NIST digital authentication guidance
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 4](lesson-04-cryptography-fundamentals.md) · [Next: Lesson 6](lesson-06-access-control-and-defense-in-depth.md)
+[Module 02: Cryptography, Identity and Access](../modules/Module-02/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 4](lesson-04-cryptography-fundamentals.md) · [Next: Lesson 6](lesson-06-access-control-and-defense-in-depth.md)

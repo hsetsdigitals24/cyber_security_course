@@ -1,8 +1,8 @@
-# H-SETS — Practical Cybersecurity Course
+# H-SETS — 18-Week Practical Cybersecurity Course
 
-This course follows the 40 lessons in the supplied FEMTECH course, in the same order. The original topic coverage, examples, comparison tables, practical tasks and assessments are retained, with added explanations at points that need more support for beginners.
+This H-SETS course is organised into **18 weekly modules containing 40 detailed lessons**. The full topic coverage, examples, comparison tables, practical tasks and assessments are retained. Read each module’s linked notes in the listed order.
 
-Start with [Lesson 1: Security Fundamentals](lessons/lesson-01-security-fundamentals.md). Use the contents at the top of each lesson to find a topic and the previous/next links to move through the course.
+Start with [Module 01: Security Foundations and the Profession](modules/Module-01/README.md). Use the [18-week study plan](18-WEEK-STUDY-PLAN.md) for weekly practice and project timing. Each lesson links back to its module and retains previous/next navigation.
 
 ## How to study
 
@@ -21,7 +21,32 @@ Lessons 1–9 establish security concepts. Lesson 10 introduces virtualisation. 
 
 An SSD is recommended. Plan approximately 200 GB free for lab images and snapshots, then check the actual requirements for the assigned lab. Run staged guests; this minimum does not mean the full multi-server range can run simultaneously on one laptop. An instructor must arrange additional capacity or hosted services where required and verify compatibility with the selected images. Lab execution and beginner timing still require pilots.
 
-## Lessons
+## Weekly modules
+
+| Week / module | Topic | Lessons |
+|---|---|---|
+| 01 | [Security Foundations and the Profession](modules/Module-01/README.md) | 01, 02, 03 |
+| 02 | [Cryptography, Identity and Access](modules/Module-02/README.md) | 04, 05, 06 |
+| 03 | [Social Engineering and Attack Fundamentals](modules/Module-03/README.md) | 07, 08, 09 |
+| 04 | [Virtualisation and Linux Foundations](modules/Module-04/README.md) | 10, 11 |
+| 05 | [Linux Identity, Permissions and Services](modules/Module-05/README.md) | 12, 13 |
+| 06 | [Linux Hardening and Security Scripting](modules/Module-06/README.md) | 14, 15 |
+| 07 | [Linux Networking and Windows Foundations](modules/Module-07/README.md) | 16, 17 |
+| 08 | [Windows Server and Active Directory](modules/Module-08/README.md) | 18, 19 |
+| 09 | [Identity Operations and Endpoint Security](modules/Module-09/README.md) | 20, 21 |
+| 10 | [Remote Access and Firewall Administration](modules/Module-10/README.md) | 22, 23 |
+| 11 | [Segmentation and Network Detection](modules/Module-11/README.md) | 24, 25 |
+| 12 | [Cloud Fundamentals and Asset Discovery](modules/Module-12/README.md) | 26, 27 |
+| 13 | [Vulnerability Assessment and Remediation](modules/Module-13/README.md) | 28, 29 |
+| 14 | [SIEM Foundations and Wazuh Operations](modules/Module-14/README.md) | 30, 31 |
+| 15 | [Detection Engineering and Incident Response](modules/Module-15/README.md) | 32, 33 |
+| 16 | [Threat Intelligence and Digital Forensics](modules/Module-16/README.md) | 34, 35 |
+| 17 | [Risk, Compliance and Professional Reporting](modules/Module-17/README.md) | 36, 37, 38 |
+| 18 | [Integration Review and Capstone Investigation](modules/Module-18/README.md) | 39, 40 |
+
+The modules below the root course folder belong to this current 40-lesson route. They are separate from the preserved earlier 18-module draft.
+
+## Complete lesson index
 
 | Lesson | Topic |
 |---|---|

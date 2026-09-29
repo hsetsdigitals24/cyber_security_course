@@ -1,8 +1,8 @@
 # Lesson 23: Firewall and pfSense
 
-**H-SETS · Lesson 23 of 40**
+**H-SETS · Module 10 · Week 10 of 18 · Lesson 23 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 22](lesson-22-remote-access-and-vpn.md) · [Next: Lesson 24](lesson-24-network-segmentation.md)
+[Module 10: Remote Access and Firewall Administration](../modules/Module-10/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 22](lesson-22-remote-access-and-vpn.md) · [Next: Lesson 24](lesson-24-network-segmentation.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -794,4 +794,4 @@ Technical reference for the clarification: [Netgate firewall-state documentation
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 22](lesson-22-remote-access-and-vpn.md) · [Next: Lesson 24](lesson-24-network-segmentation.md)
+[Module 10: Remote Access and Firewall Administration](../modules/Module-10/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 22](lesson-22-remote-access-and-vpn.md) · [Next: Lesson 24](lesson-24-network-segmentation.md)

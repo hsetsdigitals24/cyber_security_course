@@ -1,8 +1,8 @@
 # Lesson 13: Linux Logging and Services
 
-**H-SETS · Lesson 13 of 40**
+**H-SETS · Module 05 · Week 5 of 18 · Lesson 13 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 12](lesson-12-users-groups-and-permissions.md) · [Next: Lesson 14](lesson-14-linux-hardening.md)
+[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 12](lesson-12-users-groups-and-permissions.md) · [Next: Lesson 14](lesson-14-linux-hardening.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -746,4 +746,4 @@ Lesson 14 uses these logging and service skills to harden SSH, configure UFW and
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 12](lesson-12-users-groups-and-permissions.md) · [Next: Lesson 14](lesson-14-linux-hardening.md)
+[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 12](lesson-12-users-groups-and-permissions.md) · [Next: Lesson 14](lesson-14-linux-hardening.md)

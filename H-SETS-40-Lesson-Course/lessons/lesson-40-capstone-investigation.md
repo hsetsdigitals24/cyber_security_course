@@ -1,8 +1,8 @@
 # Lesson 40: Capstone Investigation
 
-**H-SETS · Lesson 40 of 40**
+**H-SETS · Module 18 · Week 18 of 18 · Lesson 40 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)
+[Module 18: Integration Review and Capstone Investigation](../modules/Module-18/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -1080,4 +1080,4 @@ This capstone integrates the complete 40-lesson curriculum. Students should reta
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)
+[Module 18: Integration Review and Capstone Investigation](../modules/Module-18/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)

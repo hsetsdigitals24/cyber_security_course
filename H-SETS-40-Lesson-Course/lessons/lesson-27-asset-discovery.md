@@ -1,8 +1,8 @@
 # Lesson 27: Asset Discovery
 
-**H-SETS · Lesson 27 of 40**
+**H-SETS · Module 12 · Week 12 of 18 · Lesson 27 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 26](lesson-26-cloud-fundamentals.md) · [Next: Lesson 28](lesson-28-vulnerability-assessment.md)
+[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 26](lesson-26-cloud-fundamentals.md) · [Next: Lesson 28](lesson-28-vulnerability-assessment.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -628,4 +628,4 @@ Before an organization can rank vulnerabilities, it must know which assets exist
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 26](lesson-26-cloud-fundamentals.md) · [Next: Lesson 28](lesson-28-vulnerability-assessment.md)
+[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 26](lesson-26-cloud-fundamentals.md) · [Next: Lesson 28](lesson-28-vulnerability-assessment.md)

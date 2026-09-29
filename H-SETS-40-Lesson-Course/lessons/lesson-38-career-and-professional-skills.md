@@ -1,8 +1,8 @@
 # Lesson 38: Career and Professional Skills
 
-**H-SETS · Lesson 38 of 40**
+**H-SETS · Module 17 · Week 17 of 18 · Lesson 38 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 37](lesson-37-compliance-frameworks.md) · [Next: Lesson 39](lesson-39-integration-review.md)
+[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 37](lesson-37-compliance-frameworks.md) · [Next: Lesson 39](lesson-39-integration-review.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -849,4 +849,4 @@ Lesson 37 established obligations, controls, and evidence. This lesson teaches s
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 37](lesson-37-compliance-frameworks.md) · [Next: Lesson 39](lesson-39-integration-review.md)
+[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 37](lesson-37-compliance-frameworks.md) · [Next: Lesson 39](lesson-39-integration-review.md)

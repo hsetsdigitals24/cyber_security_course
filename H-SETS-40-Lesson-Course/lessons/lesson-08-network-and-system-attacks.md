@@ -1,8 +1,8 @@
 # Lesson 8: Network and System Attacks
 
-**H-SETS · Lesson 08 of 40**
+**H-SETS · Module 03 · Week 3 of 18 · Lesson 08 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 7](lesson-07-social-engineering.md) · [Next: Lesson 9](lesson-09-web-attacks-and-malware.md)
+[Module 03: Social Engineering and Attack Fundamentals](../modules/Module-03/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 7](lesson-07-social-engineering.md) · [Next: Lesson 9](lesson-09-web-attacks-and-malware.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -581,4 +581,4 @@ Lesson 9 examines web attacks and malware. Students should carry forward the pro
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 7](lesson-07-social-engineering.md) · [Next: Lesson 9](lesson-09-web-attacks-and-malware.md)
+[Module 03: Social Engineering and Attack Fundamentals](../modules/Module-03/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 7](lesson-07-social-engineering.md) · [Next: Lesson 9](lesson-09-web-attacks-and-malware.md)

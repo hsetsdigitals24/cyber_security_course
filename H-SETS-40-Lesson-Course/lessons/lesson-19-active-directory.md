@@ -1,8 +1,8 @@
 # Lesson 19: Active Directory
 
-**H-SETS · Lesson 19 of 40**
+**H-SETS · Module 08 · Week 8 of 18 · Lesson 19 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 18](lesson-18-windows-server.md) · [Next: Lesson 20](lesson-20-iam-fundamentals.md)
+[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 18](lesson-18-windows-server.md) · [Next: Lesson 20](lesson-20-iam-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -911,4 +911,4 @@ Technical reference for the clarification: [Microsoft Group Policy Results docum
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 18](lesson-18-windows-server.md) · [Next: Lesson 20](lesson-20-iam-fundamentals.md)
+[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 18](lesson-18-windows-server.md) · [Next: Lesson 20](lesson-20-iam-fundamentals.md)

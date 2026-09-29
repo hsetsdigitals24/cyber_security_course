@@ -1,8 +1,8 @@
 # Lesson 30: SIEM Fundamentals
 
-**H-SETS · Lesson 30 of 40**
+**H-SETS · Module 14 · Week 14 of 18 · Lesson 30 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 29](lesson-29-remediation-and-reporting.md) · [Next: Lesson 31](lesson-31-wazuh-in-practice.md)
+[Module 14: SIEM Foundations and Wazuh Operations](../modules/Module-14/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 29](lesson-29-remediation-and-reporting.md) · [Next: Lesson 31](lesson-31-wazuh-in-practice.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -864,4 +864,4 @@ Students should retain that source health and field quality must be proven befor
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 29](lesson-29-remediation-and-reporting.md) · [Next: Lesson 31](lesson-31-wazuh-in-practice.md)
+[Module 14: SIEM Foundations and Wazuh Operations](../modules/Module-14/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 29](lesson-29-remediation-and-reporting.md) · [Next: Lesson 31](lesson-31-wazuh-in-practice.md)

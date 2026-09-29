@@ -1,8 +1,8 @@
 # Lesson 2: Threat Landscape
 
-**H-SETS · Lesson 02 of 40**
+**H-SETS · Module 01 · Week 1 of 18 · Lesson 02 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 1](lesson-01-security-fundamentals.md) · [Next: Lesson 3](lesson-03-the-security-profession.md)
+[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 1](lesson-01-security-fundamentals.md) · [Next: Lesson 3](lesson-03-the-security-profession.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -780,4 +780,4 @@ Later lessons will return to this material:
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 1](lesson-01-security-fundamentals.md) · [Next: Lesson 3](lesson-03-the-security-profession.md)
+[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 1](lesson-01-security-fundamentals.md) · [Next: Lesson 3](lesson-03-the-security-profession.md)

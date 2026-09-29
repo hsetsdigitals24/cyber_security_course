@@ -1,5 +1,7 @@
 # H-SETS Cybersecurity Practical Programme
 
+**H-SETS 18-week delivery:** use the [weekly module and practical plan](../18-WEEK-STUDY-PLAN.md) to schedule this work. Start only stages whose prerequisites are met. The complete lab/project requirements and estimates below remain in force; longer integration projects may continue after Week 18.
+
 ## 6 Tool Labs, 1 Advanced Integration Lab, and 10 Professional Projects
 
 This practical programme consolidates the 40-lesson Enterprise Cybersecurity Course. It is designed to move a student through four levels of performance:

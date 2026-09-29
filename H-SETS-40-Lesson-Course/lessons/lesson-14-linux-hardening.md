@@ -1,8 +1,8 @@
 # Lesson 14: Linux Hardening
 
-**H-SETS · Lesson 14 of 40**
+**H-SETS · Module 06 · Week 6 of 18 · Lesson 14 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 13](lesson-13-linux-logging-and-services.md) · [Next: Lesson 15](lesson-15-bash-and-python-basics.md)
+[Module 06: Linux Hardening and Security Scripting](../modules/Module-06/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 13](lesson-13-linux-logging-and-services.md) · [Next: Lesson 15](lesson-15-bash-and-python-basics.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -713,4 +713,4 @@ Lesson 15 introduces Bash and Python for variables, loops, conditionals, functio
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 13](lesson-13-linux-logging-and-services.md) · [Next: Lesson 15](lesson-15-bash-and-python-basics.md)
+[Module 06: Linux Hardening and Security Scripting](../modules/Module-06/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 13](lesson-13-linux-logging-and-services.md) · [Next: Lesson 15](lesson-15-bash-and-python-basics.md)

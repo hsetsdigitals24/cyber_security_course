@@ -1,8 +1,8 @@
 # Lesson 32: Detection Engineering
 
-**H-SETS · Lesson 32 of 40**
+**H-SETS · Module 15 · Week 15 of 18 · Lesson 32 of 40**
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 31](lesson-31-wazuh-in-practice.md) · [Next: Lesson 33](lesson-33-incident-response.md)
+[Module 15: Detection Engineering and Incident Response](../modules/Module-15/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 31](lesson-31-wazuh-in-practice.md) · [Next: Lesson 33](lesson-33-incident-response.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -857,4 +857,4 @@ Students should retain that an alert becomes useful only when analysts can valid
 
 ---
 
-[Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 31](lesson-31-wazuh-in-practice.md) · [Next: Lesson 33](lesson-33-incident-response.md)
+[Module 15: Detection Engineering and Incident Response](../modules/Module-15/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 31](lesson-31-wazuh-in-practice.md) · [Next: Lesson 33](lesson-33-incident-response.md)
