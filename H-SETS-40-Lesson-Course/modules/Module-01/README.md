@@ -1,43 +1,31 @@
-# H-SETS — Module 01: Security Foundations and the Profession
+# Module 01 · Security Foundations and the Profession
 
-**Week 1 of 18** · Lessons 01, 02, 03
+**H-SETS Cybersecurity · Week 1 of 18 · 3 lessons**
 
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Next module](../Module-02/README.md)
+[Course home](../../README.md) · [All modules](../README.md)
 
-## Module overview
+## This week
 
 Understand what cybersecurity protects, how threats create risk and how security professionals use evidence to make decisions.
 
-## What you should be able to do
+## Your learning route
+
+| Step | Open | What to do |
+|---|---|---|
+| 1 | [Student notes](01-STUDENT-NOTES.md) | Read the full lessons in order and study the worked examples. |
+| 2 | [Practice and assessment](02-PRACTICE-AND-ASSESSMENT.md) | Complete the assigned exercises, lesson questions and take-home work. |
+| 3 | [Completion checklist](02-PRACTICE-AND-ASSESSMENT.md#completion-checklist) | Organise your evidence and identify anything still pending. |
+
+## Before you begin
+
+No VM or scanning is needed. Complete the computer-skills bridge first if file handling is unfamiliar.
+
+## Learning outcomes
 
 - Distinguish assets, threats, vulnerabilities, impact and controls.
 - Explain common malware behaviours without inferring an attack from one symptom.
 - Describe the responsibilities and limits of an entry-level security role.
 
-## Student notes — read in this order
+## Move between modules
 
-1. [Lesson 01: Security Fundamentals](../../lessons/lesson-01-security-fundamentals.md)
-2. [Lesson 02: Threat Landscape](../../lessons/lesson-02-threat-landscape.md)
-3. [Lesson 03: The Security Profession](../../lessons/lesson-03-the-security-profession.md)
-
-These links open the full notes, examples, tables, glossary and assessments for each lesson. Read the explanations before attempting the examples. Complete each lesson's assessment questions and take-home tasks; the checkpoint below helps organise your evidence and does not replace those assignments.
-
-## Preparation
-
-No VM or scanning is needed. Complete the computer-skills bridge first if file handling is unfamiliar.
-
-## Guided practice and independent work
-
-Use the fictional organisations and supplied evidence in Lessons 1–3. Build an asset-and-risk table and explain how one proposed control addresses a particular risk. Complete the career reflection with examples of skills you will need to demonstrate.
-
-Use the [tool-lab index](../../practicals/labs/README.md) and [project index](../../practicals/projects/README.md) to open the relevant brief. A stage started this week is not the same as a completed lab or project. Record completed, deferred and not-run tasks accurately.
-
-## Weekly checkpoint
-
-Prepare: an asset-and-risk table, a justified control recommendation and a short personal skills plan.
-
-Explain the purpose of your work, the evidence supporting the result and one limitation or unresolved question. Where you tested a control, distinguish the expected result from the observed result. Use fictional or approved training data and keep credentials out of submitted evidence.
-
-## Continue
-
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Next module](../Module-02/README.md)
+[Student guide](../../STUDENT-GUIDE.md) · [Next module: 02](../Module-02/README.md)

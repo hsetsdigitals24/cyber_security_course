@@ -1,43 +1,31 @@
-# H-SETS — Module 03: Social Engineering and Attack Fundamentals
+# Module 03 · Social Engineering and Attack Fundamentals
 
-**Week 3 of 18** · Lessons 07, 08, 09
+**H-SETS Cybersecurity · Week 3 of 18 · 3 lessons**
 
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Previous module](../Module-02/README.md) · [Next module](../Module-04/README.md)
+[Course home](../../README.md) · [All modules](../README.md)
 
-## Module overview
+## This week
 
 Recognise deceptive requests and explain how network and application attacks cross trust boundaries.
 
-## What you should be able to do
+## Your learning route
+
+| Step | Open | What to do |
+|---|---|---|
+| 1 | [Student notes](01-STUDENT-NOTES.md) | Read the full lessons in order and study the worked examples. |
+| 2 | [Practice and assessment](02-PRACTICE-AND-ASSESSMENT.md) | Complete the assigned exercises, lesson questions and take-home work. |
+| 3 | [Completion checklist](02-PRACTICE-AND-ASSESSMENT.md#completion-checklist) | Organise your evidence and identify anything still pending. |
+
+## Before you begin
+
+Use supplied evidence only for attack analysis this week. Live Lesson 8 scanning is not an entry requirement.
+
+## Learning outcomes
 
 - Examine a message and plan independent verification.
 - Distinguish network reachability from a demonstrated weakness.
 - Explain injection, browser attacks, malware indicators and the limits of the evidence.
 
-## Student notes — read in this order
+## Move between modules
 
-1. [Lesson 07: Social Engineering](../../lessons/lesson-07-social-engineering.md)
-2. [Lesson 08: Network and System Attacks](../../lessons/lesson-08-network-and-system-attacks.md)
-3. [Lesson 09: Web Attacks and Malware](../../lessons/lesson-09-web-attacks-and-malware.md)
-
-These links open the full notes, examples, tables, glossary and assessments for each lesson. Read the explanations before attempting the examples. Complete each lesson's assessment questions and take-home tasks; the checkpoint below helps organise your evidence and does not replace those assignments.
-
-## Preparation
-
-Use supplied evidence only for attack analysis this week. Live Lesson 8 scanning is not an entry requirement.
-
-## Guided practice and independent work
-
-Analyse the supplied messages, packet descriptions, code snippets and event records. Explain each attack condition and a matching defence. Record the live Lesson 8 network activity as deferred until the isolated range and necessary tool skills are ready.
-
-Use the [tool-lab index](../../practicals/labs/README.md) and [project index](../../practicals/projects/README.md) to open the relevant brief. A stage started this week is not the same as a completed lab or project. Record completed, deferred and not-run tasks accurately.
-
-## Weekly checkpoint
-
-Prepare: a message-analysis worksheet and an evidence-based comparison of network and web attack examples.
-
-Explain the purpose of your work, the evidence supporting the result and one limitation or unresolved question. Where you tested a control, distinguish the expected result from the observed result. Use fictional or approved training data and keep credentials out of submitted evidence.
-
-## Continue
-
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Previous module](../Module-02/README.md) · [Next module](../Module-04/README.md)
+[Previous module](../Module-02/README.md) · [Next module: 04](../Module-04/README.md)

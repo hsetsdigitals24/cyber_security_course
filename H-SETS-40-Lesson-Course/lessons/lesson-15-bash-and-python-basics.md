@@ -2,7 +2,7 @@
 
 **H-SETS · Module 06 · Week 6 of 18 · Lesson 15 of 40**
 
-[Module 06: Linux Hardening and Security Scripting](../modules/Module-06/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 14](lesson-14-linux-hardening.md) · [Next: Lesson 16](lesson-16-linux-networking.md)
+[Module 06: Linux Hardening and Security Scripting](../modules/Module-06/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-06/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 14](lesson-14-linux-hardening.md) · [Next: Lesson 16](lesson-16-linux-networking.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -792,4 +792,4 @@ Lesson 16 applies Linux commands and scripting to interfaces, sockets, DNS, HTTP
 
 ---
 
-[Module 06: Linux Hardening and Security Scripting](../modules/Module-06/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 14](lesson-14-linux-hardening.md) · [Next: Lesson 16](lesson-16-linux-networking.md)
+**End of Module 06 reading.** Continue to [practice and assessment](../modules/Module-06/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-06/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

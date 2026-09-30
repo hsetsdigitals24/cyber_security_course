@@ -2,7 +2,7 @@
 
 **H-SETS · Module 09 · Week 9 of 18 · Lesson 21 of 40**
 
-[Module 09: Identity Operations and Endpoint Security](../modules/Module-09/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 20](lesson-20-iam-fundamentals.md) · [Next: Lesson 22](lesson-22-remote-access-and-vpn.md)
+[Module 09: Identity Operations and Endpoint Security](../modules/Module-09/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-09/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 20](lesson-20-iam-fundamentals.md) · [Next: Lesson 22](lesson-22-remote-access-and-vpn.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -817,4 +817,4 @@ Students should retain:
 
 ---
 
-[Module 09: Identity Operations and Endpoint Security](../modules/Module-09/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 20](lesson-20-iam-fundamentals.md) · [Next: Lesson 22](lesson-22-remote-access-and-vpn.md)
+**End of Module 09 reading.** Continue to [practice and assessment](../modules/Module-09/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-09/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

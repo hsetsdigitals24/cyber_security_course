@@ -2,7 +2,7 @@
 
 **H-SETS · Module 04 · Week 4 of 18 · Lesson 11 of 40**
 
-[Module 04: Virtualisation and Linux Foundations](../modules/Module-04/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 10](lesson-10-virtualization-fundamentals.md) · [Next: Lesson 12](lesson-12-users-groups-and-permissions.md)
+[Module 04: Virtualisation and Linux Foundations](../modules/Module-04/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-04/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 10](lesson-10-virtualization-fundamentals.md) · [Next: Lesson 12](lesson-12-users-groups-and-permissions.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -770,4 +770,4 @@ Lesson 12 expands Linux users, groups, ownership, `chmod`, `chown`, ACLs, and `s
 
 ---
 
-[Module 04: Virtualisation and Linux Foundations](../modules/Module-04/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 10](lesson-10-virtualization-fundamentals.md) · [Next: Lesson 12](lesson-12-users-groups-and-permissions.md)
+**End of Module 04 reading.** Continue to [practice and assessment](../modules/Module-04/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-04/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

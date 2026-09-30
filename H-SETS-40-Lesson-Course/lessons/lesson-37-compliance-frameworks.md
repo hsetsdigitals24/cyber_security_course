@@ -2,7 +2,7 @@
 
 **H-SETS · Module 17 · Week 17 of 18 · Lesson 37 of 40**
 
-[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 36](lesson-36-risk-assessment.md) · [Next: Lesson 38](lesson-38-career-and-professional-skills.md)
+[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-17/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 36](lesson-36-risk-assessment.md) · [Next: Lesson 38](lesson-38-career-and-professional-skills.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -714,4 +714,4 @@ Lesson 36 converted technical findings into risk decisions. This lesson converts
 
 ---
 
-[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 36](lesson-36-risk-assessment.md) · [Next: Lesson 38](lesson-38-career-and-professional-skills.md)
+[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-17/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 36](lesson-36-risk-assessment.md) · [Next: Lesson 38](lesson-38-career-and-professional-skills.md)

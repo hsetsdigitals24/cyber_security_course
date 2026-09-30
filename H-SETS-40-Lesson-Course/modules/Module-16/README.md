@@ -1,42 +1,31 @@
-# H-SETS — Module 16: Threat Intelligence and Digital Forensics
+# Module 16 · Threat Intelligence and Digital Forensics
 
-**Week 16 of 18** · Lessons 34, 35
+**H-SETS Cybersecurity · Week 16 of 18 · 2 lessons**
 
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Previous module](../Module-15/README.md) · [Next module](../Module-17/README.md)
+[Course home](../../README.md) · [All modules](../README.md)
 
-## Module overview
+## This week
 
 Use external context carefully and build timelines from evidence with known limitations.
 
-## What you should be able to do
+## Your learning route
+
+| Step | Open | What to do |
+|---|---|---|
+| 1 | [Student notes](01-STUDENT-NOTES.md) | Read the full lessons in order and study the worked examples. |
+| 2 | [Practice and assessment](02-PRACTICE-AND-ASSESSMENT.md) | Complete the assigned exercises, lesson questions and take-home work. |
+| 3 | [Completion checklist](02-PRACTICE-AND-ASSESSMENT.md#completion-checklist) | Organise your evidence and identify anything still pending. |
+
+## Before you begin
+
+Use provided synthetic or sanitised evidence. Do not upload private artefacts to public analysis services.
+
+## Learning outcomes
 
 - Evaluate indicator context and confidence.
 - Explain acquisition, hashes, timestamps and evidence handling.
 - Correlate supplied records without confusing association with proof.
 
-## Student notes — read in this order
+## Move between modules
 
-1. [Lesson 34: Threat Intelligence](../../lessons/lesson-34-threat-intelligence.md)
-2. [Lesson 35: Forensics Fundamentals](../../lessons/lesson-35-forensics-fundamentals.md)
-
-These links open the full notes, examples, tables, glossary and assessments for each lesson. Read the explanations before attempting the examples. Complete each lesson's assessment questions and take-home tasks; the checkpoint below helps organise your evidence and does not replace those assignments.
-
-## Preparation
-
-Use provided synthetic or sanitised evidence. Do not upload private artefacts to public analysis services.
-
-## Guided practice and independent work
-
-Complete the intelligence stages of Tool Lab 06 and continue Project 06 case work. Analyse the supplied forensic material and produce a timeline with original time values and interpretation notes. Prepare evidence-handling practices for the integration projects.
-
-Use the [tool-lab index](../../practicals/labs/README.md) and [project index](../../practicals/projects/README.md) to open the relevant brief. A stage started this week is not the same as a completed lab or project. Record completed, deferred and not-run tasks accurately.
-
-## Weekly checkpoint
-
-Prepare: an intelligence assessment, evidence register and qualified timeline.
-
-Explain the purpose of your work, the evidence supporting the result and one limitation or unresolved question. Where you tested a control, distinguish the expected result from the observed result. Use fictional or approved training data and keep credentials out of submitted evidence.
-
-## Continue
-
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Previous module](../Module-15/README.md) · [Next module](../Module-17/README.md)
+[Previous module](../Module-15/README.md) · [Next module: 17](../Module-17/README.md)

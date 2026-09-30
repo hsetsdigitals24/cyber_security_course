@@ -2,7 +2,7 @@
 
 **H-SETS · Module 05 · Week 5 of 18 · Lesson 13 of 40**
 
-[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 12](lesson-12-users-groups-and-permissions.md) · [Next: Lesson 14](lesson-14-linux-hardening.md)
+[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-05/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 12](lesson-12-users-groups-and-permissions.md) · [Next: Lesson 14](lesson-14-linux-hardening.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -746,4 +746,4 @@ Lesson 14 uses these logging and service skills to harden SSH, configure UFW and
 
 ---
 
-[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 12](lesson-12-users-groups-and-permissions.md) · [Next: Lesson 14](lesson-14-linux-hardening.md)
+**End of Module 05 reading.** Continue to [practice and assessment](../modules/Module-05/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-05/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

@@ -2,7 +2,7 @@
 
 **H-SETS · Module 13 · Week 13 of 18 · Lesson 29 of 40**
 
-[Module 13: Vulnerability Assessment and Remediation](../modules/Module-13/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 28](lesson-28-vulnerability-assessment.md) · [Next: Lesson 30](lesson-30-siem-fundamentals.md)
+[Module 13: Vulnerability Assessment and Remediation](../modules/Module-13/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-13/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 28](lesson-28-vulnerability-assessment.md) · [Next: Lesson 30](lesson-30-siem-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -782,4 +782,4 @@ Students should retain that vulnerability data becomes more valuable when correl
 
 ---
 
-[Module 13: Vulnerability Assessment and Remediation](../modules/Module-13/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 28](lesson-28-vulnerability-assessment.md) · [Next: Lesson 30](lesson-30-siem-fundamentals.md)
+**End of Module 13 reading.** Continue to [practice and assessment](../modules/Module-13/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-13/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

@@ -2,7 +2,7 @@
 
 **H-SETS · Module 12 · Week 12 of 18 · Lesson 27 of 40**
 
-[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 26](lesson-26-cloud-fundamentals.md) · [Next: Lesson 28](lesson-28-vulnerability-assessment.md)
+[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-12/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 26](lesson-26-cloud-fundamentals.md) · [Next: Lesson 28](lesson-28-vulnerability-assessment.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -628,4 +628,4 @@ Before an organization can rank vulnerabilities, it must know which assets exist
 
 ---
 
-[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 26](lesson-26-cloud-fundamentals.md) · [Next: Lesson 28](lesson-28-vulnerability-assessment.md)
+**End of Module 12 reading.** Continue to [practice and assessment](../modules/Module-12/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-12/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

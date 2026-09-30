@@ -2,7 +2,7 @@
 
 **H-SETS · Module 07 · Week 7 of 18 · Lesson 16 of 40**
 
-[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 15](lesson-15-bash-and-python-basics.md) · [Next: Lesson 17](lesson-17-windows-fundamentals.md)
+[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-07/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 15](lesson-15-bash-and-python-basics.md) · [Next: Lesson 17](lesson-17-windows-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -904,4 +904,4 @@ Students should carry forward:
 
 ---
 
-[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 15](lesson-15-bash-and-python-basics.md) · [Next: Lesson 17](lesson-17-windows-fundamentals.md)
+[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-07/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 15](lesson-15-bash-and-python-basics.md) · [Next: Lesson 17](lesson-17-windows-fundamentals.md)

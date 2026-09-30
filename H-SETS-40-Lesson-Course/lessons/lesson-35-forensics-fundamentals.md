@@ -2,7 +2,7 @@
 
 **H-SETS · Module 16 · Week 16 of 18 · Lesson 35 of 40**
 
-[Module 16: Threat Intelligence and Digital Forensics](../modules/Module-16/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 34](lesson-34-threat-intelligence.md) · [Next: Lesson 36](lesson-36-risk-assessment.md)
+[Module 16: Threat Intelligence and Digital Forensics](../modules/Module-16/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-16/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 34](lesson-34-threat-intelligence.md) · [Next: Lesson 36](lesson-36-risk-assessment.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -860,4 +860,4 @@ Students should retain that forensic findings become risk inputs only when their
 
 ---
 
-[Module 16: Threat Intelligence and Digital Forensics](../modules/Module-16/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 34](lesson-34-threat-intelligence.md) · [Next: Lesson 36](lesson-36-risk-assessment.md)
+**End of Module 16 reading.** Continue to [practice and assessment](../modules/Module-16/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-16/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

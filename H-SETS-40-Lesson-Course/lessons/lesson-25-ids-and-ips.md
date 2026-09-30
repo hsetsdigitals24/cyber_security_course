@@ -2,7 +2,7 @@
 
 **H-SETS · Module 11 · Week 11 of 18 · Lesson 25 of 40**
 
-[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 24](lesson-24-network-segmentation.md) · [Next: Lesson 26](lesson-26-cloud-fundamentals.md)
+[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-11/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 24](lesson-24-network-segmentation.md) · [Next: Lesson 26](lesson-26-cloud-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -747,4 +747,4 @@ Students should retain that cloud visibility requires intentional traffic, platf
 
 ---
 
-[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 24](lesson-24-network-segmentation.md) · [Next: Lesson 26](lesson-26-cloud-fundamentals.md)
+**End of Module 11 reading.** Continue to [practice and assessment](../modules/Module-11/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-11/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

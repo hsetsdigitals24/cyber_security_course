@@ -2,7 +2,7 @@
 
 **H-SETS · Module 12 · Week 12 of 18 · Lesson 26 of 40**
 
-[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 25](lesson-25-ids-and-ips.md) · [Next: Lesson 27](lesson-27-asset-discovery.md)
+[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-12/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 25](lesson-25-ids-and-ips.md) · [Next: Lesson 27](lesson-27-asset-discovery.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -811,4 +811,4 @@ Students should retain that an asset can be exposed through a public service eve
 
 ---
 
-[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 25](lesson-25-ids-and-ips.md) · [Next: Lesson 27](lesson-27-asset-discovery.md)
+[Module 12: Cloud Fundamentals and Asset Discovery](../modules/Module-12/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-12/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 25](lesson-25-ids-and-ips.md) · [Next: Lesson 27](lesson-27-asset-discovery.md)

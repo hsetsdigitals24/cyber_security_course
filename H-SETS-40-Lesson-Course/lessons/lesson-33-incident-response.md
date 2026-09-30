@@ -2,7 +2,7 @@
 
 **H-SETS · Module 15 · Week 15 of 18 · Lesson 33 of 40**
 
-[Module 15: Detection Engineering and Incident Response](../modules/Module-15/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 32](lesson-32-detection-engineering.md) · [Next: Lesson 34](lesson-34-threat-intelligence.md)
+[Module 15: Detection Engineering and Incident Response](../modules/Module-15/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-15/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 32](lesson-32-detection-engineering.md) · [Next: Lesson 34](lesson-34-threat-intelligence.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -836,4 +836,4 @@ Technical reference for the clarification: [NIST SP 800-61 Revision 3](https://c
 
 ---
 
-[Module 15: Detection Engineering and Incident Response](../modules/Module-15/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 32](lesson-32-detection-engineering.md) · [Next: Lesson 34](lesson-34-threat-intelligence.md)
+**End of Module 15 reading.** Continue to [practice and assessment](../modules/Module-15/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-15/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

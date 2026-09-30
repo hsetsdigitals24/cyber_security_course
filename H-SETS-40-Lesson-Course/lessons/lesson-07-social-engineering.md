@@ -2,7 +2,7 @@
 
 **H-SETS · Module 03 · Week 3 of 18 · Lesson 07 of 40**
 
-[Module 03: Social Engineering and Attack Fundamentals](../modules/Module-03/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 6](lesson-06-access-control-and-defense-in-depth.md) · [Next: Lesson 8](lesson-08-network-and-system-attacks.md)
+[Module 03: Social Engineering and Attack Fundamentals](../modules/Module-03/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-03/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 6](lesson-06-access-control-and-defense-in-depth.md) · [Next: Lesson 8](lesson-08-network-and-system-attacks.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -768,4 +768,4 @@ Students should continue asking:
 
 ---
 
-[Module 03: Social Engineering and Attack Fundamentals](../modules/Module-03/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 6](lesson-06-access-control-and-defense-in-depth.md) · [Next: Lesson 8](lesson-08-network-and-system-attacks.md)
+[Module 03: Social Engineering and Attack Fundamentals](../modules/Module-03/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-03/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 6](lesson-06-access-control-and-defense-in-depth.md) · [Next: Lesson 8](lesson-08-network-and-system-attacks.md)

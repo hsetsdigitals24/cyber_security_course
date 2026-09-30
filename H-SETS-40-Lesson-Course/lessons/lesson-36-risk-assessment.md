@@ -2,7 +2,7 @@
 
 **H-SETS · Module 17 · Week 17 of 18 · Lesson 36 of 40**
 
-[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 35](lesson-35-forensics-fundamentals.md) · [Next: Lesson 37](lesson-37-compliance-frameworks.md)
+[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-17/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 35](lesson-35-forensics-fundamentals.md) · [Next: Lesson 37](lesson-37-compliance-frameworks.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -826,4 +826,4 @@ Students should retain that frameworks organize risk management but do not repla
 
 ---
 
-[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 35](lesson-35-forensics-fundamentals.md) · [Next: Lesson 37](lesson-37-compliance-frameworks.md)
+[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-17/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 35](lesson-35-forensics-fundamentals.md) · [Next: Lesson 37](lesson-37-compliance-frameworks.md)

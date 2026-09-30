@@ -2,7 +2,7 @@
 
 **H-SETS · Module 16 · Week 16 of 18 · Lesson 34 of 40**
 
-[Module 16: Threat Intelligence and Digital Forensics](../modules/Module-16/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 33](lesson-33-incident-response.md) · [Next: Lesson 35](lesson-35-forensics-fundamentals.md)
+[Module 16: Threat Intelligence and Digital Forensics](../modules/Module-16/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-16/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 33](lesson-33-incident-response.md) · [Next: Lesson 35](lesson-35-forensics-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -738,4 +738,4 @@ Students should retain that external reputation supports but does not replace lo
 
 ---
 
-[Module 16: Threat Intelligence and Digital Forensics](../modules/Module-16/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 33](lesson-33-incident-response.md) · [Next: Lesson 35](lesson-35-forensics-fundamentals.md)
+[Module 16: Threat Intelligence and Digital Forensics](../modules/Module-16/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-16/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 33](lesson-33-incident-response.md) · [Next: Lesson 35](lesson-35-forensics-fundamentals.md)

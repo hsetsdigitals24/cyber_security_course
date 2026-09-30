@@ -2,7 +2,7 @@
 
 **H-SETS · Module 08 · Week 8 of 18 · Lesson 18 of 40**
 
-[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 17](lesson-17-windows-fundamentals.md) · [Next: Lesson 19](lesson-19-active-directory.md)
+[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-08/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 17](lesson-17-windows-fundamentals.md) · [Next: Lesson 19](lesson-19-active-directory.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -804,4 +804,4 @@ Students should retain that Active Directory depends on correctly configured DNS
 
 ---
 
-[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 17](lesson-17-windows-fundamentals.md) · [Next: Lesson 19](lesson-19-active-directory.md)
+[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-08/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 17](lesson-17-windows-fundamentals.md) · [Next: Lesson 19](lesson-19-active-directory.md)

@@ -2,7 +2,7 @@
 
 **H-SETS · Module 08 · Week 8 of 18 · Lesson 19 of 40**
 
-[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 18](lesson-18-windows-server.md) · [Next: Lesson 20](lesson-20-iam-fundamentals.md)
+[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-08/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 18](lesson-18-windows-server.md) · [Next: Lesson 20](lesson-20-iam-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -911,4 +911,4 @@ Technical reference for the clarification: [Microsoft Group Policy Results docum
 
 ---
 
-[Module 08: Windows Server and Active Directory](../modules/Module-08/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 18](lesson-18-windows-server.md) · [Next: Lesson 20](lesson-20-iam-fundamentals.md)
+**End of Module 08 reading.** Continue to [practice and assessment](../modules/Module-08/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-08/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

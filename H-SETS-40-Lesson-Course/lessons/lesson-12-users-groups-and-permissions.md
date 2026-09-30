@@ -2,7 +2,7 @@
 
 **H-SETS · Module 05 · Week 5 of 18 · Lesson 12 of 40**
 
-[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 11](lesson-11-linux-fundamentals.md) · [Next: Lesson 13](lesson-13-linux-logging-and-services.md)
+[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-05/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 11](lesson-11-linux-fundamentals.md) · [Next: Lesson 13](lesson-13-linux-logging-and-services.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -765,4 +765,4 @@ Technical reference for the clarification: [Linux ACL manual](https://man7.org/l
 
 ---
 
-[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 11](lesson-11-linux-fundamentals.md) · [Next: Lesson 13](lesson-13-linux-logging-and-services.md)
+[Module 05: Linux Identity, Permissions and Services](../modules/Module-05/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-05/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 11](lesson-11-linux-fundamentals.md) · [Next: Lesson 13](lesson-13-linux-logging-and-services.md)

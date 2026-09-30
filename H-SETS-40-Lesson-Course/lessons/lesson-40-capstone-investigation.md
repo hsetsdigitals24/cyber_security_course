@@ -2,7 +2,7 @@
 
 **H-SETS · Module 18 · Week 18 of 18 · Lesson 40 of 40**
 
-[Module 18: Integration Review and Capstone Investigation](../modules/Module-18/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)
+[Module 18: Integration Review and Capstone Investigation](../modules/Module-18/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-18/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -1080,4 +1080,4 @@ This capstone integrates the complete 40-lesson curriculum. Students should reta
 
 ---
 
-[Module 18: Integration Review and Capstone Investigation](../modules/Module-18/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)
+**End of Module 18 reading.** Continue to [practice and assessment](../modules/Module-18/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-18/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

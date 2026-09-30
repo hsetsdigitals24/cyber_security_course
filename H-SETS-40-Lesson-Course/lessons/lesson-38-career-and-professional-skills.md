@@ -2,7 +2,7 @@
 
 **H-SETS · Module 17 · Week 17 of 18 · Lesson 38 of 40**
 
-[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 37](lesson-37-compliance-frameworks.md) · [Next: Lesson 39](lesson-39-integration-review.md)
+[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-17/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 37](lesson-37-compliance-frameworks.md) · [Next: Lesson 39](lesson-39-integration-review.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -849,4 +849,4 @@ Lesson 37 established obligations, controls, and evidence. This lesson teaches s
 
 ---
 
-[Module 17: Risk, Compliance and Professional Reporting](../modules/Module-17/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 37](lesson-37-compliance-frameworks.md) · [Next: Lesson 39](lesson-39-integration-review.md)
+**End of Module 17 reading.** Continue to [practice and assessment](../modules/Module-17/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-17/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

@@ -2,7 +2,7 @@
 
 **H-SETS · Module 07 · Week 7 of 18 · Lesson 17 of 40**
 
-[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 16](lesson-16-linux-networking.md) · [Next: Lesson 18](lesson-18-windows-server.md)
+[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-07/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 16](lesson-16-linux-networking.md) · [Next: Lesson 18](lesson-18-windows-server.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -844,4 +844,4 @@ Students should carry forward:
 
 ---
 
-[Module 07: Linux Networking and Windows Foundations](../modules/Module-07/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 16](lesson-16-linux-networking.md) · [Next: Lesson 18](lesson-18-windows-server.md)
+**End of Module 07 reading.** Continue to [practice and assessment](../modules/Module-07/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-07/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

@@ -2,7 +2,7 @@
 
 **H-SETS · Module 14 · Week 14 of 18 · Lesson 31 of 40**
 
-[Module 14: SIEM Foundations and Wazuh Operations](../modules/Module-14/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 30](lesson-30-siem-fundamentals.md) · [Next: Lesson 32](lesson-32-detection-engineering.md)
+[Module 14: SIEM Foundations and Wazuh Operations](../modules/Module-14/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-14/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 30](lesson-30-siem-fundamentals.md) · [Next: Lesson 32](lesson-32-detection-engineering.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -861,4 +861,4 @@ Students should retain that a detection is only as reliable as its source, parse
 
 ---
 
-[Module 14: SIEM Foundations and Wazuh Operations](../modules/Module-14/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 30](lesson-30-siem-fundamentals.md) · [Next: Lesson 32](lesson-32-detection-engineering.md)
+**End of Module 14 reading.** Continue to [practice and assessment](../modules/Module-14/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-14/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

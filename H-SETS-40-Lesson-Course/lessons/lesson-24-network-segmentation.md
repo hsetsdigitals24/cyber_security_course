@@ -2,7 +2,7 @@
 
 **H-SETS · Module 11 · Week 11 of 18 · Lesson 24 of 40**
 
-[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 23](lesson-23-firewall-and-pfsense.md) · [Next: Lesson 25](lesson-25-ids-and-ips.md)
+[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-11/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 23](lesson-23-firewall-and-pfsense.md) · [Next: Lesson 25](lesson-25-ids-and-ips.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -788,4 +788,4 @@ Students should retain that segmentation creates high-value monitoring points, b
 
 ---
 
-[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 23](lesson-23-firewall-and-pfsense.md) · [Next: Lesson 25](lesson-25-ids-and-ips.md)
+[Module 11: Segmentation and Network Detection](../modules/Module-11/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-11/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 23](lesson-23-firewall-and-pfsense.md) · [Next: Lesson 25](lesson-25-ids-and-ips.md)

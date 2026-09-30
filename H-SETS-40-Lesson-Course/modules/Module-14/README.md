@@ -1,42 +1,31 @@
-# H-SETS — Module 14: SIEM Foundations and Wazuh Operations
+# Module 14 · SIEM Foundations and Wazuh Operations
 
-**Week 14 of 18** · Lessons 30, 31
+**H-SETS Cybersecurity · Week 14 of 18 · 2 lessons**
 
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Previous module](../Module-13/README.md) · [Next module](../Module-15/README.md)
+[Course home](../../README.md) · [All modules](../README.md)
 
-## Module overview
+## This week
 
 Follow events from their source into central search and alerting, and verify the evidence path.
 
-## What you should be able to do
+## Your learning route
+
+| Step | Open | What to do |
+|---|---|---|
+| 1 | [Student notes](01-STUDENT-NOTES.md) | Read the full lessons in order and study the worked examples. |
+| 2 | [Practice and assessment](02-PRACTICE-AND-ASSESSMENT.md) | Complete the assigned exercises, lesson questions and take-home work. |
+| 3 | [Completion checklist](02-PRACTICE-AND-ASSESSMENT.md#completion-checklist) | Organise your evidence and identify anything still pending. |
+
+## Before you begin
+
+The instructor must provide a prepared monitoring service or sufficient staged capacity. Incident response and intelligence stages follow Weeks 15–16.
+
+## Learning outcomes
 
 - Explain collection, parsing, normalisation and correlation.
 - Confirm required event sources and agent health.
 - Trace a harmless generated event into the monitoring platform.
 
-## Student notes — read in this order
+## Move between modules
 
-1. [Lesson 30: SIEM Fundamentals](../../lessons/lesson-30-siem-fundamentals.md)
-2. [Lesson 31: Wazuh in Practice](../../lessons/lesson-31-wazuh-in-practice.md)
-
-These links open the full notes, examples, tables, glossary and assessments for each lesson. Read the explanations before attempting the examples. Complete each lesson's assessment questions and take-home tasks; the checkpoint below helps organise your evidence and does not replace those assignments.
-
-## Preparation
-
-The instructor must provide a prepared monitoring service or sufficient staged capacity. Incident response and intelligence stages follow Weeks 15–16.
-
-## Guided practice and independent work
-
-Begin Tool Lab 06 and the technical queue work of Project 06. Return to the central-monitoring requirements in Tool Labs 03 and 04 and Projects 03 and 04. Investigate missing telemetry before changing detection logic.
-
-Use the [tool-lab index](../../practicals/labs/README.md) and [project index](../../practicals/projects/README.md) to open the relevant brief. A stage started this week is not the same as a completed lab or project. Record completed, deferred and not-run tasks accurately.
-
-## Weekly checkpoint
-
-Prepare: a source-to-platform trace, query evidence and a telemetry troubleshooting record.
-
-Explain the purpose of your work, the evidence supporting the result and one limitation or unresolved question. Where you tested a control, distinguish the expected result from the observed result. Use fictional or approved training data and keep credentials out of submitted evidence.
-
-## Continue
-
-[Course home](../../README.md) · [18-week plan](../../18-WEEK-STUDY-PLAN.md) · [Previous module](../Module-13/README.md) · [Next module](../Module-15/README.md)
+[Previous module](../Module-13/README.md) · [Next module: 15](../Module-15/README.md)

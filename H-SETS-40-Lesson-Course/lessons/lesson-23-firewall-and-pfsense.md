@@ -2,7 +2,7 @@
 
 **H-SETS · Module 10 · Week 10 of 18 · Lesson 23 of 40**
 
-[Module 10: Remote Access and Firewall Administration](../modules/Module-10/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 22](lesson-22-remote-access-and-vpn.md) · [Next: Lesson 24](lesson-24-network-segmentation.md)
+[Module 10: Remote Access and Firewall Administration](../modules/Module-10/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-10/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 22](lesson-22-remote-access-and-vpn.md) · [Next: Lesson 24](lesson-24-network-segmentation.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -794,4 +794,4 @@ Technical reference for the clarification: [Netgate firewall-state documentation
 
 ---
 
-[Module 10: Remote Access and Firewall Administration](../modules/Module-10/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 22](lesson-22-remote-access-and-vpn.md) · [Next: Lesson 24](lesson-24-network-segmentation.md)
+**End of Module 10 reading.** Continue to [practice and assessment](../modules/Module-10/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-10/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).

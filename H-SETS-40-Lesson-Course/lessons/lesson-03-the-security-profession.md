@@ -2,7 +2,7 @@
 
 **H-SETS · Module 01 · Week 1 of 18 · Lesson 03 of 40**
 
-[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 2](lesson-02-threat-landscape.md) · [Next: Lesson 4](lesson-04-cryptography-fundamentals.md)
+[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [This week’s tasks](../modules/Module-01/02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 2](lesson-02-threat-landscape.md) · [Next: Lesson 4](lesson-04-cryptography-fundamentals.md)
 
 <details>
 <summary>Contents of this lesson</summary>
@@ -908,4 +908,4 @@ Future lessons will keep connecting technical concepts to real job responsibilit
 
 ---
 
-[Module 01: Security Foundations and the Profession](../modules/Module-01/README.md) · [Course contents](../README.md) · [Curriculum](../COURSE_CURRICULUM.md) · [Previous: Lesson 2](lesson-02-threat-landscape.md) · [Next: Lesson 4](lesson-04-cryptography-fundamentals.md)
+**End of Module 01 reading.** Continue to [practice and assessment](../modules/Module-01/02-PRACTICE-AND-ASSESSMENT.md), then use the [module completion checklist](../modules/Module-01/02-PRACTICE-AND-ASSESSMENT.md#completion-checklist).
