@@ -39,6 +39,8 @@ Keep a simple task record:
 
 ## When you get stuck
 
+Before a live practical, use the [assigned lab setup sheet](practicals/templates/CLASS-LAB-SHEET.md) to record the systems, inputs and recovery route provided by your instructor.
+
 Record the exact step and message. Check the lesson's prerequisites, expected output and troubleshooting guidance. Avoid changing several settings at once. If the next action would exceed the assigned scope or risk losing access, give the instructor your task reference, observation and checks already performed.
 
 ## Projects and course completion

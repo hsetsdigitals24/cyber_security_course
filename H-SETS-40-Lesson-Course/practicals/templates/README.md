@@ -1,5 +1,7 @@
 # Reusable Practical Templates
 
+[Assigned lab setup and progress sheet](CLASS-LAB-SHEET.md) — record the approved environment, readiness, recovery route and observed results before and during a practical.
+
 Ready-to-use CSV files:
 
 - [Asset inventory template](asset-inventory-template.csv)
