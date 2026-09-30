@@ -13,6 +13,6 @@ The current H-SETS course contains **18 weekly modules and 40 detailed lessons**
 
 Intel Core i5, 8th generation or newer; 500 GB storage; 16 GB RAM; hardware virtualisation enabled in BIOS/UEFI before the VM activities. See the [course home](H-SETS-40-Lesson-Course/README.md) for staged-lab capacity and preparation details.
 
-The previous 18-module draft remains in the workspace for reference. Its curriculum and lesson IDs are separate from the adopted 40-lesson course. Follow the links above for the current reading route.
+The former module draft has been removed from the active course. Use the links above for the current eighteen-week H-SETS course containing all forty lessons.
 
 Full lab execution and beginner timing still require instructor pilots. The teaching plan preserves the longer portfolio-project workload, which may require completion time after Week 18.
