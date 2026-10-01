@@ -1,5 +1,12 @@
 # Lesson 40: Capstone Investigation
 
+## How this chapter is used
+
+This chapter is a **worked teaching case**. Its model summary and required findings explain how an analyst reasons; they are not answers for the independent assessment. Complete the [separate Cedar investigation](INDEPENDENT-INVESTIGATION.md) for Module 18 assessment using its included evidence files and rubric.
+
+The classroom and take-home sections below are guided practice on the worked case. Their live PCAP/SIEM steps require instructor-provided artifacts and remain optional extensions until those inputs are available. Do not claim packet analysis from the printed summaries. The section 37 rubric is for that extended worked-case exercise, not the independent document assessment.
+
+
 **H-SETS · Module 18 · Week 18 of 18 · Lesson 40 of 40**
 
 [Module 18: Integration Review and Capstone Investigation](README.md) · [Course contents](../../README.md) · [This week’s tasks](02-PRACTICE-AND-ASSESSMENT.md) · [Curriculum](../../COURSE_CURRICULUM.md) · [Previous: Lesson 39](lesson-39-integration-review.md)

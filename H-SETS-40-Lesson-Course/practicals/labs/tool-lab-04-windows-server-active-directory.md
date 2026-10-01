@@ -1,5 +1,8 @@
 # Tool Lab 04 - Windows Server and Active Directory
 
+Before starting, complete the [environment readiness checks](../LAB-ENVIRONMENT.md) and [assigned setup sheet](../templates/CLASS-LAB-SHEET.md).
+
+
 ## H-SETS graphical verification route
 
 Use Server Manager, Active Directory Users and Computers, DNS Manager, Group Policy Management and Event Viewer for the administration tasks. The reference commands below remain supplementary checks; they do not replace the manual configuration steps.
@@ -56,10 +59,10 @@ Before starting the lab, confirm that you have:
 
 | Requirement | Minimum recommendation | Notes |
 |---|---|---|
-| Host computer | 16 GB RAM or more | 8 GB may work slowly, but Windows Server plus a Windows client can become unstable |
+| Host computer | 16 GB RAM or more | The course requires at least 16 GB; stage guests or use an instructor-hosted range |
 | Hypervisor | VirtualBox or VMware | Use the same hypervisor for both Windows VMs if possible |
 | Windows Server ISO | Microsoft Windows Server Evaluation | Desktop Experience is easier for beginners than Server Core |
-| Windows client ISO | Windows 10 or Windows 11 Evaluation | A client VM is required for domain join and access testing |
+| Windows client ISO | Windows 11 Enterprise Evaluation, or a licensed supported Pro/Enterprise edition | A client VM is required for domain join and access testing |
 | Network | Same isolated lab network for server and client | Do not expose the domain controller directly to a public network |
 | Administrator password | Classroom-approved password | Never reuse a personal password |
 | Lab notebook | Digital or paper | Record IP addresses, errors, screenshots, and fixes |
@@ -69,7 +72,9 @@ Recommended VM resources:
 | VM | CPU | RAM | Disk |
 |---|---:|---:|---:|
 | Windows Server `DC01` | 2 cores | 4 GB to 6 GB | 60 GB |
-| Windows client | 2 cores | 4 GB | 50 GB |
+| Windows client | 2 cores | 4 GB | 80 GB (at least 64 GB required) |
+
+Use a domain-join-capable edition; Windows Home cannot join this Active Directory domain. Configure compatible virtual hardware, UEFI/Secure Boot capability and TPM 2.0 for Windows 11. Do not bypass installation checks. See [Microsoft requirements](https://www.microsoft.com/en-us/windows/windows-11-specifications). Keep DC01 and the client running together for domain join, authentication and policy tests; staging installation does not remove that dependency.
 
 If the host computer has limited resources, run only the VM needed for the current step. For example, configure `DC01` first, then start the Windows client when you reach the domain-join section.
 

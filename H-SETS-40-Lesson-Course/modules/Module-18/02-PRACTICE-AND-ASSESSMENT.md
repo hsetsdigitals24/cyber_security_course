@@ -15,13 +15,13 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
 | 39 · Integration Review | [Open exercise](lesson-39-integration-review.md#lesson-39-section-10) | [Answer questions](lesson-39-integration-review.md#lesson-39-section-12) | [Open assignment](lesson-39-integration-review.md#lesson-39-section-11) |
-| 40 · Capstone Investigation | [Open exercise](lesson-40-capstone-investigation.md#lesson-40-section-39) | [Answer questions](lesson-40-capstone-investigation.md#lesson-40-section-42) | [Open assignment](lesson-40-capstone-investigation.md#lesson-40-section-40) |
+| 40 · Capstone Investigation | [Open exercise](lesson-40-capstone-investigation.md#lesson-40-section-39) | [Answer questions](lesson-40-capstone-investigation.md#lesson-40-section-42) | [Independent investigation](INDEPENDENT-INVESTIGATION.md) |
 
-Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
+Read each linked brief for its exact tasks, scope and expected output. Lesson 40 is guided worked-case practice. Its independent assessment uses the separate Cedar evidence pack and its own rubric; do not submit the model summary as your investigation. Instructor marking guidance is kept separately.
 
 ## 3. Apply this week's learning
 
-Complete the Lesson 39 integration review and Lesson 40 supplied-case investigation. Review the briefs for the remaining integration projects and begin [Project 10](../../practicals/projects/project-10-northstar-manufacturing-capstone.md) when all its prerequisites are met. Keep the lesson case distinct from the longer Northstar Manufacturing project.
+Complete the Lesson 39 integration review and [independent Cedar investigation](INDEPENDENT-INVESTIGATION.md). Use Lesson 40 as a worked reference. Review the briefs for the remaining integration projects and begin [Project 10](../../practicals/projects/project-10-northstar-manufacturing-capstone.md) when all its prerequisites are met. Keep the lesson case distinct from the longer Northstar Manufacturing project.
 
 ## 4. Prepare your evidence
 

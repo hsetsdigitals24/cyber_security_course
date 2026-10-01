@@ -437,26 +437,15 @@ Evidence to save:
 
 ## Step 14 - Validate Blocked Traffic
 
-Test a blocked path.
+Use Ubuntu SSH on `10.10.20.20:22`, a service already verified in Step 13. A failed connection by itself does not prove a firewall block.
 
-Example:
+1. On Ubuntu, confirm SSH is listening with `sudo ss -lntp` and record the result.
+2. From the approved admin host `10.10.10.60`, run `nc -vz -w 3 10.10.20.20 22` and save the successful result.
+3. Use a second instructor-assigned USERS client, for example `10.10.10.70/24` with gateway `10.10.10.1`. Confirm it is not in the admin alias and its address is unused. Do not change the admin host address merely to fake a second source.
+4. From this non-admin client, run the same command. The unapproved connection should not succeed.
+5. In Step 15, require a matching pfSense **block** entry for this source, destination, TCP port, time and intended rule. Save it with both test outputs.
 
-```bash
-nc -vz -w 3 10.10.20.20 3389
-```
-
-Expected result:
-
-```text
-timed out, failed, or blocked
-```
-
-The exact message depends on firewall behavior and the client tool.
-
-Evidence to save:
-
-- Command output.
-- Time of test.
+A timeout without a matching log is inconclusive. A refusal can come from a closed service or endpoint firewall. If the allowed control fails, repair that baseline before judging the denied result. If an earlier connection has an existing firewall state, ask the instructor to remove only that test state before retesting; do not clear shared states indiscriminately. Never disable endpoint protections to force a result.
 
 ## Step 15 - Read Firewall Logs
 

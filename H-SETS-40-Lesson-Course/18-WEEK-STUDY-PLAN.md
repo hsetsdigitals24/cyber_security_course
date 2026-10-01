@@ -45,7 +45,7 @@ Modules 1, 2, 3 and 17 contain three lessons. All other modules contain two. Rea
 | Tool Lab 06 and Project 06 | Week 14: collection and monitoring | Weeks 15–17 response, intelligence/reporting and all brief requirements |
 | Advanced Lab 07 and Project 07 | Week 17, once the earlier tool skills are demonstrated | The full assessment, remediation, validation and reporting engagement |
 | Projects 08 and 09 | Plan with the integrated skills through Week 17 | Their original multi-week work and acceptance tests |
-| Lesson 40 supplied-case investigation | Week 18 | Its investigation report and lesson assessment |
+| [Module 18 independent document investigation](modules/Module-18/INDEPENDENT-INVESTIGATION.md) | Week 18, after studying the Lesson 40 worked case | Supplied Cedar evidence analysis and its assessment rubric; live tool competence remains separate |
 | Project 10: Northstar Manufacturing | Week 18 or later, after all required prior competence | Its original 3–4 week engagement and acceptance tests |
 
 The 18 weeks specify the **teaching and note sequence**. They do not compress ten substantial portfolio projects into short classroom exercises. Project work progresses alongside the lessons where prerequisites allow, and remaining integration work needs scheduled completion time after teaching. Finishing Week 18 does not by itself mean every project is complete. Agree the remaining project dates from the briefs and actual learner progress; no fixed extra duration has been established by this adaptation.

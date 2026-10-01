@@ -37,6 +37,10 @@ Keep a simple task record:
 | Lesson question | Complete / in progress | Your response filename | Revise if needed |
 | Live exercise | Complete / not run / deferred | Test evidence or missing prerequisite | Prepare the required environment |
 
+## Prepare the practical environment
+
+Use the [lab environment guide](practicals/LAB-ENVIRONMENT.md) for guest resources, early routing and required instructor preparation.
+
 ## When you get stuck
 
 Before a live practical, use the [assigned lab setup sheet](practicals/templates/CLASS-LAB-SHEET.md) to record the systems, inputs and recovery route provided by your instructor.

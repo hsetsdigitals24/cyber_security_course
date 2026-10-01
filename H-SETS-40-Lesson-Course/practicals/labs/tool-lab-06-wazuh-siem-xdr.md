@@ -1,5 +1,8 @@
 # Tool Lab 06 - Wazuh SIEM/XDR Operations
 
+Before starting, complete the [environment readiness checks](../LAB-ENVIRONMENT.md) and [assigned setup sheet](../templates/CLASS-LAB-SHEET.md).
+
+
 ## Purpose
 
 Wazuh gives students practical SOC experience: endpoint agents, log collection, file integrity monitoring, alert search, triage, tuning, and telemetry troubleshooting.
@@ -32,12 +35,12 @@ Before starting, confirm:
 | Credentials | Stored safely and not pasted into reports |
 | Network path | Agent systems can reach the Wazuh server on required ports |
 
-Recommended Wazuh server resources:
+Wazuh all-in-one planning baseline for 1â€“25 agents, based on the [official quickstart](https://documentation.wazuh.com/current/quickstart.html). These are vendor recommendations, not a claim of classroom performance testing:
 
 | Resource | Minimum | Better classroom experience |
 |---|---:|---:|
-| CPU | 2 cores | 4 cores |
-| RAM | 4 GB | 8 GB or more |
+| CPU | 4 vCPUs | 4 vCPUs or more |
+| RAM | 8 GiB | 8 GiB or more |
 | Disk | 50 GB | 100 GB or more |
 
 If Wazuh is not already installed, the instructor should provide either an instructor-prepared Wazuh VM or an approved installation guide for the current Wazuh version. Students should preserve the installation evidence, but they must not publish generated passwords, certificates, tokens, or enrollment secrets.

@@ -21,3 +21,7 @@ All eighteen modules use a start page, an ordered student-notes page and a pract
 ## Lessons inside modules — 1 October 2026
 
 All forty canonical lesson files now live inside their assigned module folders beside the module start, reading and assessment pages. Filenames, lesson IDs and teaching content remain unchanged. Course links were updated and checked; the separate lessons folder was removed.
+
+## Audit corrections — 1 October 2026
+
+Updated lab resources, service detection, firewall verification and early network preparation. Lesson 40 remains a worked teaching case; Module 18 now includes a separate synthetic document investigation with evidence files and hashes. Its scope does not claim live packet analysis. Live platform testing and beginner pilots remain outstanding.

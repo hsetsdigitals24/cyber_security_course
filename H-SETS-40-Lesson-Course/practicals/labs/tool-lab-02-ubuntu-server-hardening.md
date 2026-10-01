@@ -1,5 +1,8 @@
 # Tool Lab 02 - Ubuntu Server Administration and Hardening
 
+Before starting, complete the [environment readiness checks](../LAB-ENVIRONMENT.md) and [assigned setup sheet](../templates/CLASS-LAB-SHEET.md).
+
+
 ## Purpose
 
 Ubuntu Server is the course Linux platform for administration, hardening, logging, remediation, and incident evidence. This lab builds practical skill with users, permissions, services, SSH, UFW, Fail2Ban, logs, and rollback.
