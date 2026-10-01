@@ -10,6 +10,13 @@ First focus on **cloud responsibility, asset ownership and authorised discovery*
 
 On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
 
+## Open the first topic groups
+
+Read each group, explain one key idea and one limitation without copying, then use the corresponding lesson exercise on the practice page. Continue the remaining chapter content on your second pass. Live commands still follow this week’s practical boundary.
+
+- **Lesson 26:** [1. Cloud Computing](lesson-26-cloud-fundamentals.md#lesson-26-section-05) → [2. Cloud Characteristics](lesson-26-cloud-fundamentals.md#lesson-26-section-06) → [3. Deployment Models](lesson-26-cloud-fundamentals.md#lesson-26-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 27:** [1. Asset Discovery as a Cybersecurity Foundation](lesson-27-asset-discovery.md#lesson-27-section-05) → [2. Common Cybersecurity Asset Categories](lesson-27-asset-discovery.md#lesson-27-section-06) → [3. Discovery, Inventory, and Asset Management](lesson-27-asset-discovery.md#lesson-27-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

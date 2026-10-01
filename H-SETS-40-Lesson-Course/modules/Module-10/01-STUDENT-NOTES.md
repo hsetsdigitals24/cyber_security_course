@@ -10,6 +10,13 @@ First focus on **remote-access trust boundaries and firewall rule order**. Read 
 
 On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
 
+## Open the first topic groups
+
+Read each group, explain one key idea and one limitation without copying, then use the corresponding lesson exercise on the practice page. Continue the remaining chapter content on your second pass. Live commands still follow this week’s practical boundary.
+
+- **Lesson 22:** [1. Remote Access](lesson-22-remote-access-and-vpn.md#lesson-22-section-05) → [2. VPN Concepts](lesson-22-remote-access-and-vpn.md#lesson-22-section-06) → [3. VPN Security Properties](lesson-22-remote-access-and-vpn.md#lesson-22-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 23:** [1. Firewalls](lesson-23-firewall-and-pfsense.md#lesson-23-section-05) → [2. Stateless and Stateful Filtering](lesson-23-firewall-and-pfsense.md#lesson-23-section-06) → [3. Default Deny](lesson-23-firewall-and-pfsense.md#lesson-23-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

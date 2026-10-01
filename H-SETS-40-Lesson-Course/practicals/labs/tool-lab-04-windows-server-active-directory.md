@@ -1,5 +1,8 @@
 # Tool Lab 04 - Windows Server and Active Directory
 
+**Weekly route:** check your [progress record](../templates/STUDENT-PROGRESS.md) and module practice boundary before starting. This full lab spans stages; its step order alone is not a one-week assignment.
+
+
 Before starting, complete the [environment readiness checks](../LAB-ENVIRONMENT.md) and [assigned setup sheet](../templates/CLASS-LAB-SHEET.md).
 
 
@@ -162,6 +165,7 @@ Suggested lab naming:
 
 Do not include passwords in screenshots, reports, file names, or GitHub repositories.
 
+<a id="lab-04-step-01"></a>
 ## Step 1 - Prepare the Evidence Folder
 
 On `DC01`, sign in as the local Administrator.
@@ -188,6 +192,7 @@ Expected result:
 True
 ```
 
+<a id="lab-04-step-02"></a>
 ## Step 2 - Confirm the VM Network
 
 Before changing Windows Server, confirm that the VM is connected to the correct network.
@@ -251,6 +256,7 @@ Checkpoint before continuing:
 | Windows client can reach network settings | Yes |
 | Snapshot taken before AD changes | Yes |
 
+<a id="lab-04-step-03"></a>
 ## Step 3 - Rename the Server Manually
 
 A clear server name helps administrators and analysts quickly understand what system they are reviewing.
@@ -284,6 +290,7 @@ Expected result:
 DC01
 ```
 
+<a id="lab-04-step-04"></a>
 ## Step 4 - Configure a Static IP Address Manually
 
 Domain controllers should not rely on changing DHCP addresses. If the IP address changes, clients may fail to find the domain controller.
@@ -359,6 +366,7 @@ w32tm /query /status | Out-File C:\H-SETS-Evidence\Tool-Lab-04\server-time-statu
 
 Beginner note: In a real enterprise, domain time is planned carefully. Workstations usually synchronize with the domain hierarchy, and the domain controller holding the PDC Emulator role is commonly configured with a reliable time source.
 
+<a id="lab-04-step-05"></a>
 ## Step 5 - Install AD DS and DNS Using Server Manager
 
 Active Directory Domain Services provides the identity database. DNS allows domain clients to locate the domain controller.
@@ -394,6 +402,7 @@ Get-WindowsFeature AD-Domain-Services,DNS | Out-File C:\H-SETS-Evidence\Tool-Lab
 
 Expected result: AD Domain Services and DNS Server show as installed.
 
+<a id="lab-04-step-06"></a>
 ## Step 6 - Promote the Server to a Domain Controller
 
 Installing the AD DS role is not enough. The server becomes a domain controller only after promotion.
@@ -433,6 +442,7 @@ After restart, sign in as:
 H-SETS\Administrator
 ```
 
+<a id="lab-04-step-07"></a>
 ## Step 7 - Validate Domain Controller Health
 
 Validation confirms that AD DS, DNS, Kerberos, and related services are running.
@@ -475,6 +485,7 @@ Expected signs of success:
 
 If `dcdiag` shows warnings, read them carefully. Some warnings may be normal in a one-domain-controller lab, but DNS, Kerberos, and replication-related errors must be understood.
 
+<a id="lab-04-step-08"></a>
 ## Step 8 - Explore Active Directory Users and Computers
 
 Open Active Directory Users and Computers:
@@ -495,6 +506,7 @@ Observe the default containers:
 
 Professional note: Avoid placing all users and computers in default containers. Create OUs that match administration, security policy, and delegation needs.
 
+<a id="lab-04-step-09"></a>
 ## Step 9 - Create Organizational Units Manually
 
 In Active Directory Users and Computers:
@@ -536,6 +548,7 @@ Which OU should receive workstation security policies?
 Which OU should store security groups?
 ```
 
+<a id="lab-04-step-10"></a>
 ## Step 10 - Create Security Groups Manually
 
 This lab uses a simple version of the AGDLP model:
@@ -594,6 +607,7 @@ Get-ADGroupMember DL_HR_Read |
 Out-File C:\H-SETS-Evidence\Tool-Lab-04\dl-hr-read-members.txt
 ```
 
+<a id="lab-04-step-11"></a>
 ## Step 11 - Create Domain Users Manually
 
 In Active Directory Users and Computers:
@@ -647,6 +661,7 @@ Get-ADGroupMember GG_HR_Staff |
 Out-File C:\H-SETS-Evidence\Tool-Lab-04\gg-hr-staff-members.txt
 ```
 
+<a id="lab-04-step-12"></a>
 ## Step 12 - Create the HR Shared Folder
 
 This section teaches the difference between share permissions and NTFS permissions.
@@ -733,6 +748,7 @@ icacls C:\Shares\HR | Out-File C:\H-SETS-Evidence\Tool-Lab-04\hr-ntfs-permission
 
 Security lesson: Assign permissions to groups, not directly to users. When Ada changes department, administrators can remove her from `GG_HR_Staff` instead of searching every folder where her account was directly assigned.
 
+<a id="lab-04-step-13"></a>
 ## Step 13 - Prepare the Windows Client for Domain Join
 
 On the Windows client:
@@ -761,6 +777,7 @@ Expected result:
 
 If ping fails but DNS works, continue if the instructor confirms ICMP is blocked by firewall policy. If DNS fails, fix DNS before joining the domain.
 
+<a id="lab-04-step-14"></a>
 ## Step 14 - Join the Windows Client to the Domain Manually
 
 On the Windows client:
@@ -814,6 +831,7 @@ nltest /dsgetdc:hsets.lab | Out-File C:\H-SETS-Evidence\Tool-Lab-04\client-domai
 gpresult /r | Out-File C:\H-SETS-Evidence\Tool-Lab-04\client-gpresult-before-gpo.txt
 ```
 
+<a id="lab-04-step-15"></a>
 ## Step 15 - Test Group-Based Access
 
 On the Windows client, while signed in as `H-SETS\aokoro`:
@@ -858,6 +876,7 @@ If Tunde can access the folder, check:
 - Is `Everyone` granted access on the share or NTFS permissions?
 - Did you test using a fresh logon session after group changes?
 
+<a id="lab-04-step-16"></a>
 ## Step 16 - Create a Basic Workstation Security GPO
 
 Group Policy helps administrators enforce consistent security settings across many computers.
@@ -935,6 +954,7 @@ Save a GPO report from `DC01`:
 Get-GPOReport -Name "H-SETS Workstation Security Baseline" -ReportType Html -Path C:\H-SETS-Evidence\Tool-Lab-04\workstation-security-baseline-gpo.html
 ```
 
+<a id="lab-04-step-17"></a>
 ## Step 17 - Review DNS for Active Directory
 
 On `DC01`:
@@ -970,6 +990,7 @@ What DNS server should the Windows client use in this lab?
 What type of DNS records help clients locate domain services?
 ```
 
+<a id="lab-04-step-18"></a>
 ## Step 18 - Generate Security Events
 
 Security logs become useful when students understand what action created the event.
@@ -1053,6 +1074,7 @@ Get-FileHash C:\H-SETS-Evidence\Tool-Lab-04\Security-Lab04.evtx -Algorithm SHA25
 Out-File C:\H-SETS-Evidence\Tool-Lab-04\Security-Lab04.evtx.sha256.txt
 ```
 
+<a id="lab-04-step-19"></a>
 ## Step 19 - Troubleshoot Common Problems
 
 | Problem | Likely cause | How to check | Fix |
@@ -1067,6 +1089,7 @@ Out-File C:\H-SETS-Evidence\Tool-Lab-04\Security-Lab04.evtx.sha256.txt
 | Events are missing | Wrong system or wrong time window | Event Viewer filter | Check both client and DC, increase time range |
 | `dcdiag` shows DNS issues | DNS role or records are not healthy | DNS Manager and `dcdiag` | Restart DNS service and review zone records |
 
+<a id="lab-04-step-20"></a>
 ## Step 20 - Final Evidence Hashes
 
 At the end of the lab, run on `DC01`:

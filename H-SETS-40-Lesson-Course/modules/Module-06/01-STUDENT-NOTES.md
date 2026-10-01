@@ -10,6 +10,13 @@ First focus on **safe hardening, recovery and reading a small script before runn
 
 On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
 
+## Open the first topic groups
+
+Read each group, explain one key idea and one limitation without copying, then use the corresponding lesson exercise on the practice page. Continue the remaining chapter content on your second pass. Live commands still follow this week’s practical boundary.
+
+- **Lesson 14:** [1. Linux Hardening](lesson-14-linux-hardening.md#lesson-14-section-05) → [2. Security Baselines](lesson-14-linux-hardening.md#lesson-14-section-06) → [3. Baseline Versus Hardening Guide](lesson-14-linux-hardening.md#lesson-14-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 15:** [1. Security Scripting](lesson-15-bash-and-python-basics.md#lesson-15-section-05) → [2. Bash and Python Comparison](lesson-15-bash-and-python-basics.md#lesson-15-section-06) → [3. Script Safety](lesson-15-bash-and-python-basics.md#lesson-15-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

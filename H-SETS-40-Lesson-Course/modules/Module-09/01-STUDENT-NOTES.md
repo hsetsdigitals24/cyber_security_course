@@ -10,6 +10,13 @@ First focus on **account lifecycle, least privilege and endpoint protections**. 
 
 On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
 
+## Open the first topic groups
+
+Read each group, explain one key idea and one limitation without copying, then use the corresponding lesson exercise on the practice page. Continue the remaining chapter content on your second pass. Live commands still follow this week’s practical boundary.
+
+- **Lesson 20:** [1. Identity and Access Management](lesson-20-iam-fundamentals.md#lesson-20-section-05) → [2. Identity Governance and Administration](lesson-20-iam-fundamentals.md#lesson-20-section-06) → [3. Authentication and Authorization](lesson-20-iam-fundamentals.md#lesson-20-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 21:** [1. Endpoint Security](lesson-21-endpoint-security.md#lesson-21-section-05) → [2. Endpoint Security Lifecycle](lesson-21-endpoint-security.md#lesson-21-section-06) → [3. Antivirus, EDR, and XDR](lesson-21-endpoint-security.md#lesson-21-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

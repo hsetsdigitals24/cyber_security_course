@@ -37,7 +37,7 @@ Modules 1, 2, 3 and 17 contain three lessons. All other modules contain two. Rea
 
 | Activity | Begin the relevant stages | Complete only after |
 |---|---|---|
-| Tool Lab 01 and Project 01 | Week 4: setup and Linux orientation | Week 6 scripting and all brief requirements |
+| Tool Lab 01 and Project 01 | Week 4: setup and Linux orientation | Week 7 local networking, Week 6 scripting and all brief requirements |
 | Tool Lab 02 and Project 02 | Weeks 5–7: Linux accounts, services, hardening and networking | Later endpoint/remediation prerequisites through Week 13 and all brief requirements |
 | Tool Lab 04 and Project 04 | Week 8: GUI Windows Server and directory administration | Week 9 identity/endpoint teaching, Week 14 central monitoring and all brief requirements |
 | Tool Lab 03 and Project 03 | Weeks 10–11: firewall and segmentation | Week 12 discovery, Week 14 monitoring and all brief requirements |

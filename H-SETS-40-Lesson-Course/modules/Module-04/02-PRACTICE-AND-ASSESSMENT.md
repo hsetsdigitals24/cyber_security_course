@@ -10,6 +10,16 @@ Complete Weeks 1–3. The instructor must provide compatible images and confirm 
 
 **Tool Lab 01 is staged:** complete setup and Linux orientation now. Its Bash scripting stages follow Lesson 15 in Week 6. Do not mark the entire tool lab complete this week.
 
+## This week’s practical boundary
+
+**Required before dependent live work:** A prepared isolated VM and a recoverable baseline are required before live commands.
+
+| Do now, in this order | Stop/check | Resume |
+|---|---|---|
+| [Lab 01 steps 1–10](../../practicals/labs/tool-lab-01-kali-analyst-workstation.md#lab-01-step-01) | Stop before Step 11. | Week 5: Steps 15–21; Week 6: Steps 11–14 and 23; Week 7: Step 22 and final packaging. |
+
+Record deferred work in your [progress record](../../practicals/templates/STUDENT-PROGRESS.md). A pending project stage does not block unrelated reading; an unmet prerequisite blocks the dependent live step. Keep all original lab deliverables and project acceptance tests.
+
 ## 2. Complete the lesson tasks
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
@@ -28,6 +38,19 @@ Begin [Tool Lab 01](../../practicals/labs/tool-lab-01-kali-analyst-workstation.m
 This week's checkpoint: a range diagram, boundary checks, recovery evidence and a file-navigation record.
 
 Use the [submission guide](../../STUDENT-GUIDE.md#submission-format). Include the task reference, what you did, the evidence, what it shows and any limitation. Keep credentials and personal information out of submissions. If a task was not performed, mark it **not run** and explain why. A written plan is not evidence of a completed live test.
+
+## Submit this week
+
+Use `H-SETS/Module-04/` for your work. These filenames organise the tasks already assigned above; they do not create extra assessments. Submit to the private destination and deadline in your cohort plan.
+
+| File or folder | Contents and existing requirement |
+|---|---|
+| `lesson-responses.md` | Label each answer by lesson ID and question/task number; include the assigned lesson questions and take-home responses. |
+| `evidence/` | Existing exercise/lab outputs, screenshots and interpretation; retain filenames required by the original brief. |
+| `submission-index.md` | List the paths that demonstrate this week's checkpoint: a range diagram, boundary checks, recovery evidence and a file-navigation record. Link existing work rather than writing it twice. |
+| Your progress record | Update status and next return point; link it in the submission index rather than making a second copy. |
+
+When one output meets both a lesson and project requirement, reference the same file under both task IDs if the brief permits reuse. Keep project-specific reports and rubrics in force. For Cedar, include every item required by its separate submission list. A checkpoint summarises the listed work; it is not another investigation or report.
 
 <a id="completion-checklist"></a>
 ## 5. Completion checklist

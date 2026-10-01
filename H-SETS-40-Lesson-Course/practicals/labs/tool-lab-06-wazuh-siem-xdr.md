@@ -1,5 +1,8 @@
 # Tool Lab 06 - Wazuh SIEM/XDR Operations
 
+**Weekly route:** check your [progress record](../templates/STUDENT-PROGRESS.md) and module practice boundary before starting. This full lab spans stages; its step order alone is not a one-week assignment.
+
+
 Before starting, complete the [environment readiness checks](../LAB-ENVIRONMENT.md) and [assigned setup sheet](../templates/CLASS-LAB-SHEET.md).
 
 
@@ -54,6 +57,7 @@ Common Wazuh ports in this lab:
 | `443` | TCP | Dashboard access |
 | `9200` | TCP | Indexer API, normally restricted to trusted administration |
 
+<a id="lab-06-step-01"></a>
 ## Step 1 - Prepare Evidence
 
 ```bash
@@ -62,6 +66,7 @@ date -u +'%Y-%m-%dT%H:%M:%SZ' | tee ~/hsets-evidence/wazuh-tool-lab/session-star
 script -af ~/hsets-evidence/wazuh-tool-lab/command-log.txt
 ```
 
+<a id="lab-06-step-02"></a>
 ## Step 2 - Verify Wazuh Manager Health
 
 On `wazuh01`:
@@ -87,6 +92,7 @@ timedatectl | tee ~/hsets-evidence/wazuh-tool-lab/01-manager/manager-timedatectl
 
 If Wazuh is not installed, stop and use the instructor-approved installation path. Do not continue with agent onboarding until the manager, indexer, dashboard, and Filebeat are healthy.
 
+<a id="lab-06-step-03"></a>
 ## Step 3 - Onboard Ubuntu Agent
 
 On Ubuntu:
@@ -127,6 +133,7 @@ sudo /var/ossec/bin/agent_control -lc | tee ~/hsets-evidence/wazuh-tool-lab/02-a
 
 Expected result: `lin01` appears in the agent list and shows as active after a short delay.
 
+<a id="lab-06-step-04"></a>
 ## Step 4 - Onboard Windows Agent
 
 On Windows:
@@ -169,6 +176,7 @@ If the Windows agent does not appear:
 | Agent log | No repeated connection or enrollment errors |
 | Dashboard time range | Current time window selected |
 
+<a id="lab-06-step-05"></a>
 ## Step 5 - Generate Linux Authentication Events
 
 From Kali, attempt two failed SSH logins to Ubuntu, then one approved successful login.
@@ -198,6 +206,7 @@ Record:
 - Timestamp.
 - Dashboard time range.
 
+<a id="lab-06-step-06"></a>
 ## Step 6 - Generate File Integrity Monitoring Event
 
 On Ubuntu:
@@ -212,6 +221,7 @@ If `/opt/hsets-critical` is not monitored, add it under the Wazuh agent syscheck
 
 Find the FIM alert in Wazuh and explain why file change is not automatically malicious.
 
+<a id="lab-06-step-07"></a>
 ## Step 7 - Generate Windows Security Events
 
 On Windows, perform:
@@ -231,6 +241,7 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4624,4625,4720,4732; Star
 
 Search Wazuh for the same time window and record matching alerts.
 
+<a id="lab-06-step-08"></a>
 ## Step 8 - Triage One Alert
 
 Complete this triage note:
@@ -263,6 +274,7 @@ Analyst decision options:
 
 Students must not call an alert an incident only because it is red or high severity. They must explain evidence, impact, and recommended response.
 
+<a id="lab-06-step-09"></a>
 ## Step 9 - Simulate Telemetry Failure
 
 With instructor approval, stop the Ubuntu agent for five minutes:
@@ -282,6 +294,7 @@ sudo tail -n 50 /var/ossec/logs/ossec.log
 
 Explain why a disconnected security agent is a risk.
 
+<a id="lab-06-step-10"></a>
 ## Step 10 - Tune One Noisy Alert
 
 Choose one alert that is expected in the lab. Do not disable monitoring globally. Write a tuning recommendation:

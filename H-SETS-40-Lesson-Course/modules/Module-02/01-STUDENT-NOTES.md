@@ -10,6 +10,14 @@ First focus on **hashing versus encryption, authentication factors and permitted
 
 On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
 
+## Open the first topic groups
+
+Read each group, explain one key idea and one limitation without copying, then use the corresponding lesson exercise on the practice page. Continue the remaining chapter content on your second pass. Live commands still follow this week’s practical boundary.
+
+- **Lesson 04:** [1. Cryptography](lesson-04-cryptography-fundamentals.md#lesson-04-section-05) → [2. Core Cryptographic Concepts](lesson-04-cryptography-fundamentals.md#lesson-04-section-06) → [3. Hashing](lesson-04-cryptography-fundamentals.md#lesson-04-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 05:** [Identity and Authentication Foundations](lesson-05-authentication-and-identity.md#lesson-05-section-05) → [Strong Authentication](lesson-05-authentication-and-identity.md#lesson-05-section-06) → [Federation, Single Sign-On, and Tokens](lesson-05-authentication-and-identity.md#lesson-05-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 06:** [1. Access Control](lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-05) → [2. Identification, Authentication, Authorization, and Accounting](lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-06) → [3. Access Control Models](lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

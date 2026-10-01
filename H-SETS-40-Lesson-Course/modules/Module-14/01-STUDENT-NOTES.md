@@ -10,6 +10,13 @@ First focus on **log collection, time, queries and agent health**. Read the expl
 
 On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
 
+## Open the first topic groups
+
+Read each group, explain one key idea and one limitation without copying, then use the corresponding lesson exercise on the practice page. Continue the remaining chapter content on your second pass. Live commands still follow this week’s practical boundary.
+
+- **Lesson 30:** [SIEM Architecture and Collection](lesson-30-siem-fundamentals.md#lesson-30-section-05) → [Processing, Enrichment, and Retention](lesson-30-siem-fundamentals.md#lesson-30-section-06) → [Correlation and Alert Operations](lesson-30-siem-fundamentals.md#lesson-30-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 31:** [1. Wazuh](lesson-31-wazuh-in-practice.md#lesson-31-section-05) → [2. Wazuh Architecture](lesson-31-wazuh-in-practice.md#lesson-31-section-06) → [3. Data Flow](lesson-31-wazuh-in-practice.md#lesson-31-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

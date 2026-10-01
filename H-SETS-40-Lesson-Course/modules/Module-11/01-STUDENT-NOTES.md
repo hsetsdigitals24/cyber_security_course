@@ -10,6 +10,13 @@ First focus on **segmentation paths and the difference between detection and pre
 
 On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
 
+## Open the first topic groups
+
+Read each group, explain one key idea and one limitation without copying, then use the corresponding lesson exercise on the practice page. Continue the remaining chapter content on your second pass. Live commands still follow this week’s practical boundary.
+
+- **Lesson 24:** [1. Network Segmentation](lesson-24-network-segmentation.md#lesson-24-section-05) → [2. Segmentation Objectives](lesson-24-network-segmentation.md#lesson-24-section-06) → [3. Physical and Logical Segmentation](lesson-24-network-segmentation.md#lesson-24-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+- **Lesson 25:** [1. Intrusion Detection](lesson-25-ids-and-ips.md#lesson-25-section-05) → [2. IDS and IPS](lesson-25-ids-and-ips.md#lesson-25-section-06) → [3. Network IDS](lesson-25-ids-and-ips.md#lesson-25-section-07). [Matching practice](02-PRACTICE-AND-ASSESSMENT.md#2-complete-the-lesson-tasks).
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

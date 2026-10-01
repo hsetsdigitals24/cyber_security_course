@@ -51,7 +51,6 @@ Record the exact step and message. Check the lesson's prerequisites, expected ou
 
 Use the [weekly plan](18-WEEK-STUDY-PLAN.md) to see which project stages fit the lessons already taught. The [project pathway](practicals/projects/README.md) contains the complete briefs and acceptance tests. Lesson 40 is a worked example. The [Cedar investigation](modules/Module-18/INDEPENDENT-INVESTIGATION.md) is the independent document assessment; the Northstar Manufacturing project is a separate multi-week practical engagement. Cedar does not replace live tool evidence. Finish each required project according to its brief; reaching Week 18 does not automatically complete the portfolio.
 
-**Ready? [Open Module 01](modules/Module-01/README.md).**
 
 ## Completion and feedback rules
 
@@ -62,3 +61,9 @@ The required programme comprises the assigned forty-lesson work, seven tool-lab 
 Before the cohort begins, the instructor must issue a dated completion plan giving: required submission IDs, private submission destination, deadlines including post-Week-18 project work, pass thresholds for each graded assessment, practical acceptance criteria, feedback dates, resubmission opportunities and the person approving completion. Until this plan is issued, the cohort schedule and overall award decision are not final. Do not invent dates from the eighteen-week reading sequence.
 
 After feedback, revise the identified sections, retain the original attempt and submit a change note showing what you corrected and how you verified it. Record the reassessment outcome. Unperformed live work remains pending even when a document assessment passes. Course completion requires all required categories to be accepted under the issued plan; it is not a guarantee of employment.
+
+## Your weekly working routine
+
+Keep one personal [progress record](practicals/templates/STUDENT-PROGRESS.md). Open the module notes, study a linked topic group, then attempt its matching lesson practice. Read the practical boundary before opening a long tool lab: follow only the listed stage and save your return point. The weekly submission table tells you how to index existing answers and evidence; it is not another assessment.
+
+**Ready? [Open Module 01](modules/Module-01/README.md).**

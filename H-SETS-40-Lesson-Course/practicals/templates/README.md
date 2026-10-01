@@ -109,3 +109,7 @@ Defect/next action:
 ```csv
 evidence_id,case_or_change,description,source,collector,collected_utc,original_path,working_path,sha256,timezone,handling,notes
 ```
+
+## Track your learning
+
+Use the [student progress record](STUDENT-PROGRESS.md) to record weekly submissions, deferred tasks and project review dates. Save your own copy.

@@ -1,5 +1,8 @@
 # Tool Lab 01 - Introduction to VirtualBox, Kali Linux, and Bash
 
+**Weekly route:** check your [progress record](../templates/STUDENT-PROGRESS.md) and module practice boundary before starting. This full lab spans stages; its step order alone is not a one-week assignment.
+
+
 ## Purpose
 
 This first lab is intentionally basic. Students learn how to open Kali Linux in VirtualBox, understand the Linux desktop, use the terminal, navigate files and folders, and write simple Bash commands.
@@ -52,6 +55,7 @@ You are a new cybersecurity student at H-SETS. Before you can work with firewall
 - Do not run commands you do not understand.
 - If a command asks for a password, pause and ask why administrator permission is needed.
 
+<a id="lab-01-step-01"></a>
 ## Step 1 - Open Kali in VirtualBox
 
 1. Open VirtualBox.
@@ -69,6 +73,7 @@ Date:
 Start time:
 ```
 
+<a id="lab-01-step-02"></a>
 ## Step 2 - Understand the Kali Desktop
 
 Find these items on the Kali desktop:
@@ -83,6 +88,7 @@ Find these items on the Kali desktop:
 
 Do not worry if your Kali screen looks slightly different. Linux desktops can use different themes.
 
+<a id="lab-01-step-03"></a>
 ## Step 3 - Open the Terminal
 
 Open the terminal.
@@ -104,6 +110,7 @@ Simple meaning:
 
 If the prompt ends with `#`, that usually means root or administrator mode. Beginners should avoid working as root unless instructed.
 
+<a id="lab-01-step-04"></a>
 ## Step 4 - Run Your First Commands
 
 Type one command at a time.
@@ -138,6 +145,7 @@ clear
 
 Meaning: clears the terminal screen. It does not delete files.
 
+<a id="lab-01-step-05"></a>
 ## Step 5 - Learn Files and Folders
 
 Run:
@@ -170,6 +178,7 @@ Meaning:
 - `/home` stores user folders.
 - `~` means your own home folder.
 
+<a id="lab-01-step-06"></a>
 ## Step 6 - Create a Practice Folder and File
 
 Create a folder:
@@ -206,6 +215,7 @@ Meaning:
 - `>` replaces file content.
 - `>>` appends file content.
 
+<a id="lab-01-step-07"></a>
 ## Step 7 - Understand Basic File Permissions
 
 Run:
@@ -239,6 +249,7 @@ stat note.txt
 
 `stat` gives more details about the file, including size, owner, permissions, and timestamps.
 
+<a id="lab-01-step-08"></a>
 ## Step 8 - Learn How to Get Help
 
 Use the manual:
@@ -261,6 +272,7 @@ Meaning:
 - `--help` prints command help.
 - `head` shows only the first lines.
 
+<a id="lab-01-step-09"></a>
 ## Step 9 - Create an Evidence Folder
 
 Cybersecurity work must be documented. Create an evidence folder:
@@ -290,6 +302,7 @@ cat date.txt
 cat current-folder.txt
 ```
 
+<a id="lab-01-step-10"></a>
 ## Step 10 - Use `tee` to See and Save Output
 
 Run:
@@ -310,6 +323,7 @@ Run:
 date | tee lab-time.txt
 ```
 
+<a id="lab-01-step-11"></a>
 ## Step 11 - Start Simple Bash Variables
 
 A variable stores a value.
@@ -336,6 +350,7 @@ Important:
 - Use quotes around text values.
 - Use `$VARIABLE_NAME` to read the variable.
 
+<a id="lab-01-step-12"></a>
 ## Step 12 - Use Command Substitution
 
 Command substitution puts command output inside a variable.
@@ -353,6 +368,7 @@ Meaning:
 - `$(date)` runs the `date` command.
 - The result is saved inside `TODAY`.
 
+<a id="lab-01-step-13"></a>
 ## Step 13 - Use a Simple Loop
 
 A loop repeats commands.
@@ -381,6 +397,7 @@ Meaning:
 - `>>` appends output.
 - `cat "$FILE"` reads the current file in the loop.
 
+<a id="lab-01-step-14"></a>
 ## Step 14 - Create a Very Simple Bash Script
 
 Create a script:
@@ -424,6 +441,7 @@ Meaning:
 - `chmod 750` allows the owner to run the script.
 - `./my-first-script.sh` runs the script from the current folder.
 
+<a id="lab-01-step-15"></a>
 ## Step 15 - Check Basic Linux System Information
 
 Run and save:
@@ -442,6 +460,7 @@ Meaning:
 - `id` shows user and group IDs.
 - `groups` shows group membership.
 
+<a id="lab-01-step-16"></a>
 ## Step 16 - Understand the Linux Filesystem
 
 Linux uses one main filesystem tree. Everything starts from `/`, called the root of the filesystem.
@@ -486,6 +505,7 @@ cd ~/hsets-evidence/kali-intro-lab
 pwd
 ```
 
+<a id="lab-01-step-17"></a>
 ## Step 17 - Practise File Management
 
 Create more files:
@@ -533,6 +553,7 @@ Meaning:
 - `find` searches for files and folders.
 - `sort` arranges output neatly.
 
+<a id="lab-01-step-18"></a>
 ## Step 18 - Understand Users, Groups, and Permissions
 
 Run:
@@ -584,6 +605,7 @@ For `chmod 644`:
 
 Important: only practise `chmod` on files you created in your own lab folder.
 
+<a id="lab-01-step-19"></a>
 ## Step 19 - Understand Processes and Services
 
 A process is a running program. A service is a background program managed by Linux.
@@ -617,6 +639,7 @@ If the command says the service does not exist, write that in your notes. Differ
 
 Do not stop, disable, or restart services in this beginner lab.
 
+<a id="lab-01-step-20"></a>
 ## Step 20 - Understand Packages and Installed Tools
 
 A package is software installed through the operating system package manager.
@@ -643,6 +666,7 @@ Meaning:
 
 Do not install or remove packages in this lab unless the instructor asks.
 
+<a id="lab-01-step-21"></a>
 ## Step 21 - Understand Logs Safely
 
 Logs record system activity. Cybersecurity analysts use logs to understand what happened.
@@ -671,6 +695,7 @@ Important:
 - Do not copy real personal data into reports.
 - In professional work, preserve logs before changing systems.
 
+<a id="lab-01-step-22"></a>
 ## Step 22 - Understand Basic Local Networking
 
 This step does not scan or contact a target. It only checks Kali's own network settings.
@@ -691,6 +716,7 @@ Simple meaning:
 
 Do not ping or scan any IP address in this lab.
 
+<a id="lab-01-step-23"></a>
 ## Step 23 - Build a Simple Linux Review Script
 
 Create:
@@ -732,6 +758,7 @@ chmod 750 linux-review.sh
 
 This script combines several Linux checks into one repeatable report.
 
+<a id="lab-01-step-24"></a>
 ## Step 24 - Package the Evidence
 
 List the evidence:

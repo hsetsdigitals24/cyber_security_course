@@ -29,3 +29,7 @@ Updated lab resources, service detection, firewall verification and early networ
 ## Holistic review corrections — 1 October 2026
 
 Evidence files use explicit LF endings and publication-byte hash checks. SSH, evidence packaging and network-isolation checks were clarified. Module reading priorities, readiness checks and completion guidance were added. Live platform tests and beginner pilots remain pending.
+
+## Student-flow revision — 1 October 2026
+
+Added linked reading groups, weekly practical boundaries, submission indexes and a personal progress template. Lab 01 completion now explicitly includes Week 7 networking. Original lesson bodies, lab tasks and project acceptance criteria are preserved. This navigation revision is not evidence of a completed beginner pilot.

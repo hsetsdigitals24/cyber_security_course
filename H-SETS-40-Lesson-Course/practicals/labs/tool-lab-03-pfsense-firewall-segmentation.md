@@ -1,5 +1,8 @@
 # Tool Lab 03 - pfSense Firewall and Segmentation
 
+**Weekly route:** check your [progress record](../templates/STUDENT-PROGRESS.md) and module practice boundary before starting. This full lab spans stages; its step order alone is not a one-week assignment.
+
+
 ## Purpose
 
 This lab teaches students how to use pfSense as a firewall in a small enterprise lab. The goal is to understand interfaces, IP addresses, DHCP, aliases, firewall rules, allowed traffic, blocked traffic, logs, backups, and basic troubleshooting.
@@ -108,6 +111,7 @@ By the end of this lab:
 - Always export a backup before major changes.
 - If you lose access, stop and ask the instructor.
 
+<a id="lab-03-step-01"></a>
 ## Step 1 - Create the Lab Record
 
 Create a written record before changing pfSense:
@@ -128,6 +132,7 @@ Instructor approval:
 
 Save this as `pfsense-lab-record.md`.
 
+<a id="lab-03-step-02"></a>
 ## Step 2 - Back Up pfSense Before Changes
 
 In pfSense:
@@ -149,6 +154,7 @@ Evidence to save:
 - Screenshot of the backup page.
 - The downloaded XML backup file.
 
+<a id="lab-03-step-03"></a>
 ## Step 3 - Identify the Interfaces
 
 In pfSense:
@@ -180,6 +186,7 @@ Evidence to save:
 - Screenshot of interface assignments.
 - Screenshot of each configured interface IP.
 
+<a id="lab-03-step-04"></a>
 ## Step 4 - Understand Rule Direction
 
 This is the most important beginner pfSense rule:
@@ -199,6 +206,7 @@ Simple memory aid:
 Put the rule where the traffic starts.
 ```
 
+<a id="lab-03-step-05"></a>
 ## Step 5 - Configure DHCP on the USERS Network
 
 DHCP gives IP addresses automatically to client machines.
@@ -226,6 +234,7 @@ Evidence to save:
 - Screenshot of the DHCP range.
 - Screenshot of a client that received an address, if available.
 
+<a id="lab-03-step-06"></a>
 ## Step 6 - Create Aliases
 
 Aliases make rules easier to read. Instead of writing raw IP addresses everywhere, you create names.
@@ -257,6 +266,7 @@ Evidence to save:
 
 - Screenshot or export showing aliases.
 
+<a id="lab-03-step-07"></a>
 ## Step 7 - Build the Rule Plan Before Clicking
 
 Do not create rules from memory. Fill this table first:
@@ -271,6 +281,7 @@ Do not create rules from memory. Fill this table first:
 
 If Wazuh is not installed yet, write the Wazuh rule as planned but do not create it unless the instructor approves.
 
+<a id="lab-03-step-08"></a>
 ## Step 8 - Create the First Allow Rule
 
 Goal: allow the admin workstation to SSH to the Ubuntu server.
@@ -300,6 +311,7 @@ Evidence to save:
 
 - Screenshot of the rule.
 
+<a id="lab-03-step-09"></a>
 ## Step 9 - Create the Web Access Rule
 
 Goal: allow users to access the DMZ web server.
@@ -325,6 +337,7 @@ Evidence to save:
 
 - Screenshot of the rule.
 
+<a id="lab-03-step-10"></a>
 ## Step 10 - Create a Block Rule for Unapproved Server Access
 
 Goal: block normal user systems from accessing the server network unless a previous allow rule permits it.
@@ -351,6 +364,7 @@ Important:
 - This block rule must be below the specific SSH allow rule.
 - If the block rule is above the allow rule, SSH may fail.
 
+<a id="lab-03-step-11"></a>
 ## Step 11 - Create a DMZ Isolation Rule
 
 Goal: stop the DMZ from freely reaching the server network.
@@ -376,6 +390,7 @@ Evidence to save:
 
 - Screenshot of the DMZ block rule.
 
+<a id="lab-03-step-12"></a>
 ## Step 12 - Check Rule Order
 
 On the USERS rules page, the order should look like:
@@ -398,6 +413,7 @@ Evidence to save:
 
 - Screenshot of final USERS rule order.
 
+<a id="lab-03-step-13"></a>
 ## Step 13 - Validate Allowed Traffic
 
 From the approved client machine, test only instructor-approved systems.
@@ -435,6 +451,7 @@ Evidence to save:
 - Destination IP.
 - Time of test.
 
+<a id="lab-03-step-14"></a>
 ## Step 14 - Validate Blocked Traffic
 
 Use Ubuntu SSH on `10.10.20.20:22`, a service already verified in Step 13. A failed connection by itself does not prove a firewall block.
@@ -447,6 +464,7 @@ Use Ubuntu SSH on `10.10.20.20:22`, a service already verified in Step 13. A fai
 
 A timeout without a matching log is inconclusive. A refusal can come from a closed service or endpoint firewall. If the allowed control fails, repair that baseline before judging the denied result. If an earlier connection has an existing firewall state, ask the instructor to remove only that test state before retesting; do not clear shared states indiscriminately. Never disable endpoint protections to force a result.
 
+<a id="lab-03-step-15"></a>
 ## Step 15 - Read Firewall Logs
 
 In pfSense:
@@ -476,6 +494,7 @@ Important:
 - No log does not always mean no traffic. The rule may not have logging enabled.
 - Logs must match the test time and IP addresses.
 
+<a id="lab-03-step-16"></a>
 ## Step 16 - Export the Final Configuration
 
 In pfSense:
@@ -493,6 +512,7 @@ sha256sum pfsense-before-tool-lab.xml pfsense-after-tool-lab.xml
 
 If hashing is not available, record filenames, dates, and file sizes.
 
+<a id="lab-03-step-17"></a>
 ## Step 17 - Complete the Validation Worksheet
 
 | Test ID | Source | Destination | Port | Expected | Actual | Log found? |
@@ -504,6 +524,7 @@ If hashing is not available, record filenames, dates, and file sizes.
 
 Only mark a test as complete when evidence exists.
 
+<a id="lab-03-step-18"></a>
 ## Step 18 - Troubleshoot Slowly
 
 Use this order. Do not jump around.
@@ -531,6 +552,7 @@ Common beginner mistakes:
 | Forgot to apply changes | Click **Apply Changes** |
 | No log found | Enable logging on the block rule |
 
+<a id="lab-03-step-19"></a>
 ## Step 19 - Write the Report
 
 Use this template:

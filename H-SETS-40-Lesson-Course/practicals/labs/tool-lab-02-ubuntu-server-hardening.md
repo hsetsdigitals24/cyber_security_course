@@ -1,5 +1,8 @@
 # Tool Lab 02 - Ubuntu Server Administration and Hardening
 
+**Weekly route:** check your [progress record](../templates/STUDENT-PROGRESS.md) and module practice boundary before starting. This full lab spans stages; its step order alone is not a one-week assignment.
+
+
 Before starting, complete the [environment readiness checks](../LAB-ENVIRONMENT.md) and [assigned setup sheet](../templates/CLASS-LAB-SHEET.md).
 
 
@@ -19,6 +22,7 @@ An internal Ubuntu server named `lin01` is being moved into the server network. 
 | Kali Linux | Admin/testing source | `10.10.10.60` |
 | pfSense | Network firewall | `10.10.10.1`, `10.10.20.1` |
 
+<a id="lab-02-step-01"></a>
 ## Step 1 - Start Evidence Collection
 
 ```bash
@@ -27,6 +31,7 @@ date -u +'%Y-%m-%dT%H:%M:%SZ' | tee ~/hsets-evidence/ubuntu-tool-lab/session-sta
 script -af ~/hsets-evidence/ubuntu-tool-lab/command-log.txt
 ```
 
+<a id="lab-02-step-02"></a>
 ## Step 2 - Baseline the Server
 
 ```bash
@@ -38,6 +43,7 @@ systemctl --failed | tee ~/hsets-evidence/ubuntu-tool-lab/01-before/failed-servi
 sudo journalctl -p warning -n 50 --no-pager | tee ~/hsets-evidence/ubuntu-tool-lab/01-before/journal-warnings.txt
 ```
 
+<a id="lab-02-step-03"></a>
 ## Step 3 - Update Packages Safely
 
 ```bash
@@ -54,6 +60,7 @@ If a reboot is required, record it:
 test -f /var/run/reboot-required && cat /var/run/reboot-required | tee ~/hsets-evidence/ubuntu-tool-lab/02-change/reboot-required.txt
 ```
 
+<a id="lab-02-step-04"></a>
 ## Step 4 - Create Users, Groups, and Permissions
 
 ```bash
@@ -72,6 +79,7 @@ namei -l /srv/hsets-web | tee ~/hsets-evidence/ubuntu-tool-lab/03-validation/web
 
 Set temporary passwords only if the instructor requires interactive testing. Do not record passwords in evidence.
 
+<a id="lab-02-step-05"></a>
 ## Step 5 - Install and Validate Nginx
 
 ```bash
@@ -90,6 +98,7 @@ curl -sSI --connect-timeout 5 http://10.10.20.20/
 
 Save the Kali result in the student's Kali evidence folder or copy it into the report.
 
+<a id="lab-02-step-06"></a>
 ## Step 6 - Harden SSH
 
 Create a backup:
@@ -217,6 +226,7 @@ sudo sshd -t
 sudo systemctl reload ssh
 ```
 
+<a id="lab-02-step-07"></a>
 ## Step 7 - Configure UFW
 
 ```bash
@@ -248,6 +258,7 @@ Expected validation:
 | Root SSH login | Denied |
 | Password-only SSH login | Denied after key access is proven |
 
+<a id="lab-02-step-08"></a>
 ## Step 8 - Install Fail2Ban
 
 ```bash
@@ -265,6 +276,7 @@ sudo fail2ban-client status | tee ~/hsets-evidence/ubuntu-tool-lab/03-validation
 sudo fail2ban-client status sshd | tee ~/hsets-evidence/ubuntu-tool-lab/03-validation/fail2ban-sshd.txt
 ```
 
+<a id="lab-02-step-09"></a>
 ## Step 9 - Read Logs Like an Analyst
 
 ```bash
@@ -275,6 +287,7 @@ sudo journalctl -u nginx --since '-1 hour' --no-pager | tee ~/hsets-evidence/ubu
 
 Explain at least one successful event and one denied or failed event.
 
+<a id="lab-02-step-10"></a>
 ## Step 10 - Rollback Plan
 
 Record how to reverse each change:

@@ -8,6 +8,28 @@ Apply the methods taught in Lesson 40 to a different case. The Cedar case is a d
 
 Download the four files linked in the manifest, or clone/download the course repository to retain exact file bytes. Read case scope first, then the identity/file, endpoint/network and context records. You need a text editor and a SHA-256 utility, not a VM or paid service.
 
+## Open the evidence folder first
+
+After extracting the repository ZIP, open `H-SETS-40-Lesson-Course/modules/Module-18/assessment-evidence`. On Windows, open PowerShell in this folder (for example, type `powershell` in File Explorer's address bar and press Enter). On Linux, open a terminal in this folder or use `cd` with its actual path.
+
+Check your location and files before hashing:
+
+```powershell
+Get-Location
+Get-ChildItem -File
+```
+
+On Linux:
+
+```bash
+pwd
+ls -l
+```
+
+You should see `01-case-and-scope.md`, `02-identity-and-file-records.md`, `03-endpoint-and-network-records.md`, `04-service-desk-and-change.md` and `MANIFEST.md`. If a file is missing, check the extracted folder and download; do not create an empty replacement. A path-not-found error usually means the current folder or filename is wrong. Compare it with this list before retrying.
+
+Keep the lesson in a separate browser tab. If viewing an individual evidence file on GitHub, return with the browser Back button or the breadcrumb to Module-18. Use the downloaded files for hashes rather than text copied from the rendered page.
+
 ## Work through the case
 
 1. Preserve an original copy of each file. Record its name, supplied hash, your computed hash and result. In PowerShell use `Get-FileHash -Algorithm SHA256 -LiteralPath './01-case-and-scope.md'`; on Linux use `sha256sum 01-case-and-scope.md`. Repeat for all four files. Copying text through an editor may alter line endings; obtain the original file again if hashes differ. Do not edit the manifest to force a match.
