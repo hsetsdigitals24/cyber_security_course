@@ -8,9 +8,9 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 04 · Cryptography Fundamentals](../../lessons/lesson-04-cryptography-fundamentals.md) | [Review checklist](../../lessons/lesson-04-cryptography-fundamentals.md#lesson-04-section-30) |
-| 2 | [Lesson 05 · Authentication and Identity](../../lessons/lesson-05-authentication-and-identity.md) | [Review checklist](../../lessons/lesson-05-authentication-and-identity.md#lesson-05-section-16) |
-| 3 | [Lesson 06 · Access Control and Defense in Depth](../../lessons/lesson-06-access-control-and-defense-in-depth.md) | [Review checklist](../../lessons/lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-26) |
+| 1 | [Lesson 04 · Cryptography Fundamentals](lesson-04-cryptography-fundamentals.md) | [Review checklist](lesson-04-cryptography-fundamentals.md#lesson-04-section-30) |
+| 2 | [Lesson 05 · Authentication and Identity](lesson-05-authentication-and-identity.md) | [Review checklist](lesson-05-authentication-and-identity.md#lesson-05-section-16) |
+| 3 | [Lesson 06 · Access Control and Defense in Depth](lesson-06-access-control-and-defense-in-depth.md) | [Review checklist](lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-26) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

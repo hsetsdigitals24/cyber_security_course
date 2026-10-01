@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 20 · IAM Fundamentals | [Open exercise](../../lessons/lesson-20-iam-fundamentals.md#lesson-20-section-37) | [Answer questions](../../lessons/lesson-20-iam-fundamentals.md#lesson-20-section-39) | [Open assignment](../../lessons/lesson-20-iam-fundamentals.md#lesson-20-section-38) |
-| 21 · Endpoint Security | [Open exercise](../../lessons/lesson-21-endpoint-security.md#lesson-21-section-33) | [Answer questions](../../lessons/lesson-21-endpoint-security.md#lesson-21-section-35) | [Open assignment](../../lessons/lesson-21-endpoint-security.md#lesson-21-section-34) |
+| 20 · IAM Fundamentals | [Open exercise](lesson-20-iam-fundamentals.md#lesson-20-section-37) | [Answer questions](lesson-20-iam-fundamentals.md#lesson-20-section-39) | [Open assignment](lesson-20-iam-fundamentals.md#lesson-20-section-38) |
+| 21 · Endpoint Security | [Open exercise](lesson-21-endpoint-security.md#lesson-21-section-33) | [Answer questions](lesson-21-endpoint-security.md#lesson-21-section-35) | [Open assignment](lesson-21-endpoint-security.md#lesson-21-section-34) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

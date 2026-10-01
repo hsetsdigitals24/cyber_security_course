@@ -8,9 +8,9 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 01 · Security Fundamentals](../../lessons/lesson-01-security-fundamentals.md) | [Review checklist](../../lessons/lesson-01-security-fundamentals.md#lesson-01-section-19) |
-| 2 | [Lesson 02 · Threat Landscape](../../lessons/lesson-02-threat-landscape.md) | [Review checklist](../../lessons/lesson-02-threat-landscape.md#lesson-02-section-18) |
-| 3 | [Lesson 03 · The Security Profession](../../lessons/lesson-03-the-security-profession.md) | [Review checklist](../../lessons/lesson-03-the-security-profession.md#lesson-03-section-26) |
+| 1 | [Lesson 01 · Security Fundamentals](lesson-01-security-fundamentals.md) | [Review checklist](lesson-01-security-fundamentals.md#lesson-01-section-19) |
+| 2 | [Lesson 02 · Threat Landscape](lesson-02-threat-landscape.md) | [Review checklist](lesson-02-threat-landscape.md#lesson-02-section-18) |
+| 3 | [Lesson 03 · The Security Profession](lesson-03-the-security-profession.md) | [Review checklist](lesson-03-the-security-profession.md#lesson-03-section-26) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

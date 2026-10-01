@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 34 · Threat Intelligence | [Open exercise](../../lessons/lesson-34-threat-intelligence.md#lesson-34-section-36) | [Answer questions](../../lessons/lesson-34-threat-intelligence.md#lesson-34-section-38) | [Open assignment](../../lessons/lesson-34-threat-intelligence.md#lesson-34-section-37) |
-| 35 · Forensics Fundamentals | [Open exercise](../../lessons/lesson-35-forensics-fundamentals.md#lesson-35-section-38) | [Answer questions](../../lessons/lesson-35-forensics-fundamentals.md#lesson-35-section-40) | [Open assignment](../../lessons/lesson-35-forensics-fundamentals.md#lesson-35-section-39) |
+| 34 · Threat Intelligence | [Open exercise](lesson-34-threat-intelligence.md#lesson-34-section-36) | [Answer questions](lesson-34-threat-intelligence.md#lesson-34-section-38) | [Open assignment](lesson-34-threat-intelligence.md#lesson-34-section-37) |
+| 35 · Forensics Fundamentals | [Open exercise](lesson-35-forensics-fundamentals.md#lesson-35-section-38) | [Answer questions](lesson-35-forensics-fundamentals.md#lesson-35-section-40) | [Open assignment](lesson-35-forensics-fundamentals.md#lesson-35-section-39) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

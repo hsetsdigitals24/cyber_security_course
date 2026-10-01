@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 22 · Remote Access and VPN | [Open exercise](../../lessons/lesson-22-remote-access-and-vpn.md#lesson-22-section-35) | [Answer questions](../../lessons/lesson-22-remote-access-and-vpn.md#lesson-22-section-37) | [Open assignment](../../lessons/lesson-22-remote-access-and-vpn.md#lesson-22-section-36) |
-| 23 · Firewall and pfSense | [Open exercise](../../lessons/lesson-23-firewall-and-pfsense.md#lesson-23-section-34) | [Answer questions](../../lessons/lesson-23-firewall-and-pfsense.md#lesson-23-section-36) | [Open assignment](../../lessons/lesson-23-firewall-and-pfsense.md#lesson-23-section-35) |
+| 22 · Remote Access and VPN | [Open exercise](lesson-22-remote-access-and-vpn.md#lesson-22-section-35) | [Answer questions](lesson-22-remote-access-and-vpn.md#lesson-22-section-37) | [Open assignment](lesson-22-remote-access-and-vpn.md#lesson-22-section-36) |
+| 23 · Firewall and pfSense | [Open exercise](lesson-23-firewall-and-pfsense.md#lesson-23-section-34) | [Answer questions](lesson-23-firewall-and-pfsense.md#lesson-23-section-36) | [Open assignment](lesson-23-firewall-and-pfsense.md#lesson-23-section-35) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

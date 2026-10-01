@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 28 · Vulnerability Assessment | [Open exercise](../../lessons/lesson-28-vulnerability-assessment.md#lesson-28-section-35) | [Answer questions](../../lessons/lesson-28-vulnerability-assessment.md#lesson-28-section-37) | [Open assignment](../../lessons/lesson-28-vulnerability-assessment.md#lesson-28-section-36) |
-| 29 · Remediation and Reporting | [Open exercise](../../lessons/lesson-29-remediation-and-reporting.md#lesson-29-section-35) | [Answer questions](../../lessons/lesson-29-remediation-and-reporting.md#lesson-29-section-37) | [Open assignment](../../lessons/lesson-29-remediation-and-reporting.md#lesson-29-section-36) |
+| 28 · Vulnerability Assessment | [Open exercise](lesson-28-vulnerability-assessment.md#lesson-28-section-35) | [Answer questions](lesson-28-vulnerability-assessment.md#lesson-28-section-37) | [Open assignment](lesson-28-vulnerability-assessment.md#lesson-28-section-36) |
+| 29 · Remediation and Reporting | [Open exercise](lesson-29-remediation-and-reporting.md#lesson-29-section-35) | [Answer questions](lesson-29-remediation-and-reporting.md#lesson-29-section-37) | [Open assignment](lesson-29-remediation-and-reporting.md#lesson-29-section-36) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

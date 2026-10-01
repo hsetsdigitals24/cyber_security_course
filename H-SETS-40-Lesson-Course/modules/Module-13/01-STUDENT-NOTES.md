@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 28 · Vulnerability Assessment](../../lessons/lesson-28-vulnerability-assessment.md) | [Review checklist](../../lessons/lesson-28-vulnerability-assessment.md#lesson-28-section-39) |
-| 2 | [Lesson 29 · Remediation and Reporting](../../lessons/lesson-29-remediation-and-reporting.md) | [Review checklist](../../lessons/lesson-29-remediation-and-reporting.md#lesson-29-section-39) |
+| 1 | [Lesson 28 · Vulnerability Assessment](lesson-28-vulnerability-assessment.md) | [Review checklist](lesson-28-vulnerability-assessment.md#lesson-28-section-39) |
+| 2 | [Lesson 29 · Remediation and Reporting](lesson-29-remediation-and-reporting.md) | [Review checklist](lesson-29-remediation-and-reporting.md#lesson-29-section-39) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

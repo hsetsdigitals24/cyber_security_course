@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 26 · Cloud Fundamentals | [Open exercise](../../lessons/lesson-26-cloud-fundamentals.md#lesson-26-section-35) | [Answer questions](../../lessons/lesson-26-cloud-fundamentals.md#lesson-26-section-37) | [Open assignment](../../lessons/lesson-26-cloud-fundamentals.md#lesson-26-section-36) |
-| 27 · Asset Discovery | [Open exercise](../../lessons/lesson-27-asset-discovery.md#lesson-27-section-26) | [Answer questions](../../lessons/lesson-27-asset-discovery.md#lesson-27-section-28) | [Open assignment](../../lessons/lesson-27-asset-discovery.md#lesson-27-section-27) |
+| 26 · Cloud Fundamentals | [Open exercise](lesson-26-cloud-fundamentals.md#lesson-26-section-35) | [Answer questions](lesson-26-cloud-fundamentals.md#lesson-26-section-37) | [Open assignment](lesson-26-cloud-fundamentals.md#lesson-26-section-36) |
+| 27 · Asset Discovery | [Open exercise](lesson-27-asset-discovery.md#lesson-27-section-26) | [Answer questions](lesson-27-asset-discovery.md#lesson-27-section-28) | [Open assignment](lesson-27-asset-discovery.md#lesson-27-section-27) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

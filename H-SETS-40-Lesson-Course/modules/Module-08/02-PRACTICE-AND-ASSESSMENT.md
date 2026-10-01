@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 18 · Windows Server | [Open exercise](../../lessons/lesson-18-windows-server.md#lesson-18-section-33) | [Answer questions](../../lessons/lesson-18-windows-server.md#lesson-18-section-35) | [Open assignment](../../lessons/lesson-18-windows-server.md#lesson-18-section-34) |
-| 19 · Active Directory | [Open exercise](../../lessons/lesson-19-active-directory.md#lesson-19-section-38) | [Answer questions](../../lessons/lesson-19-active-directory.md#lesson-19-section-40) | [Open assignment](../../lessons/lesson-19-active-directory.md#lesson-19-section-39) |
+| 18 · Windows Server | [Open exercise](lesson-18-windows-server.md#lesson-18-section-33) | [Answer questions](lesson-18-windows-server.md#lesson-18-section-35) | [Open assignment](lesson-18-windows-server.md#lesson-18-section-34) |
+| 19 · Active Directory | [Open exercise](lesson-19-active-directory.md#lesson-19-section-38) | [Answer questions](lesson-19-active-directory.md#lesson-19-section-40) | [Open assignment](lesson-19-active-directory.md#lesson-19-section-39) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

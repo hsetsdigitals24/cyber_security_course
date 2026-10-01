@@ -14,9 +14,9 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 36 · Risk Assessment | [Open exercise](../../lessons/lesson-36-risk-assessment.md#lesson-36-section-38) | [Answer questions](../../lessons/lesson-36-risk-assessment.md#lesson-36-section-40) | [Open assignment](../../lessons/lesson-36-risk-assessment.md#lesson-36-section-39) |
-| 37 · Compliance Frameworks | [Open exercise](../../lessons/lesson-37-compliance-frameworks.md#lesson-37-section-09) | [Answer questions](../../lessons/lesson-37-compliance-frameworks.md#lesson-37-section-11) | [Open assignment](../../lessons/lesson-37-compliance-frameworks.md#lesson-37-section-10) |
-| 38 · Career and Professional Skills | [Open exercise](../../lessons/lesson-38-career-and-professional-skills.md#lesson-38-section-29) | [Answer questions](../../lessons/lesson-38-career-and-professional-skills.md#lesson-38-section-31) | [Open assignment](../../lessons/lesson-38-career-and-professional-skills.md#lesson-38-section-30) |
+| 36 · Risk Assessment | [Open exercise](lesson-36-risk-assessment.md#lesson-36-section-38) | [Answer questions](lesson-36-risk-assessment.md#lesson-36-section-40) | [Open assignment](lesson-36-risk-assessment.md#lesson-36-section-39) |
+| 37 · Compliance Frameworks | [Open exercise](lesson-37-compliance-frameworks.md#lesson-37-section-09) | [Answer questions](lesson-37-compliance-frameworks.md#lesson-37-section-11) | [Open assignment](lesson-37-compliance-frameworks.md#lesson-37-section-10) |
+| 38 · Career and Professional Skills | [Open exercise](lesson-38-career-and-professional-skills.md#lesson-38-section-29) | [Answer questions](lesson-38-career-and-professional-skills.md#lesson-38-section-31) | [Open assignment](lesson-38-career-and-professional-skills.md#lesson-38-section-30) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

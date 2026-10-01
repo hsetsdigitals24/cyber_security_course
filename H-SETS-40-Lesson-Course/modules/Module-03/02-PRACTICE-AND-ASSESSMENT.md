@@ -14,9 +14,9 @@ Use supplied evidence only for attack analysis this week. Live Lesson 8 scanning
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 07 · Social Engineering | [Open exercise](../../lessons/lesson-07-social-engineering.md#lesson-07-section-25) | [Answer questions](../../lessons/lesson-07-social-engineering.md#lesson-07-section-27) | [Open assignment](../../lessons/lesson-07-social-engineering.md#lesson-07-section-26) |
-| 08 · Network and System Attacks | [Open exercise](../../lessons/lesson-08-network-and-system-attacks.md#lesson-08-section-19) | [Answer questions](../../lessons/lesson-08-network-and-system-attacks.md#lesson-08-section-21) | [Open assignment](../../lessons/lesson-08-network-and-system-attacks.md#lesson-08-section-20) |
-| 09 · Web Attacks and Malware | [Open exercise](../../lessons/lesson-09-web-attacks-and-malware.md#lesson-09-section-23) | [Answer questions](../../lessons/lesson-09-web-attacks-and-malware.md#lesson-09-section-25) | [Open assignment](../../lessons/lesson-09-web-attacks-and-malware.md#lesson-09-section-24) |
+| 07 · Social Engineering | [Open exercise](lesson-07-social-engineering.md#lesson-07-section-25) | [Answer questions](lesson-07-social-engineering.md#lesson-07-section-27) | [Open assignment](lesson-07-social-engineering.md#lesson-07-section-26) |
+| 08 · Network and System Attacks | [Open exercise](lesson-08-network-and-system-attacks.md#lesson-08-section-19) | [Answer questions](lesson-08-network-and-system-attacks.md#lesson-08-section-21) | [Open assignment](lesson-08-network-and-system-attacks.md#lesson-08-section-20) |
+| 09 · Web Attacks and Malware | [Open exercise](lesson-09-web-attacks-and-malware.md#lesson-09-section-23) | [Answer questions](lesson-09-web-attacks-and-malware.md#lesson-09-section-25) | [Open assignment](lesson-09-web-attacks-and-malware.md#lesson-09-section-24) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

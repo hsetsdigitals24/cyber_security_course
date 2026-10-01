@@ -8,9 +8,9 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 36 · Risk Assessment](../../lessons/lesson-36-risk-assessment.md) | [Review checklist](../../lessons/lesson-36-risk-assessment.md#lesson-36-section-42) |
-| 2 | [Lesson 37 · Compliance Frameworks](../../lessons/lesson-37-compliance-frameworks.md) | [Review checklist](../../lessons/lesson-37-compliance-frameworks.md#lesson-37-section-13) |
-| 3 | [Lesson 38 · Career and Professional Skills](../../lessons/lesson-38-career-and-professional-skills.md) | [Review checklist](../../lessons/lesson-38-career-and-professional-skills.md#lesson-38-section-33) |
+| 1 | [Lesson 36 · Risk Assessment](lesson-36-risk-assessment.md) | [Review checklist](lesson-36-risk-assessment.md#lesson-36-section-42) |
+| 2 | [Lesson 37 · Compliance Frameworks](lesson-37-compliance-frameworks.md) | [Review checklist](lesson-37-compliance-frameworks.md#lesson-37-section-13) |
+| 3 | [Lesson 38 · Career and Professional Skills](lesson-38-career-and-professional-skills.md) | [Review checklist](lesson-38-career-and-professional-skills.md#lesson-38-section-33) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

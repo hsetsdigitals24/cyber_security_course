@@ -8,9 +8,9 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 07 · Social Engineering](../../lessons/lesson-07-social-engineering.md) | [Review checklist](../../lessons/lesson-07-social-engineering.md#lesson-07-section-29) |
-| 2 | [Lesson 08 · Network and System Attacks](../../lessons/lesson-08-network-and-system-attacks.md) | [Review checklist](../../lessons/lesson-08-network-and-system-attacks.md#lesson-08-section-23) |
-| 3 | [Lesson 09 · Web Attacks and Malware](../../lessons/lesson-09-web-attacks-and-malware.md) | [Review checklist](../../lessons/lesson-09-web-attacks-and-malware.md#lesson-09-section-27) |
+| 1 | [Lesson 07 · Social Engineering](lesson-07-social-engineering.md) | [Review checklist](lesson-07-social-engineering.md#lesson-07-section-29) |
+| 2 | [Lesson 08 · Network and System Attacks](lesson-08-network-and-system-attacks.md) | [Review checklist](lesson-08-network-and-system-attacks.md#lesson-08-section-23) |
+| 3 | [Lesson 09 · Web Attacks and Malware](lesson-09-web-attacks-and-malware.md) | [Review checklist](lesson-09-web-attacks-and-malware.md#lesson-09-section-27) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

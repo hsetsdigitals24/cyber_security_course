@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 26 · Cloud Fundamentals](../../lessons/lesson-26-cloud-fundamentals.md) | [Review checklist](../../lessons/lesson-26-cloud-fundamentals.md#lesson-26-section-39) |
-| 2 | [Lesson 27 · Asset Discovery](../../lessons/lesson-27-asset-discovery.md) | [Review checklist](../../lessons/lesson-27-asset-discovery.md#lesson-27-section-30) |
+| 1 | [Lesson 26 · Cloud Fundamentals](lesson-26-cloud-fundamentals.md) | [Review checklist](lesson-26-cloud-fundamentals.md#lesson-26-section-39) |
+| 2 | [Lesson 27 · Asset Discovery](lesson-27-asset-discovery.md) | [Review checklist](lesson-27-asset-discovery.md#lesson-27-section-30) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

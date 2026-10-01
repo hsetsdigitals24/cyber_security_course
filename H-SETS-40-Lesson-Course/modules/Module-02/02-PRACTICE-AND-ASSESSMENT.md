@@ -14,9 +14,9 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 04 · Cryptography Fundamentals | [Open exercise](../../lessons/lesson-04-cryptography-fundamentals.md#lesson-04-section-26) | [Answer questions](../../lessons/lesson-04-cryptography-fundamentals.md#lesson-04-section-28) | [Open assignment](../../lessons/lesson-04-cryptography-fundamentals.md#lesson-04-section-27) |
-| 05 · Authentication and Identity | [Open exercise](../../lessons/lesson-05-authentication-and-identity.md#lesson-05-section-12) | [Answer questions](../../lessons/lesson-05-authentication-and-identity.md#lesson-05-section-14) | [Open assignment](../../lessons/lesson-05-authentication-and-identity.md#lesson-05-section-13) |
-| 06 · Access Control and Defense in Depth | [Open exercise](../../lessons/lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-22) | [Answer questions](../../lessons/lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-24) | [Open assignment](../../lessons/lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-23) |
+| 04 · Cryptography Fundamentals | [Open exercise](lesson-04-cryptography-fundamentals.md#lesson-04-section-26) | [Answer questions](lesson-04-cryptography-fundamentals.md#lesson-04-section-28) | [Open assignment](lesson-04-cryptography-fundamentals.md#lesson-04-section-27) |
+| 05 · Authentication and Identity | [Open exercise](lesson-05-authentication-and-identity.md#lesson-05-section-12) | [Answer questions](lesson-05-authentication-and-identity.md#lesson-05-section-14) | [Open assignment](lesson-05-authentication-and-identity.md#lesson-05-section-13) |
+| 06 · Access Control and Defense in Depth | [Open exercise](lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-22) | [Answer questions](lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-24) | [Open assignment](lesson-06-access-control-and-defense-in-depth.md#lesson-06-section-23) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

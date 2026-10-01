@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 14 · Linux Hardening | [Open exercise](../../lessons/lesson-14-linux-hardening.md#lesson-14-section-27) | [Answer questions](../../lessons/lesson-14-linux-hardening.md#lesson-14-section-29) | [Open assignment](../../lessons/lesson-14-linux-hardening.md#lesson-14-section-28) |
-| 15 · Bash and Python Basics | [Open exercise](../../lessons/lesson-15-bash-and-python-basics.md#lesson-15-section-28) | [Answer questions](../../lessons/lesson-15-bash-and-python-basics.md#lesson-15-section-30) | [Open assignment](../../lessons/lesson-15-bash-and-python-basics.md#lesson-15-section-29) |
+| 14 · Linux Hardening | [Open exercise](lesson-14-linux-hardening.md#lesson-14-section-27) | [Answer questions](lesson-14-linux-hardening.md#lesson-14-section-29) | [Open assignment](lesson-14-linux-hardening.md#lesson-14-section-28) |
+| 15 · Bash and Python Basics | [Open exercise](lesson-15-bash-and-python-basics.md#lesson-15-section-28) | [Answer questions](lesson-15-bash-and-python-basics.md#lesson-15-section-30) | [Open assignment](lesson-15-bash-and-python-basics.md#lesson-15-section-29) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

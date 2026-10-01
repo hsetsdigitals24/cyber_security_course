@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 18 · Windows Server](../../lessons/lesson-18-windows-server.md) | [Review checklist](../../lessons/lesson-18-windows-server.md#lesson-18-section-37) |
-| 2 | [Lesson 19 · Active Directory](../../lessons/lesson-19-active-directory.md) | [Review checklist](../../lessons/lesson-19-active-directory.md#lesson-19-section-42) |
+| 1 | [Lesson 18 · Windows Server](lesson-18-windows-server.md) | [Review checklist](lesson-18-windows-server.md#lesson-18-section-37) |
+| 2 | [Lesson 19 · Active Directory](lesson-19-active-directory.md) | [Review checklist](lesson-19-active-directory.md#lesson-19-section-42) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

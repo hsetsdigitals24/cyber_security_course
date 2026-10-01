@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 32 · Detection Engineering | [Open exercise](../../lessons/lesson-32-detection-engineering.md#lesson-32-section-39) | [Answer questions](../../lessons/lesson-32-detection-engineering.md#lesson-32-section-41) | [Open assignment](../../lessons/lesson-32-detection-engineering.md#lesson-32-section-40) |
-| 33 · Incident Response | [Open exercise](../../lessons/lesson-33-incident-response.md#lesson-33-section-12) | [Answer questions](../../lessons/lesson-33-incident-response.md#lesson-33-section-14) | [Open assignment](../../lessons/lesson-33-incident-response.md#lesson-33-section-13) |
+| 32 · Detection Engineering | [Open exercise](lesson-32-detection-engineering.md#lesson-32-section-39) | [Answer questions](lesson-32-detection-engineering.md#lesson-32-section-41) | [Open assignment](lesson-32-detection-engineering.md#lesson-32-section-40) |
+| 33 · Incident Response | [Open exercise](lesson-33-incident-response.md#lesson-33-section-12) | [Answer questions](lesson-33-incident-response.md#lesson-33-section-14) | [Open assignment](lesson-33-incident-response.md#lesson-33-section-13) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

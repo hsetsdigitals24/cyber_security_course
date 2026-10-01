@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 12 · Users, Groups and Permissions | [Open exercise](../../lessons/lesson-12-users-groups-and-permissions.md#lesson-12-section-27) | [Answer questions](../../lessons/lesson-12-users-groups-and-permissions.md#lesson-12-section-29) | [Open assignment](../../lessons/lesson-12-users-groups-and-permissions.md#lesson-12-section-28) |
-| 13 · Linux Logging and Services | [Open exercise](../../lessons/lesson-13-linux-logging-and-services.md#lesson-13-section-29) | [Answer questions](../../lessons/lesson-13-linux-logging-and-services.md#lesson-13-section-31) | [Open assignment](../../lessons/lesson-13-linux-logging-and-services.md#lesson-13-section-30) |
+| 12 · Users, Groups and Permissions | [Open exercise](lesson-12-users-groups-and-permissions.md#lesson-12-section-27) | [Answer questions](lesson-12-users-groups-and-permissions.md#lesson-12-section-29) | [Open assignment](lesson-12-users-groups-and-permissions.md#lesson-12-section-28) |
+| 13 · Linux Logging and Services | [Open exercise](lesson-13-linux-logging-and-services.md#lesson-13-section-29) | [Answer questions](lesson-13-linux-logging-and-services.md#lesson-13-section-31) | [Open assignment](lesson-13-linux-logging-and-services.md#lesson-13-section-30) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

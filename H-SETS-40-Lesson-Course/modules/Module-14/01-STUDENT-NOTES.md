@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 30 · SIEM Fundamentals](../../lessons/lesson-30-siem-fundamentals.md) | [Review checklist](../../lessons/lesson-30-siem-fundamentals.md#lesson-30-section-15) |
-| 2 | [Lesson 31 · Wazuh in Practice](../../lessons/lesson-31-wazuh-in-practice.md) | [Review checklist](../../lessons/lesson-31-wazuh-in-practice.md#lesson-31-section-43) |
+| 1 | [Lesson 30 · SIEM Fundamentals](lesson-30-siem-fundamentals.md) | [Review checklist](lesson-30-siem-fundamentals.md#lesson-30-section-15) |
+| 2 | [Lesson 31 · Wazuh in Practice](lesson-31-wazuh-in-practice.md) | [Review checklist](lesson-31-wazuh-in-practice.md#lesson-31-section-43) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

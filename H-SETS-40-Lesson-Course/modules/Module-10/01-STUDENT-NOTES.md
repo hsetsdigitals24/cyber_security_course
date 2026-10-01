@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 22 · Remote Access and VPN](../../lessons/lesson-22-remote-access-and-vpn.md) | [Review checklist](../../lessons/lesson-22-remote-access-and-vpn.md#lesson-22-section-39) |
-| 2 | [Lesson 23 · Firewall and pfSense](../../lessons/lesson-23-firewall-and-pfsense.md) | [Review checklist](../../lessons/lesson-23-firewall-and-pfsense.md#lesson-23-section-38) |
+| 1 | [Lesson 22 · Remote Access and VPN](lesson-22-remote-access-and-vpn.md) | [Review checklist](lesson-22-remote-access-and-vpn.md#lesson-22-section-39) |
+| 2 | [Lesson 23 · Firewall and pfSense](lesson-23-firewall-and-pfsense.md) | [Review checklist](lesson-23-firewall-and-pfsense.md#lesson-23-section-38) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

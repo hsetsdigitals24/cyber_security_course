@@ -17,3 +17,7 @@ The user requested an 18-week H-SETS module structure. All forty lessons now bel
 ## Student navigation — 30 September 2026
 
 All eighteen modules use a start page, an ordered student-notes page and a practice-and-assessment page with direct task links. The forty lesson bodies and assessment content remain unchanged. The student guide explains the route and submissions; the lesson index is a separate reference. Navigation checks do not substitute for a student usability pilot.
+
+## Lessons inside modules — 1 October 2026
+
+All forty canonical lesson files now live inside their assigned module folders beside the module start, reading and assessment pages. Filenames, lesson IDs and teaching content remain unchanged. Course links were updated and checked; the separate lessons folder was removed.

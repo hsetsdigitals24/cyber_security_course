@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 24 · Network Segmentation | [Open exercise](../../lessons/lesson-24-network-segmentation.md#lesson-24-section-35) | [Answer questions](../../lessons/lesson-24-network-segmentation.md#lesson-24-section-37) | [Open assignment](../../lessons/lesson-24-network-segmentation.md#lesson-24-section-36) |
-| 25 · IDS and IPS | [Open exercise](../../lessons/lesson-25-ids-and-ips.md#lesson-25-section-35) | [Answer questions](../../lessons/lesson-25-ids-and-ips.md#lesson-25-section-37) | [Open assignment](../../lessons/lesson-25-ids-and-ips.md#lesson-25-section-36) |
+| 24 · Network Segmentation | [Open exercise](lesson-24-network-segmentation.md#lesson-24-section-35) | [Answer questions](lesson-24-network-segmentation.md#lesson-24-section-37) | [Open assignment](lesson-24-network-segmentation.md#lesson-24-section-36) |
+| 25 · IDS and IPS | [Open exercise](lesson-25-ids-and-ips.md#lesson-25-section-35) | [Answer questions](lesson-25-ids-and-ips.md#lesson-25-section-37) | [Open assignment](lesson-25-ids-and-ips.md#lesson-25-section-36) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

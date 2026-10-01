@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 39 · Integration Review](../../lessons/lesson-39-integration-review.md) | [Review checklist](../../lessons/lesson-39-integration-review.md#lesson-39-section-14) |
-| 2 | [Lesson 40 · Capstone Investigation](../../lessons/lesson-40-capstone-investigation.md) | [Review checklist](../../lessons/lesson-40-capstone-investigation.md#lesson-40-section-44) |
+| 1 | [Lesson 39 · Integration Review](lesson-39-integration-review.md) | [Review checklist](lesson-39-integration-review.md#lesson-39-section-14) |
+| 2 | [Lesson 40 · Capstone Investigation](lesson-40-capstone-investigation.md) | [Review checklist](lesson-40-capstone-investigation.md#lesson-40-section-44) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

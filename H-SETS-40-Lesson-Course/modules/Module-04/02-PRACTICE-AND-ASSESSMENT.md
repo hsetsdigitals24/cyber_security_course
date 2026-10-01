@@ -14,8 +14,8 @@ Complete Weeks 1–3. The instructor must provide compatible images and confirm 
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 10 · Virtualization Fundamentals | [Open exercise](../../lessons/lesson-10-virtualization-fundamentals.md#lesson-10-section-25) | [Answer questions](../../lessons/lesson-10-virtualization-fundamentals.md#lesson-10-section-27) | [Open assignment](../../lessons/lesson-10-virtualization-fundamentals.md#lesson-10-section-26) |
-| 11 · Linux Fundamentals | [Open exercise](../../lessons/lesson-11-linux-fundamentals.md#lesson-11-section-28) | [Answer questions](../../lessons/lesson-11-linux-fundamentals.md#lesson-11-section-30) | [Open assignment](../../lessons/lesson-11-linux-fundamentals.md#lesson-11-section-29) |
+| 10 · Virtualization Fundamentals | [Open exercise](lesson-10-virtualization-fundamentals.md#lesson-10-section-25) | [Answer questions](lesson-10-virtualization-fundamentals.md#lesson-10-section-27) | [Open assignment](lesson-10-virtualization-fundamentals.md#lesson-10-section-26) |
+| 11 · Linux Fundamentals | [Open exercise](lesson-11-linux-fundamentals.md#lesson-11-section-28) | [Answer questions](lesson-11-linux-fundamentals.md#lesson-11-section-30) | [Open assignment](lesson-11-linux-fundamentals.md#lesson-11-section-29) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

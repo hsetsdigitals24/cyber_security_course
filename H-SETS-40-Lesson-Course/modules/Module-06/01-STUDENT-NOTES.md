@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 14 · Linux Hardening](../../lessons/lesson-14-linux-hardening.md) | [Review checklist](../../lessons/lesson-14-linux-hardening.md#lesson-14-section-31) |
-| 2 | [Lesson 15 · Bash and Python Basics](../../lessons/lesson-15-bash-and-python-basics.md) | [Review checklist](../../lessons/lesson-15-bash-and-python-basics.md#lesson-15-section-32) |
+| 1 | [Lesson 14 · Linux Hardening](lesson-14-linux-hardening.md) | [Review checklist](lesson-14-linux-hardening.md#lesson-14-section-31) |
+| 2 | [Lesson 15 · Bash and Python Basics](lesson-15-bash-and-python-basics.md) | [Review checklist](lesson-15-bash-and-python-basics.md#lesson-15-section-32) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 

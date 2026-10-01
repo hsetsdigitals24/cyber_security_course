@@ -21,4 +21,4 @@ You are ready to begin when you can find the files, explain which one changed an
 
 An account represents an identity in a system. Permissions determine which actions it may perform. An access refusal may be intentional; do not grant administrator rights merely to remove an error. Record the action, location and error and ask for help when the next step is outside the assigned task.
 
-[Begin Lesson 1](lessons/lesson-01-security-fundamentals.md)
+[Begin Lesson 1](modules/Module-01/lesson-01-security-fundamentals.md)

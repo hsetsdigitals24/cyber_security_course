@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 16 · Linux Networking | [Open exercise](../../lessons/lesson-16-linux-networking.md#lesson-16-section-35) | [Answer questions](../../lessons/lesson-16-linux-networking.md#lesson-16-section-37) | [Open assignment](../../lessons/lesson-16-linux-networking.md#lesson-16-section-36) |
-| 17 · Windows Fundamentals | [Open exercise](../../lessons/lesson-17-windows-fundamentals.md#lesson-17-section-36) | [Answer questions](../../lessons/lesson-17-windows-fundamentals.md#lesson-17-section-38) | [Open assignment](../../lessons/lesson-17-windows-fundamentals.md#lesson-17-section-37) |
+| 16 · Linux Networking | [Open exercise](lesson-16-linux-networking.md#lesson-16-section-35) | [Answer questions](lesson-16-linux-networking.md#lesson-16-section-37) | [Open assignment](lesson-16-linux-networking.md#lesson-16-section-36) |
+| 17 · Windows Fundamentals | [Open exercise](lesson-17-windows-fundamentals.md#lesson-17-section-36) | [Answer questions](lesson-17-windows-fundamentals.md#lesson-17-section-38) | [Open assignment](lesson-17-windows-fundamentals.md#lesson-17-section-37) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

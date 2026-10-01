@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 39 · Integration Review | [Open exercise](../../lessons/lesson-39-integration-review.md#lesson-39-section-10) | [Answer questions](../../lessons/lesson-39-integration-review.md#lesson-39-section-12) | [Open assignment](../../lessons/lesson-39-integration-review.md#lesson-39-section-11) |
-| 40 · Capstone Investigation | [Open exercise](../../lessons/lesson-40-capstone-investigation.md#lesson-40-section-39) | [Answer questions](../../lessons/lesson-40-capstone-investigation.md#lesson-40-section-42) | [Open assignment](../../lessons/lesson-40-capstone-investigation.md#lesson-40-section-40) |
+| 39 · Integration Review | [Open exercise](lesson-39-integration-review.md#lesson-39-section-10) | [Answer questions](lesson-39-integration-review.md#lesson-39-section-12) | [Open assignment](lesson-39-integration-review.md#lesson-39-section-11) |
+| 40 · Capstone Investigation | [Open exercise](lesson-40-capstone-investigation.md#lesson-40-section-39) | [Answer questions](lesson-40-capstone-investigation.md#lesson-40-section-42) | [Open assignment](lesson-40-capstone-investigation.md#lesson-40-section-40) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

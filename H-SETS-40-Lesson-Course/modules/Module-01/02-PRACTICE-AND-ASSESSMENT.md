@@ -14,9 +14,9 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 01 · Security Fundamentals | [Open exercise](../../lessons/lesson-01-security-fundamentals.md#lesson-01-section-15) | [Answer questions](../../lessons/lesson-01-security-fundamentals.md#lesson-01-section-17) | [Open assignment](../../lessons/lesson-01-security-fundamentals.md#lesson-01-section-16) |
-| 02 · Threat Landscape | [Open exercise](../../lessons/lesson-02-threat-landscape.md#lesson-02-section-14) | [Answer questions](../../lessons/lesson-02-threat-landscape.md#lesson-02-section-16) | [Open assignment](../../lessons/lesson-02-threat-landscape.md#lesson-02-section-15) |
-| 03 · The Security Profession | [Open exercise](../../lessons/lesson-03-the-security-profession.md#lesson-03-section-22) | [Answer questions](../../lessons/lesson-03-the-security-profession.md#lesson-03-section-24) | [Open assignment](../../lessons/lesson-03-the-security-profession.md#lesson-03-section-23) |
+| 01 · Security Fundamentals | [Open exercise](lesson-01-security-fundamentals.md#lesson-01-section-15) | [Answer questions](lesson-01-security-fundamentals.md#lesson-01-section-17) | [Open assignment](lesson-01-security-fundamentals.md#lesson-01-section-16) |
+| 02 · Threat Landscape | [Open exercise](lesson-02-threat-landscape.md#lesson-02-section-14) | [Answer questions](lesson-02-threat-landscape.md#lesson-02-section-16) | [Open assignment](lesson-02-threat-landscape.md#lesson-02-section-15) |
+| 03 · The Security Profession | [Open exercise](lesson-03-the-security-profession.md#lesson-03-section-22) | [Answer questions](lesson-03-the-security-profession.md#lesson-03-section-24) | [Open assignment](lesson-03-the-security-profession.md#lesson-03-section-23) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

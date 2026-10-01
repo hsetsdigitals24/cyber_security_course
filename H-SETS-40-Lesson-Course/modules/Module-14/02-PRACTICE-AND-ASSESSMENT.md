@@ -14,8 +14,8 @@ For any activity needing an unprepared range, use the supplied evidence or recor
 
 | Lesson | Guided exercise | Assessment questions | Take-home assignment |
 |---|---|---|---|
-| 30 · SIEM Fundamentals | [Open exercise](../../lessons/lesson-30-siem-fundamentals.md#lesson-30-section-11) | [Answer questions](../../lessons/lesson-30-siem-fundamentals.md#lesson-30-section-13) | [Open assignment](../../lessons/lesson-30-siem-fundamentals.md#lesson-30-section-12) |
-| 31 · Wazuh in Practice | [Open exercise](../../lessons/lesson-31-wazuh-in-practice.md#lesson-31-section-39) | [Answer questions](../../lessons/lesson-31-wazuh-in-practice.md#lesson-31-section-41) | [Open assignment](../../lessons/lesson-31-wazuh-in-practice.md#lesson-31-section-40) |
+| 30 · SIEM Fundamentals | [Open exercise](lesson-30-siem-fundamentals.md#lesson-30-section-11) | [Answer questions](lesson-30-siem-fundamentals.md#lesson-30-section-13) | [Open assignment](lesson-30-siem-fundamentals.md#lesson-30-section-12) |
+| 31 · Wazuh in Practice | [Open exercise](lesson-31-wazuh-in-practice.md#lesson-31-section-39) | [Answer questions](lesson-31-wazuh-in-practice.md#lesson-31-section-41) | [Open assignment](lesson-31-wazuh-in-practice.md#lesson-31-section-40) |
 
 Read each linked brief for its exact tasks, scope and expected output. The table organises the existing requirements; it does not add another assignment or change the marks. Instructor answers are kept separately.
 

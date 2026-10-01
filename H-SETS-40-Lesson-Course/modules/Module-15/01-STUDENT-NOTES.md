@@ -8,8 +8,8 @@
 
 | Order | Full lesson notes | Revise |
 |---|---|---|
-| 1 | [Lesson 32 · Detection Engineering](../../lessons/lesson-32-detection-engineering.md) | [Review checklist](../../lessons/lesson-32-detection-engineering.md#lesson-32-section-43) |
-| 2 | [Lesson 33 · Incident Response](../../lessons/lesson-33-incident-response.md) | [Review checklist](../../lessons/lesson-33-incident-response.md#lesson-33-section-16) |
+| 1 | [Lesson 32 · Detection Engineering](lesson-32-detection-engineering.md) | [Review checklist](lesson-32-detection-engineering.md#lesson-32-section-43) |
+| 2 | [Lesson 33 · Incident Response](lesson-33-incident-response.md) | [Review checklist](lesson-33-incident-response.md#lesson-33-section-16) |
 
 Each link opens the complete lesson, including explanations, examples, comparison tables and glossary. Use the contents menu inside a lesson to find a topic. Lesson numbers identify chapters across the course; the module number identifies your teaching week.
 
