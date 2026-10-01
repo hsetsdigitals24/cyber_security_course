@@ -49,6 +49,16 @@ Record the exact step and message. Check the lesson's prerequisites, expected ou
 
 ## Projects and course completion
 
-Use the [weekly plan](18-WEEK-STUDY-PLAN.md) to see which project stages fit the lessons already taught. The [project pathway](practicals/projects/README.md) contains the complete briefs and acceptance tests. The Lesson 40 investigation is distinct from the longer Northstar Manufacturing project. Finish each required project according to its brief; reaching Week 18 does not automatically complete the portfolio.
+Use the [weekly plan](18-WEEK-STUDY-PLAN.md) to see which project stages fit the lessons already taught. The [project pathway](practicals/projects/README.md) contains the complete briefs and acceptance tests. Lesson 40 is a worked example. The [Cedar investigation](modules/Module-18/INDEPENDENT-INVESTIGATION.md) is the independent document assessment; the Northstar Manufacturing project is a separate multi-week practical engagement. Cedar does not replace live tool evidence. Finish each required project according to its brief; reaching Week 18 does not automatically complete the portfolio.
 
 **Ready? [Open Module 01](modules/Module-01/README.md).**
+
+## Completion and feedback rules
+
+Keep separate records for reading, lesson submissions, live tool competence and portfolio projects. Reading a chapter or viewing an instructor demonstration does not complete a live requirement. Mark work complete only when its required evidence and acceptance checks have been reviewed; mark unavailable activities pending with a return date.
+
+The required programme comprises the assigned forty-lesson work, seven tool-lab pathways and ten project briefs. Follow the phased weekly plan; optional challenge briefs and additional tool packs are not extra requirements unless assigned. Use each assessment's published rubric. The independent Cedar assessment has a 70/100 threshold; that threshold must not be assumed for other assessments.
+
+Before the cohort begins, the instructor must issue a dated completion plan giving: required submission IDs, private submission destination, deadlines including post-Week-18 project work, pass thresholds for each graded assessment, practical acceptance criteria, feedback dates, resubmission opportunities and the person approving completion. Until this plan is issued, the cohort schedule and overall award decision are not final. Do not invent dates from the eighteen-week reading sequence.
+
+After feedback, revise the identified sections, retain the original attempt and submit a change note showing what you corrected and how you verified it. Record the reassessment outcome. Unperformed live work remains pending even when a document assessment passes. Course completion requires all required categories to be accepted under the issued plan; it is not a guarantee of employment.

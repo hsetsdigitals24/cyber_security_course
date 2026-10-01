@@ -177,7 +177,7 @@ Create the four named internal networks by attaching adapters to VMs; VirtualBox
 & $VBox modifyvm 'pfSense-FEM' --nic4 intnet --intnet4 'FEM-DMZ' --nictype4 82540EM
 ```
 
-The base pfSense VM has only four adapters. Add the SOC segment by using a second pfSense adapter only if the VirtualBox configuration and guest support it, or place the sensor on SERVERS for early labs. For the full topology, enable adapter 5 in the VirtualBox GUI or use:
+The base pfSense VM has only four adapters. Add the SOC segment by using a second pfSense adapter only if the VirtualBox configuration and guest support it, or place the sensor on SERVERS for early labs. For the full topology, configure adapter 5 with VBoxManage:
 
 ```powershell
 & $VBox modifyvm 'pfSense-FEM' --nic5 intnet --intnet5 'FEM-SOC' --nictype5 82540EM
@@ -187,10 +187,13 @@ Attach a target to exactly one protected segment:
 
 ```powershell
 & $VBox modifyvm 'Ubuntu-FEM' --nic1 intnet --intnet1 'FEM-SERVERS' --cableconnected1 on
-& $VBox showvminfo 'Ubuntu-FEM' --machinereadable | Select-String 'nic1|intnet1|nic2|intnet2'
+& $VBox showvminfo 'Ubuntu-FEM' --machinereadable | Tee-Object -FilePath './ubuntu-network-config.txt'
+Get-Content './ubuntu-network-config.txt' | Select-String '^(nic[0-9]+|intnet[0-9]+|bridgeadapter[0-9]+|hostonlyadapter[0-9]+|cableconnected[0-9]+)='
 ```
 
-The final command is mandatory evidence: it verifies that an unexpected NAT or bridged second adapter is absent.
+Inspect every NIC in the full saved output, not only slots 1 and 2. The target must have only its assigned internal adapter enabled; all other NICs must be `none`. With the VM powered off, disable each unexpected adapter in settings or using the matching `--nicN none` option, then collect the output again. Confirm guest addresses and routes after boot. The router WAN exception does not apply to target machines. Do not declare isolation from a partial display.
+
+The inherited `FEM-USERS`, `FEM-SERVERS`, `FEM-DMZ`, `FEM-SOC`, `pfSense-FEM` and `Ubuntu-FEM` names are example lab identifiers. They are retained so commands match the supplied reference topology. H-SETS is the course name. Record actual VM and network names on the setup sheet and substitute them consistently; do not rename only one end of an internal network.
 
 ## Addressing and Command Conventions
 

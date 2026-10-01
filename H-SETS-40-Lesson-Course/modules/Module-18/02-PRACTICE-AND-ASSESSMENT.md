@@ -25,7 +25,7 @@ Complete the Lesson 39 integration review and [independent Cedar investigation](
 
 ## 4. Prepare your evidence
 
-This week's checkpoint: an integration review, the Lesson 40 investigation report and an evidence-based project progress record.
+This week's checkpoint: an integration review, the independent Cedar investigation report and an evidence-based project progress record.
 
 Use the [submission guide](../../STUDENT-GUIDE.md#submission-format). Include the task reference, what you did, the evidence, what it shows and any limitation. Keep credentials and personal information out of submissions. If a task was not performed, mark it **not run** and explain why. A written plan is not evidence of a completed live test.
 

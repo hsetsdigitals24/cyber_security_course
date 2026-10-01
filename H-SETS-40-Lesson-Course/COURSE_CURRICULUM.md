@@ -463,7 +463,9 @@ This curriculum groups the 40 detailed lessons into 18 H-SETS weekly modules. Le
 
 ## Lesson 40: Capstone Investigation
 
-Workflow:
+Study the worked case below, then complete the separate [Cedar document assessment](modules/Module-18/INDEPENDENT-INVESTIGATION.md). Live SIEM and PCAP practice requires the assigned range and artifacts; the document assessment does not certify those skills. Northstar is a separate portfolio project.
+
+Worked-case workflow:
 
 1. SIEM Alert
 2. Log Analysis

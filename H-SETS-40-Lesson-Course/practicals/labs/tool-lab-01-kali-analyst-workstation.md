@@ -744,11 +744,11 @@ Create hashes:
 
 ```bash
 cd ~/hsets-evidence/kali-intro-lab
-sha256sum * > hashes.sha256
-cat hashes.sha256
+find . -type f ! -path './hashes.sha256' -print0 | sort -z | xargs -0 -r sha256sum > hashes.sha256
+sha256sum -c hashes.sha256
 ```
 
-Hashing helps prove that files were not changed after submission.
+Finish and close evidence logs before hashing. This command includes regular files recursively, including hidden files, and excludes only the root manifest itself. Keep the evidence directory dedicated to this submission. Check that files are listed and every verification reports OK. An empty manifest is not a successful submission. Repeating the command should produce the same manifest when inputs are unchanged. A later mismatch requires investigation; do not regenerate hashes merely to hide it. Store the original manifest with the submitted package.
 
 ## Student Questions
 

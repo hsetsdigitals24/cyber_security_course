@@ -163,6 +163,7 @@ Required settings:
 ```text
 PermitRootLogin no
 PasswordAuthentication no
+KbdInteractiveAuthentication no
 PubkeyAuthentication yes
 MaxAuthTries 3
 AllowGroups secops
@@ -174,11 +175,25 @@ Validate before restarting:
 sudo sshd -t
 sudo systemctl reload ssh
 sudo systemctl status ssh --no-pager | tee ~/hsets-evidence/ubuntu-tool-lab/03-validation/ssh-status.txt
-sudo grep -nE 'PermitRootLogin|PasswordAuthentication|PubkeyAuthentication|MaxAuthTries|AllowGroups' /etc/ssh/sshd_config \
+sudo sshd -T -C user=analyst01,addr=10.10.10.60,host=kali,laddr=10.10.20.20,lport=22 \
   | tee ~/hsets-evidence/ubuntu-tool-lab/03-validation/ssh-effective-settings.txt
 ```
 
-Keep one existing session open while testing a new SSH session from Kali.
+Keep one existing session open while testing a new SSH session from Kali. Inspect the effective output for `passwordauthentication no`, `kbdinteractiveauthentication no`, `pubkeyauthentication yes`, `permitrootlogin no` and `allowgroups secops`. Use the real connection values for your assigned range. Included files and Match sections can override your assumptions; OpenSSH generally uses the first obtained value for a setting. Resolve conflicting configuration and repeat syntax/effective checks before accepting the change. See [OpenSSH configuration](https://man.openbsd.org/sshd_config.5). Syntax validity alone is not policy verification.
+
+From Kali, verify a fresh key-only login:
+
+```bash
+ssh -o ControlMaster=no -o ControlPath=none -o PreferredAuthentications=publickey -o PasswordAuthentication=no analyst01@10.10.20.20 'whoami'
+```
+
+Then require authentication failure for this allowed user when keys are disabled:
+
+```bash
+ssh -o ControlMaster=no -o ControlPath=none -o PubkeyAuthentication=no -o PreferredAuthentications=password,keyboard-interactive -o NumberOfPasswordPrompts=1 analyst01@10.10.20.20
+```
+
+Do not enter a password if unexpectedly prompted: stop and investigate the effective configuration. Save outputs and corresponding server authentication logs. A timeout or host-key failure is inconclusive; the key-only control must first succeed. Root denial alone does not prove this ordinary-user policy.
 
 Test expected access:
 

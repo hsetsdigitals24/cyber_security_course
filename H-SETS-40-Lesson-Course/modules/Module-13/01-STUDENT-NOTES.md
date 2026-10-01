@@ -4,6 +4,12 @@
 
 [Module start](README.md) · [Practice and assessment](02-PRACTICE-AND-ASSESSMENT.md)
 
+## First reading and revision
+
+First focus on **validating findings, prioritising remediation and proving a fix**. Read the explanations and worked examples for these topics, then explain them in your own words without copying. Use the lesson glossary for unfamiliar terms and answer the relevant review questions before moving on.
+
+On a second pass, study the remaining detail, comparison tables and tool-specific examples. Keep command references open during the assigned practical; memorising every command is not the first-reading goal. All assigned lesson content remains part of the course. Optional tools are extensions only when the instructor assigns them. Record anything you cannot explain and revisit it with the matching exercise.
+
 ## Read in order
 
 | Order | Full lesson notes | Revise |

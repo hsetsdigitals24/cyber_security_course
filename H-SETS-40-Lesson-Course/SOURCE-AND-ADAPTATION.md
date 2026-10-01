@@ -25,3 +25,7 @@ All forty canonical lesson files now live inside their assigned module folders b
 ## Audit corrections — 1 October 2026
 
 Updated lab resources, service detection, firewall verification and early network preparation. Lesson 40 remains a worked teaching case; Module 18 now includes a separate synthetic document investigation with evidence files and hashes. Its scope does not claim live packet analysis. Live platform testing and beginner pilots remain outstanding.
+
+## Holistic review corrections — 1 October 2026
+
+Evidence files use explicit LF endings and publication-byte hash checks. SSH, evidence packaging and network-isolation checks were clarified. Module reading priorities, readiness checks and completion guidance were added. Live platform tests and beginner pilots remain pending.
